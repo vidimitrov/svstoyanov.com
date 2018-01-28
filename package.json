@@ -2,10 +2,11 @@
   "name": "svstoyanov",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "http://svstoyanov.github.io",
+  "homepage": "http://svstoyanov.github.io",
   "dependencies": {
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.2",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.0"
