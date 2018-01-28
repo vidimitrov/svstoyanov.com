@@ -1,8 +1,8 @@
 {
-  "name": "react-app-starter",
+  "name": "svstoyanov",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "http://vidimitrov.github.io",
+  "homepage" : "http://svstoyanov.github.io",
   "dependencies": {
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.2",

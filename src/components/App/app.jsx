@@ -3,39 +3,35 @@ import logo from '../../assets/logo.svg';
 import Preloader from '../Preloader/preloader';
 import './app.css';
 
-const Bar = () => (
+const Header = () => (
   <header className="header">
-    <img className="logo" src={logo} alt="logo" />
-    <div className="title">
-      <h1>VESELIN DIMITROV</h1>
-      <hr className="dash" />
+    <div>
+      <div className="description">
+        <p>Subject name: Stoyan Stoyanov</p>
+        <p>Role: Creator, Product Designer</p>
+        <p>Version: 1.0.1</p>
+      </div>
+      <img className="logo" src={logo} alt="logo" />
+      <div className="menu">MENU</div>
     </div>
+
   </header>
 );
 
-const Resume = () => (
-  <section className="resume">
-    <div className="sub-header">
-      <h2>Hi there, I am</h2>
-      <h1>Veselin Dimitrov</h1>
+const Chat = () => (
+  <section className="chat">
+    <div className="chat-message">Hello there. I am Stoyan Stoyanov. Let me introduce myself.</div>
+    <div className="skip-chat">
+      CLICK TO SKIP CHAT
     </div>
-    <h3 className="bio">
-      Software engineer with substantial experience with full stack JavaScript and C#.
-      Proficient in server, mobile and web development.
-      Comfortable in Unix like operating systems and passionate
-      about hacking and tinkering with IoT devices.
-    </h3>
-    <h3 className="sub-footer">
-      You can find my open-source projects on <a href="https://github.com/vidimitrov">Github</a>, check my <a href="https://www.linkedin.com/in/vidimitrov/">LinkedIn</a> profile or read some of my articles at <a href="http://jsoutof.space">Out Of Space JS</a>.
-    </h3>
   </section>
 );
 
 const App = () => (
   <div className="app">
     <Preloader />
-    <Bar />
-    <Resume />
+    <Header />
+    <Chat />
   </div>
 );
 

@@ -1,138 +1,37 @@
 .app {
-  font-family: 'Futura';
-  height: 100%;
-}
-
-.resume {
-  padding: 15px;
+  font-family: 'SpaceMono', monospace;
+  background-color: #000;
   color: #fff;
+  height: 100%;
 
-  .sub-header {
-    margin: 40px 0px 30px;
-
-    h2 {
-      font-size: 1.5em;
+  .header {
+    .description {
+      color: #49DDBA;
     }
 
-    h1 {
-      font-size: 2.5em;
-      margin: 10px 0px;
+    .logo {
+      height: 30px;
+    }
+
+    .menu {
+      border: 1px solid #fff;
+      border-radius: 100px;
+      padding: 10px;
+      width: 40px;
     }
   }
 
-  .bio {
-    font-size: 1em;
-    line-height: 1.5em;
-  }
-
-  .sub-footer {
-    margin: 40px 0px 0px;
-    line-height: 1.5em;
-  }
-
-  a {
-    color: #FFEC00
+  .chat {
+    color: #fff;
   }
 }
 
 @media only screen and (min-width: 320px) and (max-width: 768px) {
-  .app {
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(90deg,rgba(0, 0, 0, 0.8) 20%,rgba(0,0,0,0.4)) 100%, 
-              linear-gradient(135deg,rgba(0,45,240, 1), rgba(0,20,221, 0.8)),
-              url(../../assets/vidimitrov.png) no-repeat bottom 0px right 0px/70% auto fixed;
-    background-blend-mode: multiply;
-
-    .header {
-      background-color: #fff;
-      height: 25px;
-      padding: 20px;
-      color: #000;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-
-      .logo {
-        height: 40px;
-      }
-
-      .title {
-        display: flex;
-
-        h1 {
-          font-size: 1em;
-          margin-right: 10px;
-        }
-
-        .dash {
-          border: none;
-          width: 25px;
-          height: 1px;
-          background: #000;
-        }
-      }
-    }
-  }
+  
 }
 
 @media only screen and (min-width: 768px) {
   .app {
-    display: flex;
-    flex-direction: row;
-    background: linear-gradient(90deg,rgba(0, 0, 0, 0.8) 20%,rgba(0,0,0,0.4)) 100%, 
-              linear-gradient(135deg,rgba(0,45,240, 1), rgba(0,20,221, 0.8)),
-              url(../../assets/vidimitrov.png) no-repeat bottom 0px right 0px/40% auto fixed;
-    background-blend-mode: multiply;
-
-    .header {
-      background-color: #fff;
-      width: 25px;
-      padding: 20px;
-      color: #000;
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      justify-content: space-between;
-
-      .logo {
-        height: 40px;
-      }
-
-      .title {
-        font-size: 1em;
-        transform: rotate(-90deg);
-        -webkit-transform: rotate(-90deg);
-      }
-
-      .dash {
-        border: none;
-        width: 25px;
-        height: 1px;
-        background: #000;
-      }
-    }
-
-    .resume {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 100px;
-      max-width: 550px;
-
-      .sub-header {
-        margin: 40px 0px 30px;
-
-        h2 {
-          font-size: 2.5em;
-        }
-
-        h1 {
-          font-size: 3.5em;
-          margin: 10px 0px;
-        }
-      }
-    }
+    padding: 72px;
   }
 }

@@ -2,10 +2,14 @@
 @import './styles/flexbox.scss';
 
 @font-face {
-  font-family: 'Futura';
-  src: url('assets/fonts/futura.ttf') format('ttf');
+  font-family: 'SpaceMono';
+  src: url('assets/fonts/SpaceMono-Regular.ttf') format('ttf');
   font-weight: normal;
-  font-style: normal;
+}
+@font-face {
+  font-family: 'SpaceMono';
+  src: url('assets/fonts/SpaceMono-Bold.ttf') format('ttf');
+  font-weight: bold;
 }
 
 html {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../../assets/logo-reverted.svg';
 import './preloader.css';
 
 class Preloader extends Component {
@@ -46,7 +45,6 @@ class Preloader extends Component {
     const { showPreloader } = this.state;
     return (
       <div className={`preloader flex flex-column center ${(showPreloader ? 'show' : '')}`}>
-        <img className="logo" src={logo} alt="logo" />
         <div className="preloader_inner">0<sup className="percentage">%</sup></div>
       </div>
     );
