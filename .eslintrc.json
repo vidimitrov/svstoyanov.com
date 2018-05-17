@@ -1,9 +1,61 @@
 {
     "env": {
-        "node": true, // this is the best starting point
-        "browser": true, // for react web
-        "es6": true // enables es6 features
+        "browser": true,
+        "commonjs": true,
+        "es6": true
     },
-    "parser": "babel-eslint", // needed to make babel stuff work properly
-    "extends": "airbnb"
+    "parser": "babel-eslint",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "google"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "globals": {
+        "describe": false,
+        "it": false,
+        "before": false,
+        "beforeEach": false,
+        "after": false,
+        "test": false,
+        "expect": false,
+        "jest": true
+    },
+    "rules": {
+        "indent": [
+            "error",
+            2,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single",
+            {
+                "allowTemplateLiterals": true
+            }
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "require-jsdoc": 0,
+        "no-console": 0,
+        "max-len": 0
+    }
 }
