@@ -1,6 +1,6 @@
 import React from 'react';
 import TimeCounter from '../TimeCounter/TimeCounter';
-import musicImg from '../../assets/music.svg';
+import musicImg from '../../assets/img/music.svg';
 
 const Footer = () => (
   <footer className="footer flex flex-row space-between">

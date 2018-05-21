@@ -5,6 +5,17 @@ import ActiveChatMessage from './ActiveChatMessage';
 import ChatMessage from './ChatMessage';
 import styles from './styles/chatStyles';
 
+/**
+ * Chat container
+ *
+ * 1. Needs to display all the contexts and their respective messages
+ * 2. Needs to show every message with some small delay and chat messages interaction
+ * 3. Needs to decide based on message data,
+ *    how to interupt the flow and take decision how to proceed
+ * 4. Every message can either ask for text input or
+ *    required action providing multiple choices with buttons
+ */
+
 let messages = [
   {
     type: 'message',

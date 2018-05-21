@@ -2,20 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
 
-import GridContainer from '../Grid/GridContainer';
-import ItemGrid from '../Grid/ItemGrid';
-import Preloader from '../Preloader/Preloader';
+import GridContainer from '../../components/Grid/GridContainer';
+import ItemGrid from '../../components/Grid/ItemGrid';
+import Preloader from '../../components/Preloader/Preloader';
+import Footer from '../../components/Footer/Footer';
 import Chat from '../Chat/Chat';
-import Footer from '../Footer/Footer';
 
 import style from './styles.jsx';
+import bgImage from '../../assets/img/bg.png';
 
-class App extends React.Component {
+class Home extends React.Component {
   render() {
     const {classes} = this.props;
 
     return (
-      <div className={classes.app}>
+      <div className={classes.app}
+        style={{backgroundImage: 'url(' + bgImage + ')'}}>
         <GridContainer justify="space-between">
           <Preloader />
           <ItemGrid xs={12} sm={12} md={8} lg={8}>
@@ -30,9 +32,9 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
+Home.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
 
-export default withStyles(style)(App);
+export default withStyles(style)(Home);
