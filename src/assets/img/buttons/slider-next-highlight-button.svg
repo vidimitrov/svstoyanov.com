@@ -1,0 +1,20 @@
+<svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Guidelines" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Buttons" transform="translate(-329.000000, -514.000000)">
+            <g id="previous-btn" transform="translate(327.000000, 514.000000)">
+                <g id="icon" transform="translate(21.000000, 19.500000) scale(-1, 1) rotate(-450.000000) translate(-21.000000, -19.500000) translate(1.500000, -1.500000)">
+                    <circle id="Oval-2" fill="#49DDBA" cx="20" cy="21" r="19"></circle>
+                    <g transform="translate(7.000000, 8.000000)">
+                        <g id="sort-down" transform="translate(11.828877, 11.973333) rotate(-180.000000) translate(-11.828877, -11.973333) translate(3.828877, 7.973333)" fill="#171717" fill-rule="nonzero">
+                            <path d="M14.7792926,0.246260117 C14.5931446,0.0820413036 14.3724866,3.55271368e-15 14.1175247,3.55271368e-15 L0.941247293,3.55271368e-15 C0.68618236,3.55271368e-15 0.465678931,0.0820413036 0.279376454,0.246260117 C0.0930739772,0.410660537 -7.10542736e-15,0.605026238 -7.10542736e-15,0.829720434 C-7.10542736e-15,1.05436923 0.0930739772,1.24873493 0.279376454,1.41299914 L6.86754093,7.22022494 C7.05404943,7.38444376 7.27455286,7.46666667 7.52941176,7.46666667 C7.78427067,7.46666667 8.00498013,7.38444376 8.19112808,7.22022494 L14.7792926,1.41295374 C14.965389,1.24873493 15.0588235,1.05436923 15.0588235,0.829675032 C15.0588235,0.605026238 14.965389,0.410660537 14.7792926,0.246260117 Z" id="Shape"></path>
+                        </g>
+                        <rect id="bound" x="0" y="0" width="24" height="25.2"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
