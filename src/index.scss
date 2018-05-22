@@ -1,17 +1,6 @@
 @import './styles/reset.scss';
 @import './styles/flexbox.scss';
 
-@font-face {
-  font-family: 'SpaceMono';
-  src: url('assets/fonts/SpaceMono-Regular.ttf') format('ttf');
-  font-weight: normal;
-}
-@font-face {
-  font-family: 'SpaceMono';
-  src: url('assets/fonts/SpaceMono-Bold.ttf') format('ttf');
-  font-weight: bold;
-}
-
 html {
   height: 100%;
   min-height: 100%;
@@ -23,7 +12,7 @@ body {
   margin: 0 auto;
   min-height: 100%;
   width: 100%;
-  font-family: sans-serif;
+  font-family: monospace;
   font-size: 16px;
 }
 
