@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
 import ChatMessage from './ChatMessage';
+import Button from '../../components/Buttons/Button';
+import NavigationButton from '../../components/Buttons/NavigationButton';
+import SliderButton from '../../components/Buttons/SliderButton';
+import TextField from 'material-ui/TextField';
 import styles from './styles/activeChatMessageStyles';
 
 const ActiveChatMessage = ({classes, message}) => {
@@ -23,7 +27,18 @@ const ActiveChatMessage = ({classes, message}) => {
           <div className={classes.activeSlide}>
             <div className={classes.subTitle}>{message.items[slide].subTitle}</div>
             <div className={classes.title}>{message.items[slide].title}</div>
+            <Button>Normal Button</Button>
+            <NavigationButton>Navigation Button</NavigationButton>
+            <SliderButton prev>Previous Button</SliderButton>
+            <SliderButton next>Next Button</SliderButton>
             <ChatMessage message={message.items[slide].message} />
+            <TextField
+              label="None"
+              id="margin-none"
+              defaultValue="Default Value"
+              className={classes.textField}
+              helperText="Some important text"
+            />
             <div className={classes.activeMessageButtons}>
               {message.items[slide].buttons.map((button, index) => {
                 return (

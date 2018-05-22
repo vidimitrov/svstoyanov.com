@@ -4,7 +4,7 @@ import withStyles from 'material-ui/styles/withStyles';
 
 import GridContainer from '../../components/Grid/GridContainer';
 import ItemGrid from '../../components/Grid/ItemGrid';
-import Preloader from '../../components/Preloader/Preloader';
+// import Preloader from '../../components/Preloader/Preloader';
 import Footer from '../../components/Footer/Footer';
 import Chat from '../Chat/Chat';
 
@@ -19,7 +19,7 @@ class Home extends React.Component {
       <div className={classes.app}
         style={{backgroundImage: 'url(' + bgImage + ')'}}>
         <GridContainer justify="space-between">
-          <Preloader />
+          {/* <Preloader /> */}
           <ItemGrid xs={12} sm={12} md={8} lg={8}>
             <Chat />
           </ItemGrid>

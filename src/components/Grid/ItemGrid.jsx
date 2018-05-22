@@ -5,9 +5,7 @@ import withStyles from 'material-ui/styles/withStyles';
 import Grid from 'material-ui/Grid';
 
 const style = {
-  grid: {
-    padding: '0 15px !important',
-  },
+  grid: {},
 };
 
 function ItemGrid({...props}) {
