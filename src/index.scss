@@ -37,3 +37,6 @@ body {
 .rsc-container {
   height: 100%;
 }
+.rsc-input:disabled {
+    display: none;
+}
