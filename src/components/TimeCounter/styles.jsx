@@ -1,5 +1,9 @@
+import {typography} from '../../styles';
 export default {
-  timeCounter: {
-    fontSize: '12px',
+  key: {
+    ...typography.h4,
+  },
+  value: {
+    ...typography.h5,
   },
 };

@@ -2,6 +2,11 @@
 
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid/v4';
+import withStyles from 'material-ui/styles/withStyles';
+import styles from './styles';
+
+const userId = uuid().split('-').shift();
 
 class TimeCounter extends Component {
   constructor() {
@@ -29,11 +34,12 @@ class TimeCounter extends Component {
   render() {
     const elapsed = Math.round(this.state.elapsed / 100);
     const seconds = (elapsed / 10).toFixed(1);
+    const {classes} = this.props;
 
     return (
-      <div className="time-counter">
-        <p>USER_ID: <span>Gf782s1aF</span></p>
-        <p>DURATION: <span>{seconds}s</span></p>
+      <div className={classes.timeCounter}>
+        <p className={classes.key}>USER_ID: <span className={classes.value}>{userId}</span></p>
+        <p className={classes.key}>DURATION: <span className={classes.value}>{seconds}s</span></p>
       </div>
     );
   }
@@ -41,6 +47,7 @@ class TimeCounter extends Component {
 
 TimeCounter.propTypes = {
   start: PropTypes.number.isRequired,
+  classes: PropTypes.any,
 };
 
-export default TimeCounter;
+export default withStyles(styles)(TimeCounter);
