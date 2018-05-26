@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
-import GridContainer from '../Grid/GridContainer';
-import ItemGrid from '../Grid/ItemGrid';
+import Grid from 'material-ui/Grid';
 import {colors, typography} from '../../styles';
 const NextButton = require('../../assets/img/buttons/slider-next-button.svg');
 // const NextButtonHighlighted = require('../../assets/img/buttons/slider-next-highlighted-button.svg');
@@ -32,21 +31,22 @@ const SliderButton = ({...props}) => {
     classes,
     prev,
     next,
+    onClick,
   } = props;
 
   return (
-    <div className={classes.button}>
-      <GridContainer direction='row' justify='center' alignItems='center'>
-        {prev && <ItemGrid className={classes.center} xs={2} sm={2} md={2} lg={2}>
+    <div className={classes.button} onClick={onClick}>
+      <Grid container direction='row' justify='center' alignItems='center'>
+        {prev && <Grid item className={classes.center} xs={2} sm={2} md={2} lg={2}>
           <img src={PrevButton} alt='' />
-        </ItemGrid>}
-        <ItemGrid xs={10} sm={10} md={10} lg={10}>
-          <p className={classes.highlight}>{children}</p>
-        </ItemGrid>
-        {next && <ItemGrid className={classes.center} xs={2} sm={2} md={2} lg={2}>
+        </Grid>}
+        <Grid item xs={10} sm={10} md={10} lg={10}>
+          <span className={classes.highlight}>{children}</span>
+        </Grid>
+        {next && <Grid item className={classes.center} xs={2} sm={2} md={2} lg={2}>
           <img src={NextButton} alt='' />
-        </ItemGrid>}
-      </GridContainer>
+        </Grid>}
+      </Grid>
     </div>
   );
 };
@@ -54,8 +54,9 @@ const SliderButton = ({...props}) => {
 SliderButton.propTypes = {
   children: PropTypes.any,
   classes: PropTypes.any,
-  prev: PropTypes.string,
-  next: PropTypes.string,
+  prev: PropTypes.bool,
+  next: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 export default withStyles(styles)(SliderButton);
