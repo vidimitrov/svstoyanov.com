@@ -4,7 +4,7 @@ import withStyles from 'material-ui/styles/withStyles';
 import Grid from 'material-ui/Grid';
 import TimeCounter from '../TimeCounter/TimeCounter';
 import styles from './styles';
-import musicImg from '../../assets/img/music.svg';
+import equalizer from '../../assets/img/equalizer.gif';
 
 const Footer = ({classes, content}) => (
   <Grid container className={classes.footer}>
@@ -14,8 +14,8 @@ const Footer = ({classes, content}) => (
     <Grid item xs={8}>
       {content}
     </Grid>
-    <Grid item xs>
-      <img src={musicImg} alt="music" />
+    <Grid item xs className={classes.musicPlayer}>
+      <img src={equalizer} className={classes.equalizer} alt="music" />
     </Grid>
   </Grid>
 );

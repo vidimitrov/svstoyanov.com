@@ -8,4 +8,10 @@ export default {
     position: 'fixed',
     bottom: 0,
   },
+  musicPlayer: {
+    textAlign: 'center',
+  },
+  equalizer: {
+    width: '50px',
+  },
 };
