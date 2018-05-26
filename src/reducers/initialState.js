@@ -1,3 +1,6 @@
+import React from 'react';
+import ProjectsSlider from '../components/ProjectsSlider/ProjectsSlider';
+
 export const userInitialState = {
   name: null,
 };
@@ -61,148 +64,63 @@ export const projectsInitialState = [{
 }];
 
 export const stepsInitialState = [{
-  id: '1',
-  message: 'Hi there, I\'m Stoyan The Great! What\'s up?',
-  trigger: '2',
-  // end: true,
+  id: 'intro',
+  message: 'Hello. My name is Stoyan. What\'s your name?',
+  trigger: 'name-input',
 }, {
-  id: '2',
-  options: [
-    {value: 'all-good', label: 'All good', trigger: '3'},
-    {value: 'not-much', label: 'Not much', trigger: '3'},
-    {value: 'unicorns-and-rainbows', label: 'Unicorns and rainbows', trigger: '3'},
-  ],
-}, {
-  id: '3',
-  message: 'Nice! Good to know :)',
-  trigger: '4',
-}, {
-  id: '4',
-  message: 'What is your name?',
-  trigger: '5',
-}, {
-  id: '5',
+  id: 'name-input',
   user: true,
-  trigger: '6',
+  trigger: 'has-name-what-to-do',
 }, {
-  id: '6',
-  message: 'Hi {previousValue}, nice to meet you!',
-  trigger: '7',
+  id: 'has-name-what-to-do',
+  message: 'Nice to meet you {previousValue}. What can I do for you?',
+  trigger: 'what-to-do-options',
 }, {
-  id: '7',
-  message: 'Now as we know each other',
-  trigger: '8',
-}, {
-  id: '8',
-  message: 'Lets talk about business...',
-  trigger: '9',
-}, {
-  id: '9',
-  message: 'I\'m just kidding :)',
-  trigger: '10',
-}, {
-  id: '10',
-  message: 'What do you want to know about me?',
-  trigger: '11',
-}, {
-  id: '11',
+  id: 'what-to-do-options',
   options: [
-    {value: 'about-you', label: 'Tell me more about you', trigger: 'about-me'},
-    {value: 'your-work', label: 'Show me your work', trigger: 'show-me-your-work'},
+    {value: 'tell-me-about-you', label: 'Tell me about yourself', trigger: 'about-me'},
+    {value: 'show-me-your-work', label: 'Show me your work', trigger: 'my-work'},
   ],
-}, {
-  id: 'show-me-your-work',
-  message: 'Ok! Showing you my work...',
-  end: true,
 }, {
   id: 'about-me',
-  message: 'I am Stoyan Stoyanov! Great designer, but the world still don\'t know it :)',
-  end: true,
+  message: `I am a product designer, researcher and product
+            architect who started his career in the start-up world and
+            fell in love with the hard work that you need to put in order
+            to succeed in this environment. I also like to experiment with
+            new technologies as you can see in my blog.
+            For me every problem can be solved with the right design process.
+            My favourite movie is HER and now I am working on a voice project
+            that you can see in my blog infinite crave, where I am documenting it on the go.
+            Sharing with you some of my social presence.`,
+  trigger: 'learn-more-about-me',
+}, {
+  id: 'learn-more-about-me',
+  options: [
+    {value: 'http://infinitecrave.com', label: 'infinitecrave.com', trigger: 'my-work-after-about-me'},
+    {value: 'https://linkedin.com/in/svstoyanov', label: 'LinkedIn', trigger: 'my-work-after-about-me'},
+    {value: 'https://drive.google.com/svstoyanov.cv.pdf', label: 'Download CV', trigger: 'my-work-after-about-me'},
+  ],
+}, {
+  id: 'my-work-after-about-me',
+  message: 'Now as you know who am I, would you like me to show you my work?',
+  trigger: 'my-work-options',
+}, {
+  id: 'my-work-options',
+  options: [
+    {value: true, label: 'Yes', trigger: 'projects-slider'},
+    {value: false, label: 'No', trigger: 'here-if-needed'},
+  ],
+}, {
+  id: 'my-work',
+  message: 'This is my portfolio. Some projects that i have created in the past years.',
+  trigger: 'projects-slider',
+}, {
+  id: 'projects-slider',
+  component: (<ProjectsSlider />),
+}, {
+  id: 'here-if-needed',
+  message: 'Okay, if you need me I am here',
 }];
-
-
-// [{
-//   // "Whats your name?" context
-//   id: 1,
-//   messages: [{
-//     content: 'Hello. My name is Stoyan. What\'s your name?',
-//     contentType: 'text-input-action',
-//     // TODO: Define what else you need during implementation
-//   }],
-// }, {
-//   id: 2,
-//   messages: [{
-//     content: 'Nice to meet you {{name}}! What can I do for you?',
-//     params: ['name'],
-//     contentType: 'multiple-choice-action',
-//     buttons: [{
-//       text: 'Tell me about yourself',
-//       type: 'nested-context',
-//       params: {
-//         // TODO: Decide if to have internal anonymous contexts or to relate them with id
-//         context: {
-//           messages: [{
-//             content: `I am a product designer, researcher and product
-//             architect who started his career in the start-up world and
-//             fell in love with the hard work that you need to put in order
-//             to succeed in this environment. I also like to experiment with
-//             new technologies as you can see in my blog.
-//             For me every problem can be solved with the right design process.
-//             My favourite movie is HER and now I am working on a voice project
-//             that you can see in my blog infinite crave, where I am documenting it on the go.
-//             Sharing with you some of my social presence.`,
-//             contentType: 'multiple-choice-action',
-//             buttons: [{
-//               text: 'infinitecrave.com',
-//               type: 'external-redirect',
-//               params: {
-//                 url: 'http://infinitecrave.com',
-//               },
-//             }, {
-//               text: 'LinkedIn',
-//               type: 'external-redirect',
-//               params: {
-//                 url: 'https://linkedin.com/in/svstoyanov',
-//               },
-//             }, {
-//               text: 'Download CV',
-//               type: 'external-redirect',
-//               params: {
-//                 url: 'https://drive.google.com/svstoyanov.cv.pdf',
-//               },
-//             }],
-//           }, {
-//             content: 'Now as you know who am I, would you like me to show you my work?',
-//             contentType: 'multiple-choice-action',
-//             buttons: [{
-//               text: 'Yes',
-//               // TODO: Show the projects slider component
-//               type: 'back-to-root-conversation',
-//             }, {
-//               text: 'No',
-//               type: 'continue-conversation',
-//             }],
-//           }, {
-//             content: 'Okay, if you need me I am here',
-//             contentType: 'simple-message',
-//           }],
-//         },
-//       },
-//     }, {
-//       text: 'Show me your work',
-//       type: 'internal-redirect',
-//       params: {
-//         state: '',
-//       },
-//     }],
-//   }],
-// }, {
-//   id: 3,
-//   messages: [{
-//     content: '',
-//     contentType: 'projects-slider',
-//   }],
-// }];
 
 export default {
   user: userInitialState,
