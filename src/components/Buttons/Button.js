@@ -9,7 +9,7 @@ const ButtonRightBorder = require('../../assets/img/buttons/button-right-border.
 const styles = {
   button: {
     ...typography.buttons,
-    maxWidth: '450px',
+    maxWidth: '400px',
     textAlign: 'center',
     color: colors.primary,
   },
@@ -35,13 +35,13 @@ const Button = ({...props}) => {
   return (
     <div className={classes.button} onClick={onClick}>
       <Grid container direction='row' justify='center' alignItems='center'>
-        <Grid item className={classes.center} xs={1} sm={1} md={1} lg={1}>
+        <Grid item className={classes.center}>
           <img src={ButtonLeftBorder} alt='' />
         </Grid>
-        <Grid item xs={10} sm={10} md={10} lg={10}>
+        <Grid item xs>
           <span className={classes.highlight}>{children}</span>
         </Grid>
-        <Grid item className={classes.center} xs={1} sm={1} md={1} lg={1}>
+        <Grid item className={classes.center}>
           <img src={ButtonRightBorder} alt='' />
         </Grid>
       </Grid>
