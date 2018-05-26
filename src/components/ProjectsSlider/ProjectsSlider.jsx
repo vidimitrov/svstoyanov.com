@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
+import {compose} from 'recompose';
+import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import withStyles from 'material-ui/styles/withStyles';
 import Grid from 'material-ui/Grid';
@@ -77,4 +79,13 @@ ProjectsSlider.propTypes = {
   trigger: PropTypes.string,
 };
 
-export default withStyles(style)(ProjectsSlider);
+const mapStateToProps = (state) => {
+  return {
+    projects: state.projects,
+  };
+};
+
+export default compose(
+  withStyles(style),
+  connect(mapStateToProps)
+)(ProjectsSlider);
