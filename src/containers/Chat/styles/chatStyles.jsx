@@ -1,12 +1,12 @@
-import {colors} from '../../../styles';
+import { } from '../../../styles';
 
 export default {
-  chat: {
-    color: colors.white,
-    textAlign: 'left',
-    maxWidth: '700px',
-    margin: '0 auto',
+  chatContainer: {
+    paddingBottom: '15% !important',
+  },
+  chatWrapper: {
+    maxWidth: '500px',
     height: '100%',
-    paddingTop: '100px',
+    margin: '0 auto',
   },
 };
