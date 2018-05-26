@@ -47,6 +47,8 @@ class Chat extends React.Component {
               }}
               bubbleStyle={{
                 fontFamily: 'Space Mono',
+                fontSize: '16px',
+                maxWidth: '100%',
               }}
               bubbleOptionStyle={{
                 fontFamily: 'Space Mono',
@@ -54,7 +56,9 @@ class Chat extends React.Component {
                 borderRadius: '0px',
               }}
               footerStyle={{
-                // TODO: Display on condition - only if the step requires input
+                // position: 'absolute',
+                // bottom: 0,
+                // width: '100%',
               }}
               inputStyle={{
                 backgroundColor: 'transparent',

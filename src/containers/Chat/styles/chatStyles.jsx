@@ -2,7 +2,7 @@ import { } from '../../../styles';
 
 export default {
   chatContainer: {
-    paddingBottom: '15% !important',
+    height: '100%',
   },
   chatWrapper: {
     maxWidth: '500px',
