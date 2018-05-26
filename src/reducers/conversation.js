@@ -5,9 +5,9 @@ import {
   STORE_USERNAME,
 } from '../constants/actionTypes';
 
-import {contextsInitialState} from './initialState';
+import {stepsInitialState} from './initialState';
 const initialState = {
-  contexts: contextsInitialState,
+  steps: stepsInitialState,
   activeContextId: 1,
   ongoing: true,
   username: null,
