@@ -11,7 +11,7 @@ export default {
   musicPlayer: {
     textAlign: 'center',
   },
-  equalizer: {
-    width: '50px',
+  music: {
+    width: '40px',
   },
 };
