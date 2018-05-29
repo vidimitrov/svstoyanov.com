@@ -47,7 +47,7 @@ class Project extends React.Component {
             </Grid>
           </Grid>
           <Grid item xs={12} className={classes.contactMeSection}>
-            <Chat steps={steps} />
+            <Chat steps={steps} cache={false} />
           </Grid>
           <Grid item xs={12}>
             <Footer

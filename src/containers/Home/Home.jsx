@@ -5,8 +5,9 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
 import withStyles from 'material-ui/styles/withStyles';
 
+import ReactAudioPlayer from 'react-audio-player';
 import Grid from 'material-ui/Grid';
-// import Preloader from '../../components/Preloader/Preloader';
+import Preloader from '../../components/Preloader/Preloader';
 import Footer from '../../components/Footer/Footer';
 import Chat from '../Chat/Chat';
 import NavigationButton from '../../components/Buttons/NavigationButton';
@@ -14,7 +15,33 @@ import NavigationButton from '../../components/Buttons/NavigationButton';
 import style from './styles.jsx';
 import bgImage from '../../assets/img/bg.png';
 
+const APP_URL = 'http://localhost:3000';
+
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      muted: true, // FIXME: Set to false before releasing
+    };
+    this.togglePlayer = this.togglePlayer.bind(this);
+  }
+
+
+  togglePlayer() {
+    const {muted} = this.state;
+    if (!muted) {
+      this.setState({
+        ...this.state,
+        muted: true,
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        muted: false,
+      });
+    }
+  }
+
   render() {
     const {classes} = this.props;
     const {steps} = this.props;
@@ -23,11 +50,18 @@ class Home extends React.Component {
       <Grid container justify='flex-end'
         className={classes.container}
         style={{backgroundImage: 'url(' + bgImage + ')'}}>
-        {/* <Preloader /> */}
+        <ReactAudioPlayer
+          autoPlay
+          src={`${APP_URL}/background-sound.mp3`}
+          muted={this.state.muted}
+        />
+        <Preloader />
         <Grid item xs={12}>
-          <Chat steps={steps} />
+          <Chat steps={steps} cache={true} />
         </Grid>
         <Footer
+          muted={this.state.muted}
+          togglePlayer={this.togglePlayer}
           content={
             <Grid container justify='space-between'
               className={classes.navigation} >

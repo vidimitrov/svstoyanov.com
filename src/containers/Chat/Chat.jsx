@@ -34,7 +34,7 @@ class Chat extends React.Component {
               hideBotAvatar={false}
               hideSubmitButton={true}
               className='chat-bot'
-              // cache={true}
+              cache={false}
               contentStyle={{
                 height: 'calc(100% - 75px)',
               }}
@@ -82,6 +82,7 @@ class Chat extends React.Component {
 Chat.propTypes = {
   classes: PropTypes.object.isRequired,
   steps: PropTypes.array,
+  cache: PropTypes.bool,
 };
 
 const mapStateToProps = (state, ownProps) => {
