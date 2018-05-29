@@ -1,4 +1,4 @@
-import {colors} from '../../styles';
+import {colors, typography} from '../../styles';
 
 export default {
   preloader: {
@@ -23,5 +23,9 @@ export default {
     textAlign: 'center',
     fontSize: '3em',
     color: colors.white,
+  },
+  loading: {
+    ...typography.h2,
+    textAlign: 'center',
   },
 };
