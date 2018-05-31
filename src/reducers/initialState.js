@@ -96,9 +96,24 @@ export const stepsInitialState = [{
 }, {
   id: 'learn-more-about-me',
   options: [
-    {value: 'http://infinitecrave.com', label: 'infinitecrave.com', trigger: 'my-work-after-about-me'},
-    {value: 'https://linkedin.com/in/svstoyanov', label: 'LinkedIn', trigger: 'my-work-after-about-me'},
-    {value: 'https://drive.google.com/svstoyanov.cv.pdf', label: 'Download CV', trigger: 'my-work-after-about-me'},
+    {
+      value: 'http://infinitecrave.com',
+      label: 'infinitecrave.com',
+      trigger: 'my-work-after-about-me',
+      redirect: 'http://infinitecrave.com',
+    },
+    {
+      value: 'https://linkedin.com/in/svstoyanov',
+      label: 'LinkedIn',
+      trigger: 'my-work-after-about-me',
+      redirect: 'https://linkedin.com/in/svstoyanov',
+    },
+    {
+      value: 'https://drive.google.com/svstoyanov.cv.pdf',
+      label: 'Download CV',
+      trigger: 'my-work-after-about-me',
+      redirect: 'https://drive.google.com/svstoyanov.cv.pdf',
+    },
   ],
 }, {
   id: 'my-work-after-about-me',
