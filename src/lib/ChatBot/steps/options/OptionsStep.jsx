@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import Option from './Option';
@@ -15,14 +15,17 @@ class OptionsStep extends Component {
     this.onOptionClick = this.onOptionClick.bind(this);
   }
 
-  onOptionClick({ value }) {
-    this.props.triggerNextStep({ value });
+  onOptionClick({value, redirect}) {
+    this.props.triggerNextStep({value});
+    if (redirect) {
+      window.open(redirect, '_blank');
+    }
   }
 
   renderOption(option) {
-    const { bubbleOptionStyle } = this.props;
-    const { user } = this.props.step;
-    const { value, label } = option;
+    const {bubbleOptionStyle} = this.props;
+    const {user} = this.props.step;
+    const {value, label, redirect} = option;
 
     return (
       <Option
@@ -33,7 +36,7 @@ class OptionsStep extends Component {
           className="rsc-os-option-element"
           style={bubbleOptionStyle}
           user={user}
-          onClick={() => this.onOptionClick({ value })}
+          onClick={() => this.onOptionClick({value, redirect})}
         >
           {label}
         </OptionElement>
@@ -42,7 +45,7 @@ class OptionsStep extends Component {
   }
 
   render() {
-    const { options } = this.props.step;
+    const {options} = this.props.step;
 
     return (
       <OptionsStepContainer className="rsc-os">
