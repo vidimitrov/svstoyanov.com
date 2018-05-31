@@ -1,4 +1,5 @@
 /* eslint new-cap: 0*/
+/* eslint no-debugger: 0*/
 import _ from 'lodash';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
@@ -200,7 +201,24 @@ class ChatBot extends Component {
       currentStep.trigger = this.getTriggeredStep(data.trigger, data.value);
     }
 
-    if (isEnd) {
+    if (data && data.externalTrigger) {
+      let nextStep = Object.assign({}, steps[data.stepId]);
+      nextStep.key = Random(24);
+      previousStep = currentStep;
+      currentStep = nextStep;
+      this.setState({renderedSteps, currentStep, previousStep}, () => {
+        if (nextStep.user) {
+          this.setState({disabled: false}, () => {
+            this.input.focus();
+          });
+        } else {
+          renderedSteps.push(nextStep);
+          previousSteps.push(nextStep);
+
+          this.setState({renderedSteps, previousSteps});
+        }
+      });
+    } else if (isEnd) {
       this.handleEnd();
     } else if (currentStep.options && data) {
       const option = currentStep.options.filter((o) => o.value === data.value)[0];
