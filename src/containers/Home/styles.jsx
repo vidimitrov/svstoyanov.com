@@ -17,4 +17,12 @@ export default {
     margin: '0 auto',
     zIndex: 999,
   },
+  chatContainer: {
+    height: '100%',
+  },
+  chatWrapper: {
+    maxWidth: '500px',
+    height: '100%',
+    margin: '0 auto',
+  },
 };

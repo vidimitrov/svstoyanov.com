@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../common/Loading';
 import CustomStepContainer from './CustomStepContainer';
@@ -16,11 +16,11 @@ class CustomStep extends Component {
   }
 
   componentDidMount() {
-    const { step } = this.props;
-    const { delay, waitAction } = step;
+    const {step} = this.props;
+    const {delay, waitAction} = step;
 
     setTimeout(() => {
-      this.setState({ loading: false }, () => {
+      this.setState({loading: false}, () => {
         if (!waitAction && !step.rendered) {
           this.props.triggerNextStep();
         }
@@ -29,8 +29,8 @@ class CustomStep extends Component {
   }
 
   renderComponent() {
-    const { step, steps, previousStep, triggerNextStep } = this.props;
-    const { component } = step;
+    const {step, steps, previousStep, triggerNextStep} = this.props;
+    const {component} = step;
     return React.cloneElement(component, {
       step,
       steps,
@@ -40,8 +40,8 @@ class CustomStep extends Component {
   }
 
   render() {
-    const { loading } = this.state;
-    const { style } = this.props;
+    const {loading} = this.state;
+    const {style} = this.props;
 
     return (
       <CustomStepContainer
