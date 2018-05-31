@@ -3,13 +3,16 @@ import PropTypes from 'prop-types';
 import {compose} from 'recompose';
 import {connect} from 'react-redux';
 import withStyles from 'material-ui/styles/withStyles';
+import {ThemeProvider} from 'styled-components';
 
 import Grid from 'material-ui/Grid';
 import Footer from '../Footer/Footer';
-import Chat from '../../containers/Chat/Chat';
+import ChatBot from '../../lib/ChatBot';
 
 import style from './styles.jsx';
+import chatTheme from '../../containers/Chat/styles/theme';
 import bgImage from '../../assets/img/bg.png';
+import avatar from '../../assets/img/sto-avatar.png';
 
 class Project extends React.Component {
   render() {
@@ -47,7 +50,56 @@ class Project extends React.Component {
             </Grid>
           </Grid>
           <Grid item xs={12} className={classes.contactMeSection}>
-            <Chat steps={steps} cache={false} />
+            <div className={classes.chatContainer}>
+              <div className={classes.chatWrapper}>
+                <ThemeProvider theme={chatTheme}>
+                  <ChatBot
+                    steps={steps}
+                    cache={false}
+                    botAvatar={avatar}
+                    hideHeader={true}
+                    hideUserAvatar={true}
+                    hideBotAvatar={false}
+                    hideSubmitButton={true}
+                    className='chat-bot'
+                    contentStyle={{
+                      height: 'calc(100% - 75px)',
+                    }}
+                    customStyle={{
+                      backgroundColor: 'transparent',
+                    }}
+                    avatarStyle={{
+                      borderRadius: 0,
+                      minWidth: '38px',
+                    }}
+                    bubbleStyle={{
+                      fontFamily: 'Space Mono',
+                      fontSize: '16px',
+                      maxWidth: '100%',
+                    }}
+                    bubbleOptionStyle={{
+                      fontFamily: 'Space Mono',
+                      border: '1px solid #02A0A7',
+                      borderRadius: '0px',
+                    }}
+                    footerStyle={{
+                      // position: 'absolute',
+                      // bottom: 0,
+                      // width: '100%',
+                    }}
+                    inputStyle={{
+                      backgroundColor: 'transparent',
+                      borderBottom: '1px solid #fff',
+                      borderRadius: 0,
+                      borderTop: 0,
+                      color: '#fff',
+                    }}
+                    placeholder='Enter your message here...'
+                    width='500px'
+                  />
+                </ThemeProvider>
+              </div>
+            </div>
           </Grid>
           <Grid item xs={12}>
             <Footer

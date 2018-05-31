@@ -10,7 +10,7 @@ export default {
     height: '100%',
   },
   headline: {
-    ...typography.h1,
+    ...typography.h2,
   },
   description: {
     ...typography.h3,
