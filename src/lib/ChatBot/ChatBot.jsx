@@ -201,6 +201,7 @@ class ChatBot extends Component {
       currentStep.trigger = this.getTriggeredStep(data.trigger, data.value);
     }
 
+    // Custom functionality for using external triggers (changing steps) for the ChatBot component
     if (data && data.externalTrigger) {
       let nextStep = Object.assign({}, steps[data.stepId]);
       nextStep.key = Random(24);
