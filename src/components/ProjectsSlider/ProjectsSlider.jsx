@@ -33,7 +33,7 @@ class ProjectsSlider extends React.Component {
                   <div>&gt; {project.shortDescription}</div>
                   <Button onClick={() => {
                     triggerNextStep({
-                      trigger: 'about-me',
+                      stepId: 'about-me',
                       externalTrigger: true,
                     });
                     push(`/projects/${project.id}`);
