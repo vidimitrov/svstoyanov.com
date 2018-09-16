@@ -130,7 +130,10 @@ class Home extends React.Component {
     return (
       <Grid container justify='flex-end'
         className={classes.container}
-        style={{backgroundImage: 'url(' + bgImage + ')'}}>
+        style={{
+          backgroundImage: 'url(' + bgImage + ')',
+          backgroundSize: 'cover',
+        }}>
         <ReactAudioPlayer
           autoPlay
           src={`${APP_URL}/background-sound.mp3`}
