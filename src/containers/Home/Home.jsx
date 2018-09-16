@@ -11,6 +11,7 @@ import Grid from 'material-ui/Grid';
 
 import Preloader from '../../components/Preloader/Preloader';
 import Footer from '../../components/Footer/Footer';
+import CustomOptions from '../../components/CustomOptions/CustomOptions';
 import NavigationButton from '../../components/Buttons/NavigationButton';
 import ProjectsSlider from '../../components/ProjectsSlider/ProjectsSlider';
 
@@ -85,26 +86,27 @@ class Home extends React.Component {
       trigger: 'learn-more-about-me',
     }, {
       id: 'learn-more-about-me',
-      options: [
-        {
-          value: 'http://infinitecrave.com',
-          label: 'infinitecrave.com',
-          trigger: 'my-work-after-about-me',
-          redirect: 'http://infinitecrave.com',
-        },
-        {
-          value: 'https://linkedin.com/in/svstoyanov',
-          label: 'LinkedIn',
-          trigger: 'my-work-after-about-me',
-          redirect: 'https://linkedin.com/in/svstoyanov',
-        },
-        {
-          value: 'https://drive.google.com/svstoyanov.cv.pdf',
-          label: 'Download CV',
-          trigger: 'my-work-after-about-me',
-          redirect: 'https://drive.google.com/svstoyanov.cv.pdf',
-        },
-      ],
+      component: (
+        <CustomOptions options={[
+          {
+            value: 'http://infinitecrave.com',
+            label: 'InfiniteCrave.com',
+            redirect: 'http://infinitecrave.com',
+          },
+          {
+            value: 'https://linkedin.com/in/svstoyanov',
+            label: 'LinkedIn',
+            redirect: 'https://linkedin.com/in/svstoyanov',
+          },
+          {
+            value: 'https://drive.google.com/svstoyanov.cv.pdf',
+            label: 'Download CV',
+            redirect: 'https://drive.google.com/svstoyanov.cv.pdf',
+          },
+        ]}>
+        </CustomOptions>
+      ),
+      trigger: 'my-work-after-about-me',
     }, {
       id: 'my-work-after-about-me',
       message: 'Now as you know who am I, would you like me to show you my work?',
@@ -162,6 +164,7 @@ class Home extends React.Component {
                   }}
                   customStyle={{
                     backgroundColor: 'transparent',
+                    padding: 0,
                   }}
                   avatarStyle={{
                     borderRadius: 0,
