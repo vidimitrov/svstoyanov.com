@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Bubble from './Bubble';
 import Image from './Image';
@@ -19,11 +19,11 @@ class TextStep extends Component {
   }
 
   componentDidMount() {
-    const { step } = this.props;
-    const { component, delay, waitAction } = step;
+    const {step} = this.props;
+    const {component, delay, waitAction} = step;
     const isComponentWatingUser = component && waitAction;
     setTimeout(() => {
-      this.setState({ loading: false }, () => {
+      this.setState({loading: false}, () => {
         if (!isComponentWatingUser && !step.rendered) {
           this.props.triggerNextStep();
         }
@@ -39,8 +39,8 @@ class TextStep extends Component {
       previousStep,
       triggerNextStep,
     } = this.props;
-    const { component } = step;
-    let { message } = step;
+    const {component} = step;
+    let {message} = step;
 
     if (component) {
       return React.cloneElement(component, {
@@ -59,6 +59,7 @@ class TextStep extends Component {
   render() {
     const {
       step,
+      stepContainerStyle,
       isFirst,
       isLast,
       avatarStyle,
@@ -76,6 +77,7 @@ class TextStep extends Component {
     return (
       <TextStepContainer
         className="rsc-ts"
+        style={stepContainerStyle}
         user={user}
       >
         <ImageContainer
@@ -106,7 +108,7 @@ class TextStep extends Component {
             this.state.loading &&
             <Loading />
           }
-          { !this.state.loading && this.renderMessage() }
+          {!this.state.loading && this.renderMessage()}
         </Bubble>
       </TextStepContainer>
     );
@@ -117,6 +119,7 @@ TextStep.propTypes = {
   isFirst: PropTypes.bool.isRequired,
   isLast: PropTypes.bool.isRequired,
   step: PropTypes.object.isRequired,
+  stepContainerStyle: PropTypes.object.isRequired,
   triggerNextStep: PropTypes.func.isRequired,
   avatarStyle: PropTypes.object.isRequired,
   bubbleStyle: PropTypes.object.isRequired,
