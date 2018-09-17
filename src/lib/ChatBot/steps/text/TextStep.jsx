@@ -59,7 +59,7 @@ class TextStep extends Component {
   render() {
     const {
       step,
-      stepContainerStyle,
+      style,
       isFirst,
       isLast,
       avatarStyle,
@@ -77,7 +77,7 @@ class TextStep extends Component {
     return (
       <TextStepContainer
         className="rsc-ts"
-        style={stepContainerStyle}
+        style={style}
         user={user}
       >
         <ImageContainer
@@ -119,7 +119,8 @@ TextStep.propTypes = {
   isFirst: PropTypes.bool.isRequired,
   isLast: PropTypes.bool.isRequired,
   step: PropTypes.object.isRequired,
-  stepContainerStyle: PropTypes.object.isRequired,
+  steps: PropTypes.object,
+  style: PropTypes.object,
   triggerNextStep: PropTypes.func.isRequired,
   avatarStyle: PropTypes.object.isRequired,
   bubbleStyle: PropTypes.object.isRequired,
@@ -127,7 +128,6 @@ TextStep.propTypes = {
   hideUserAvatar: PropTypes.bool.isRequired,
   previousStep: PropTypes.object,
   previousValue: PropTypes.any,
-  steps: PropTypes.object,
 };
 
 TextStep.defaultProps = {

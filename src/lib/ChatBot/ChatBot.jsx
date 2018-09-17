@@ -78,7 +78,6 @@ class ChatBot extends Component {
       } else if (step.component) {
         settings = defaultCustomSettings;
       }
-
       steps[step.id] = Object.assign({}, settings, schema.parse(step));
     }
 
@@ -449,11 +448,10 @@ class ChatBot extends Component {
   renderStep(step, index) {
     const {renderedSteps} = this.state;
     const {
-      stepContainerStyle,
       avatarStyle,
       bubbleStyle,
       bubbleOptionStyle,
-      customStyle,
+      stepContainerStyle,
       hideBotAvatar,
       hideUserAvatar,
     } = this.props;
@@ -467,7 +465,7 @@ class ChatBot extends Component {
           key={index}
           step={step}
           steps={steps}
-          style={customStyle}
+          style={step.style || stepContainerStyle}
           previousStep={previousStep}
           triggerNextStep={this.triggerNextStep}
         />
@@ -479,6 +477,7 @@ class ChatBot extends Component {
         <OptionsStep
           key={index}
           step={step}
+          style={step.style || stepContainerStyle}
           triggerNextStep={this.triggerNextStep}
           bubbleOptionStyle={bubbleOptionStyle}
         />
@@ -490,10 +489,10 @@ class ChatBot extends Component {
         key={index}
         step={step}
         steps={steps}
+        style={step.style || stepContainerStyle}
         previousStep={previousStep}
         previousValue={previousStep.value}
         triggerNextStep={this.triggerNextStep}
-        stepContainerStyle={stepContainerStyle}
         avatarStyle={avatarStyle}
         bubbleStyle={bubbleStyle}
         hideBotAvatar={hideBotAvatar}

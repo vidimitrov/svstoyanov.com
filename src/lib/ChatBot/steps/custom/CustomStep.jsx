@@ -61,7 +61,7 @@ class CustomStep extends Component {
 CustomStep.propTypes = {
   step: PropTypes.object.isRequired,
   steps: PropTypes.object.isRequired,
-  style: PropTypes.object.isRequired,
+  style: PropTypes.object,
   previousStep: PropTypes.object.isRequired,
   triggerNextStep: PropTypes.func.isRequired,
 };

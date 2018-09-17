@@ -44,4 +44,9 @@ export default [
     types: ['boolean'],
     required: false,
   },
+  {
+    key: 'style',
+    types: ['object'],
+    required: false,
+  },
 ];

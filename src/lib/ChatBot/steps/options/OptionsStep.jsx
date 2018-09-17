@@ -46,9 +46,12 @@ class OptionsStep extends Component {
 
   render() {
     const {options} = this.props.step;
+    const {style} = this.props;
 
     return (
-      <OptionsStepContainer className="rsc-os">
+      <OptionsStepContainer
+        className="rsc-os"
+        style={style}>
         <Options className="rsc-os-options">
           {_.map(options, this.renderOption)}
         </Options>
@@ -59,6 +62,7 @@ class OptionsStep extends Component {
 
 OptionsStep.propTypes = {
   step: PropTypes.object.isRequired,
+  style: PropTypes.object,
   triggerNextStep: PropTypes.func.isRequired,
   bubbleOptionStyle: PropTypes.object.isRequired,
 };
