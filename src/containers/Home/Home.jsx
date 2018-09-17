@@ -124,6 +124,11 @@ class Home extends React.Component {
     }, {
       id: 'projects-slider',
       component: (<ProjectsSlider push={this.props.history.push} projects={projects} />),
+      style: {
+        width: '100%',
+        backgroundColor: 'transparent',
+        padding: 0,
+      },
     }, {
       id: 'here-if-needed',
       message: 'Okay, if you need me I am here',
@@ -162,9 +167,11 @@ class Home extends React.Component {
                   contentStyle={{
                     height: 'calc(100% - 75px)',
                   }}
-                  customStyle={{
+                  stepContainerStyle={{
                     backgroundColor: 'transparent',
                     padding: 0,
+                    width: '500px',
+                    margin: '0 auto',
                   }}
                   avatarStyle={{
                     borderRadius: 0,
@@ -193,7 +200,6 @@ class Home extends React.Component {
                     color: '#fff',
                   }}
                   placeholder='Enter your message here...'
-                  width='500px'
                   handleEnd={({renderedSteps, steps, values}) => {
                     // TODO: Handle the end of the flow
                   }} />
