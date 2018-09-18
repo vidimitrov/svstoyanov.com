@@ -12,6 +12,7 @@ import Grid from 'material-ui/Grid';
 import Preloader from '../../components/Preloader/Preloader';
 import Footer from '../../components/Footer/Footer';
 import CustomOptions from '../../components/CustomOptions/CustomOptions';
+import NameInput from '../../components/Inputs/NameInput';
 import NavigationButton from '../../components/Buttons/NavigationButton';
 import ProjectsSlider from '../../components/ProjectsSlider/ProjectsSlider';
 
@@ -60,8 +61,7 @@ class Home extends React.Component {
       trigger: 'name-input',
     }, {
       id: 'name-input',
-      user: true,
-      trigger: 'has-name-what-to-do',
+      component: (<NameInput trigger={'has-name-what-to-do'} />),
     }, {
       id: 'has-name-what-to-do',
       message: 'Nice to meet you {previousValue}. What can I do for you?',
