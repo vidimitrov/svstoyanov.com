@@ -15,6 +15,11 @@ const styles = {
     border: '1px dotted ' + colors.white,
     padding: 7,
   },
+  active: {
+    backgroundColor: colors.primary,
+    color: colors.white,
+    cursor: 'pointer',
+  },
   highlight: {
     '&:hover': {
       backgroundColor: colors.primary,
@@ -31,6 +36,7 @@ const NavigationButton = ({...props}) => {
   const {
     children,
     classes,
+    active,
     onClick,
   } = props;
 
@@ -41,7 +47,7 @@ const NavigationButton = ({...props}) => {
           <img src={ButtonLeftBorder} alt='' />
         </ItemGrid> */}
         <Grid item xs={12} sm={12} md={12} lg={12}>
-          <span className={classes.highlight}>{children}</span>
+          <span className={`${classes.highlight} ${active ? classes.active : ''}`}>{children}</span>
         </Grid>
         {/* <ItemGrid className={classes.center} xs={1} sm={1} md={1} lg={1}>
           <img src={ButtonRightBorder} alt='' />
@@ -55,6 +61,7 @@ NavigationButton.propTypes = {
   children: PropTypes.any,
   classes: PropTypes.any,
   onClick: PropTypes.func,
+  active: PropTypes.bool,
 };
 
 export default withStyles(styles)(NavigationButton);
