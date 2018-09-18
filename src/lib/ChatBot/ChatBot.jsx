@@ -114,6 +114,8 @@ class ChatBot extends Component {
       renderedSteps,
       steps,
     });
+
+    this.props.handleStepChange(currentStep);
   }
 
   componentDidMount() {
@@ -294,6 +296,10 @@ class ChatBot extends Component {
           renderedSteps,
         });
       }, 300);
+    }
+
+    if (this.props.handleStepChange) {
+      this.props.handleStepChange(currentStep);
     }
   }
 
@@ -622,6 +628,7 @@ ChatBot.propTypes = {
   floating: PropTypes.bool,
   footerStyle: PropTypes.object,
   handleEnd: PropTypes.func,
+  handleStepChange: PropTypes.func,
   headerComponent: PropTypes.element,
   headerTitle: PropTypes.string,
   hideBotAvatar: PropTypes.bool,
@@ -658,6 +665,7 @@ ChatBot.defaultProps = {
   floating: false,
   footerStyle: {},
   handleEnd: undefined,
+  handleStepChange: undefined,
   headerComponent: undefined,
   headerTitle: 'Chat',
   hideBotAvatar: false,
