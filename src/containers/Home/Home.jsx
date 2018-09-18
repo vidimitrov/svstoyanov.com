@@ -28,6 +28,7 @@ class Home extends React.Component {
     super(props);
     this.state = {
       muted: true, // FIXME: Set to false before releasing
+      activeStep: null,
     };
     this.togglePlayer = this.togglePlayer.bind(this);
     this.getChatComponent = this.getChatComponent.bind(this);
@@ -134,6 +135,8 @@ class Home extends React.Component {
       message: 'Okay, if you need me I am here',
     }];
 
+    const {activeStep} = this.state;
+
     return (
       <Grid container justify='flex-end'
         className={classes.container}
@@ -202,6 +205,12 @@ class Home extends React.Component {
                   placeholder='Enter your message here...'
                   handleEnd={({renderedSteps, steps, values}) => {
                     // TODO: Handle the end of the flow
+                  }}
+                  handleStepChange={(activeStep) => {
+                    this.setState({
+                      ...this.state,
+                      activeStep,
+                    });
                   }} />
               </ThemeProvider>
             </div>
@@ -214,28 +223,35 @@ class Home extends React.Component {
             <Grid container justify='space-between'
               className={classes.navigation} >
               <Grid item xs={3} sm={3} md={3}>
-                <NavigationButton onClick={() => {
-                  const chat = this.getChatComponent();
-                  chat.triggerNextStep({stepId: 'about-me', externalTrigger: true});
-                }}>
+                <NavigationButton
+                  active={activeStep && activeStep.id === 'my-work-options'}
+                  onClick={() => {
+                    const chat = this.getChatComponent();
+                    chat.triggerNextStep({stepId: 'about-me', externalTrigger: true});
+                  }}>
                   ABOUT_ME
                 </NavigationButton>
               </Grid>
               <Grid item xs={3} sm={3} md={3}>
-                <NavigationButton onClick={() => {
-                  const chat = this.getChatComponent();
-                  chat.triggerNextStep({stepId: 'my-work', externalTrigger: true});
-                }}>
+                <NavigationButton
+                  active={activeStep && activeStep.id === 'projects-slider'}
+                  onClick={() => {
+                    const chat = this.getChatComponent();
+                    chat.triggerNextStep({stepId: 'my-work', externalTrigger: true});
+                  }}>
                   MY_WORK
                 </NavigationButton>
               </Grid>
               <Grid item xs={3} sm={3} md={3}>
-                <NavigationButton onClick={() => {
-                  const chat = this.getChatComponent();
+                <NavigationButton
                   // FIXME: Change when all the final steps are updated
-                  chat.triggerNextStep({stepId: 'about-me', externalTrigger: true});
-                  window.open('https://linkedin.com', '_blank');
-                }}>
+                  active={activeStep && activeStep.id === 'about-me'}
+                  onClick={() => {
+                    const chat = this.getChatComponent();
+                    // FIXME: Change when all the final steps are updated
+                    chat.triggerNextStep({stepId: 'about-me', externalTrigger: true});
+                    window.open('https://linkedin.com', '_blank');
+                  }}>
                   CONTACT_ME
                 </NavigationButton>
               </Grid>
