@@ -60,6 +60,7 @@ class Home extends React.Component {
       id: 'intro',
       message: 'Hello. My name is Stoyan. What\'s your name?',
       trigger: 'name-input',
+      delay: 4000,
     }, {
       id: 'name-input',
       component: (<NameInput trigger={'has-name-what-to-do'} />),
