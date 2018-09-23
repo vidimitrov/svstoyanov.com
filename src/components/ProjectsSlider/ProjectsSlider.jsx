@@ -35,7 +35,7 @@ class ProjectsSlider extends React.Component {
                     triggerNextStep({
                       stepId: 'about-me',
                       externalTrigger: true,
-                    });
+                    }, true);
                     push(`/projects/${project.id}`);
                   }}>
                     LEARN_MORE_ABOUT_{projectCodeName}

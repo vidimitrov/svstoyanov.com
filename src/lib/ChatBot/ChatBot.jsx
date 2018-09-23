@@ -27,6 +27,7 @@ class ChatBot extends Component {
     this.state = {
       renderedSteps: [],
       previousSteps: [],
+      notRenderedSteps: [],
       currentStep: {},
       previousStep: {},
       steps: {},
@@ -91,7 +92,7 @@ class ChatBot extends Component {
       steps[firstStep.id].message = firstStep.message;
     }
 
-    const {currentStep, previousStep, previousSteps, renderedSteps} = storage.getData(
+    const {currentStep, previousStep, previousSteps, renderedSteps, notRenderedSteps} = storage.getData(
       {
         cacheName,
         cache,
@@ -112,13 +113,29 @@ class ChatBot extends Component {
       previousStep,
       previousSteps,
       renderedSteps,
+      notRenderedSteps: notRenderedSteps || [],
       steps,
     });
 
-    this.props.handleStepChange(currentStep);
+    if (this.props.handleStepChange) {
+      this.props.handleStepChange(currentStep);
+    }
   }
 
   componentDidMount() {
+    if (this.state.notRenderedSteps) {
+      for (let step of this.state.notRenderedSteps) {
+        step.delay = 3000;
+        this.triggerNextStep(step);
+        this.setState({
+          notRenderedSteps: [],
+        });
+        /*
+        TODO: Handle multiple not rendered steps
+        */
+      }
+    }
+
     const {recognitionEnable} = this.state;
     const {recognitionLang} = this.props;
     if (recognitionEnable) {
@@ -130,6 +147,7 @@ class ChatBot extends Component {
       );
     }
     this.content.addEventListener('DOMNodeInserted', this.onNodeInserted);
+    document.addEventListener('visibilitychange', this.handleVisibilityChange);
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -142,6 +160,12 @@ class ChatBot extends Component {
 
   componentWillUnmount() {
     this.content.removeEventListener('DOMNodeInserted', this.onNodeInserted);
+    document.removeEventListener('visibilitychange', this.handleVisibilityChange);
+  }
+
+  handleVisibilityChange(e) {
+    // console.log('visibility change: ', e, document.hidden);
+    // TODO: Use the **visibilitychange** event to pause/resume chat flow. Pause when hidden, resume when visible.
   }
 
   onNodeInserted(event) {
@@ -190,10 +214,28 @@ class ChatBot extends Component {
     return steps;
   }
 
-  triggerNextStep(data) {
+  triggerNextStep(data, delayRendering) {
     const {defaultUserSettings, previousSteps, renderedSteps, steps} = this.state;
-    let {currentStep, previousStep} = this.state;
+    let {currentStep, previousStep, notRenderedSteps} = this.state;
     const isEnd = currentStep.end;
+
+    if (delayRendering) {
+      notRenderedSteps.push(data);
+      const {cache, cacheName} = this.props;
+
+      if (cache) {
+        setTimeout(() => {
+          storage.setData(cacheName, {
+            currentStep,
+            previousStep,
+            previousSteps,
+            renderedSteps,
+            notRenderedSteps,
+          });
+        }, 300);
+      }
+      return;
+    }
 
     if (data && data.value) {
       currentStep.value = data.value;
@@ -201,25 +243,22 @@ class ChatBot extends Component {
     if (data && data.trigger) {
       currentStep.trigger = this.getTriggeredStep(data.trigger, data.value);
     }
-
     // Custom functionality for using external triggers (changing steps) for the ChatBot component
     if (data && data.externalTrigger) {
       let nextStep = Object.assign({}, steps[data.stepId]);
       nextStep.key = Random(24);
+
+      if (data.delay) {
+        nextStep.delay = data.delay;
+      }
+
       previousStep = currentStep;
       currentStep = nextStep;
-      this.setState({renderedSteps, currentStep, previousStep}, () => {
-        if (nextStep.user) {
-          this.setState({disabled: false}, () => {
-            this.input.focus();
-          });
-        } else {
-          renderedSteps.push(nextStep);
-          previousSteps.push(nextStep);
 
-          this.setState({renderedSteps, previousSteps});
-        }
-      });
+      renderedSteps.push(nextStep);
+      previousSteps.push(nextStep);
+
+      this.setState({renderedSteps, previousSteps, currentStep, previousStep});
     } else if (isEnd) {
       this.handleEnd();
     } else if (currentStep.options && data) {
@@ -294,6 +333,7 @@ class ChatBot extends Component {
           previousStep,
           previousSteps,
           renderedSteps,
+          notRenderedSteps,
         });
       }, 300);
     }
@@ -569,6 +609,7 @@ class ChatBot extends Component {
           opened={opened}
           style={style}
           width={width}
+          ref={(elem) => this.chatBotContainer = elem}
         >
           {!hideHeader && header}
           <Content
