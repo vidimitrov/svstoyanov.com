@@ -17,5 +17,7 @@ export default {
   },
   contactMeSection: {
     borderTop: '1px solid ' + colors.white,
+    overflow: 'auto',
+    height: '400px',
   },
 };

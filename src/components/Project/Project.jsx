@@ -22,6 +22,7 @@ class Project extends React.Component {
       id: '1',
       message: 'I hope you liked the project. Do not hesitate to drop me a line about it or for another reason',
       trigger: '2',
+      delay: 2000,
     }, {
       id: '2',
       options: [
@@ -50,6 +51,17 @@ class Project extends React.Component {
             </Grid>
           </Grid>
           <Grid item xs={12} className={classes.contactMeSection}>
+
+            <h1 className={classes.headline}>{project.headline}</h1>
+            <h1 className={classes.headline}>{project.headline}</h1>
+            <h1 className={classes.headline}>{project.headline}</h1>
+            <h1 className={classes.headline}>{project.headline}</h1>
+            <h1 className={classes.headline}>{project.headline}</h1>
+            <h1 className={classes.headline}>{project.headline}</h1>
+            <h1 className={classes.headline}>{project.headline}</h1>
+            <h1 className={classes.headline}>{project.headline}</h1>
+            <h1 className={classes.headline}>{project.headline}</h1>
+            <h1 className={classes.headline}>{project.headline}</h1>
             <div className={classes.chatContainer}>
               <div className={classes.chatWrapper}>
                 <ThemeProvider theme={chatTheme}>
@@ -61,6 +73,7 @@ class Project extends React.Component {
                     hideUserAvatar={true}
                     hideBotAvatar={false}
                     hideSubmitButton={true}
+                    renderWhenVisible={true}
                     className='chat-bot'
                     contentStyle={{
                       height: 'calc(100% - 75px)',

@@ -3,6 +3,7 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import Observer from 'react-intersection-observer';
 import Random from 'random-id';
 import {CustomStep, OptionsStep, TextStep} from './steps';
 import schema from './schemas/schema';
@@ -31,6 +32,8 @@ class ChatBot extends Component {
       currentStep: {},
       previousStep: {},
       steps: {},
+      observable: false,
+      pendingState: null,
       disabled: true,
       opened: props.opened || !props.floating,
       inputValue: '',
@@ -61,8 +64,10 @@ class ChatBot extends Component {
       customDelay,
       userAvatar,
       userDelay,
+      renderWhenVisible,
     } = this.props;
     const steps = {};
+    const {observable} = this.state;
 
     const defaultBotSettings = {delay: botDelay, avatar: botAvatar};
     const defaultUserSettings = {delay: userDelay, avatar: userAvatar};
@@ -107,18 +112,48 @@ class ChatBot extends Component {
       },
     );
 
-    this.setState({
-      currentStep,
-      defaultUserSettings,
-      previousStep,
-      previousSteps,
-      renderedSteps,
-      notRenderedSteps: notRenderedSteps || [],
-      steps,
-    });
+    if (renderWhenVisible) {
+      if (observable) {
+        this.setState({
+          currentStep,
+          defaultUserSettings,
+          previousStep,
+          previousSteps,
+          renderedSteps,
+          notRenderedSteps: notRenderedSteps || [],
+          steps,
+        });
 
-    if (this.props.handleStepChange) {
-      this.props.handleStepChange(currentStep);
+        if (this.props.handleStepChange) {
+          this.props.handleStepChange(currentStep);
+        }
+      } else {
+        this.setState({
+          pendingState: {
+            currentStep,
+            defaultUserSettings,
+            previousStep,
+            previousSteps,
+            renderedSteps,
+            notRenderedSteps: notRenderedSteps || [],
+            steps,
+          },
+        });
+      }
+    } else {
+      this.setState({
+        currentStep,
+        defaultUserSettings,
+        previousStep,
+        previousSteps,
+        renderedSteps,
+        notRenderedSteps: notRenderedSteps || [],
+        steps,
+      });
+
+      if (this.props.handleStepChange) {
+        this.props.handleStepChange(currentStep);
+      }
     }
   }
 
@@ -147,7 +182,6 @@ class ChatBot extends Component {
       );
     }
     this.content.addEventListener('DOMNodeInserted', this.onNodeInserted);
-    document.addEventListener('visibilitychange', this.handleVisibilityChange);
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -160,12 +194,6 @@ class ChatBot extends Component {
 
   componentWillUnmount() {
     this.content.removeEventListener('DOMNodeInserted', this.onNodeInserted);
-    document.removeEventListener('visibilitychange', this.handleVisibilityChange);
-  }
-
-  handleVisibilityChange(e) {
-    // console.log('visibility change: ', e, document.hidden);
-    // TODO: Use the **visibilitychange** event to pause/resume chat flow. Pause when hidden, resume when visible.
   }
 
   onNodeInserted(event) {
@@ -593,7 +621,14 @@ class ChatBot extends Component {
     const inputPlaceholder = speaking ? recognitionPlaceholder : placeholder;
 
     return (
-      <div className={`rsc ${className}`}>
+      <Observer
+        // triggerOnce={true}
+        onChange={(inView) => {
+          if (inView) {
+            this.setState(this.state.pendingState);
+          }
+        }}
+        className={`rsc ${className}`}>
         {floating && (
           <FloatButton
             className="rsc-float-button"
@@ -649,7 +684,7 @@ class ChatBot extends Component {
             )}
           </Footer>
         </ChatBotContainer>
-      </div>
+      </Observer>
     );
   }
 }
@@ -676,6 +711,7 @@ ChatBot.propTypes = {
   hideHeader: PropTypes.bool,
   hideSubmitButton: PropTypes.bool,
   hideUserAvatar: PropTypes.bool,
+  renderWhenVisible: PropTypes.bool,
   inputStyle: PropTypes.object,
   opened: PropTypes.bool,
   toggleFloating: PropTypes.func,
@@ -710,6 +746,7 @@ ChatBot.defaultProps = {
   headerComponent: undefined,
   headerTitle: 'Chat',
   hideBotAvatar: false,
+  renderWhenVisible: false,
   hideHeader: false,
   hideSubmitButton: false,
   hideUserAvatar: false,
