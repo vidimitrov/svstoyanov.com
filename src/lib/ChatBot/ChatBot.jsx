@@ -294,6 +294,10 @@ class ChatBot extends Component {
       const trigger = this.getTriggeredStep(option.trigger, currentStep.value);
       delete currentStep.options;
 
+      if (option.callback) {
+        option.callback();
+      }
+
       // replace choose option for user message
       currentStep = Object.assign({}, currentStep, option, defaultUserSettings, {
         user: true,
