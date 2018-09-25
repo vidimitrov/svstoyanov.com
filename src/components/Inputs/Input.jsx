@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
 import styles from './styles';
 
-class NameInput extends React.Component {
+class Input extends React.Component {
   constructor(props) {
     super(props);
 
@@ -24,15 +24,17 @@ class NameInput extends React.Component {
       classes,
       triggerNextStep,
       trigger,
+      placeholder,
+      callback,
     } = this.props;
 
     return (
-      <div className={classes.nameInputWrapper}>
+      <div className={classes.inputWrapper}>
         <input
           type="text"
           className={classes.input}
-          ref={(inputRef) => (this.nameInput = inputRef)}
-          placeholder="Type your name..."
+          ref={(inputRef) => (this.input = inputRef)}
+          placeholder={placeholder}
           value={value}
           onChange={this.onValueChange}
           onKeyPress={(e) => {
@@ -42,8 +44,12 @@ class NameInput extends React.Component {
                 externalTrigger: true,
                 value: this.state.value,
               });
-              this.nameInput.blur();
-              this.nameInput.disabled = true;
+              this.input.blur();
+              this.input.disabled = true;
+
+              if (callback) {
+                callback(this.state.value);
+              }
             }
           }} />
       </div>
@@ -51,10 +57,12 @@ class NameInput extends React.Component {
   }
 }
 
-NameInput.propTypes = {
+Input.propTypes = {
   classes: PropTypes.object.isRequired,
   triggerNextStep: PropTypes.func,
+  callback: PropTypes.func,
   trigger: PropTypes.string,
+  placeholder: PropTypes.string,
 };
 
-export default withStyles(styles)(NameInput);
+export default withStyles(styles)(Input);
