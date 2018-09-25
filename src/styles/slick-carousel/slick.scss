@@ -27,6 +27,10 @@
 
     margin: 0;
     padding: 0;
+
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    flex-basis: 50%;
 }
 .slick-list:focus
 {

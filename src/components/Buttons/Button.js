@@ -12,6 +12,7 @@ const styles = {
     maxWidth: '400px',
     textAlign: 'center',
     color: colors.primary,
+    margin: '20px 0',
   },
   highlight: {
     '&:hover': {

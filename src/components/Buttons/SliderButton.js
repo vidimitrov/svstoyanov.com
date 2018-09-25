@@ -35,7 +35,7 @@ const SliderButton = ({...props}) => {
   } = props;
 
   return (
-    <div className={classes.button} onClick={onClick}>
+    <Grid item xs={3} className={classes.button} onClick={onClick}>
       <Grid container direction='row' justify='center' alignItems='center'>
         {prev && <Grid item className={classes.center} xs={2} sm={2} md={2} lg={2}>
           <img src={PrevButton} alt='' />
@@ -47,7 +47,7 @@ const SliderButton = ({...props}) => {
           <img src={NextButton} alt='' />
         </Grid>}
       </Grid>
-    </div>
+    </Grid>
   );
 };
 

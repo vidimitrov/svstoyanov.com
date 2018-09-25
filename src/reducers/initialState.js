@@ -11,7 +11,7 @@ export const projectsInitialState = [{
   headline: 'Its all about building apps',
   shortDescription: 'Snapp Builder is first of its kind app for building apps',
   description: 'Snapp Builder is first of its kind app for building apps',
-  duration: '1 year',
+  duration: '1_YEAR',
   client: {
     name: 'Ch Ch Tecnologies',
     description: 'Ch Ch Technologies description',
@@ -26,7 +26,7 @@ export const projectsInitialState = [{
   headline: 'Its all about online presence',
   shortDescription: 'Seemba helps SMEs to build their online presence',
   description: 'Seemba helps SMEs to build their online presence',
-  duration: '3 year',
+  duration: '3_YEARS',
   client: {
     name: 'Ch Ch Tecnologies',
     description: 'Ch Ch Technologies description',
@@ -41,7 +41,7 @@ export const projectsInitialState = [{
   headline: 'Its all about history',
   shortDescription: 'History Park is a park of history',
   description: 'Characters that have had created the big part of the European History. Well guess what Bulgaria takes role here in on Balkans with it nation which is several thousand years old. This is History park, it brings Bulgarian and partial Roman history by presenting it in a interactive way and taking you centuries and decades ago. People in the park will be able to experience this time travel, ride horses and shoot with a bow while riding, eat ancient kitchen, leave like the old days, even fight on the arena.',
-  duration: '1 month',
+  duration: '1_MONTH',
   client: {
     name: 'Together Bulgaria',
     description: 'Together Bulgaria description',

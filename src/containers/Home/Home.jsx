@@ -21,10 +21,12 @@ import ProjectsSlider from '../../components/ProjectsSlider/ProjectsSlider';
 
 import style from './styles.jsx';
 import chatTheme from '../Chat/styles/theme';
-import bgImage from '../../assets/img/bg.png';
+// import bgImage from '../../assets/img/bg.png';
 import avatar from '../../assets/img/sto-avatar.png';
 
 const APP_URL = 'http://localhost:3000';
+const mp4Video = require('../../assets/video/bg-spin.mp4');
+const webmVideo = require('../../assets/video/bg-spin.webm');
 
 firebase.initializeApp({
   apiKey: 'AIzaSyA7pJMXQS-7h3xYDiUF5Uz5kSiodXZSVCw',
@@ -240,9 +242,13 @@ class Home extends React.Component {
       <Grid container justify='flex-end'
         className={classes.container}
         style={{
-          backgroundImage: 'url(' + bgImage + ')',
-          backgroundSize: 'cover',
+          // backgroundImage: 'url(' + bgImage + ')',
+          // backgroundSize: 'cover',
         }}>
+        <video autoPlay muted loop className={classes.videoBackground}>
+          <source src={mp4Video} type="video/mp4" />
+          <source src={webmVideo} type="video/webm" />
+        </video>
         <ReactAudioPlayer
           autoPlay
           src={`${APP_URL}/background-sound.mp3`}
@@ -268,6 +274,7 @@ class Home extends React.Component {
                   cache={true}
                   contentStyle={{
                     height: 'calc(100% - 75px)',
+                    overflowX: 'hidden',
                   }}
                   stepContainerStyle={{
                     backgroundColor: 'transparent',
