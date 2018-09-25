@@ -8,11 +8,14 @@ import {ThemeProvider} from 'styled-components';
 import ChatBot from '../../lib/ChatBot';
 import ReactAudioPlayer from 'react-audio-player';
 import Grid from 'material-ui/Grid';
+import firebase from 'firebase/app';
+import 'firebase/functions';
 
 import Preloader from '../../components/Preloader/Preloader';
 import Footer from '../../components/Footer/Footer';
 import CustomOptions from '../../components/CustomOptions/CustomOptions';
-import NameInput from '../../components/Inputs/NameInput';
+import Input from '../../components/Inputs/Input';
+import TextArea from '../../components/Inputs/TextArea';
 import NavigationButton from '../../components/Buttons/NavigationButton';
 import ProjectsSlider from '../../components/ProjectsSlider/ProjectsSlider';
 
@@ -22,6 +25,11 @@ import bgImage from '../../assets/img/bg.png';
 import avatar from '../../assets/img/sto-avatar.png';
 
 const APP_URL = 'http://localhost:3000';
+
+firebase.initializeApp({
+  apiKey: 'AIzaSyA7pJMXQS-7h3xYDiUF5Uz5kSiodXZSVCw',
+  projectId: 'svstoyanov-com',
+});
 
 class Home extends React.Component {
   constructor(props) {
@@ -63,7 +71,9 @@ class Home extends React.Component {
       delay: 4000,
     }, {
       id: 'name-input',
-      component: (<NameInput trigger={'has-name-what-to-do'} />),
+      component: (
+        <Input trigger={'has-name-what-to-do'} placeholder={'Type your name...'} />
+      ),
     }, {
       id: 'has-name-what-to-do',
       message: 'Nice to meet you {previousValue}. What can I do for you?',
@@ -134,6 +144,94 @@ class Home extends React.Component {
     }, {
       id: 'here-if-needed',
       message: 'Okay, if you need me I am here',
+    }, {
+      id: 'contact-me-request',
+      message: 'It will be great if you want to discuss a project or an idea. Do you want to leave me a message?',
+      trigger: 'contact-me-request-options',
+    }, {
+      id: 'contact-me-request-options',
+      options: [
+        {value: true, label: 'Yes', trigger: 'email-address'},
+        {value: false, label: 'No', trigger: 'here-if-needed'},
+      ],
+    }, {
+      id: 'email-address',
+      message: 'Tell me your email address first',
+      trigger: 'email-input',
+    }, {
+      id: 'email-input',
+      component: (
+        <Input
+          trigger={'message-content'}
+          placeholder={'Type your email...'}
+          callback={(value) => {
+            localStorage.setItem('cf-email', value);
+          }} />
+      ),
+    }, {
+      id: 'message-content',
+      message: 'Now type your message',
+      trigger: 'message-content-input',
+    }, {
+      id: 'message-content-input',
+      component: (
+        <TextArea
+          trigger={'confirmation-before-send-1'}
+          placeholder={'Type your message...'}
+          callback={(value) => {
+            localStorage.setItem('cf-message', value);
+          }} />
+      ),
+    }, {
+      id: 'confirmation-before-send-1',
+      message: 'Here is your message: {previousValue}.',
+      trigger: 'confirmation-before-send-2',
+    }, {
+      id: 'confirmation-before-send-2',
+      message: 'Do you want to edit it or its fine to be sent?',
+      trigger: 'confirmation-before-send-options',
+    }, {
+      id: 'confirmation-before-send-options',
+      options: [
+        {value: true, label: 'Edit', trigger: 'edit-message-content-input'},
+        {
+          value: false,
+          label: 'Send it',
+          trigger: 'message-sent',
+          callback: () => {
+            let sendEmail = firebase.functions().httpsCallable('sendEmail');
+            sendEmail({
+              email: localStorage.getItem('cf-email'),
+              message: localStorage.getItem('cf-message'),
+            }).then((result) => {
+              localStorage.removeItem('cf-email');
+              localStorage.removeItem('cf-message');
+            });
+          },
+        },
+      ],
+    }, {
+      id: 'edit-message-content-input',
+      component: (
+        <TextArea
+          trigger={'confirmation-before-send-editted-1'}
+          initialValue={true}
+          placeholder={'Type your message...'}
+          callback={(value) => {
+            localStorage.setItem('cf-message', value);
+          }} />
+      ),
+    }, {
+      id: 'confirmation-before-send-editted-1',
+      message: 'Here is your message: {previousValue}.',
+      trigger: 'confirmation-before-send-editted-2',
+    }, {
+      id: 'confirmation-before-send-editted-2',
+      message: 'Do you want to edit it or its fine to be sent?',
+      trigger: 'confirmation-before-send-options',
+    }, {
+      id: 'message-sent',
+      message: 'Your message was sent successfully. I will reach you out soon :)',
     }];
 
     const {activeStep} = this.state;
