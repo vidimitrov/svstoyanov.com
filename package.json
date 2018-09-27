@@ -4,7 +4,8 @@
   "private": true,
   "homepage": "http://svstoyanov.github.io",
   "dependencies": {
-    "@material-ui/icons": "^1.0.0-rc.0",
+    "@material-ui/core": "^1.2.1",
+    "@material-ui/icons": "^1.1.0",
     "circular-json": "^0.5.4",
     "firebase": "^5.3.0",
     "material-ui": "^1.0.0-beta.47",
