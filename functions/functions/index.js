@@ -1,7 +1,8 @@
 const cors = require('cors')({ origin: true });
 const functions = require('firebase-functions');
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey('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');
+const DOMAIN = functions.config().smtp.domain;
+const API_KEY = functions.config().mailgun.apikey;
+const mailgun = require('mailgun-js')({ apiKey: API_KEY, domain: DOMAIN });
 
 exports.sendEmail = functions.https.onRequest((request, response) => {
   cors(request, response, () => {
@@ -10,14 +11,16 @@ exports.sendEmail = functions.https.onRequest((request, response) => {
     const email = request.body.data.email;
     const message = request.body.data.message;
 
-    const msg = {
-      to: 'vidimi7rov@gmail.com',
+    const data = {
+      to: 'sstoyanov08@gmail.com',
       from: email,
       subject: 'Message from your weird bot',
       text: message,
     };
 
-    sgMail.send(msg);
+    mailgun.messages().send(data, (error, body) => {
+      console.log(body);
+    });
 
     response.send({
       "data": {
