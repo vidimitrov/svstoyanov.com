@@ -108,7 +108,10 @@ class TextStep extends Component {
             this.state.loading &&
             <Loading />
           }
-          {!this.state.loading && this.renderMessage()}
+          {(!this.state.loading && user) &&
+            <span style={{color: 'rgba(255,255,255,0.54)'}}>&gt; {this.renderMessage()}</span>
+          }
+          {(!this.state.loading && !user) && this.renderMessage()}
         </Bubble>
       </TextStepContainer>
     );

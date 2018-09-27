@@ -3,9 +3,10 @@ import {colors} from '../../styles';
 export default {
   footer: {
     borderTop: '1px solid ' + colors.gray,
-    padding: 10,
-    height: '15%',
+    alignItems: 'center',
+    height: '100px',
     position: 'fixed',
+    padding: 10,
     bottom: 0,
   },
   musicPlayer: {

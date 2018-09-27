@@ -1,5 +1,6 @@
 export default {
   input: {
+    fontFamily: 'Space Mono',
     backgroundColor: 'transparent',
     borderBottom: '1px solid #fff',
     borderRadius: 0,
@@ -12,6 +13,7 @@ export default {
     padding: '10px',
   },
   textarea: {
+    fontFamily: 'Space Mono',
     backgroundColor: 'transparent',
     borderBottom: '1px solid #fff',
     borderRadius: 0,

@@ -21,12 +21,11 @@ import ProjectsSlider from '../../components/ProjectsSlider/ProjectsSlider';
 
 import style from './styles.jsx';
 import chatTheme from '../Chat/styles/theme';
-// import bgImage from '../../assets/img/bg.png';
 import avatar from '../../assets/img/sto-avatar.png';
+import mp4Video from '../../assets/video/bg-spin.mp4';
+import webmVideo from '../../assets/video/bg-spin.webm';
 
 const APP_URL = 'http://localhost:3000';
-const mp4Video = require('../../assets/video/bg-spin.mp4');
-const webmVideo = require('../../assets/video/bg-spin.webm');
 
 firebase.initializeApp({
   apiKey: 'AIzaSyA7pJMXQS-7h3xYDiUF5Uz5kSiodXZSVCw',
@@ -37,7 +36,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      muted: true, // FIXME: Set to false before releasing
+      muted: true,
       activeStep: null,
     };
     this.togglePlayer = this.togglePlayer.bind(this);
@@ -240,11 +239,7 @@ class Home extends React.Component {
 
     return (
       <Grid container justify='flex-end'
-        className={classes.container}
-        style={{
-          // backgroundImage: 'url(' + bgImage + ')',
-          // backgroundSize: 'cover',
-        }}>
+        className={classes.container}>
         <video autoPlay muted loop className={classes.videoBackground}>
           <source src={mp4Video} type="video/mp4" />
           <source src={webmVideo} type="video/webm" />
@@ -273,7 +268,7 @@ class Home extends React.Component {
                   className='chat-bot'
                   cache={true}
                   contentStyle={{
-                    height: 'calc(100% - 75px)',
+                    height: '100%',
                     overflowX: 'hidden',
                   }}
                   stepContainerStyle={{
@@ -350,12 +345,10 @@ class Home extends React.Component {
               </Grid>
               <Grid item xs={3} sm={3} md={3}>
                 <NavigationButton
-                  // FIXME: Change when all the final steps are updated
-                  active={activeStep && activeStep.id === 'about-me'}
+                  active={activeStep && activeStep.id === 'contact-me-request-options'}
                   onClick={() => {
                     const chat = this.getChatComponent();
-                    // FIXME: Change when all the final steps are updated
-                    chat.triggerNextStep({stepId: 'about-me', externalTrigger: true});
+                    chat.triggerNextStep({stepId: 'contact-me-request', externalTrigger: true});
                     window.open('https://linkedin.com', '_blank');
                   }}>
                   CONTACT_ME

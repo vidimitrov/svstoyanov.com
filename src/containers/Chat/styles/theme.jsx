@@ -6,6 +6,6 @@ export default {
   headerFontSize: '15px',
   botBubbleColor: 'transparent',
   botFontColor: '#fff',
-  userBubbleColor: '#02A0A7',
-  userFontColor: '#fff',
+  userBubbleColor: 'transparent',
+  userFontColor: 'rgba(255, 255, 255, 0.54)',
 };
