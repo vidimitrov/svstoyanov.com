@@ -73,7 +73,13 @@ class Home extends React.Component {
     }, {
       id: 'name-input',
       component: (
-        <Input trigger={'has-name-what-to-do'} placeholder={'Type your name...'} />
+        <Input
+          trigger={'has-name-what-to-do'}
+          placeholder={'Type your name...'}
+          callback={(value) => {
+            localStorage.setItem('username', value);
+          }}
+        />
       ),
     }, {
       id: 'has-name-what-to-do',
@@ -146,6 +152,9 @@ class Home extends React.Component {
       id: 'here-if-needed',
       message: 'Okay, if you need me I am here',
     }, {
+      id: 'goodbye-message',
+      message: `Okay, it was pleasure talking with you. If you need me just rub the lamp. Just kidding, you can select from the menu what you would like. See you soon  ${localStorage.getItem('username')}!`,
+    }, {
       id: 'contact-me-request',
       message: 'It will be great if you want to discuss a project or an idea. Do you want to leave me a message?',
       trigger: 'contact-me-request-options',
@@ -153,7 +162,7 @@ class Home extends React.Component {
       id: 'contact-me-request-options',
       options: [
         {value: true, label: 'Yes', trigger: 'email-address'},
-        {value: false, label: 'No', trigger: 'here-if-needed'},
+        {value: false, label: 'No', trigger: 'goodbye-message'},
       ],
     }, {
       id: 'email-address',
@@ -232,7 +241,7 @@ class Home extends React.Component {
       trigger: 'confirmation-before-send-options',
     }, {
       id: 'message-sent',
-      message: 'Your message was sent successfully. I will reach you out soon :)',
+      message: `Sending your message to: svs7oyanov@gmail.com. Its takes me 1 day to answer an email. ${localStorage.getItem('username')} I am going to grab a coffee, meanwhile you can continue to browse!`,
     }];
 
     const {activeStep} = this.state;
@@ -251,70 +260,67 @@ class Home extends React.Component {
         />
         <Preloader />
         <Grid item xs={12}>
-          <div className={classes.chatContainer}>
-            <div className={classes.chatWrapper}>
-              <ThemeProvider theme={chatTheme}>
-                <ChatBot
-                  ref={(element) => {
-                    window.chat = element;
-                    this.chat = element;
-                  }}
-                  steps={steps}
-                  botAvatar={avatar}
-                  hideHeader={true}
-                  hideUserAvatar={true}
-                  hideBotAvatar={false}
-                  hideSubmitButton={true}
-                  className='chat-bot'
-                  cache={true}
-                  contentStyle={{
-                    height: '100%',
-                    overflowX: 'hidden',
-                  }}
-                  stepContainerStyle={{
-                    backgroundColor: 'transparent',
-                    padding: 0,
-                    width: '500px',
-                    margin: '0 auto',
-                  }}
-                  avatarStyle={{
-                    borderRadius: 0,
-                    minWidth: '38px',
-                  }}
-                  bubbleStyle={{
-                    fontFamily: 'Space Mono',
-                    fontSize: '16px',
-                    maxWidth: '100%',
-                  }}
-                  bubbleOptionStyle={{
-                    fontFamily: 'Space Mono',
-                    border: '1px solid #02A0A7',
-                    borderRadius: '0px',
-                  }}
-                  footerStyle={{
-                    // position: 'absolute',
-                    // bottom: 0,
-                    // width: '100%',
-                  }}
-                  inputStyle={{
-                    backgroundColor: 'transparent',
-                    borderBottom: '1px solid #fff',
-                    borderRadius: 0,
-                    borderTop: 0,
-                    color: '#fff',
-                  }}
-                  placeholder='Enter your message here...'
-                  handleEnd={({renderedSteps, steps, values}) => {
-                    // TODO: Handle the end of the flow
-                  }}
-                  handleStepChange={(activeStep) => {
-                    this.setState({
-                      ...this.state,
-                      activeStep,
-                    });
-                  }} />
-              </ThemeProvider>
-            </div>
+          <div className={classes.chatContainer + ' chat-container'}>
+            <ThemeProvider theme={chatTheme}>
+              <ChatBot
+                ref={(element) => {
+                  window.chat = element;
+                  this.chat = element;
+                }}
+                steps={steps}
+                botAvatar={avatar}
+                hideHeader={true}
+                hideUserAvatar={true}
+                hideBotAvatar={false}
+                hideSubmitButton={true}
+                className='chat-bot'
+                cache={true}
+                contentStyle={{
+                  overflowX: 'hidden',
+                  maxHeight: '100%',
+                  height: 'auto',
+                  position: 'absolute',
+                  bottom: 0,
+                  width: '100%',
+                }}
+                stepContainerStyle={{
+                  backgroundColor: 'transparent',
+                  padding: 0,
+                  width: '500px',
+                  margin: '0 auto',
+                }}
+                avatarStyle={{
+                  borderRadius: 0,
+                  minWidth: '38px',
+                }}
+                bubbleStyle={{
+                  fontFamily: 'Space Mono',
+                  fontSize: '16px',
+                  maxWidth: '100%',
+                }}
+                bubbleOptionStyle={{
+                  fontFamily: 'Space Mono',
+                  border: '1px solid #02A0A7',
+                  borderRadius: '0px',
+                }}
+                inputStyle={{
+                  backgroundColor: 'transparent',
+                  borderBottom: '1px solid #fff',
+                  borderRadius: 0,
+                  borderTop: 0,
+                  color: '#fff',
+                }}
+                placeholder='Enter your message here...'
+                handleEnd={({renderedSteps, steps, values}) => {
+                  // TODO: Handle the end of the flow
+                }}
+                handleStepChange={(activeStep) => {
+                  this.setState({
+                    ...this.state,
+                    activeStep,
+                  });
+                }} />
+            </ThemeProvider>
           </div>
         </Grid>
         <Footer
