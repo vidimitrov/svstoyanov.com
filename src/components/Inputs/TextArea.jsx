@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
 import styles from './styles';
 
-class Input extends React.Component {
+class TextArea extends React.Component {
   constructor(props) {
     super(props);
 
@@ -72,7 +72,7 @@ class Input extends React.Component {
   }
 }
 
-Input.propTypes = {
+TextArea.propTypes = {
   classes: PropTypes.object.isRequired,
   triggerNextStep: PropTypes.func,
   callback: PropTypes.func,
@@ -81,4 +81,4 @@ Input.propTypes = {
   initialValue: PropTypes.bool,
 };
 
-export default withStyles(styles)(Input);
+export default withStyles(styles)(TextArea);

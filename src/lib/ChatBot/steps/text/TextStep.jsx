@@ -58,6 +58,7 @@ class TextStep extends Component {
         steps,
         previousStep,
         triggerNextStep,
+        previousValue,
       });
     }
 

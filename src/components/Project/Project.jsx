@@ -30,6 +30,18 @@ class Project extends React.Component {
       muted: true,
     };
     this.togglePlayer = this.togglePlayer.bind(this);
+    this.onNodeInserted = this.onNodeInserted.bind(this);
+  }
+
+  componentDidMount() {
+    this.mainSection.addEventListener('DOMNodeInserted', this.onNodeInserted);
+  }
+  componentWillUnmount() {
+    this.mainSection.removeEventListener('DOMNodeInserted', this.onNodeInserted);
+  }
+
+  onNodeInserted(event) {
+    event.currentTarget.scrollTop = event.currentTarget.scrollHeight;
   }
 
   togglePlayer() {
@@ -163,7 +175,11 @@ class Project extends React.Component {
           <source src={mp4Video} type="video/mp4" />
           <source src={webmVideo} type="video/webm" />
         </video>
-        <Grid item xs={12} className={classes.mainSection}>
+        <div
+          ref={(el) => {
+            this.mainSection = el;
+          }}
+          className={classes.mainSection}>
           <Grid container className={classes.mainSectionContainer}>
             <Grid item xs={3} className={classes.sidebar}>
               <Grid container direction={'column'}>
@@ -261,7 +277,7 @@ class Project extends React.Component {
               />
             </ThemeProvider>
           </div>
-        </Grid>
+        </div>
         <Grid item xs={12}>
           <Footer
             muted={this.state.muted}
@@ -275,7 +291,7 @@ class Project extends React.Component {
               </Grid>
             } />
         </Grid>
-      </Grid>
+      </Grid >
     );
   }
 }
