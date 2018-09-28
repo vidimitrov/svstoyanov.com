@@ -1,3 +1,4 @@
+/* eslint no-restricted-globals:0 */
 import React from 'react';
 import PropTypes from 'prop-types';
 import {compose} from 'recompose';
@@ -47,7 +48,7 @@ class Project extends React.Component {
   }
 
   render() {
-    const {classes, project} = this.props;
+    const {classes, project, projects} = this.props;
     const projectCodeName = `P${project.id}_${project.name.split(' ').join('_').toUpperCase()}`;
     const steps = [{
       id: '1',
@@ -58,7 +59,22 @@ class Project extends React.Component {
       id: '2',
       options: [
         {value: 'contact-me', label: 'Contact me', trigger: 'email-address'},
-        {value: 'next-project', label: 'Show me your next project'},
+        {
+          value: 'next-project',
+          label: 'Show me your next project',
+          callback: () => {
+            let nextId = project.id + 1;
+            if (nextId > projects.length) {
+              nextId = nextId % projects.length;
+            }
+
+            // FIXME: Temporary workaround to redirect with forced "refresh" of the page
+            location.replace('http://' + location.host + '/projects/' + nextId);
+
+            // TODO: Continue the proper solution with react-router
+            // history.push(`/projects/${nextId}`);
+          },
+        },
       ],
     }, {
       id: 'email-address',
@@ -129,7 +145,7 @@ class Project extends React.Component {
       ),
     }, {
       id: 'confirmation-before-send-editted-1',
-      message: 'Here is your message: {previousValue}.',
+      message: 'Here is your message: {previousValue}',
       trigger: 'confirmation-before-send-editted-2',
     }, {
       id: 'confirmation-before-send-editted-2',
@@ -152,7 +168,9 @@ class Project extends React.Component {
             <Grid item xs={3} className={classes.sidebar}>
               <Grid container direction={'column'}>
                 <Grid item className={classes.closeIconWrapper}>
-                  <CloseIcon className={classes.closeIcon} />
+                  <CloseIcon className={classes.closeIcon} onClick={() => {
+                    this.props.history.goBack();
+                  }} />
                 </Grid>
                 <Grid item>
                   <div><span className={classes.bold}>PROJECT_NAME:</span> {project.name}</div>
@@ -266,12 +284,15 @@ Project.propTypes = {
   classes: PropTypes.object.isRequired,
   match: PropTypes.object,
   project: PropTypes.object,
+  projects: PropTypes.array,
+  history: PropTypes.any,
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    projects: state.projects,
     project: state.projects.find((project, index) => {
-      return project.id === ownProps.match.params.projectId;
+      return (project.id + '') === ownProps.match.params.projectId;
     }),
   };
 };
