@@ -1,7 +1,11 @@
+/* eslint react/no-find-dom-node:0 */
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Loading from '../common/Loading';
 import CustomStepContainer from './CustomStepContainer';
+
+const LIMIT = 450;
 
 class CustomStep extends Component {
   /* istanbul ignore next */
@@ -10,6 +14,7 @@ class CustomStep extends Component {
 
     this.state = {
       loading: true,
+      stepEl: null,
     };
 
     this.renderComponent = this.renderComponent.bind(this);
@@ -26,6 +31,11 @@ class CustomStep extends Component {
         }
       });
     }, delay);
+
+    const stepEl = ReactDOM.findDOMNode(this.stepContainer);
+    this.setState({
+      stepEl,
+    });
   }
 
   renderComponent() {
@@ -40,13 +50,19 @@ class CustomStep extends Component {
   }
 
   render() {
-    const {loading} = this.state;
+    const {loading, stepEl} = this.state;
     const {style} = this.props;
 
     return (
       <CustomStepContainer
         className="rsc-cs"
-        style={style}
+        style={{
+          ...style,
+          opacity: stepEl ? 1 - (0.8 - stepEl.getBoundingClientRect().y / LIMIT) : 1,
+        }}
+        ref={(element) => {
+          this.stepContainer = element;
+        }}
       >
         {
           loading ? (
@@ -62,6 +78,7 @@ CustomStep.propTypes = {
   step: PropTypes.object.isRequired,
   steps: PropTypes.object.isRequired,
   style: PropTypes.object,
+  isLast: PropTypes.bool.isRequired,
   previousStep: PropTypes.object.isRequired,
   triggerNextStep: PropTypes.func.isRequired,
 };

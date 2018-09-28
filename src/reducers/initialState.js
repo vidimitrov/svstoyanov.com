@@ -12,9 +12,12 @@ export const projectsInitialState = [{
   shortDescription: 'Snapp Builder is first of its kind app for building apps',
   description: 'Snapp Builder is first of its kind app for building apps',
   duration: '1_YEAR',
-  client: {
-    name: 'Ch Ch Tecnologies',
-    description: 'Ch Ch Technologies description',
+  review: {
+    companyName: 'Ch Ch Tecnologies',
+    avatar: '',
+    content: 'Ch Ch Technologies description',
+    representative: 'GEORGI_DETELINOV',
+    representativeRole: 'FINANCE_CONSULTANT',
   },
   landingImage: null,
   peopleInterest: 0.24,
@@ -27,9 +30,12 @@ export const projectsInitialState = [{
   shortDescription: 'Seemba helps SMEs to build their online presence',
   description: 'Seemba helps SMEs to build their online presence',
   duration: '3_YEARS',
-  client: {
-    name: 'Ch Ch Tecnologies',
-    description: 'Ch Ch Technologies description',
+  review: {
+    companyName: 'Ch Ch Tecnologies',
+    avatar: '',
+    content: 'Ch Ch Technologies description',
+    representative: 'GEORGI_DETELINOV',
+    representativeRole: 'FINANCE_CONSULTANT',
   },
   landingImage: null,
   peopleInterest: 0.24,

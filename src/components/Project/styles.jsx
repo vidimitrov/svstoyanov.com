@@ -43,7 +43,6 @@ export default {
   },
   contactMeSection: {
     overflow: 'auto',
-    height: '200px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

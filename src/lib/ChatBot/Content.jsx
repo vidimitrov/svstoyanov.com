@@ -7,7 +7,7 @@ const Content = styled.div`
   padding-top: 6px;
 
   @media screen and (max-width: 568px) {
-    height: ${props => props.floating ? 'calc(100% - 112px)' : ''};
+    height: ${(props) => props.floating ? 'calc(100% - 112px)' : ''};
   }
 `;
 

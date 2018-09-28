@@ -1,5 +1,6 @@
 /* eslint new-cap: 0*/
 /* eslint no-debugger: 0*/
+/* eslint react/no-find-dom-node:0 */
 import _ from 'lodash';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
@@ -41,7 +42,10 @@ class ChatBot extends Component {
       speaking: false,
       recognitionEnable: props.recognitionEnable && Recognition.isSupported(),
       defaultUserSettings: {},
+      contentScrollTop: 0,
     };
+
+    this.counter = 0;
 
     this.renderStep = this.renderStep.bind(this);
     this.getTriggeredStep = this.getTriggeredStep.bind(this);
@@ -53,6 +57,9 @@ class ChatBot extends Component {
     this.onRecognitionStop = this.onRecognitionStop.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSubmitButton = this.handleSubmitButton.bind(this);
+    this.handleContentScroll = this.handleContentScroll.bind(this);
+    this.scrollToBottom = this.scrollToBottom.bind(this);
+    this.onNodeInserted = this.onNodeInserted.bind(this);
   }
 
   componentWillMount() {
@@ -181,6 +188,7 @@ class ChatBot extends Component {
         recognitionLang,
       );
     }
+    this.content.addEventListener('scroll', this.handleContentScroll);
     this.content.addEventListener('DOMNodeInserted', this.onNodeInserted);
   }
 
@@ -193,11 +201,31 @@ class ChatBot extends Component {
   }
 
   componentWillUnmount() {
+    this.content.removeEventListener('scroll', this.handleContentScroll);
     this.content.removeEventListener('DOMNodeInserted', this.onNodeInserted);
   }
 
   onNodeInserted(event) {
-    event.currentTarget.scrollTop = event.currentTarget.scrollHeight;
+    this.scrollToBottom(event.currentTarget);
+  }
+
+  scrollToBottom(el) {
+    const {renderedSteps} = this.state;
+    const renderedStepsCount = renderedSteps.length;
+
+    if (renderedStepsCount > this.counter) {
+      el.scrollTop = el.scrollHeight + 16;
+      this.counter++;
+    }
+  }
+
+  handleContentScroll(event) {
+    const newScrollHeight = Math.ceil(event.currentTarget.scrollTop / 10) * 10;
+    if (this.state.contentScrollTop !== newScrollHeight) {
+      this.setState({
+        contentScrollTop: newScrollHeight,
+      });
+    }
   }
 
   onRecognitionChange(value) {
@@ -546,6 +574,7 @@ class ChatBot extends Component {
           style={step.style || stepContainerStyle}
           previousStep={previousStep}
           triggerNextStep={this.triggerNextStep}
+          isLast={this.isLastPosition(step)}
         />
       );
     }
@@ -558,6 +587,7 @@ class ChatBot extends Component {
           style={step.style || stepContainerStyle}
           triggerNextStep={this.triggerNextStep}
           bubbleOptionStyle={bubbleOptionStyle}
+          isLast={this.isLastPosition(step)}
         />
       );
     }

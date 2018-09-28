@@ -1,10 +1,14 @@
+/* eslint react/no-find-dom-node:0 */
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Bubble from './Bubble';
 import Image from './Image';
 import ImageContainer from './ImageContainer';
 import Loading from '../common/Loading';
 import TextStepContainer from './TextStepContainer';
+
+const LIMIT = 450;
 
 class TextStep extends Component {
   /* istanbul ignore next */
@@ -22,6 +26,7 @@ class TextStep extends Component {
     const {step} = this.props;
     const {component, delay, waitAction} = step;
     const isComponentWaitingUser = component && waitAction;
+
     setTimeout(() => {
       this.setState({loading: false}, () => {
         if (!isComponentWaitingUser && !step.rendered) {
@@ -29,6 +34,11 @@ class TextStep extends Component {
         }
       });
     }, delay);
+
+    const stepEl = ReactDOM.findDOMNode(this.stepContainer);
+    this.setState({
+      stepEl,
+    });
   }
 
   renderMessage() {
@@ -57,6 +67,7 @@ class TextStep extends Component {
   }
 
   render() {
+    const {stepEl} = this.state;
     const {
       step,
       style,
@@ -77,7 +88,13 @@ class TextStep extends Component {
     return (
       <TextStepContainer
         className="rsc-ts"
-        style={style}
+        style={{
+          ...style,
+          opacity: stepEl ? 1 - (0.8 - stepEl.getBoundingClientRect().y / LIMIT) : 1,
+        }}
+        ref={(element) => {
+          this.stepContainer = element;
+        }}
         user={user}
       >
         <ImageContainer

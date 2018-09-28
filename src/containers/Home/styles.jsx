@@ -29,7 +29,4 @@ export default {
   chatContainer: {
     height: '100%',
   },
-  chatWrapper: {
-    height: '100%',
-  },
 };
