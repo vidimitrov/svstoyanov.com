@@ -5,10 +5,14 @@ import {connect} from 'react-redux';
 import withStyles from 'material-ui/styles/withStyles';
 import CloseIcon from '@material-ui/icons/Close';
 import {ThemeProvider} from 'styled-components';
+import firebase from 'firebase/app';
+import 'firebase/functions';
 
 import Grid from 'material-ui/Grid';
 import Footer from '../Footer/Footer';
 import ChatBot from '../../lib/ChatBot';
+import Input from '../../components/Inputs/Input';
+import TextArea from '../../components/Inputs/TextArea';
 
 import style from './styles.jsx';
 import chatTheme from '../../containers/Chat/styles/theme';
@@ -53,12 +57,87 @@ class Project extends React.Component {
     }, {
       id: '2',
       options: [
-        {value: 'contact-me', label: 'Contact me', trigger: '3'},
-        {value: 'next-project', label: 'Show me next project'},
+        {value: 'contact-me', label: 'Contact me', trigger: 'email-address'},
+        {value: 'next-project', label: 'Show me your next project'},
       ],
     }, {
-      id: '3',
-      message: 'What message you want to send me?',
+      id: 'email-address',
+      message: 'Tell me your email address first',
+      trigger: 'email-input',
+    }, {
+      id: 'email-input',
+      component: (
+        <Input
+          trigger={'message-content'}
+          placeholder={'Type your email...'}
+          callback={(value) => {
+            localStorage.setItem('cf-email', value);
+          }} />
+      ),
+    }, {
+      id: 'message-content',
+      message: 'Now type your message',
+      trigger: 'message-content-input',
+    }, {
+      id: 'message-content-input',
+      component: (
+        <TextArea
+          trigger={'confirmation-before-send-1'}
+          placeholder={'Type your message...'}
+          callback={(value) => {
+            localStorage.setItem('cf-message', value);
+          }} />
+      ),
+    }, {
+      id: 'confirmation-before-send-1',
+      message: 'Here is your message: {previousValue}.',
+      trigger: 'confirmation-before-send-2',
+    }, {
+      id: 'confirmation-before-send-2',
+      message: 'Do you want to edit it or its fine to be sent?',
+      trigger: 'confirmation-before-send-options',
+    }, {
+      id: 'confirmation-before-send-options',
+      options: [
+        {value: true, label: 'Edit', trigger: 'edit-message-content-input'},
+        {
+          value: false,
+          label: 'Send it',
+          trigger: 'message-sent',
+          callback: () => {
+            let sendEmail = firebase.functions().httpsCallable('sendEmail');
+            sendEmail({
+              email: localStorage.getItem('cf-email'),
+              message: localStorage.getItem('cf-message'),
+            }).then((result) => {
+              localStorage.removeItem('cf-email');
+              localStorage.removeItem('cf-message');
+            });
+          },
+        },
+      ],
+    }, {
+      id: 'edit-message-content-input',
+      component: (
+        <TextArea
+          trigger={'confirmation-before-send-editted-1'}
+          initialValue={true}
+          placeholder={'Type your message...'}
+          callback={(value) => {
+            localStorage.setItem('cf-message', value);
+          }} />
+      ),
+    }, {
+      id: 'confirmation-before-send-editted-1',
+      message: 'Here is your message: {previousValue}.',
+      trigger: 'confirmation-before-send-editted-2',
+    }, {
+      id: 'confirmation-before-send-editted-2',
+      message: 'Do you want to edit it or its fine to be sent?',
+      trigger: 'confirmation-before-send-options',
+    }, {
+      id: 'message-sent',
+      message: 'Your message was sent successfully. I will reach you out soon :)',
     }];
     const problem = project && project.problem;
 
@@ -129,10 +208,14 @@ class Project extends React.Component {
                 renderWhenVisible={true}
                 className='chat-bot'
                 contentStyle={{
-                  height: 'calc(100% - 75px)',
+                  height: '100%',
+                  overflowX: 'hidden',
                 }}
-                customStyle={{
+                stepContainerStyle={{
                   backgroundColor: 'transparent',
+                  padding: 0,
+                  width: '500px',
+                  margin: '0 auto',
                 }}
                 avatarStyle={{
                   borderRadius: 0,
@@ -147,11 +230,6 @@ class Project extends React.Component {
                   fontFamily: 'Space Mono',
                   border: '1px solid #02A0A7',
                   borderRadius: '0px',
-                }}
-                footerStyle={{
-                  // position: 'absolute',
-                  // bottom: 0,
-                  // width: '100%',
                 }}
                 inputStyle={{
                   backgroundColor: 'transparent',
