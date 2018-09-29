@@ -9,7 +9,7 @@ export const projectsInitialState = [{
   id: 1,
   name: 'Snapp Builder',
   headline: 'Its all about building apps',
-  shortDescription: 'Snapp Builder is first of its kind app for building apps',
+  shortDescription: 'Snapp Builder is first of its kind app for building apps. Snapp Builder is first of its kind app for building apps. Snapp Builder is first of its kind app for building apps',
   description: 'Snapp Builder is first of its kind app for building apps',
   duration: '1_YEAR',
   review: {

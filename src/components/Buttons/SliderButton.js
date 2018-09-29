@@ -23,6 +23,18 @@ const styles = {
   center: {
     textAlign: 'center',
   },
+  prevText: {
+    marginLeft: '16px',
+  },
+  nextText: {
+    marginRight: '16px',
+  },
+  prevContainer: {
+    marginRight: '80px',
+  },
+  nextContainer: {
+    marginLeft: '80px',
+  },
 };
 
 const SliderButton = ({...props}) => {
@@ -35,17 +47,13 @@ const SliderButton = ({...props}) => {
   } = props;
 
   return (
-    <Grid item xs={3} className={classes.button} onClick={onClick}>
+    <Grid item className={`${classes.button} ${prev ? classes.prevContainer : classes.nextContainer}`} onClick={onClick}>
       <Grid container direction='row' justify='center' alignItems='center'>
-        {prev && <Grid item className={classes.center} xs={2} sm={2} md={2} lg={2}>
-          <img src={PrevButton} alt='' />
-        </Grid>}
-        <Grid item xs={10} sm={10} md={10} lg={10}>
-          <span className={classes.highlight}>{children}</span>
-        </Grid>
-        {next && <Grid item className={classes.center} xs={2} sm={2} md={2} lg={2}>
-          <img src={NextButton} alt='' />
-        </Grid>}
+        {prev && <img src={PrevButton} alt='' />}
+        <div>
+          <span className={`${classes.highlight} ${prev ? classes.prevText : classes.nextText}`}>{children}</span>
+        </div>
+        {next && <img src={NextButton} alt='' />}
       </Grid>
     </Grid>
   );

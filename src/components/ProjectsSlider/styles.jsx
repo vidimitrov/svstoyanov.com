@@ -10,6 +10,7 @@ export default {
     flexWrap: 'wrap',
     boxSizing: 'border-box',
     justifyContent: 'center',
+    alignItems: 'center',
     fontFamily: 'Space Mono',
     marginTop: '50px',
     marginBottom: '50px',
