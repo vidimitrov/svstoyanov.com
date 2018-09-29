@@ -329,37 +329,31 @@ class Home extends React.Component {
           content={
             <Grid container justify='space-between'
               className={classes.navigation} >
-              <Grid item xs={3} sm={3} md={3}>
-                <NavigationButton
-                  active={activeStep && activeStep.id === 'my-work-options'}
-                  onClick={() => {
-                    const chat = this.getChatComponent();
-                    chat.triggerNextStep({stepId: 'about-me', externalTrigger: true});
-                  }}>
-                  ABOUT_ME
-                </NavigationButton>
-              </Grid>
-              <Grid item xs={3} sm={3} md={3}>
-                <NavigationButton
-                  active={activeStep && activeStep.id === 'projects-slider'}
-                  onClick={() => {
-                    const chat = this.getChatComponent();
-                    chat.triggerNextStep({stepId: 'my-work', externalTrigger: true});
-                  }}>
-                  MY_WORK
-                </NavigationButton>
-              </Grid>
-              <Grid item xs={3} sm={3} md={3}>
-                <NavigationButton
-                  active={activeStep && activeStep.id === 'contact-me-request-options'}
-                  onClick={() => {
-                    const chat = this.getChatComponent();
-                    chat.triggerNextStep({stepId: 'contact-me-request', externalTrigger: true});
-                    window.open('https://linkedin.com', '_blank');
-                  }}>
-                  CONTACT_ME
-                </NavigationButton>
-              </Grid>
+              <NavigationButton
+                active={activeStep && activeStep.id === 'my-work-options'}
+                onClick={() => {
+                  const chat = this.getChatComponent();
+                  chat.triggerNextStep({stepId: 'about-me', externalTrigger: true});
+                }}>
+                ABOUT_ME
+              </NavigationButton>
+              <NavigationButton
+                active={activeStep && activeStep.id === 'projects-slider'}
+                onClick={() => {
+                  const chat = this.getChatComponent();
+                  chat.triggerNextStep({stepId: 'my-work', externalTrigger: true});
+                }}>
+                MY_WORK
+              </NavigationButton>
+              <NavigationButton
+                active={activeStep && activeStep.id === 'contact-me-request-options'}
+                onClick={() => {
+                  const chat = this.getChatComponent();
+                  chat.triggerNextStep({stepId: 'contact-me-request', externalTrigger: true});
+                  window.open('https://linkedin.com', '_blank');
+                }}>
+                CONTACT_ME
+              </NavigationButton>
             </Grid>
           } />
       </Grid>

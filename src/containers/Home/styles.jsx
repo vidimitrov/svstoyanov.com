@@ -22,7 +22,7 @@ export default {
   },
   navigation: {
     textAlign: 'center',
-    maxWidth: '450px',
+    maxWidth: '550px',
     margin: '0 auto',
     zIndex: 999,
   },

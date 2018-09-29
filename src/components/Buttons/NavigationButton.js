@@ -1,31 +1,93 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'material-ui/styles/withStyles';
-import Grid from 'material-ui/Grid';
 import {colors, typography} from '../../styles';
-// const ButtonLeftBorder = require('../../assets/img/buttons/navigation-button-left-border.svg');
-// const ButtonRightBorder = require('../../assets/img/buttons/navigation-button-right-border.svg');
+// import ButtonLeftBorder from '../../assets/img/buttons/navigation-button-left-border.svg';
+// import ButtonRightBorder from '../../assets/img/buttons/navigation-button-right-border.svg';
 
 const styles = {
+  activeButton: {
+    ...typography.buttons,
+    'maxWidth': '200px',
+    'textAlign': 'center',
+    'height': '36px',
+    'padding': '4px 16px',
+    'position': 'relative',
+    'display': 'flex',
+    'alignItems': 'center',
+    'lineHeight': 1.5,
+    'letterSpacing': '2px',
+    'fontWeight': 'bold',
+    'boxSizing': 'border-box',
+    'borderRadius': '1px',
+    'border': '1px solid ' + colors.white,
+    '&:hover': {
+      'cursor': 'crosshair',
+    },
+  },
   button: {
     ...typography.buttons,
-    maxWidth: '200px',
-    textAlign: 'center',
-    color: colors.primary,
-    border: '1px dotted ' + colors.white,
-    padding: 7,
+    'maxWidth': '200px',
+    'textAlign': 'center',
+    'height': '36px',
+    'color': colors.white,
+    'padding': '8px 16px 8px 24px',
+    'position': 'relative',
+    'display': 'flex',
+    'alignItems': 'center',
+    'lineHeight': 1.5,
+    'letterSpacing': '2px',
+    'fontWeight': 'bold',
+    'boxSizing': 'border-box',
+    'borderRadius': '1px',
+    'borderTop': '1px dotted rgba(255,255,255,0.48)',
+    'borderBottom': '1px dotted rgba(255,255,255,0.48)',
+    'borderLeft': '1px solid ' + colors.white,
+    'borderRight': '1px solid ' + colors.white,
+    '&:before': {
+      content: 'no-close-quote',
+      display: 'block',
+      position: 'absolute',
+      top: '6px',
+      left: '16px',
+      width: '24px',
+      height: '24px',
+      backgroundColor: 'rgba(73, 221, 186, 0.12)',
+    },
+    '&:hover': {
+      ...typography.buttons,
+      'cursor': 'crosshair',
+      'maxWidth': '200px',
+      'textAlign': 'center',
+      'height': '36px',
+      'padding': '8px 16px 8px 24px',
+      'position': 'relative',
+      'display': 'flex',
+      'lineHeight': 1.5,
+      'letterSpacing': '2px',
+      'fontWeight': 'bold',
+      'alignItems': 'center',
+      'boxSizing': 'border-box',
+      'borderRadius': '1px',
+      'border': '1px solid ' + colors.white,
+      '&:before': {
+        display: 'none',
+      },
+      '& $textWrapper': {
+        backgroundColor: '#49ddba',
+        color: colors.black,
+      },
+    },
   },
   active: {
     backgroundColor: colors.primary,
-    color: colors.white,
-    cursor: 'pointer',
+    color: colors.black,
   },
-  highlight: {
-    '&:hover': {
-      backgroundColor: colors.primary,
-      color: colors.white,
-      cursor: 'pointer',
-    },
+  activeTextWrapper: {
+    padding: '0 4px',
+    backgroundColor: '#49ddba',
+  },
+  textWrapper: {
   },
   center: {
     textAlign: 'center',
@@ -41,18 +103,12 @@ const NavigationButton = ({...props}) => {
   } = props;
 
   return (
-    <div className={classes.button} onClick={onClick}>
-      <Grid container justify='center' alignItems='center'>
-        {/* <ItemGrid className={classes.center} xs={1} sm={1} md={1} lg={1}>
-          <img src={ButtonLeftBorder} alt='' />
-        </ItemGrid> */}
-        <Grid item xs={12} sm={12} md={12} lg={12}>
-          <span className={`${classes.highlight} ${active ? classes.active : ''}`}>{children}</span>
-        </Grid>
-        {/* <ItemGrid className={classes.center} xs={1} sm={1} md={1} lg={1}>
-          <img src={ButtonRightBorder} alt='' />
-        </ItemGrid> */}
-      </Grid>
+    <div className={active ? classes.activeButton : classes.button} onClick={onClick}>
+      {/* <img className={classes.leftBorder} src={ButtonLeftBorder} alt='' />
+        <img className={classes.rightBorder} src={ButtonRightBorder} alt='' /> */}
+      <div className={active ? classes.activeTextWrapper : classes.textWrapper}>
+        <span className={`${classes.text} ${active ? classes.active : ''}`}>{children}</span>
+      </div>
     </div>
   );
 };
