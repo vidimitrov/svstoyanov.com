@@ -27,7 +27,7 @@ const Bubble = styled.div`
       return user ? '-8px 0px 10px 0' : '-8px 0 10px 0px';
     }
 
-    return '0 0 10px 0';
+    return `0 0 10px ${user ? '20px' : '0'}`;
   }};
   overflow: hidden;
   position: relative;

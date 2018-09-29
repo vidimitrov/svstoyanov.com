@@ -1,5 +1,8 @@
 export default {
   customOptionsWrapper: {
-    width: '100%',
+    fontFamily: 'Space Mono',
+  },
+  optionsButton: {
+    marginRight: '40px',
   },
 };

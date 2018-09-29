@@ -1,26 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SimpleButton from '../Buttons/SimpleButton';
+import Grid from 'material-ui/Grid';
+import Button from '../Buttons/Button';
 import withStyles from 'material-ui/styles/withStyles';
 import styles from './styles';
 
-const CustomOptions = ({classes, options}) => {
+const CustomOptions = ({classes, options, triggerNextStep}) => {
   return (
-    <div className={classes.customOptionsWrapper}>
+    <Grid container className={classes.customOptionsWrapper} justify={'flex-start'}>
       {options.map((option, index) =>
-        <SimpleButton key={index} onClick={() => {
-          window.open(option.redirect, '_blank');
+        <Button key={index} className={classes.optionsButton} onClick={() => {
+          if (option.redirect) {
+            window.open(option.redirect, '_blank');
+            return;
+          }
+
+          if (option.callback) {
+            option.callback();
+          }
+
+          if (option.trigger) {
+            triggerNextStep({
+              stepId: option.trigger,
+              externalTrigger: true,
+            });
+          }
         }}>
-          {option.label}
-        </SimpleButton>
+          {option.label.split(' ').join('_').toUpperCase()}
+        </Button>
       )}
-    </div>
+    </Grid>
   );
 };
 
 CustomOptions.propTypes = {
   classes: PropTypes.object.isRequired,
   options: PropTypes.array.isRequired,
+  triggerNextStep: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(CustomOptions);

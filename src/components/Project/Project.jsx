@@ -13,6 +13,7 @@ import Grid from 'material-ui/Grid';
 import Footer from '../Footer/Footer';
 import ChatBot from '../../lib/ChatBot';
 import Input from '../../components/Inputs/Input';
+import CustomOptions from '../../components/CustomOptions/CustomOptions';
 import TextArea from '../../components/Inputs/TextArea';
 
 import style from './styles.jsx';
@@ -69,25 +70,31 @@ class Project extends React.Component {
       delay: 2000,
     }, {
       id: '2',
-      options: [
-        {value: 'contact-me', label: 'Contact me', trigger: 'email-address'},
-        {
-          value: 'next-project',
-          label: 'Show me your next project',
-          callback: () => {
-            let nextId = project.id + 1;
-            if (nextId > projects.length) {
-              nextId = nextId % projects.length;
-            }
-
-            // FIXME: Temporary workaround to redirect with forced "refresh" of the page
-            location.replace('http://' + location.host + '/projects/' + nextId);
-
-            // TODO: Continue the proper solution with react-router
-            // history.push(`/projects/${nextId}`);
+      component: (
+        <CustomOptions options={[
+          {
+            value: 'contact-me',
+            label: 'Contact me',
+            trigger: 'email-address',
           },
-        },
-      ],
+          {
+            value: 'next-project',
+            label: 'Show me your next project',
+            callback: () => {
+              let nextId = project.id + 1;
+              if (nextId > projects.length) {
+                nextId = nextId % projects.length;
+              }
+
+              // FIXME: Temporary workaround to redirect with forced "refresh" of the page
+              location.replace('http://' + location.host + '/projects/' + nextId);
+
+              // TODO: Continue the proper solution with react-router
+              // history.push(`/projects/${nextId}`);
+            },
+          },
+        ]} />
+      ),
     }, {
       id: 'email-address',
       message: 'Tell me your email address first',
@@ -126,24 +133,30 @@ class Project extends React.Component {
       trigger: 'confirmation-before-send-options',
     }, {
       id: 'confirmation-before-send-options',
-      options: [
-        {value: true, label: 'Edit', trigger: 'edit-message-content-input'},
-        {
-          value: false,
-          label: 'Send it',
-          trigger: 'message-sent',
-          callback: () => {
-            let sendEmail = firebase.functions().httpsCallable('sendEmail');
-            sendEmail({
-              email: localStorage.getItem('cf-email'),
-              message: localStorage.getItem('cf-message'),
-            }).then((result) => {
-              localStorage.removeItem('cf-email');
-              localStorage.removeItem('cf-message');
-            });
+      component: (
+        <CustomOptions options={[
+          {
+            value: true,
+            label: 'Edit',
+            trigger: 'edit-message-content-input',
           },
-        },
-      ],
+          {
+            value: false,
+            label: 'Send it',
+            trigger: 'message-sent',
+            callback: () => {
+              let sendEmail = firebase.functions().httpsCallable('sendEmail');
+              sendEmail({
+                email: localStorage.getItem('cf-email'),
+                message: localStorage.getItem('cf-message'),
+              }).then((result) => {
+                localStorage.removeItem('cf-email');
+                localStorage.removeItem('cf-message');
+              });
+            },
+          },
+        ]} />
+      ),
     }, {
       id: 'edit-message-content-input',
       component: (

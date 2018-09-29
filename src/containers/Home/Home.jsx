@@ -87,10 +87,20 @@ class Home extends React.Component {
       trigger: 'what-to-do-options',
     }, {
       id: 'what-to-do-options',
-      options: [
-        {value: 'tell-me-about-you', label: 'Tell me about yourself', trigger: 'about-me'},
-        {value: 'show-me-your-work', label: 'Show me your work', trigger: 'my-work'},
-      ],
+      component: (
+        <CustomOptions options={[
+          {
+            value: 'tell-me-about-you',
+            label: 'Tell me about yourself',
+            trigger: 'about-me',
+          },
+          {
+            value: 'show-me-your-work',
+            label: 'Show me your work',
+            trigger: 'my-work',
+          },
+        ]} />
+      ),
     }, {
       id: 'about-me',
       message: `I am a product designer, researcher and product
@@ -122,8 +132,7 @@ class Home extends React.Component {
             label: 'Download CV',
             redirect: 'https://drive.google.com/svstoyanov.cv.pdf',
           },
-        ]}>
-        </CustomOptions>
+        ]} />
       ),
       trigger: 'my-work-after-about-me',
     }, {
@@ -132,10 +141,20 @@ class Home extends React.Component {
       trigger: 'my-work-options',
     }, {
       id: 'my-work-options',
-      options: [
-        {value: true, label: 'Yes', trigger: 'projects-slider'},
-        {value: false, label: 'No', trigger: 'here-if-needed'},
-      ],
+      component: (
+        <CustomOptions options={[
+          {
+            value: true,
+            label: 'Yes',
+            trigger: 'projects-slider',
+          },
+          {
+            value: false,
+            label: 'No',
+            trigger: 'here-if-needed',
+          },
+        ]} />
+      ),
     }, {
       id: 'my-work',
       message: 'This is my portfolio. Some projects that i have created in the past years.',
@@ -160,10 +179,20 @@ class Home extends React.Component {
       trigger: 'contact-me-request-options',
     }, {
       id: 'contact-me-request-options',
-      options: [
-        {value: true, label: 'Yes', trigger: 'email-address'},
-        {value: false, label: 'No', trigger: 'goodbye-message'},
-      ],
+      component: (
+        <CustomOptions options={[
+          {
+            value: true,
+            label: 'Yes',
+            trigger: 'email-address',
+          },
+          {
+            value: false,
+            label: 'No',
+            trigger: 'goodbye-message',
+          },
+        ]} />
+      ),
     }, {
       id: 'email-address',
       message: 'Tell me your email address first',
@@ -202,24 +231,30 @@ class Home extends React.Component {
       trigger: 'confirmation-before-send-options',
     }, {
       id: 'confirmation-before-send-options',
-      options: [
-        {value: true, label: 'Edit', trigger: 'edit-message-content-input'},
-        {
-          value: false,
-          label: 'Send it',
-          trigger: 'message-sent',
-          callback: () => {
-            let sendEmail = firebase.functions().httpsCallable('sendEmail');
-            sendEmail({
-              email: localStorage.getItem('cf-email'),
-              message: localStorage.getItem('cf-message'),
-            }).then((result) => {
-              localStorage.removeItem('cf-email');
-              localStorage.removeItem('cf-message');
-            });
+      component: (
+        <CustomOptions options={[
+          {
+            value: true,
+            label: 'Edit',
+            trigger: 'edit-message-content-input',
           },
-        },
-      ],
+          {
+            value: false,
+            label: 'Send it',
+            trigger: 'message-sent',
+            callback: () => {
+              let sendEmail = firebase.functions().httpsCallable('sendEmail');
+              sendEmail({
+                email: localStorage.getItem('cf-email'),
+                message: localStorage.getItem('cf-message'),
+              }).then((result) => {
+                localStorage.removeItem('cf-email');
+                localStorage.removeItem('cf-message');
+              });
+            },
+          },
+        ]} />
+      ),
     }, {
       id: 'edit-message-content-input',
       component: (
@@ -286,7 +321,7 @@ class Home extends React.Component {
                 stepContainerStyle={{
                   backgroundColor: 'transparent',
                   padding: 0,
-                  width: '500px',
+                  width: '60%',
                   margin: '0 auto',
                 }}
                 avatarStyle={{
@@ -295,7 +330,9 @@ class Home extends React.Component {
                 }}
                 bubbleStyle={{
                   fontFamily: 'Space Mono',
-                  fontSize: '16px',
+                  fontSize: '24px',
+                  lineHeight: 1.5,
+                  letterSpacing: '2px',
                   maxWidth: '100%',
                 }}
                 bubbleOptionStyle={{

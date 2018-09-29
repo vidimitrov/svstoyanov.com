@@ -8,7 +8,7 @@ const ButtonRightBorder = require('../../assets/img/buttons/button-right-border.
 
 const styles = {
   button: {
-    margin: '20px 0',
+    margin: '20px 20px 20px 0',
   },
   text: {
     ...typography.buttons,
