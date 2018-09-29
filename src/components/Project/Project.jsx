@@ -261,7 +261,7 @@ class Project extends React.Component {
                 stepContainerStyle={{
                   backgroundColor: 'transparent',
                   padding: 0,
-                  width: '500px',
+                  width: '60%',
                   margin: '0 auto',
                 }}
                 avatarStyle={{
@@ -270,7 +270,9 @@ class Project extends React.Component {
                 }}
                 bubbleStyle={{
                   fontFamily: 'Space Mono',
-                  fontSize: '16px',
+                  fontSize: '24px',
+                  lineHeight: 1.5,
+                  letterSpacing: '2px',
                   maxWidth: '100%',
                 }}
                 bubbleOptionStyle={{
@@ -286,7 +288,6 @@ class Project extends React.Component {
                   color: '#fff',
                 }}
                 placeholder='Enter your message here...'
-                width='500px'
               />
             </ThemeProvider>
           </div>

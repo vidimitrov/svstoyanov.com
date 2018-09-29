@@ -29,30 +29,28 @@ class Input extends React.Component {
     } = this.props;
 
     return (
-      <div className={classes.inputWrapper}>
-        <input
-          type="text"
-          className={classes.input}
-          ref={(inputRef) => (this.input = inputRef)}
-          placeholder={placeholder}
-          value={value}
-          onChange={this.onValueChange}
-          onKeyPress={(e) => {
-            if (e.key === 'Enter') {
-              triggerNextStep({
-                stepId: trigger,
-                externalTrigger: true,
-                value: this.state.value,
-              });
-              this.input.blur();
-              this.input.disabled = true;
+      <input
+        type="text"
+        className={classes.input}
+        ref={(inputRef) => (this.input = inputRef)}
+        placeholder={placeholder}
+        value={value}
+        onChange={this.onValueChange}
+        onKeyPress={(e) => {
+          if (e.key === 'Enter') {
+            triggerNextStep({
+              stepId: trigger,
+              externalTrigger: true,
+              value: this.state.value,
+            });
+            this.input.blur();
+            this.input.disabled = true;
 
-              if (callback) {
-                callback(this.state.value);
-              }
+            if (callback) {
+              callback(this.state.value);
             }
-          }} />
-      </div>
+          }
+        }} />
     );
   }
 }
