@@ -8,17 +8,19 @@ const ButtonRightBorder = require('../../assets/img/buttons/button-right-border.
 
 const styles = {
   button: {
-    ...typography.buttons,
-    maxWidth: '400px',
-    textAlign: 'center',
-    color: colors.primary,
     margin: '20px 0',
   },
-  highlight: {
+  text: {
+    ...typography.buttons,
+    'margin': '0 16px',
+    'fontWeight': 'bold',
+    'color': colors.primary,
+    'letterSpacing': '2px',
+    'lineHeight': 1.5,
     '&:hover': {
       backgroundColor: colors.primary,
-      color: colors.white,
-      cursor: 'pointer',
+      color: colors.black,
+      cursor: 'crosshair',
     },
   },
   center: {
@@ -35,16 +37,18 @@ const Button = ({...props}) => {
 
   return (
     <div className={classes.button} onClick={onClick}>
-      <Grid container direction='row' justify='center' alignItems='center'>
-        <Grid item className={classes.center}>
-          <img src={ButtonLeftBorder} alt='' />
-        </Grid>
-        <Grid item xs>
-          <span className={classes.highlight}>{children}</span>
-        </Grid>
-        <Grid item className={classes.center}>
-          <img src={ButtonRightBorder} alt='' />
-        </Grid>
+      <Grid container direction='row' alignItems='center'>
+        {/* <Grid item className={classes.center}>
+
+        </Grid> */}
+        <img src={ButtonLeftBorder} alt='' />
+        <div>
+          <span className={classes.text}>{children}</span>
+        </div>
+        <img src={ButtonRightBorder} alt='' />
+        {/* <Grid item className={classes.center}>
+
+        </Grid> */}
       </Grid>
     </div>
   );
