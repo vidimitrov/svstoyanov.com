@@ -45,29 +45,27 @@ class TextArea extends React.Component {
     } = this.props;
 
     return (
-      <div className={classes.textareaWrapper}>
-        <textarea
-          className={classes.textarea}
-          ref={(textareaRef) => (this.textarea = textareaRef)}
-          placeholder={placeholder}
-          value={value}
-          onChange={this.onValueChange}
-          onKeyPress={(e) => {
-            if (e.key === 'Enter') {
-              triggerNextStep({
-                stepId: trigger,
-                externalTrigger: true,
-                value: this.state.value,
-              });
-              this.textarea.blur();
-              this.textarea.disabled = true;
+      <textarea
+        className={classes.textarea}
+        ref={(textareaRef) => (this.textarea = textareaRef)}
+        placeholder={placeholder}
+        value={value}
+        onChange={this.onValueChange}
+        onKeyPress={(e) => {
+          if (e.key === 'Enter') {
+            triggerNextStep({
+              stepId: trigger,
+              externalTrigger: true,
+              value: this.state.value,
+            });
+            this.textarea.blur();
+            this.textarea.disabled = true;
 
-              if (callback) {
-                callback(this.state.value);
-              }
+            if (callback) {
+              callback(this.state.value);
             }
-          }} />
-      </div>
+          }
+        }} />
     );
   }
 }

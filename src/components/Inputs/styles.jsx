@@ -24,6 +24,7 @@ export default {
     'lineHeight': 1.5,
     'letterSpacing': '2px',
     'maxWidth': '100%',
+    'height': '50px',
     'backgroundColor': 'transparent',
     'borderBottom': '1px solid #fff',
     'borderRadius': 0,
