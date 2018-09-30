@@ -20,6 +20,7 @@ import Input from './Input';
 import SubmitButton from './SubmitButton';
 import Recognition from './recognition';
 import {ChatIcon, CloseIcon, SubmitIcon, MicIcon} from './icons';
+import 'intersection-observer';
 
 class ChatBot extends Component {
   /* istanbul ignore next */
