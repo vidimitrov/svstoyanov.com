@@ -6,7 +6,6 @@ import {withRouter} from 'react-router';
 import withStyles from 'material-ui/styles/withStyles';
 import {ThemeProvider} from 'styled-components';
 import ChatBot from '../../lib/ChatBot';
-import ReactAudioPlayer from 'react-audio-player';
 import Grid from 'material-ui/Grid';
 import firebase from 'firebase/app';
 import 'firebase/functions';
@@ -25,8 +24,7 @@ import avatar from '../../assets/img/sto-avatar.png';
 import logo from '../../assets/img/logo.png';
 import mp4Video from '../../assets/video/bg-spin.mp4';
 import webmVideo from '../../assets/video/bg-spin.webm';
-
-const APP_URL = 'http://localhost:3000';
+import backgroundMusic from '../../assets/audio/background-sound.mp3';
 
 firebase.initializeApp({
   apiKey: 'AIzaSyA7pJMXQS-7h3xYDiUF5Uz5kSiodXZSVCw',
@@ -37,7 +35,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      muted: true,
+      muted: false,
       activeStep: null,
     };
     this.togglePlayer = this.togglePlayer.bind(this);
@@ -289,11 +287,8 @@ class Home extends React.Component {
           <source src={mp4Video} type="video/mp4" />
           <source src={webmVideo} type="video/webm" />
         </video>
-        <ReactAudioPlayer
-          autoPlay
-          src={`${APP_URL}/background-sound.mp3`}
-          muted={this.state.muted}
-        />
+        <audio src={backgroundMusic} muted={this.state.muted} autoPlay={true} loop={true}></audio>
+        <iframe allow="autoplay" id="audio" style={{display: 'none'}}></iframe>
         <Preloader />
         <Grid item xs={12} className={classes.mainSection}>
           <img src={logo} className={classes.logo} alt="" />
