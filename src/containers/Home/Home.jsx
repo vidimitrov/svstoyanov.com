@@ -288,7 +288,7 @@ class Home extends React.Component {
           <source src={webmVideo} type="video/webm" />
         </video>
         <audio src={backgroundMusic} muted={this.state.muted} autoPlay={true} loop={true}></audio>
-        <iframe allow="autoplay" id="audio" style={{display: 'none'}}></iframe>
+        <iframe title="audio" allow="autoplay" id="audio" style={{display: 'none'}}></iframe>
         <Preloader />
         <Grid item xs={12} className={classes.mainSection}>
           <img src={logo} className={classes.logo} alt="" />

@@ -14,6 +14,9 @@ const styles = {
     maxWidth: '200px',
     textAlign: 'center',
     color: colors.white,
+    fontSize: '24px',
+    lineHeight: 1.5,
+    letterSpacing: '2px',
   },
   highlight: {
     '&:hover': {

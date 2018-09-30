@@ -1,5 +1,3 @@
-import {colors} from '../../styles';
-
 export default {
   navLink: {
     textDecoration: 'none',
@@ -16,17 +14,30 @@ export default {
     marginBottom: '50px',
   },
   projectId: {
+    fontSize: '16px',
+    lineHeight: 1.5,
+    letterSpacing: '2px',
     color: 'rgba(255, 255, 255, 0.54)',
   },
   duration: {
-    color: colors.primary,
     borderBottom: '1px solid',
     paddingBottom: '6px',
     textAlign: 'center',
+    fontSize: '12px',
+    letterSpacing: '2px',
+    color: 'rgba(73, 221, 186, 0.64)',
   },
   projectName: {
-    fontSize: '3.5em',
+    fontSize: '72px',
     fontWeight: 'bold',
-    lineHeight: '2.5em',
+    lineHeight: 1.5,
+    letterSpacing: '4px',
+  },
+  projectDescription: {
+    fontSize: '24px',
+    lineHeight: 1.5,
+    letterSpacing: '2px',
+    color: 'rgba(255, 255, 255, 0.9)',
+    margin: '32px 0 46px',
   },
 };
