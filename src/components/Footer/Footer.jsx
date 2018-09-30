@@ -4,7 +4,8 @@ import withStyles from 'material-ui/styles/withStyles';
 import Grid from 'material-ui/Grid';
 import TimeCounter from '../TimeCounter/TimeCounter';
 import styles from './styles';
-import equalizerImg from '../../assets/img/equalizer.gif';
+// import equalizerImg from '../../assets/img/equalizer.gif';
+import musicImg from '../../assets/img/music.svg';
 import mutedImg from '../../assets/img/muted.svg';
 
 class Footer extends React.Component {
@@ -26,7 +27,7 @@ class Footer extends React.Component {
         </Grid>
         <Grid item xs className={classes.musicPlayer}>
           <img
-            src={muted ? mutedImg : equalizerImg}
+            src={muted ? mutedImg : musicImg}
             className={classes.music}
             alt="music"
             onClick={() => {

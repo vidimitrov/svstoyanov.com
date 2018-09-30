@@ -4,15 +4,14 @@ export default {
   footer: {
     borderTop: '1px solid ' + colors.gray,
     alignItems: 'center',
-    height: '100px',
     position: 'fixed',
-    padding: 10,
+    padding: '24px 72px 32px',
     bottom: 0,
   },
   musicPlayer: {
-    textAlign: 'center',
+    textAlign: 'right',
   },
   music: {
-    width: '40px',
+    width: '24px',
   },
 };

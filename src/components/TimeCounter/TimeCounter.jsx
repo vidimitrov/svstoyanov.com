@@ -38,8 +38,8 @@ class TimeCounter extends Component {
 
     return (
       <div className={classes.timeCounter}>
-        <p className={classes.key}>USER_ID: <span className={classes.value}>{userId}</span></p>
-        <p className={classes.key}>DURATION: <span className={classes.value}>{seconds}s</span></p>
+        <p className={classes.key}>USER_ID: {userId}</p>
+        <p className={classes.key}>DURATION: {seconds}s</p>
       </div>
     );
   }
