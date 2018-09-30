@@ -1,10 +1,15 @@
-<?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg height="512px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css">
-   <![CDATA[
-    .str2 {stroke:white;stroke-width:31.9998;stroke-linecap:round;stroke-linejoin:round}
-    .str1 {stroke:white;stroke-width:31.9998;stroke-linecap:round;stroke-linejoin:round}
-    .str0 {stroke:white;stroke-width:31.9998;stroke-linecap:round;stroke-linejoin:round}
-    .str3 {stroke:white;stroke-width:31.9998;stroke-linecap:round;stroke-linejoin:round}
-    .str4 {stroke:white;stroke-width:31.9998;stroke-linecap:round;stroke-linejoin:round}
-    .fil0 {fill:none}
-   ]]>
-  </style></defs><g id="Layer_x0020_1"><g id="_590737729312"><polygon class="fil0 str0" points="128,144 288,16 288,256 288,496 128,368 16,368 16,256 16,144 "/><line class="fil0 str1" x1="128" x2="128" y1="144" y2="368"/><path class="fil0 str2" d="M288 161c45,8 80,47 80,95 0,48 -35,87 -80,95"/><line class="fil0 str3" x1="496" x2="368" y1="496" y2="368"/><line class="fil0 str4" x1="368" x2="496" y1="496" y2="368"/></g></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="24px" viewBox="0 0 26 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>music pause</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="music-pause" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="music" transform="translate(2.000000, 10.000000)" fill="#FFFFFF">
+            <rect id="Rectangle-4" x="0" y="0" width="2" height="4" rx="1"></rect>
+            <rect id="Rectangle-4-Copy" x="7" y="0" width="2" height="4" rx="1"></rect>
+            <rect id="Rectangle-4-Copy-2" x="14" y="0" width="2" height="4" rx="1"></rect>
+            <rect id="Rectangle-4-Copy-3" x="21" y="0" width="2" height="4" rx="1"></rect>
+        </g>
+    </g>
+</svg>
