@@ -11,7 +11,12 @@ export default {
   musicPlayer: {
     textAlign: 'right',
   },
-  music: {
+  muted: {
     width: '24px',
+    marginRight: '15px',
+  },
+  equalizer: {
+    width: '50px',
+    transform: 'rotate(180deg)',
   },
 };
