@@ -292,19 +292,17 @@ class Project extends React.Component {
             </ThemeProvider>
           </div>
         </div>
-        <Grid item xs={12}>
-          <Footer
-            muted={this.state.muted}
-            togglePlayer={this.togglePlayer}
-            content={
-              <Grid container justify='center'
-                className={classes.navigation}>
-                <Grid item xs={3}>
-                  <h1>{projectCodeName}</h1>
-                </Grid>
+        <Footer
+          muted={this.state.muted}
+          togglePlayer={this.togglePlayer}
+          content={
+            <Grid container justify='center'
+              className={classes.navigation}>
+              <Grid item xs={3}>
+                <h1 className={classes.projectName}>{projectCodeName}</h1>
               </Grid>
-            } />
-        </Grid>
+            </Grid>
+          } />
       </Grid >
     );
   }

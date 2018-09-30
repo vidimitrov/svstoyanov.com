@@ -6,7 +6,7 @@ export default {
     fontFamily: 'Space Mono',
     color: colors.white,
     flexGrow: 1,
-    height: 'calc(100% - 100px)',
+    height: 'calc(100% - 125px)',
   },
   videoBackground: {
     position: 'fixed',
@@ -26,7 +26,14 @@ export default {
     margin: '0 auto',
     zIndex: 999,
   },
+  mainSection: {
+    padding: '72px 72px 0px',
+  },
   chatContainer: {
     height: '100%',
+  },
+  logo: {
+    position: 'absolute',
+    width: '90px',
   },
 };

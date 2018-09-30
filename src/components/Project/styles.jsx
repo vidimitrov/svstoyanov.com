@@ -8,7 +8,7 @@ export default {
     height: '100%',
   },
   mainSection: {
-    height: 'calc(100% - 100px)',
+    height: 'calc(100% - 125px)',
     overflowY: 'scroll',
   },
   mainSectionContainer: {
@@ -102,4 +102,10 @@ export default {
     paddingLeft: '40px',
   },
   reviewContent: {},
+  projectName: {
+    fontSize: '24px',
+    lineHeight: 1.5,
+    letterSpacing: '2px',
+    color: 'rgba(255,255,255,0.9)',
+  },
 };

@@ -22,6 +22,7 @@ import ProjectsSlider from '../../components/ProjectsSlider/ProjectsSlider';
 import style from './styles.jsx';
 import chatTheme from '../Chat/styles/theme';
 import avatar from '../../assets/img/sto-avatar.png';
+import logo from '../../assets/img/logo.png';
 import mp4Video from '../../assets/video/bg-spin.mp4';
 import webmVideo from '../../assets/video/bg-spin.webm';
 
@@ -294,7 +295,8 @@ class Home extends React.Component {
           muted={this.state.muted}
         />
         <Preloader />
-        <Grid item xs={12}>
+        <Grid item xs={12} className={classes.mainSection}>
+          <img src={logo} className={classes.logo} alt="" />
           <div className={classes.chatContainer + ' chat-container'}>
             <ThemeProvider theme={chatTheme}>
               <ChatBot
