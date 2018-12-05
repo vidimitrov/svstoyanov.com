@@ -49,8 +49,8 @@ class Home extends React.Component {
   }
 
   render() {
-    const { classes, steps, navigate } = this.props;
-    const { activeStep, muted } = this.state;
+    const { classes, steps } = this.props;
+    const { muted } = this.state;
 
     return (
       <Grid
@@ -67,7 +67,6 @@ class Home extends React.Component {
         <iframe title="audio" allow="autoplay" id="audio" style={{ display: 'none' }} />
         <Preloader />
         <Grid item xs={12} className={classes.mainSection}>
-          <img src={logo} className={classes.logo} alt="" />
           <div className={`${classes.chatContainer} chat-container`}>
             <ThemeProvider theme={chatTheme}>
               <ChatBot
@@ -140,37 +139,11 @@ class Home extends React.Component {
           content={(
             <Grid
               container
-              justify="space-between"
+              justify="center"
+              alignItems="center"
               className={classes.navigation}
             >
-              <NavigationButton
-                active={activeStep && activeStep.id === 'my-work-options'}
-                onClick={() => {
-                  const chat = this.getChatComponent();
-                  chat.triggerNextStep({ stepId: 'about-me', externalTrigger: true });
-                }}
-              >
-                ABOUT_ME
-              </NavigationButton>
-              <NavigationButton
-                active={activeStep && activeStep.id === 'projects-slider'}
-                onClick={() => {
-                  const chat = this.getChatComponent();
-                  chat.triggerNextStep({ stepId: 'my-work', externalTrigger: true });
-                }}
-              >
-                MY_WORK
-              </NavigationButton>
-              <NavigationButton
-                active={activeStep && activeStep.id === 'contact-me-request-options'}
-                onClick={() => {
-                  const chat = this.getChatComponent();
-                  chat.triggerNextStep({ stepId: 'contact-me-request', externalTrigger: true });
-                  window.open('https://linkedin.com', '_blank');
-                }}
-              >
-                CONTACT_ME
-              </NavigationButton>
+              <img src={logo} className={classes.logo} alt="" />
             </Grid>
           )}
         />
@@ -181,9 +154,8 @@ class Home extends React.Component {
 
 Home.propTypes = {
   classes: PropTypes.object.isRequired,
-  steps: PropTypes.array,
-  projects: PropTypes.array,
-  navigate: PropTypes.func,
+  steps: PropTypes.array.isRequired,
+  projects: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = state => ({
