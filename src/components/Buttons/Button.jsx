@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
-import withStyles from 'material-ui/styles/withStyles';
-import Grid from 'material-ui/Grid';
-import {colors, typography} from '../../styles';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import { colors, typography } from '../../styles';
+
 const ButtonLeftBorder = require('../../assets/img/buttons/button-left-border.svg');
 const ButtonRightBorder = require('../../assets/img/buttons/button-right-border.svg');
 
@@ -12,11 +15,11 @@ const styles = {
   },
   text: {
     ...typography.buttons,
-    'margin': '0 16px',
-    'fontWeight': 'bold',
-    'color': colors.primary,
-    'letterSpacing': '2px',
-    'lineHeight': 1.5,
+    margin: '0 16px',
+    fontWeight: 'bold',
+    color: colors.primary,
+    letterSpacing: '2px',
+    lineHeight: 1.5,
     '&:hover': {
       backgroundColor: colors.primary,
       color: colors.black,
@@ -28,7 +31,7 @@ const styles = {
   },
 };
 
-const Button = ({...props}) => {
+const Button = ({ ...props }) => {
   const {
     children,
     classes,
@@ -37,15 +40,15 @@ const Button = ({...props}) => {
 
   return (
     <div className={classes.button} onClick={onClick}>
-      <Grid container direction='row' alignItems='center'>
+      <Grid container direction="row" alignItems="center">
         {/* <Grid item className={classes.center}>
 
         </Grid> */}
-        <img src={ButtonLeftBorder} alt='' />
+        <img src={ButtonLeftBorder} alt="" />
         <div>
           <span className={classes.text}>{children}</span>
         </div>
-        <img src={ButtonRightBorder} alt='' />
+        <img src={ButtonRightBorder} alt="" />
         {/* <Grid item className={classes.center}>
 
         </Grid> */}

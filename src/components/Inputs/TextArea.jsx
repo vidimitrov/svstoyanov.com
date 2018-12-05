@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import withStyles from 'material-ui/styles/withStyles';
+import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
 
 class TextArea extends React.Component {
@@ -15,12 +15,8 @@ class TextArea extends React.Component {
     this.onValueChange = this.onValueChange.bind(this);
   }
 
-  onValueChange(e) {
-    this.setState({value: e.target.value});
-  }
-
   componentWillMount() {
-    let {initialValueUsed} = this.state;
+    const { initialValueUsed } = this.state;
     const {
       initialValue,
     } = this.props;
@@ -34,8 +30,12 @@ class TextArea extends React.Component {
     }
   }
 
+  onValueChange(e) {
+    this.setState({ value: e.target.value });
+  }
+
   render() {
-    let {value} = this.state;
+    const { value } = this.state;
     const {
       classes,
       triggerNextStep,
@@ -47,7 +47,8 @@ class TextArea extends React.Component {
     return (
       <textarea
         className={classes.textarea}
-        ref={(textareaRef) => (this.textarea = textareaRef)}
+        // eslint-disable-next-line no-return-assign
+        ref={textareaRef => (this.textarea = textareaRef)}
         placeholder={placeholder}
         value={value}
         onChange={this.onValueChange}
@@ -56,16 +57,17 @@ class TextArea extends React.Component {
             triggerNextStep({
               stepId: trigger,
               externalTrigger: true,
-              value: this.state.value,
+              value,
             });
             this.textarea.blur();
             this.textarea.disabled = true;
 
             if (callback) {
-              callback(this.state.value);
+              callback(value);
             }
           }
-        }} />
+        }}
+      />
     );
   }
 }

@@ -89,8 +89,8 @@ export const stepsInitialState = [{
 }, {
   id: 'what-to-do-options',
   options: [
-    {value: 'tell-me-about-you', label: 'Tell me about yourself', trigger: 'about-me'},
-    {value: 'show-me-your-work', label: 'Show me your work', trigger: 'my-work'},
+    { value: 'tell-me-about-you', label: 'Tell me about yourself', trigger: 'about-me' },
+    { value: 'show-me-your-work', label: 'Show me your work', trigger: 'my-work' },
   ],
 }, {
   id: 'about-me',
@@ -133,8 +133,8 @@ export const stepsInitialState = [{
 }, {
   id: 'my-work-options',
   options: [
-    {value: true, label: 'Yes', trigger: 'projects-slider'},
-    {value: false, label: 'No', trigger: 'here-if-needed'},
+    { value: true, label: 'Yes', trigger: 'projects-slider' },
+    { value: false, label: 'No', trigger: 'here-if-needed' },
   ],
 }, {
   id: 'my-work',

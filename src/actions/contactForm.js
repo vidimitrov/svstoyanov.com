@@ -4,12 +4,12 @@ import {
   CLEAR_MESSAGE_DATA,
 } from '../constants/actionTypes';
 
-export const setMessageSubject = (subject) => ({
+export const setMessageSubject = subject => ({
   type: SET_MESSAGE_SUBJECT,
   subject,
 });
 
-export const setMessageContent = (content) => ({
+export const setMessageContent = content => ({
   type: SET_MESSAGE_CONTENT,
   content,
 });

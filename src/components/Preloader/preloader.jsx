@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import withStyles from 'material-ui/styles/withStyles';
-import Grid from 'material-ui/Grid';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import styles from './styles';
 
 class Preloader extends Component {
@@ -15,7 +15,7 @@ class Preloader extends Component {
   componentDidMount() {
     const inner = document.querySelector('.preloader_inner');
     let currentLoadPercent = 0;
-    const togglePreloader = (preloader) => this.setState({showPreloader: preloader});
+    const togglePreloader = preloader => this.setState({ showPreloader: preloader });
 
     const interval = setInterval(() => {
       currentLoadPercent += 1;
@@ -45,15 +45,20 @@ class Preloader extends Component {
   }
 
   render() {
-    const {classes} = this.props;
-    const {showPreloader} = this.state;
+    const { classes } = this.props;
+    const { showPreloader } = this.state;
     return (
-      <Grid container justify='center' alignItems='center'
-        className={`${classes.preloader} ${(showPreloader ? classes.show : '')}`}>
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        className={`${classes.preloader} ${(showPreloader ? classes.show : '')}`}
+      >
         <Grid item xs={12}>
           <h1 className={classes.loading}>LOADING</h1>
           <div className={`preloader_inner ${classes.preloaderInner}`}>
-            0<sup className={classes.percentage}>%</sup>
+            0
+            <sup className={classes.percentage}>%</sup>
           </div>
         </Grid>
       </Grid>

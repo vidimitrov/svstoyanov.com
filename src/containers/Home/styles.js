@@ -1,5 +1,5 @@
 /* eslint max-len: 0 */
-import {colors} from '../../styles';
+import { colors } from '../../styles';
 
 export default {
   container: {

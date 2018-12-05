@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {compose} from 'recompose';
-import {connect} from 'react-redux';
-import {withRouter} from 'react-router';
-import withStyles from 'material-ui/styles/withStyles';
-import {ThemeProvider} from 'styled-components';
-import ChatBot from '../../lib/ChatBot';
-import Grid from 'material-ui/Grid';
+import { compose } from 'recompose';
+import { connect } from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
+import { ThemeProvider } from 'styled-components';
+import Grid from '@material-ui/core/Grid';
 import firebase from 'firebase/app';
+import ChatBot from '../../lib/ChatBot';
 import 'firebase/functions';
 
 import Preloader from '../../components/Preloader/Preloader';
@@ -18,7 +17,7 @@ import TextArea from '../../components/Inputs/TextArea';
 import NavigationButton from '../../components/Buttons/NavigationButton';
 import ProjectsSlider from '../../components/ProjectsSlider/ProjectsSlider';
 
-import style from './styles.jsx';
+import style from './styles';
 import chatTheme from '../Chat/styles/theme';
 import avatar from '../../assets/img/sto-avatar.png';
 import logo from '../../assets/img/logo.png';
@@ -47,22 +46,20 @@ class Home extends React.Component {
   }
 
   togglePlayer() {
-    const {muted} = this.state;
+    const { muted } = this.state;
     if (!muted) {
       this.setState({
-        ...this.state,
         muted: true,
       });
     } else {
       this.setState({
-        ...this.state,
         muted: false,
       });
     }
   }
 
   render() {
-    const {classes, projects} = this.props;
+    const { classes, projects, navigate } = this.props;
     // const {steps} = this.props;
     const steps = [{
       id: 'intro',
@@ -73,8 +70,8 @@ class Home extends React.Component {
       id: 'name-input',
       component: (
         <Input
-          trigger={'has-name-what-to-do'}
-          placeholder={'Type your name...'}
+          trigger="has-name-what-to-do"
+          placeholder="Type your name..."
           callback={(value) => {
             localStorage.setItem('username', value);
           }}
@@ -98,7 +95,8 @@ class Home extends React.Component {
             label: 'Show me your work',
             trigger: 'my-work',
           },
-        ]} />
+        ]}
+        />
       ),
     }, {
       id: 'about-me',
@@ -131,7 +129,8 @@ class Home extends React.Component {
             label: 'Download CV',
             redirect: 'https://drive.google.com/svstoyanov.cv.pdf',
           },
-        ]} />
+        ]}
+        />
       ),
       trigger: 'my-work-after-about-me',
     }, {
@@ -152,7 +151,8 @@ class Home extends React.Component {
             label: 'No',
             trigger: 'here-if-needed',
           },
-        ]} />
+        ]}
+        />
       ),
     }, {
       id: 'my-work',
@@ -160,7 +160,7 @@ class Home extends React.Component {
       trigger: 'projects-slider',
     }, {
       id: 'projects-slider',
-      component: (<ProjectsSlider push={this.props.history.push} projects={projects} />),
+      component: (<ProjectsSlider navigate={navigate} projects={projects} />),
       style: {
         width: '100%',
         backgroundColor: 'transparent',
@@ -190,7 +190,8 @@ class Home extends React.Component {
             label: 'No',
             trigger: 'goodbye-message',
           },
-        ]} />
+        ]}
+        />
       ),
     }, {
       id: 'email-address',
@@ -200,11 +201,12 @@ class Home extends React.Component {
       id: 'email-input',
       component: (
         <Input
-          trigger={'message-content'}
-          placeholder={'Type your email...'}
+          trigger="message-content"
+          placeholder="Type your email..."
           callback={(value) => {
             localStorage.setItem('cf-email', value);
-          }} />
+          }}
+        />
       ),
     }, {
       id: 'message-content',
@@ -214,11 +216,12 @@ class Home extends React.Component {
       id: 'message-content-input',
       component: (
         <TextArea
-          trigger={'confirmation-before-send-1'}
-          placeholder={'Type your message...'}
+          trigger="confirmation-before-send-1"
+          placeholder="Type your message..."
           callback={(value) => {
             localStorage.setItem('cf-message', value);
-          }} />
+          }}
+        />
       ),
     }, {
       id: 'confirmation-before-send-1',
@@ -242,28 +245,30 @@ class Home extends React.Component {
             label: 'Send it',
             trigger: 'message-sent',
             callback: () => {
-              let sendEmail = firebase.functions().httpsCallable('sendEmail');
+              const sendEmail = firebase.functions().httpsCallable('sendEmail');
               sendEmail({
                 email: localStorage.getItem('cf-email'),
                 message: localStorage.getItem('cf-message'),
-              }).then((result) => {
+              }).then(() => {
                 localStorage.removeItem('cf-email');
                 localStorage.removeItem('cf-message');
               });
             },
           },
-        ]} />
+        ]}
+        />
       ),
     }, {
       id: 'edit-message-content-input',
       component: (
         <TextArea
-          trigger={'confirmation-before-send-editted-1'}
-          initialValue={true}
-          placeholder={'Type your message...'}
+          trigger="confirmation-before-send-editted-1"
+          initialValue
+          placeholder="Type your message..."
           callback={(value) => {
             localStorage.setItem('cf-message', value);
-          }} />
+          }}
+        />
       ),
     }, {
       id: 'confirmation-before-send-editted-1',
@@ -278,21 +283,25 @@ class Home extends React.Component {
       message: `Sending your message to: svs7oyanov@gmail.com. Its takes me 1 day to answer an email. ${localStorage.getItem('username')} I am going to grab a coffee, meanwhile you can continue to browse!`,
     }];
 
-    const {activeStep} = this.state;
+    const { activeStep, muted } = this.state;
 
     return (
-      <Grid container justify='flex-end'
-        className={classes.container}>
+      <Grid
+        container
+        justify="flex-end"
+        className={classes.container}
+      >
         <video autoPlay muted loop className={classes.videoBackground}>
           <source src={mp4Video} type="video/mp4" />
           <source src={webmVideo} type="video/webm" />
         </video>
-        <audio src={backgroundMusic} muted={this.state.muted} autoPlay={true} loop={true}></audio>
-        <iframe title="audio" allow="autoplay" id="audio" style={{display: 'none'}}></iframe>
+        {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+        <audio src={backgroundMusic} muted={muted} autoPlay loop />
+        <iframe title="audio" allow="autoplay" id="audio" style={{ display: 'none' }} />
         <Preloader />
         <Grid item xs={12} className={classes.mainSection}>
           <img src={logo} className={classes.logo} alt="" />
-          <div className={classes.chatContainer + ' chat-container'}>
+          <div className={`${classes.chatContainer} chat-container`}>
             <ThemeProvider theme={chatTheme}>
               <ChatBot
                 ref={(element) => {
@@ -301,12 +310,12 @@ class Home extends React.Component {
                 }}
                 steps={steps}
                 botAvatar={avatar}
-                hideHeader={true}
-                hideUserAvatar={true}
+                hideHeader
+                hideUserAvatar
                 hideBotAvatar={false}
-                hideSubmitButton={true}
-                className='chat-bot'
-                cache={true}
+                hideSubmitButton
+                className="chat-bot"
+                cache
                 contentStyle={{
                   overflowX: 'hidden',
                   maxHeight: '100%',
@@ -344,52 +353,60 @@ class Home extends React.Component {
                   borderTop: 0,
                   color: '#fff',
                 }}
-                placeholder='Enter your message here...'
-                handleEnd={({renderedSteps, steps, values}) => {
+                placeholder="Enter your message here..."
+                handleEnd={() => {
+                  // { renderedSteps, steps, values }
                   // TODO: Handle the end of the flow
                 }}
-                handleStepChange={(activeStep) => {
+                handleStepChange={(step) => {
                   this.setState({
-                    ...this.state,
-                    activeStep,
+                    activeStep: step,
                   });
-                }} />
+                }}
+              />
             </ThemeProvider>
           </div>
         </Grid>
         <Footer
-          muted={this.state.muted}
+          muted={muted}
           togglePlayer={this.togglePlayer}
-          content={
-            <Grid container justify='space-between'
-              className={classes.navigation} >
+          content={(
+            <Grid
+              container
+              justify="space-between"
+              className={classes.navigation}
+            >
               <NavigationButton
                 active={activeStep && activeStep.id === 'my-work-options'}
                 onClick={() => {
                   const chat = this.getChatComponent();
-                  chat.triggerNextStep({stepId: 'about-me', externalTrigger: true});
-                }}>
+                  chat.triggerNextStep({ stepId: 'about-me', externalTrigger: true });
+                }}
+              >
                 ABOUT_ME
               </NavigationButton>
               <NavigationButton
                 active={activeStep && activeStep.id === 'projects-slider'}
                 onClick={() => {
                   const chat = this.getChatComponent();
-                  chat.triggerNextStep({stepId: 'my-work', externalTrigger: true});
-                }}>
+                  chat.triggerNextStep({ stepId: 'my-work', externalTrigger: true });
+                }}
+              >
                 MY_WORK
               </NavigationButton>
               <NavigationButton
                 active={activeStep && activeStep.id === 'contact-me-request-options'}
                 onClick={() => {
                   const chat = this.getChatComponent();
-                  chat.triggerNextStep({stepId: 'contact-me-request', externalTrigger: true});
+                  chat.triggerNextStep({ stepId: 'contact-me-request', externalTrigger: true });
                   window.open('https://linkedin.com', '_blank');
-                }}>
+                }}
+              >
                 CONTACT_ME
               </NavigationButton>
             </Grid>
-          } />
+          )}
+        />
       </Grid>
     );
   }
@@ -397,25 +414,20 @@ class Home extends React.Component {
 
 Home.propTypes = {
   classes: PropTypes.object.isRequired,
-  history: PropTypes.any,
-  steps: PropTypes.array,
+  // steps: PropTypes.array,
   projects: PropTypes.array,
+  navigate: PropTypes.func,
 };
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    steps: state.conversation.steps,
-    projects: state.projects,
-    routing: state.routing,
-  };
-};
+const mapStateToProps = state => ({
+  // steps: state.conversation.steps,
+  projects: state.projects,
+  routing: state.routing,
+});
 
-const mapDispatchToProps = () => {
-  return {};
-};
+const mapDispatchToProps = () => ({});
 
 export default compose(
-  withRouter,
   withStyles(style),
-  connect(mapStateToProps, mapDispatchToProps)
+  connect(mapStateToProps, mapDispatchToProps),
 )(Home);

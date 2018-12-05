@@ -1,8 +1,8 @@
-import {colors} from '../../styles';
+import { colors } from '../../styles';
 
 export default {
   footer: {
-    borderTop: '1px solid ' + colors.gray,
+    borderTop: `1px solid ${colors.gray}`,
     alignItems: 'center',
     position: 'fixed',
     padding: '24px 72px 32px',

@@ -1,7 +1,9 @@
 const JSON = require('circular-json');
 
 /* istanbul ignore next */
-const getData = ({cacheName, cache, firstStep, steps}, callback) => {
+const getData = ({
+  cacheName, cache, firstStep, steps,
+}, callback) => {
   const currentStep = firstStep;
   const renderedSteps = [steps[currentStep.id]];
   const previousSteps = [steps[currentStep.id]];
@@ -29,7 +31,7 @@ const getData = ({cacheName, cache, firstStep, steps}, callback) => {
         }
       }
 
-      const {trigger, end, options} = data.currentStep;
+      const { trigger, end, options } = data.currentStep;
       const id = data.currentStep.id;
 
       if (options) {

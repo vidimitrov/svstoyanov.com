@@ -1,4 +1,4 @@
-import {colors, typography} from '../../styles';
+import { colors, typography } from '../../styles';
 
 export default {
   container: {
@@ -96,7 +96,7 @@ export default {
     marginBottom: '10px',
   },
   reviewerName: {
-    borderBottom: '2px solid ' + colors.primary,
+    borderBottom: `2px solid  ${colors.primary}`,
   },
   reviewContainer: {
     paddingLeft: '40px',

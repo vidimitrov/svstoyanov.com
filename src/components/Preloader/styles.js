@@ -1,4 +1,4 @@
-import {colors, typography} from '../../styles';
+import { colors, typography } from '../../styles';
 
 export default {
   preloader: {

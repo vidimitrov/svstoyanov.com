@@ -5,7 +5,7 @@ import {
   STORE_USERNAME,
 } from '../constants/actionTypes';
 
-export const setActiveContext = (contextId) => ({
+export const setActiveContext = contextId => ({
   type: SET_ACTIVE_CONTEXT,
   contextId,
 });
@@ -18,12 +18,12 @@ export const stopConversation = () => ({
   type: STOP_CONVERSATION,
 });
 
-export const storeUsernameAction = (username) => ({
+export const storeUsernameAction = username => ({
   type: STORE_USERNAME,
   username,
 });
 
-export const storeUsername = (username) => (dispatch, getState) => {
+export const storeUsername = username => (dispatch, getState) => {
   window.sessionStorage.setItem('username', username);
   dispatch(storeUsernameAction(username));
 };

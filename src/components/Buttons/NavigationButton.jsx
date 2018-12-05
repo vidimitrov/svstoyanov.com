@@ -1,49 +1,51 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
-import withStyles from 'material-ui/styles/withStyles';
-import {colors, typography} from '../../styles';
+import { withStyles } from '@material-ui/core/styles';
+import { colors, typography } from '../../styles';
 // import ButtonLeftBorder from '../../assets/img/buttons/navigation-button-left-border.svg';
 // import ButtonRightBorder from '../../assets/img/buttons/navigation-button-right-border.svg';
 
 const styles = {
   activeButton: {
     ...typography.buttons,
-    'maxWidth': '200px',
-    'textAlign': 'center',
-    'height': '36px',
-    'padding': '4px 16px',
-    'position': 'relative',
-    'display': 'flex',
-    'alignItems': 'center',
-    'lineHeight': 1.5,
-    'letterSpacing': '2px',
-    'fontWeight': 'bold',
-    'boxSizing': 'border-box',
-    'borderRadius': '1px',
-    'border': '1px solid ' + colors.white,
+    maxWidth: '200px',
+    textAlign: 'center',
+    height: '36px',
+    padding: '4px 16px',
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    lineHeight: 1.5,
+    letterSpacing: '2px',
+    fontWeight: 'bold',
+    boxSizing: 'border-box',
+    borderRadius: '1px',
+    border: `1px solid ${colors.white}`,
     '&:hover': {
-      'cursor': 'crosshair',
+      cursor: 'crosshair',
     },
   },
   button: {
     ...typography.buttons,
-    'maxWidth': '200px',
-    'textAlign': 'center',
-    'height': '36px',
-    'color': colors.white,
-    'padding': '8px 16px 8px 24px',
-    'position': 'relative',
-    'display': 'flex',
-    'alignItems': 'center',
-    'lineHeight': 1.5,
-    'letterSpacing': '2px',
-    'fontWeight': 'bold',
-    'boxSizing': 'border-box',
-    'borderRadius': '1px',
-    'borderTop': '1px dotted rgba(255,255,255,0.48)',
-    'borderBottom': '1px dotted rgba(255,255,255,0.48)',
-    'borderLeft': '1px solid ' + colors.white,
-    'borderRight': '1px solid ' + colors.white,
+    maxWidth: '200px',
+    textAlign: 'center',
+    height: '36px',
+    color: colors.white,
+    padding: '8px 16px 8px 24px',
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    lineHeight: 1.5,
+    letterSpacing: '2px',
+    fontWeight: 'bold',
+    boxSizing: 'border-box',
+    borderRadius: '1px',
+    borderTop: '1px dotted rgba(255,255,255,0.48)',
+    borderBottom: '1px dotted rgba(255,255,255,0.48)',
+    borderLeft: `1px solid ${colors.white}`,
+    borderRight: `1px solid ${colors.white}`,
     '&:before': {
       content: 'no-close-quote',
       display: 'block',
@@ -56,20 +58,20 @@ const styles = {
     },
     '&:hover': {
       ...typography.buttons,
-      'cursor': 'crosshair',
-      'maxWidth': '200px',
-      'textAlign': 'center',
-      'height': '36px',
-      'padding': '8px 16px 8px 24px',
-      'position': 'relative',
-      'display': 'flex',
-      'lineHeight': 1.5,
-      'letterSpacing': '2px',
-      'fontWeight': 'bold',
-      'alignItems': 'center',
-      'boxSizing': 'border-box',
-      'borderRadius': '1px',
-      'border': '1px solid ' + colors.white,
+      cursor: 'crosshair',
+      maxWidth: '200px',
+      textAlign: 'center',
+      height: '36px',
+      padding: '8px 16px 8px 24px',
+      position: 'relative',
+      display: 'flex',
+      lineHeight: 1.5,
+      letterSpacing: '2px',
+      fontWeight: 'bold',
+      alignItems: 'center',
+      boxSizing: 'border-box',
+      borderRadius: '1px',
+      border: `1px solid ${colors.white}`,
       '&:before': {
         display: 'none',
       },
@@ -94,7 +96,7 @@ const styles = {
   },
 };
 
-const NavigationButton = ({...props}) => {
+const NavigationButton = ({ ...props }) => {
   const {
     children,
     classes,

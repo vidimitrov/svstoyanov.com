@@ -1,22 +1,24 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint no-restricted-globals:0 */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {compose} from 'recompose';
-import {connect} from 'react-redux';
-import withStyles from 'material-ui/styles/withStyles';
+import { compose } from 'recompose';
+import { connect } from 'react-redux';
+import uuid from 'uuid/v4';
+import { withStyles } from '@material-ui/core/styles';
 import CloseIcon from '@material-ui/icons/Close';
-import {ThemeProvider} from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import firebase from 'firebase/app';
 import 'firebase/functions';
 
-import Grid from 'material-ui/Grid';
+import Grid from '@material-ui/core/Grid';
 import Footer from '../Footer/Footer';
 import ChatBot from '../../lib/ChatBot';
-import Input from '../../components/Inputs/Input';
-import CustomOptions from '../../components/CustomOptions/CustomOptions';
-import TextArea from '../../components/Inputs/TextArea';
+import Input from '../Inputs/Input';
+import CustomOptions from '../CustomOptions/CustomOptions';
+import TextArea from '../Inputs/TextArea';
 
-import style from './styles.jsx';
+import style from './styles';
 import chatTheme from '../../containers/Chat/styles/theme';
 import avatar from '../../assets/img/sto-avatar.png';
 import defaultImage from '../../assets/img/default-thumb.png';
@@ -37,31 +39,40 @@ class Project extends React.Component {
   componentDidMount() {
     this.mainSection.addEventListener('DOMNodeInserted', this.onNodeInserted);
   }
+
   componentWillUnmount() {
     this.mainSection.removeEventListener('DOMNodeInserted', this.onNodeInserted);
   }
 
+  // eslint-disable-next-line class-methods-use-this
   onNodeInserted(event) {
+    // eslint-disable-next-line no-param-reassign
     event.currentTarget.scrollTop = event.currentTarget.scrollHeight;
   }
 
   togglePlayer() {
-    const {muted} = this.state;
+    const { muted } = this.state;
     if (!muted) {
       this.setState({
-        ...this.state,
         muted: true,
       });
     } else {
       this.setState({
-        ...this.state,
         muted: false,
       });
     }
   }
 
   render() {
-    const {classes, project, projects} = this.props;
+    const {
+      classes,
+      project,
+      projects,
+      navigate,
+    } = this.props;
+    const {
+      muted,
+    } = this.state;
     const projectCodeName = `P${project.id}_${project.name.split(' ').join('_').toUpperCase()}`;
     const steps = [{
       id: '1',
@@ -83,17 +94,18 @@ class Project extends React.Component {
             callback: () => {
               let nextId = project.id + 1;
               if (nextId > projects.length) {
-                nextId = nextId % projects.length;
+                nextId %= projects.length;
               }
 
               // FIXME: Temporary workaround to redirect with forced "refresh" of the page
-              location.replace('http://' + location.host + '/projects/' + nextId);
+              location.replace(`http://${location.host}/projects/${nextId}`);
 
               // TODO: Continue the proper solution with react-router
               // history.push(`/projects/${nextId}`);
             },
           },
-        ]} />
+        ]}
+        />
       ),
     }, {
       id: 'email-address',
@@ -103,11 +115,12 @@ class Project extends React.Component {
       id: 'email-input',
       component: (
         <Input
-          trigger={'message-content'}
-          placeholder={'Type your email...'}
+          trigger="message-content"
+          placeholder="Type your email..."
           callback={(value) => {
             localStorage.setItem('cf-email', value);
-          }} />
+          }}
+        />
       ),
     }, {
       id: 'message-content',
@@ -117,11 +130,12 @@ class Project extends React.Component {
       id: 'message-content-input',
       component: (
         <TextArea
-          trigger={'confirmation-before-send-1'}
-          placeholder={'Type your message...'}
+          trigger="confirmation-before-send-1"
+          placeholder="Type your message..."
           callback={(value) => {
             localStorage.setItem('cf-message', value);
-          }} />
+          }}
+        />
       ),
     }, {
       id: 'confirmation-before-send-1',
@@ -145,28 +159,30 @@ class Project extends React.Component {
             label: 'Send it',
             trigger: 'message-sent',
             callback: () => {
-              let sendEmail = firebase.functions().httpsCallable('sendEmail');
+              const sendEmail = firebase.functions().httpsCallable('sendEmail');
               sendEmail({
                 email: localStorage.getItem('cf-email'),
                 message: localStorage.getItem('cf-message'),
-              }).then((result) => {
+              }).then(() => {
                 localStorage.removeItem('cf-email');
                 localStorage.removeItem('cf-message');
               });
             },
           },
-        ]} />
+        ]}
+        />
       ),
     }, {
       id: 'edit-message-content-input',
       component: (
         <TextArea
-          trigger={'confirmation-before-send-editted-1'}
-          initialValue={true}
-          placeholder={'Type your message...'}
+          trigger="confirmation-before-send-editted-1"
+          initialValue
+          placeholder="Type your message..."
           callback={(value) => {
             localStorage.setItem('cf-message', value);
-          }} />
+          }}
+        />
       ),
     }, {
       id: 'confirmation-before-send-editted-1',
@@ -192,19 +208,35 @@ class Project extends React.Component {
           ref={(el) => {
             this.mainSection = el;
           }}
-          className={classes.mainSection}>
+          className={classes.mainSection}
+        >
           <Grid container className={classes.mainSectionContainer}>
             <Grid item xs={3} className={classes.sidebar}>
-              <Grid container direction={'column'}>
+              <Grid container direction="column">
                 <Grid item className={classes.closeIconWrapper}>
-                  <CloseIcon className={classes.closeIcon} onClick={() => {
-                    this.props.history.goBack();
-                  }} />
+                  <CloseIcon
+                    className={classes.closeIcon}
+                    onClick={() => {
+                      navigate('/');
+                    }}
+                  />
                 </Grid>
                 <Grid item>
-                  <div><span className={classes.bold}>PROJECT_NAME:</span> {project.name}</div>
-                  <div><span className={classes.bold}>DURATION:</span> {project.duration}</div>
-                  <div><span className={classes.bold}>CLIENT:</span> {project.review.companyName}</div>
+                  <div>
+                    <span className={classes.bold}>PROJECT_NAME:</span>
+                    {' '}
+                    {project.name}
+                  </div>
+                  <div>
+                    <span className={classes.bold}>DURATION:</span>
+                    {' '}
+                    {project.duration}
+                  </div>
+                  <div>
+                    <span className={classes.bold}>CLIENT:</span>
+                    {' '}
+                    {project.review.companyName}
+                  </div>
                 </Grid>
               </Grid>
             </Grid>
@@ -212,15 +244,23 @@ class Project extends React.Component {
               <h1 className={classes.headline}>{project.headline}</h1>
               <img src={defaultImage} className={classes.landingImage} alt="" />
               <h4 className={classes.description}>{project.description}</h4>
-              {problem &&
-                <h2 className={classes.subHeadline}>&gt; <span className={classes.highlighted}>Problem</span></h2>}
-              {problem &&
-                <h4 className={classes.description}>{problem && problem.description}</h4>}
-              {problem && problem.bulletPoints.map((bp, index) => {
-                return (
-                  <h4 className={classes.bulletPoint} key={index}><span className={classes.bullet}>*</span> {bp}</h4>
-                );
-              })}
+              {problem
+                && (
+                  <h2 className={classes.subHeadline}>
+                    &gt;
+                    {' '}
+                    <span className={classes.highlighted}>Problem</span>
+                  </h2>
+                )}
+              {problem
+                && <h4 className={classes.description}>{problem && problem.description}</h4>}
+              {problem && problem.bulletPoints.map(bp => (
+                <h4 className={classes.bulletPoint} key={uuid()}>
+                  <span className={classes.bullet}>*</span>
+                  {' '}
+                  {bp}
+                </h4>
+              ))}
             </Grid>
           </Grid>
           <Grid container className={classes.review}>
@@ -229,7 +269,9 @@ class Project extends React.Component {
             </Grid>
             <Grid item xs={8}>
               <div className={classes.reviewerInfo}>
-                <div className={classes.reviewerNameContainer}><span className={classes.reviewerName}>{project.review.representative}</span></div>
+                <div className={classes.reviewerNameContainer}>
+                  <span className={classes.reviewerName}>{project.review.representative}</span>
+                </div>
                 <div>{project.review.representativeRole}</div>
               </div>
               <div className={classes.reviewContainer}>
@@ -248,12 +290,12 @@ class Project extends React.Component {
                 steps={steps}
                 cache={false}
                 botAvatar={avatar}
-                hideHeader={true}
-                hideUserAvatar={true}
+                hideHeader
+                hideUserAvatar
                 hideBotAvatar={false}
-                hideSubmitButton={true}
-                renderWhenVisible={true}
-                className='chat-bot'
+                hideSubmitButton
+                renderWhenVisible
+                className="chat-bot"
                 contentStyle={{
                   height: '100%',
                   overflowX: 'hidden',
@@ -287,50 +329,53 @@ class Project extends React.Component {
                   borderTop: 0,
                   color: '#fff',
                 }}
-                placeholder='Enter your message here...'
+                placeholder="Enter your message here..."
               />
             </ThemeProvider>
           </div>
         </div>
         <Footer
-          muted={this.state.muted}
+          muted={muted}
           togglePlayer={this.togglePlayer}
-          content={
-            <Grid container justify='center'
-              className={classes.navigation}>
+          content={(
+            <Grid
+              container
+              justify="center"
+              className={classes.navigation}
+            >
               <Grid item xs={3}>
                 <h1 className={classes.projectName}>{projectCodeName}</h1>
               </Grid>
             </Grid>
-          } />
-      </Grid >
+          )}
+        />
+      </Grid>
     );
   }
 }
 
+const ProjectType = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  headline: PropTypes.string,
+};
+
 Project.propTypes = {
   classes: PropTypes.object.isRequired,
-  match: PropTypes.object,
-  project: PropTypes.object,
-  projects: PropTypes.array,
-  history: PropTypes.any,
+  project: PropTypes.shape(ProjectType).isRequired,
+  projects: PropTypes.arrayOf(PropTypes.shape(ProjectType)).isRequired,
+  navigate: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    projects: state.projects,
-    project: state.projects.find((project, index) => {
-      return (project.id + '') === ownProps.match.params.projectId;
-    }),
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  projects: state.projects,
+  project: state.projects.find(project => (`${project.id}`) === ownProps.projectId),
+});
 
-const mapDispatchToProps = () => {
-  return {};
-};
+const mapDispatchToProps = () => ({});
 
 
 export default compose(
   withStyles(style),
-  connect(mapStateToProps, mapDispatchToProps)
+  connect(mapStateToProps, mapDispatchToProps),
 )(Project);

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import withStyles from 'material-ui/styles/withStyles';
+import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
 
 class Input extends React.Component {
@@ -15,11 +15,11 @@ class Input extends React.Component {
   }
 
   onValueChange(e) {
-    this.setState({value: e.target.value});
+    this.setState({ value: e.target.value });
   }
 
   render() {
-    const {value} = this.state;
+    const { value } = this.state;
     const {
       classes,
       triggerNextStep,
@@ -32,7 +32,8 @@ class Input extends React.Component {
       <input
         type="text"
         className={classes.input}
-        ref={(inputRef) => (this.input = inputRef)}
+        // eslint-disable-next-line no-return-assign
+        ref={inputRef => (this.input = inputRef)}
         placeholder={placeholder}
         value={value}
         onChange={this.onValueChange}
@@ -41,16 +42,17 @@ class Input extends React.Component {
             triggerNextStep({
               stepId: trigger,
               externalTrigger: true,
-              value: this.state.value,
+              value,
             });
             this.input.blur();
             this.input.disabled = true;
 
             if (callback) {
-              callback(this.state.value);
+              callback(value);
             }
           }
-        }} />
+        }}
+      />
     );
   }
 }

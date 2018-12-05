@@ -1,4 +1,4 @@
-import {colors} from '../../../styles';
+import { colors } from '../../../styles';
 import chatMessageStyles from './chatMessageStyles';
 
 const activeChatMessageStyles = {
@@ -19,11 +19,11 @@ const activeChatMessageStyles = {
   activeMessageButtons: {},
   activeMessageButton: {},
   skipChatButton: {
-    'width': '230px',
-    'height': '50px',
-    'color': colors.white,
-    'background': 'url(../../../assets/skip-chat-button.svg) no-repeat center',
-    'backgroundSize': '220px 60px',
+    width: '230px',
+    height: '50px',
+    color: colors.white,
+    background: 'url(../../../assets/skip-chat-button.svg) no-repeat center',
+    backgroundSize: '220px 60px',
     '&:hover': {
       cursor: 'pointer',
     },

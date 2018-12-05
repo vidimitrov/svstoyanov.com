@@ -2,7 +2,7 @@ import {
 
 } from '../constants/actionTypes';
 
-import {projectsInitialState} from './initialState';
+import { projectsInitialState } from './initialState';
 
 export default function projects(state = projectsInitialState, action) {
   switch (action.type) {

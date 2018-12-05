@@ -1,12 +1,12 @@
-/* eslint new-cap: 0*/
-/* eslint no-debugger: 0*/
+/* eslint new-cap: 0 */
+/* eslint no-debugger: 0 */
 /* eslint react/no-find-dom-node:0 */
 import _ from 'lodash';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Observer from 'react-intersection-observer';
 import Random from 'random-id';
-import {CustomStep, OptionsStep, TextStep} from './steps';
+import { CustomStep, OptionsStep, TextStep } from './steps';
 import schema from './schemas/schema';
 import * as storage from './storage';
 import ChatBotContainer from './ChatBotContainer';
@@ -19,7 +19,9 @@ import Footer from './Footer';
 import Input from './Input';
 import SubmitButton from './SubmitButton';
 import Recognition from './recognition';
-import {ChatIcon, CloseIcon, SubmitIcon, MicIcon} from './icons';
+import {
+  ChatIcon, CloseIcon, SubmitIcon, MicIcon,
+} from './icons';
 import 'intersection-observer';
 
 class ChatBot extends Component {
@@ -75,11 +77,11 @@ class ChatBot extends Component {
       renderWhenVisible,
     } = this.props;
     const steps = {};
-    const {observable} = this.state;
+    const { observable } = this.state;
 
-    const defaultBotSettings = {delay: botDelay, avatar: botAvatar};
-    const defaultUserSettings = {delay: userDelay, avatar: userAvatar};
-    const defaultCustomSettings = {delay: customDelay};
+    const defaultBotSettings = { delay: botDelay, avatar: botAvatar };
+    const defaultUserSettings = { delay: userDelay, avatar: userAvatar };
+    const defaultCustomSettings = { delay: customDelay };
 
     for (let i = 0, len = this.props.steps.length; i < len; i += 1) {
       const step = this.props.steps[i];
@@ -105,7 +107,9 @@ class ChatBot extends Component {
       steps[firstStep.id].message = firstStep.message;
     }
 
-    const {currentStep, previousStep, previousSteps, renderedSteps, notRenderedSteps} = storage.getData(
+    const {
+      currentStep, previousStep, previousSteps, renderedSteps, notRenderedSteps,
+    } = storage.getData(
       {
         cacheName,
         cache,
@@ -114,7 +118,7 @@ class ChatBot extends Component {
       },
       () => {
         // focus input if last step cached is a user step
-        this.setState({disabled: false}, () => {
+        this.setState({ disabled: false }, () => {
           this.input.focus();
         });
       },
@@ -167,7 +171,7 @@ class ChatBot extends Component {
 
   componentDidMount() {
     if (this.state.notRenderedSteps) {
-      for (let step of this.state.notRenderedSteps) {
+      for (const step of this.state.notRenderedSteps) {
         step.delay = 3000;
         this.triggerNextStep(step);
         this.setState({
@@ -179,8 +183,8 @@ class ChatBot extends Component {
       }
     }
 
-    const {recognitionEnable} = this.state;
-    const {recognitionLang} = this.props;
+    const { recognitionEnable } = this.state;
+    const { recognitionLang } = this.props;
     if (recognitionEnable) {
       this.recognition = new Recognition(
         this.onRecognitionChange,
@@ -194,10 +198,10 @@ class ChatBot extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    const {opened} = nextProps;
+    const { opened } = nextProps;
 
     if (opened !== undefined && opened !== nextState.opened) {
-      this.setState({opened});
+      this.setState({ opened });
     }
   }
 
@@ -211,7 +215,7 @@ class ChatBot extends Component {
   }
 
   scrollToBottom(el) {
-    const {renderedSteps} = this.state;
+    const { renderedSteps } = this.state;
     const renderedStepsCount = renderedSteps.length;
 
     if (renderedStepsCount > this.counter) {
@@ -230,55 +234,57 @@ class ChatBot extends Component {
   }
 
   onRecognitionChange(value) {
-    this.setState({inputValue: value});
+    this.setState({ inputValue: value });
   }
 
   onRecognitionEnd() {
-    this.setState({speaking: false});
+    this.setState({ speaking: false });
     this.handleSubmitButton();
   }
 
   onRecognitionStop() {
-    this.setState({speaking: false});
+    this.setState({ speaking: false });
   }
 
   onValueChange(event) {
-    this.setState({inputValue: event.target.value});
+    this.setState({ inputValue: event.target.value });
   }
 
   getTriggeredStep(trigger, value) {
     const steps = this.generateRenderedStepsById();
-    return typeof trigger === 'function' ? trigger({value, steps}) : trigger;
+    return typeof trigger === 'function' ? trigger({ value, steps }) : trigger;
   }
 
   getStepMessage(message) {
-    const {previousSteps} = this.state;
+    const { previousSteps } = this.state;
     const lastStepIndex = previousSteps.length > 0 ? previousSteps.length - 1 : 0;
     const steps = this.generateRenderedStepsById();
     const previousValue = previousSteps[lastStepIndex].value;
-    return typeof message === 'function' ? message({previousValue, steps}) : message;
+    return typeof message === 'function' ? message({ previousValue, steps }) : message;
   }
 
   generateRenderedStepsById() {
-    const {previousSteps} = this.state;
+    const { previousSteps } = this.state;
     const steps = {};
 
     for (let i = 0, len = previousSteps.length; i < len; i += 1) {
-      const {id, message, value} = previousSteps[i];
-      steps[id] = {id, message, value};
+      const { id, message, value } = previousSteps[i];
+      steps[id] = { id, message, value };
     }
 
     return steps;
   }
 
   triggerNextStep(data, delayRendering) {
-    const {defaultUserSettings, previousSteps, renderedSteps, steps} = this.state;
-    let {currentStep, previousStep, notRenderedSteps} = this.state;
+    const {
+      defaultUserSettings, previousSteps, renderedSteps, steps,
+    } = this.state;
+    let { currentStep, previousStep, notRenderedSteps } = this.state;
     const isEnd = currentStep.end;
 
     if (delayRendering) {
       notRenderedSteps.push(data);
-      const {cache, cacheName} = this.props;
+      const { cache, cacheName } = this.props;
 
       if (cache) {
         setTimeout(() => {
@@ -302,7 +308,7 @@ class ChatBot extends Component {
     }
     // Custom functionality for using external triggers (changing steps) for the ChatBot component
     if (data && data.externalTrigger) {
-      let nextStep = Object.assign({}, steps[data.stepId]);
+      const nextStep = Object.assign({}, steps[data.stepId]);
       nextStep.key = Random(24);
 
       if (data.delay) {
@@ -315,11 +321,13 @@ class ChatBot extends Component {
       renderedSteps.push(nextStep);
       previousSteps.push(nextStep);
 
-      this.setState({renderedSteps, previousSteps, currentStep, previousStep});
+      this.setState({
+        renderedSteps, previousSteps, currentStep, previousStep,
+      });
     } else if (isEnd) {
       this.handleEnd();
     } else if (currentStep.options && data) {
-      const option = currentStep.options.filter((o) => o.value === data.value)[0];
+      const option = currentStep.options.filter(o => o.value === data.value)[0];
       const trigger = this.getTriggeredStep(option.trigger, currentStep.value);
       delete currentStep.options;
 
@@ -372,21 +380,21 @@ class ChatBot extends Component {
       previousStep = currentStep;
       currentStep = nextStep;
 
-      this.setState({renderedSteps, currentStep, previousStep}, () => {
+      this.setState({ renderedSteps, currentStep, previousStep }, () => {
         if (nextStep.user) {
-          this.setState({disabled: false}, () => {
+          this.setState({ disabled: false }, () => {
             this.input.focus();
           });
         } else {
           renderedSteps.push(nextStep);
           previousSteps.push(nextStep);
 
-          this.setState({renderedSteps, previousSteps});
+          this.setState({ renderedSteps, previousSteps });
         }
       });
     }
 
-    const {cache, cacheName} = this.props;
+    const { cache, cacheName } = this.props;
     if (cache) {
       setTimeout(() => {
         storage.setData(cacheName, {
@@ -406,30 +414,30 @@ class ChatBot extends Component {
 
   handleEnd() {
     if (this.props.handleEnd) {
-      const {previousSteps} = this.state;
+      const { previousSteps } = this.state;
 
       const renderedSteps = previousSteps.map((step) => {
-        const {id, message, value} = step;
-        return {id, message, value};
+        const { id, message, value } = step;
+        return { id, message, value };
       });
 
       const steps = [];
 
       for (let i = 0, len = previousSteps.length; i < len; i += 1) {
-        const {id, message, value} = previousSteps[i];
-        steps[id] = {id, message, value};
+        const { id, message, value } = previousSteps[i];
+        steps[id] = { id, message, value };
       }
 
-      const values = previousSteps.filter((step) => step.value).map((step) => step.value);
+      const values = previousSteps.filter(step => step.value).map(step => step.value);
 
-      this.props.handleEnd({renderedSteps, steps, values});
+      this.props.handleEnd({ renderedSteps, steps, values });
     }
   }
 
   isLastPosition(step) {
-    const {renderedSteps} = this.state;
+    const { renderedSteps } = this.state;
     const length = renderedSteps.length;
-    const stepIndex = renderedSteps.map((s) => s.key).indexOf(step.key);
+    const stepIndex = renderedSteps.map(s => s.key).indexOf(step.key);
 
     if (length <= 1 || stepIndex + 1 === length) {
       return true;
@@ -447,8 +455,8 @@ class ChatBot extends Component {
   }
 
   isFirstPosition(step) {
-    const {renderedSteps} = this.state;
-    const stepIndex = renderedSteps.map((s) => s.key).indexOf(step.key);
+    const { renderedSteps } = this.state;
+    const stepIndex = renderedSteps.map(s => s.key).indexOf(step.key);
 
     if (stepIndex === 0) {
       return true;
@@ -472,11 +480,11 @@ class ChatBot extends Component {
   }
 
   handleSubmitButton() {
-    const {inputValue, speaking, recognitionEnable} = this.state;
+    const { inputValue, speaking, recognitionEnable } = this.state;
     if ((_.isEmpty(inputValue) || speaking) && recognitionEnable) {
       this.recognition.speak();
       if (!speaking) {
-        this.setState({speaking: true});
+        this.setState({ speaking: true });
       }
       return;
     }
@@ -484,8 +492,10 @@ class ChatBot extends Component {
   }
 
   submitUserMessage() {
-    const {defaultUserSettings, inputValue, previousSteps, renderedSteps} = this.state;
-    let {currentStep} = this.state;
+    const {
+      defaultUserSettings, inputValue, previousSteps, renderedSteps,
+    } = this.state;
+    let { currentStep } = this.state;
 
     const isInvalid = currentStep.validator && this.checkInvalidInput();
 
@@ -511,7 +521,7 @@ class ChatBot extends Component {
   }
 
   checkInvalidInput() {
-    const {currentStep, inputValue} = this.state;
+    const { currentStep, inputValue } = this.state;
     const result = currentStep.validator(inputValue);
     const value = inputValue;
 
@@ -546,14 +556,14 @@ class ChatBot extends Component {
 
   toggleChatBot(opened) {
     if (this.props.toggleFloating) {
-      this.props.toggleFloating({opened});
+      this.props.toggleFloating({ opened });
     } else {
-      this.setState({opened});
+      this.setState({ opened });
     }
   }
 
   renderStep(step, index) {
-    const {renderedSteps} = this.state;
+    const { renderedSteps } = this.state;
     const {
       avatarStyle,
       bubbleStyle,
@@ -562,7 +572,7 @@ class ChatBot extends Component {
       hideBotAvatar,
       hideUserAvatar,
     } = this.props;
-    const {options, component, asMessage} = step;
+    const { options, component, asMessage } = step;
     const steps = this.generateRenderedStepsById();
     const previousStep = index > 0 ? renderedSteps[index - 1] : {};
 
@@ -650,8 +660,7 @@ class ChatBot extends Component {
       </Header>
     );
 
-    const icon =
-      (_.isEmpty(inputValue) || speaking) && recognitionEnable ? <MicIcon /> : <SubmitIcon />;
+    const icon = (_.isEmpty(inputValue) || speaking) && recognitionEnable ? <MicIcon /> : <SubmitIcon />;
 
     const inputPlaceholder = speaking ? recognitionPlaceholder : placeholder;
 
@@ -663,7 +672,8 @@ class ChatBot extends Component {
             this.setState(this.state.pendingState);
           }
         }}
-        className={`rsc ${className}`}>
+        className={`rsc ${className}`}
+      >
         {floating && (
           <FloatButton
             className="rsc-float-button"
@@ -679,12 +689,12 @@ class ChatBot extends Component {
           opened={opened}
           style={style}
           width={width}
-          ref={(elem) => this.chatBotContainer = elem}
+          ref={elem => this.chatBotContainer = elem}
         >
           {!hideHeader && header}
           <Content
             className="rsc-content"
-            innerRef={(contentRef) => (this.content = contentRef)}
+            ref={contentRef => (this.content = contentRef)}
             floating={floating}
             style={contentStyle}
           >
@@ -694,7 +704,7 @@ class ChatBot extends Component {
             <Input
               type="textarea"
               style={inputStyle}
-              innerRef={(inputRef) => (this.input = inputRef)}
+              ref={inputRef => (this.input = inputRef)}
               className="rsc-input"
               placeholder={inputInvalid ? '' : inputPlaceholder}
               onKeyPress={this.handleKeyPress}

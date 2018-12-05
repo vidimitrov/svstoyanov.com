@@ -1,9 +1,9 @@
-/* eslint no-invalid-this: 0*/
+/* eslint no-invalid-this: 0 */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v4';
-import withStyles from 'material-ui/styles/withStyles';
+import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
 
 const userId = uuid().split('-').shift();
@@ -15,6 +15,8 @@ class TimeCounter extends Component {
     this.state = {
       elapsed: 0,
     };
+
+    this.tick = this.tick.bind(this);
   }
 
   componentDidMount() {
@@ -25,21 +27,32 @@ class TimeCounter extends Component {
     clearInterval(this.timer);
   }
 
-  tick = () => {
+  tick () {
+    const { start } = this.props;
     this.setState({
-      elapsed: new Date() - this.props.start,
+      elapsed: new Date() - start,
     });
   }
 
   render() {
-    const elapsed = Math.round(this.state.elapsed / 100);
-    const seconds = (elapsed / 10).toFixed(1);
-    const {classes} = this.props;
+    const { elapsed } = this.state;
+    const elapsedTime = Math.round(elapsed / 100);
+    const seconds = (elapsedTime / 10).toFixed(1);
+    const { classes } = this.props;
 
     return (
       <div className={classes.timeCounter}>
-        <p className={classes.key}>USER_ID: {userId}</p>
-        <p className={classes.key}>DURATION: {seconds}s</p>
+        <p className={classes.key}>
+          USER_ID:
+          {' '}
+          {userId}
+        </p>
+        <p className={classes.key}>
+          DURATION:
+          {' '}
+          {seconds}
+          s
+        </p>
       </div>
     );
   }
