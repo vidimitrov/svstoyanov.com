@@ -3,6 +3,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
+import { compose } from 'recompose';
+import { connect } from 'react-redux';
+import { navigate } from '@reach/router';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import SliderButton from '../Buttons/SliderButton';
@@ -11,7 +14,7 @@ import styles from './styles';
 
 class ProjectsSlider extends React.Component {
   render() {
-    const { projects, classes, navigate } = this.props;
+    const { projects, classes } = this.props;
     const { triggerNextStep } = this.props;
     const settings = {
       dots: false,
@@ -80,4 +83,11 @@ ProjectsSlider.propTypes = {
   navigate: PropTypes.func,
 };
 
-export default withStyles(styles)(ProjectsSlider);
+const mapStateToProps = state => ({
+  projects: state.projects,
+});
+
+export default compose(
+  withStyles(styles),
+  connect(mapStateToProps),
+)(ProjectsSlider);
