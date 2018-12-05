@@ -8,7 +8,7 @@ import './index.scss';
 
 const Root = ({ store }) => (
   <Provider store={store}>
-    <Router>
+    <Router className="router">
       <Home path="/" />
       <Project path="/projects/:projectId" />
     </Router>
