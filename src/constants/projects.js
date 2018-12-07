@@ -1,5 +1,5 @@
 export default [{
-  id: 1,
+  id: 'snapp',
   name: 'Snapp Builder',
   headline: 'Its all about building apps',
   shortDescription: 'Snapp Builder is first of its kind app for building apps. Snapp Builder is first of its kind app for building apps. Snapp Builder is first of its kind app for building apps',
@@ -17,7 +17,7 @@ export default [{
   trustFactor: 0.14,
   realtimeboardLink: 'https://realtimeboard.com/b/12345',
 }, {
-  id: 2,
+  id: 'seemba',
   name: 'Seemba',
   headline: 'Its all about online presence',
   shortDescription: 'Seemba helps SMEs to build their online presence',
@@ -35,7 +35,7 @@ export default [{
   trustFactor: 0.14,
   realtimeboardLink: 'https://realtimeboard.com/b/12345',
 }, {
-  id: 3,
+  id: 'history-park',
   name: 'History Park',
   headline: 'Its all about history',
   shortDescription: 'History Park is a park of history',
