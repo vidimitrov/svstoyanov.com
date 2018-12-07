@@ -13,8 +13,15 @@ import Button from '../Buttons/Button';
 import styles from './styles';
 
 class ProjectsSlider extends React.Component {
+  componentDidMount() {
+    const { activeSlideId } = this.props;
+    if (activeSlideId !== undefined) {
+      this.slider.slickGoTo(activeSlideId, true);
+    }
+  }
+
   render() {
-    const { projects, classes } = this.props;
+    const { projects, classes, secondaryButton } = this.props;
     const { triggerNextStep } = this.props;
     const settings = {
       dots: false,
@@ -54,17 +61,42 @@ class ProjectsSlider extends React.Component {
                 {' '}
                 {project.shortDescription}
               </div>
-              <Button onClick={() => {
-                triggerNextStep({
-                  stepId: 'contact-me-request',
-                  externalTrigger: true,
-                }, true);
-                navigate(`/projects/${project.id}`);
-              }}
-              >
-                LEARN_MORE_ABOUT_
-                {projectCodeName}
-              </Button>
+              <div>
+                <Button onClick={() => {
+                  // TODO: Check what should happen here
+
+                  // triggerNextStep({
+                  //   stepId: 'contact-me-request',
+                  //   externalTrigger: true,
+                  // }, true);
+                  navigate(`/projects/${project.id}`);
+                }}
+                >
+                  Show me this project
+                </Button>
+                {
+                  secondaryButton ?
+                    <Button onClick={() => {
+                      triggerNextStep({
+                        stepId: secondaryButton.trigger,
+                        externalTrigger: true,
+                      }, true);
+                    }}
+                    >
+                      {secondaryButton.label}
+                    </Button>
+                    :
+                    <Button onClick={() => {
+                      triggerNextStep({
+                        stepId: '4b13debb-298f-4fe5-b909-e5f3ae5ab95a',
+                        externalTrigger: true,
+                      }, true);
+                    }}
+                    >
+                      I'd like to know more about you
+                  </Button>
+                }
+              </div>
             </div>
           );
         })}
@@ -74,7 +106,9 @@ class ProjectsSlider extends React.Component {
 }
 
 ProjectsSlider.propTypes = {
+  activeSlideId: PropTypes.number,
   step: PropTypes.any,
+  secondaryButton: PropTypes.any,
   classes: PropTypes.any,
   steps: PropTypes.object,
   projects: PropTypes.array,
