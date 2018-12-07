@@ -11,8 +11,6 @@ import 'firebase/functions';
 
 import Preloader from '../../components/Preloader/Preloader';
 import Footer from '../../components/Footer/Footer';
-import NavigationButton from '../../components/Buttons/NavigationButton';
-
 import styles from './styles';
 import chatTheme from '../Chat/styles/theme';
 import avatar from '../../assets/img/sto-avatar.png';
