@@ -80,7 +80,7 @@ class ProjectsSlider extends React.Component {
                       triggerNextStep({
                         stepId: secondaryButton.trigger,
                         externalTrigger: true,
-                      }, true);
+                      });
                     }}
                     >
                       {secondaryButton.label}
@@ -90,7 +90,7 @@ class ProjectsSlider extends React.Component {
                       triggerNextStep({
                         stepId: '4b13debb-298f-4fe5-b909-e5f3ae5ab95a',
                         externalTrigger: true,
-                      }, true);
+                      });
                     }}
                     >
                       I'd like to know more about you
