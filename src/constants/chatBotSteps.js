@@ -279,13 +279,13 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Amazing, tell me more about your drive',
-          trigger: '555d3b51-1647-45d4-a2e0-cb3119b87efa',
+          label: 'Show me what you’ve worked in Seemba', 
+          trigger: '58302e93-08aa-43fb-9d4e-ed0b925ebfc6',
         },
         {
           value: 1,
-          label: 'Show me what you’ve worked in Seemba', 
-          trigger: '58302e93-08aa-43fb-9d4e-ed0b925ebfc6',
+          label: 'Amazing, tell me more about your drive',
+          trigger: '555d3b51-1647-45d4-a2e0-cb3119b87efa',
         },
       ]}
       />
@@ -360,13 +360,13 @@ export default [
         },
         {
           value: 1,
-          label: 'Do you have any side projects',
-          trigger: '5eb2a29c-3f7e-4ca5-a691-84e4f73836b5',
+          label: 'Do you write',
+          trigger: 'ade03d57-a390-46ed-ae5b-16df08760972',
         },
         {
           value: 2,
-          label: 'Do you write',
-          trigger: 'ade03d57-a390-46ed-ae5b-16df08760972',
+          label: 'Do you have any side projects',
+          trigger: '5eb2a29c-3f7e-4ca5-a691-84e4f73836b5',
         },
       ]}
       />
