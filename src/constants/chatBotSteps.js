@@ -8,7 +8,7 @@ import stoyanBushcraftingImg from '../assets/img/stoyan-bushcrafting.jpg';
 
 export default [
   /**
-   * INTRO STEPS
+   * INTRO STEPS 
    */
 
   {
@@ -67,11 +67,11 @@ export default [
     trigger: 'c0c44de7-8c36-43d7-8130-346cf336755d',
   }, {
     id: 'c0c44de7-8c36-43d7-8130-346cf336755d',
-    message: 'I need to remember the name of the person I am talking to 🙂',
+    message: 'I need to remember the name of the person I am talking to: 🙂',
     trigger: '9fa71636-9458-41b4-9760-e952ea4fd8d0',
   }, {
     id: '9fa71636-9458-41b4-9760-e952ea4fd8d0',
-    message: `That's why I'm using them, but don't worry, in 30 days all what we’ve talked about will be deleted`,
+    message: `That's why I’m using them, but don’t worry, my memory is not that long so in 30 days I’ll not remember a thing.`,
     trigger: 'b8460185-2c66-4de5-bc1b-4a83a9b206fa',
   }, {
     id: 'b8460185-2c66-4de5-bc1b-4a83a9b206fa',
@@ -87,15 +87,15 @@ export default [
     ),
   }, {
     id: '391f50d4-a33e-4aca-a6f6-fe3302cc123b',
-    message: 'My breakfast',
+    message: 'My breakfast.',
     trigger: '1df69e15-2e9a-4b01-b51b-c129159395bc',
   }, {
     id: '1df69e15-2e9a-4b01-b51b-c129159395bc',
-    message: `Haha kidding, they are like a memory, allowing me to remember what we've talked about.`,
+    message: `Haha kidding, they are like a memory, allowing me to remember what we’ve talked about.`,
     trigger: 'a2a3096c-1e7f-4419-b435-5a6a2fafa241',
   }, {
     id: 'a2a3096c-1e7f-4419-b435-5a6a2fafa241',
-    message: `I'm supposed to inform you because of the GDPR`,
+    message: `After all I need to inform you because of the GDPR.`,
     trigger: 'a9ed115b-a723-4395-9afd-f676e5255b55',
   }, {
     id: 'a9ed115b-a723-4395-9afd-f676e5255b55',
@@ -103,7 +103,7 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Okay',
+          label: 'Of course',
           trigger: 'cf8ea5df-1283-4219-b545-27443fa3b381',
         }
       ]}
@@ -127,7 +127,7 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Would like to learn more about you',
+          label: 'Learn more about you',
           trigger: 'bc45efbf-270f-4ff0-810b-d26b9ce598ca',
         },
         {
@@ -150,11 +150,12 @@ export default [
     trigger: '818027c8-982d-46ae-85b5-1762fe3e980c'
   }, {
     id: '818027c8-982d-46ae-85b5-1762fe3e980c',
-    message: 'What can I say, I am a UX designer and a strategist, who loves creating value for companies with people-centric solutions. I have worked with different startups and companies on exciting projects across different industries and countries from simple prototypes, MVPs to final products.',
+    message: 'I’m a UX designer and a strategist, who loves creating value for companies with people-centric solutions. My goal is to deliver products that people use. I’ve worked with different startups and companies on exciting projects across different industries and countries from simple prototypes, MVP’s to final products.',
     trigger: '42d6f01d-3c44-43da-bea8-b1fa301af378'
   }, {
     id: '42d6f01d-3c44-43da-bea8-b1fa301af378',
-    message: `And I've created my digital twin to represent me. Haha!`,
+    message: `I’m a curious guy, who is constantly 
+    learning and experimenting with different technologies! That’s why I’ve created my digital twin to represent me. Haha!`,
     trigger: 'e29b9ed5-f83d-48ba-bd6d-b9891ec8ad23'
   }, {
     id: 'e29b9ed5-f83d-48ba-bd6d-b9891ec8ad23',
@@ -162,7 +163,7 @@ export default [
     trigger: '7c478cfc-2415-45be-a953-422002116874'
   }, {
     id: '7c478cfc-2415-45be-a953-422002116874',
-    message: `I am a nature freak who loves to practice bushcraft 🏕️. In my spare time, I'm a curious guy, who is constantly learning and experimenting with different technologies!`,
+    message: `And last but not least I’m a nature freak who loves to practice bushcraft 🏕️ in his spare time.`,
     trigger: '3e7b3a0a-ae39-42eb-a9c0-12c84b7515a4'
   }, {
     id: '3e7b3a0a-ae39-42eb-a9c0-12c84b7515a4',
@@ -170,17 +171,17 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'I like to see your projects',
+          label: 'Amazing. Can I see your work',
           trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
         },
         {
           value: 1,
-          label: `What's your passion`,
+          label: `What drives you`,
           trigger: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
         },
         {
           value: 2,
-          label: `I'd like to see your hobbies`,
+          label: `Curious to know about your hobbies`,
           trigger: 'aa555702-702b-4821-b8a0-0cc1e92c6b49',
         }
       ]}
@@ -221,11 +222,11 @@ export default [
     trigger: 'b0f9b1bc-9867-40b3-a97a-4bda2367c36e',
   }, {
     id: 'b0f9b1bc-9867-40b3-a97a-4bda2367c36e',
-    message: 'You know there is a saying "You can know the person by the hobbies he has"!',
+    message: 'You know there is a saying “You can know the person by the hobbies he has”!',
     trigger: 'e6143b48-2e42-44d7-a678-56385c3542ee',
   }, {
     id: 'e6143b48-2e42-44d7-a678-56385c3542ee',
-    message: 'Speaking in this direction what would you like to know about me?',
+    message: 'Speaking in this direction what would you like to understand about me?',
     trigger: 'b9b5ec19-5aaa-44b0-93ba-1c5efbae2e82',
   }, {
     id: 'b9b5ec19-5aaa-44b0-93ba-1c5efbae2e82',
@@ -233,38 +234,44 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'On what topics you write',
+          label: 'On what topics you write', // Priority buttons
           trigger: '572159ba-5f1f-4c5b-9813-cf67c5cd4441',
         },
         {
           value: 1,
-          label: 'Your volunteering experience',
+          label: 'Your volunteering experience', // Priority buttons
           trigger: '5eb2a29c-3f7e-4ca5-a691-84e4f73836b5',
         },
         {
           value: 2,
-          label: 'What is bushcraft',
+          label: 'What is bushcraft', // Priority buttons
           trigger: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
         },
         {
           value: 3,
-          label: `What's your passion`,
+          label: `What drives you`, // Priority buttons
           trigger: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
         },
       ]}
       />
     ),
-  }, {
+  }, 
+  
+  /**
+   *  WHAT DRIVES YOU STEPS
+   */
+  
+  {
     id: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
-    message: 'Actually it is inventing creative solutions and questioning what already is out there in order to improve it. My belly turns upside down when I see a problem, but instead of a problem, I see an opportunity to improve the already done solution or create innovative one.',
+    message: 'Actually it is inventing creative solutions and questioning what already is out there in order to improve it. My belly turns upside down when I see a opportunity to improve an already done solution or create an innovative one.',
     trigger: 'f6cf0d43-2d27-490a-96f4-a2d6bad760e8',
   }, {
     id: 'f6cf0d43-2d27-490a-96f4-a2d6bad760e8',
-    message: `And for me design isn't just some fancy term, or drawing or research or other terms. For me it is creating the proper products for the people out there in the proper way.`,
+    message: `Because for me design isn't just some fancy term, drawing or research. For me it is creating a proper products for the people out there in the proper way.`,
     trigger: '1e9ff7c4-bbf4-41b2-9741-de6363090ac8',
   }, {
     id: '1e9ff7c4-bbf4-41b2-9741-de6363090ac8',
-    message: 'This is why I was motivated to start working in Snapp and Seemba',
+    message: 'This was one of the many reasons, why I’ve started working in Snapp and later Seemba.',
     trigger: '2f758d46-e72e-4653-b47b-daa6940e67ea',
   }, {
     id: '2f758d46-e72e-4653-b47b-daa6940e67ea',
@@ -272,12 +279,12 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'And what do you stand for',
+          label: 'Amazing, tell me more about your drive',
           trigger: '555d3b51-1647-45d4-a2e0-cb3119b87efa',
         },
         {
           value: 1,
-          label: 'Show me this Seemba',
+          label: 'Show me what you’ve worked in Seemba', 
           trigger: '58302e93-08aa-43fb-9d4e-ed0b925ebfc6',
         },
       ]}
@@ -299,11 +306,11 @@ export default [
     },
   }, {
     id: '555d3b51-1647-45d4-a2e0-cb3119b87efa',
-    message: `Aha nice question. I'm glad that you are interested to know.`,
+    message: `Aha nice that you have the interest of knowing more.`,
     trigger: '00de876c-632d-4d12-8b33-4334f35278bb',
   }, {
     id: '00de876c-632d-4d12-8b33-4334f35278bb',
-    message: 'Hmm I think that this question can be issued in a quick call or email. I will be glad to tell you 🙂',
+    message: 'I think that this question can be issued in a quick call or email. I will be glad to form a discussion with you 🙂',
     trigger: 'b93a0bf0-ecc4-41d7-a9ae-e8946168a034',
   }, {
     id: 'b93a0bf0-ecc4-41d7-a9ae-e8946168a034',
@@ -311,12 +318,12 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'I want to contact you',
+          label: 'Okay, I want to contact you', // Priority buttons
           trigger: 'baf603af-c5b3-4357-8973-eda635bd1d76',
         },
         {
           value: 1,
-          label: `I'll continue with your hobbies`,
+          label: `I'll continue with your hobbies`, // Priority buttons
           trigger: 'aa555702-702b-4821-b8a0-0cc1e92c6b49',
         },
       ]}
@@ -336,7 +343,7 @@ export default [
     trigger: 'e9aa5209-4126-4601-9108-20d3818c188e',
   }, {
     id: 'e9aa5209-4126-4601-9108-20d3818c188e',
-    message: 'I like it',
+    message: 'Just to mention that I also consider my side projects as a hobby, since I love what I do.',
     trigger: 'fff3317f-c601-4c7f-b9dc-d3672eb20458',
   }, {
     id: 'fff3317f-c601-4c7f-b9dc-d3672eb20458',
@@ -348,17 +355,17 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'What is bushcraft',
+          label: 'What’s bushcraft', 
           trigger: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
         },
         {
           value: 1,
-          label: 'About your volunteer experience',
+          label: 'Do you have any side projects',
           trigger: '5eb2a29c-3f7e-4ca5-a691-84e4f73836b5',
         },
         {
           value: 2,
-          label: 'You mention that you write',
+          label: 'Do you write',
           trigger: 'ade03d57-a390-46ed-ae5b-16df08760972',
         },
       ]}
@@ -372,7 +379,7 @@ export default [
 
   {
     id: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
-    message: `Okay I think that you'll like it!`,
+    message: `Okay I think that you’ll like it!`,
     trigger: 'fcb7566d-e735-4a96-9c35-cb2231b6924f',
   }, {
     id: 'fcb7566d-e735-4a96-9c35-cb2231b6924f',
@@ -380,16 +387,20 @@ export default [
     trigger: '6fe7f3d4-ad5c-4cb4-b763-b7ac836e8d77',
   }, {
     id: '6fe7f3d4-ad5c-4cb4-b763-b7ac836e8d77',
+    message: 'How it sounds to you?',
+    trigger: '8d7f9350-60ed-4fc6-8e2e-408bda3bcc89',
+  },{
+    id: '8d7f9350-60ed-4fc6-8e2e-408bda3bcc89',
     component: (
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Not my type',
+          label: 'Hmm, not my type',
           trigger: 'aab29c25-b0d4-4050-8bb3-8065cfd0b18f',
         },
         {
           value: 1,
-          label: 'Sounds amazing',
+          label: 'And why you like it',
           trigger: '4fc415ef-ed03-43d3-b432-9304cbda4233',
         },
       ]}
@@ -423,7 +434,7 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Wow I like it',
+          label: 'Nice picture, like it',
           trigger: '4cddfd44-1e6e-4289-b440-30c4422fd7fe',
         },
         {
@@ -485,12 +496,12 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'I want to contact you',
+          label: 'Nice, I want to contact you',
           trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
         },
         {
           value: 1,
-          label: 'Show me your projects',
+          label: 'Can you show me your work',
           trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
         },
       ]}
@@ -510,7 +521,7 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'I want to contact you',
+          label: 'I like to talk with you',
           trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
         },
         {
@@ -530,7 +541,7 @@ export default [
 
   {
     id: 'ade03d57-a390-46ed-ae5b-16df08760972',
-    message: 'Aha. I see where we are going at.',
+    message: 'Yeah! Actually I’ve started several months ago. Really like to do it by the way.',
     trigger: '42054d9c-1fe6-4956-8c36-96958456e3db',
   }, {
     id: '42054d9c-1fe6-4956-8c36-96958456e3db',
@@ -542,7 +553,7 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: `Let's have a discussion`,
+          label: `Let’s discuss on a topic`,
           trigger: '47820655-90b7-4a62-8223-7601362c66b1',
         },
         {
@@ -571,12 +582,12 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: `Let's discuss on CI`,
+          label: `No prob, let's discuss on CI`,
           trigger: 'ee80840e-aaac-405d-be59-09dbae8a4ba2',
         },
         {
           value: 1,
-          label: 'What is UX for you?',
+          label: 'Interesting. What is UX for you',
           trigger: '1c9beb0b-7a8c-4ca5-b40a-10fc2eb7d8e8',
         },
       ]}
@@ -588,11 +599,11 @@ export default [
     trigger: '3416f306-a239-4554-ace5-a80d40b39602',
   }, {
     id: '3416f306-a239-4554-ace5-a80d40b39602',
-    message: `Humans talk from millennials but machines, why can't machines do so? Now it's a bit hard because of the fact that speech is a complex thing and differs a lot based on culture and language. So there are conversational rules, which to say that I am using, haha, needs to be implemented in order we to have a conversation now. For instance, I can say that my distant cousins Siri, Cortana, and Alexa can even talk. I hope I will also do that soon!`,
+    message: `Humans talk from millennials but machines, why can't machines do so? Now it's a bit hard because of the fact that speech is a complex thing and differs a lot based on culture and language. So there are conversational rules, which to say that I’m using, haha, needs to be implemented in order we to have a conversation now. For instance, I can say that my distant cousins Siri, Cortana, and Alexa can even talk. I hope I’ll also do that soon!`,
     trigger: 'e219c554-20f0-4b2b-a65c-bba31668b1ab',
   }, {
     id: 'e219c554-20f0-4b2b-a65c-bba31668b1ab',
-    message: `I like a quote that I heard from National Geographic: “Building the Babylon tower to the sky was possible because everyone was speaking the same language! Now God was scared so he had a solution to this, and thus created the languages and separated the people. Which stopped building the tower because they couldn’t communicate in the same language”`,
+    message: `I like a quote that I heard from National Geographic: “Building the Babylon tower to the sky was possible because everyone was speaking the same language! Now God was scared so he had a solution to this, and thus created the languages and separated the people. Which stopped building the tower because they couldn’t communicate in the same language”.`,
     trigger: 'c1c997b8-43d8-45f5-9c73-6f5501759048',
   }, {
     id: 'c1c997b8-43d8-45f5-9c73-6f5501759048',
@@ -600,12 +611,12 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Wish to know more this bot',
+          label: 'Nice. Wish to know more about this bot',
           trigger: '298d9a15-04c2-4e9a-882a-2ddc8750ef01',
         },
         {
           value: 1,
-          label: 'Can you show me some projects you have on CI?',
+          label: 'Can you show me your work on CI',
           trigger: '649d08f0-7d48-43fd-8acb-0810396ea76d',
         },
       ]}
@@ -613,7 +624,7 @@ export default [
     ),
   }, {
     id: '649d08f0-7d48-43fd-8acb-0810396ea76d',
-    message: 'Sure',
+    message: 'Sure. This is one of my CI projects.',
     trigger: '4d5776b5-5eae-495c-868c-eae02cc797d7',
   }, {
     id: '4d5776b5-5eae-495c-868c-eae02cc797d7',
@@ -631,7 +642,7 @@ export default [
     trigger: 'c70a8dfa-e78c-4d85-8159-8aa280449634',
   }, {
     id: 'c70a8dfa-e78c-4d85-8159-8aa280449634',
-    message: 'Here you can find more information',
+    message: 'Here you can find more information.',
     trigger: '2c3868eb-0a5b-4723-b64d-2762d7ca37d3',
   }, {
     id: '2c3868eb-0a5b-4723-b64d-2762d7ca37d3',
@@ -639,7 +650,7 @@ export default [
       <ProjectsSlider
         activeSlideId={1}
         secondaryButton={{
-          label: 'I wish to contact you',
+          label: 'Wish to contact you', //Priority buttons
           trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
         }} />
     ),
@@ -653,7 +664,7 @@ export default [
     trigger: '823ba471-8c15-410b-9636-6275bca7464a',
   }, {
     id: '823ba471-8c15-410b-9636-6275bca7464a',
-    message: 'I believe that as a UX-er I need to be like an actor sometimes, going into the thoughts and lives of the people and understanding their pains or needs.',
+    message: 'I believe that as a UX-er I need to be like an actor sometimes, going into the thoughts and lives of the people to understand their pains and needs. Empathise, empathise, emphatise.',
     trigger: '0a388fbc-1544-4690-b7bc-5405e46aa7af',
   }, {
     id: '0a388fbc-1544-4690-b7bc-5405e46aa7af',
@@ -712,19 +723,15 @@ export default [
     trigger: 'd0836ef8-c4ca-4755-b020-336e84d0cc3d',
   }, {
     id: 'd0836ef8-c4ca-4755-b020-336e84d0cc3d',
-    message: `By the way. If you haven't checked my projects already you can do it, since they are on this topic or read more in my blog.`,
+    message: `In the meantime while I read it and answer you can see some of my UX topics in my personal blog infinitecrave.com or if you want we can talk about something else!`, //Infinitecrave here is a link
     trigger: '33c0e0da-b505-42f5-ab41-522f792e23f2',
   }, {
     id: '33c0e0da-b505-42f5-ab41-522f792e23f2',
-    message: 'infinitecrave.com',
-    trigger: 'a01f299b-3998-4dcd-becc-839cae490ecf',
-  }, {
-    id: 'a01f299b-3998-4dcd-becc-839cae490ecf',
     component: (
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Show them to me',
+          label: 'Show them to me', // Priority buttons
           trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
         },
       ]}
@@ -736,7 +743,7 @@ export default [
     trigger: '21119418-c394-4d54-a8ef-c66b3451e6c6',
   }, {
     id: '21119418-c394-4d54-a8ef-c66b3451e6c6',
-    message: 'While thinking on the topic you could check out some of my projects or you can see something else.',
+    message: 'While thinking on the topic you could check out some of my projects or we can talk about something else.',
     trigger: '2295a21b-5089-40ed-9780-63282c4e4fa2',
   }, {
     id: '2295a21b-5089-40ed-9780-63282c4e4fa2',
@@ -744,13 +751,18 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'I would like to contact you',
+          label: 'Wish to contact you',
           trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
         },
         {
           value: 1,
           label: 'Show them to me',
           trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+        },
+        {
+          value: 2,
+          label: 'Let’s talk about something else',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', //Go to section 3 mediator
         },
       ]}
       />
