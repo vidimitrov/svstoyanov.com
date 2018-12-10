@@ -34,4 +34,9 @@ export default [
     types: ['object'],
     required: false,
   },
+  {
+    key: 'callback',
+    types: ['function'],
+    required: false,
+  },
 ];

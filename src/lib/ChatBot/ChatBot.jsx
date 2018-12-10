@@ -300,6 +300,10 @@ class ChatBot extends Component {
       return;
     }
 
+    if (currentStep && currentStep.callback) {
+      currentStep.callback();
+    }
+
     if (data && data.value) {
       currentStep.value = data.value;
     }
