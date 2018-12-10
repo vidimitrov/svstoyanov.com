@@ -6,6 +6,23 @@ import TextArea from '../components/Inputs/TextArea';
 import ImageStep from '../components/steps/Image';
 import stoyanBushcraftingImg from '../assets/img/stoyan-bushcrafting.jpg';
 
+const CHATBOT_VISITED_SECTIONS = 'cb-vs';
+
+function isVisited(sectionId) {
+  const chatbotVisitedSections = localStorage.getItem(CHATBOT_VISITED_SECTIONS) || '{}';
+  const sections = JSON.parse(chatbotVisitedSections);
+  return !!sections[sectionId];
+}
+
+function setVisited(sectionId) {
+  const chatbotVisitedSections = localStorage.getItem(CHATBOT_VISITED_SECTIONS) || '{}';
+  const sections = JSON.parse(chatbotVisitedSections);
+  if (!sections[sectionId]) {
+    sections[sectionId] = true;
+    localStorage.setItem(CHATBOT_VISITED_SECTIONS, JSON.stringify(sections));
+  }
+}
+
 export default [
   /**
    * INTRO STEPS 
@@ -197,6 +214,9 @@ export default [
     id: '89695e34-2a77-4f0e-ab39-8602906dde0b',
     message: 'No problem!',
     trigger: '165cbbdb-a0cc-40be-b294-f1757ff23d64',
+    callback: () => {
+      setVisited('89695e34-2a77-4f0e-ab39-8602906dde0b');
+    }
   }, {
     id: '165cbbdb-a0cc-40be-b294-f1757ff23d64',
     message: 'Taking them out from my magic 🎩 (Fresh, evenly baked on both sides/Take a look at them)',
@@ -255,16 +275,19 @@ export default [
       ]}
       />
     ),
-  }, 
-  
+  },
+
   /**
    *  WHAT DRIVES YOU STEPS
    */
-  
+
   {
     id: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
     message: 'Actually it is inventing creative solutions and questioning what already is out there in order to improve it. My belly turns upside down when I see a opportunity to improve an already done solution or create an innovative one.',
     trigger: 'f6cf0d43-2d27-490a-96f4-a2d6bad760e8',
+    callback: () => {
+      setVisited('30ac9e09-0053-48dd-beb5-08207c6a4da5');
+    }
   }, {
     id: 'f6cf0d43-2d27-490a-96f4-a2d6bad760e8',
     message: `Because for me design isn't just some fancy term, drawing or research. For me it is creating a proper products for the people out there in the proper way.`,
@@ -284,7 +307,7 @@ export default [
         },
         {
           value: 1,
-          label: 'Show me what you’ve worked in Seemba', 
+          label: 'Show me what you’ve worked in Seemba',
           trigger: '58302e93-08aa-43fb-9d4e-ed0b925ebfc6',
         },
       ]}
@@ -355,7 +378,7 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'What’s bushcraft', 
+          label: 'What’s bushcraft',
           trigger: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
         },
         {
@@ -389,7 +412,7 @@ export default [
     id: '6fe7f3d4-ad5c-4cb4-b763-b7ac836e8d77',
     message: 'How it sounds to you?',
     trigger: '8d7f9350-60ed-4fc6-8e2e-408bda3bcc89',
-  },{
+  }, {
     id: '8d7f9350-60ed-4fc6-8e2e-408bda3bcc89',
     component: (
       <CustomOptions options={[
@@ -440,7 +463,7 @@ export default [
         {
           value: 1,
           label: `Think that it's not for me`,
-          trigger: '41e28014-62ba-441b-aeab-44b2ee0fa2d8', 
+          trigger: '41e28014-62ba-441b-aeab-44b2ee0fa2d8',
         },
       ]}
       />
@@ -455,14 +478,35 @@ export default [
     trigger: '37b9a497-47ad-4be6-832c-7900d1167c02',
   }, {
     id: '37b9a497-47ad-4be6-832c-7900d1167c02',
-    component:(
-      <CustomOptions options={[
-        {
-          value: 0,
-          label: 'Show me your projects', //Priority button
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
-        },
-      ]}
+    component: (
+      <CustomOptions
+        options={[
+          {
+            value: 0,
+            label: 'Show me your projects',
+            trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          },
+        ]}
+        dynamicOptions={[
+          {
+            value: 1,
+            isVisible: () => !isVisited('30ac9e09-0053-48dd-beb5-08207c6a4da5'),
+            label: 'What drives you',
+            trigger: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
+          },
+          {
+            value: 2,
+            isVisible: () => !isVisited('ade03d57-a390-46ed-ae5b-16df08760972'),
+            label: 'Earlier you mentioned that you write',
+            trigger: 'ade03d57-a390-46ed-ae5b-16df08760972',
+          },
+          {
+            value: 3,
+            isVisible: () => !isVisited('89695e34-2a77-4f0e-ab39-8602906dde0b'),
+            label: 'I saw that you have side projects',
+            trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          }
+        ]}
       />
     ),
   }, {
@@ -563,6 +607,9 @@ export default [
     id: 'ade03d57-a390-46ed-ae5b-16df08760972',
     message: 'Yeah! Actually I’ve started several months ago. Really like to do it by the way.',
     trigger: '42054d9c-1fe6-4956-8c36-96958456e3db',
+    callback: () => {
+      setVisited('ade03d57-a390-46ed-ae5b-16df08760972');
+    }
   }, {
     id: '42054d9c-1fe6-4956-8c36-96958456e3db',
     message: 'What do you want to know about my writing career ✍️?',
