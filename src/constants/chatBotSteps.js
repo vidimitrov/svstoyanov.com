@@ -321,11 +321,6 @@ export default [
           label: 'Okay, I want to contact you', // Priority buttons
           trigger: 'baf603af-c5b3-4357-8973-eda635bd1d76',
         },
-        {
-          value: 1,
-          label: `I'll continue with your hobbies`, // Priority buttons
-          trigger: 'aa555702-702b-4821-b8a0-0cc1e92c6b49',
-        },
       ]}
       />
     )
