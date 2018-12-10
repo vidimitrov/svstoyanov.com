@@ -440,7 +440,27 @@ export default [
         {
           value: 1,
           label: `Think that it's not for me`,
-          trigger: '41e28014-62ba-441b-aeab-44b2ee0fa2d8',
+          trigger: '41e28014-62ba-441b-aeab-44b2ee0fa2d8', 
+        },
+      ]}
+      />
+    ),
+  }, {
+    id: '41e28014-62ba-441b-aeab-44b2ee0fa2d8',
+    message: 'In Bulgaria we have a saying: Every crazy person with their act 😁.',
+    trigger: '19cd57e3-ce44-4eb7-81f8-810add682e3e',
+  }, {
+    id: '19cd57e3-ce44-4eb7-81f8-810add682e3e',
+    message: `Well ${localStorage.getItem('user-name')} what would you like to talk about next?`,
+    trigger: '37b9a497-47ad-4be6-832c-7900d1167c02',
+  }, {
+    id: '37b9a497-47ad-4be6-832c-7900d1167c02',
+    component:(
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me your projects', //Priority button
+          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
         },
       ]}
       />
