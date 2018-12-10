@@ -302,13 +302,13 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Amazing, tell me more about your drive',
-          trigger: '555d3b51-1647-45d4-a2e0-cb3119b87efa',
+          label: 'Show me what you’ve worked in Seemba',
+          trigger: '58302e93-08aa-43fb-9d4e-ed0b925ebfc6',
         },
         {
           value: 1,
-          label: 'Show me what you’ve worked in Seemba',
-          trigger: '58302e93-08aa-43fb-9d4e-ed0b925ebfc6',
+          label: 'Amazing, tell me more about your drive',
+          trigger: '555d3b51-1647-45d4-a2e0-cb3119b87efa',
         },
       ]}
       />
@@ -344,11 +344,6 @@ export default [
           label: 'Okay, I want to contact you', // Priority buttons
           trigger: 'baf603af-c5b3-4357-8973-eda635bd1d76',
         },
-        {
-          value: 1,
-          label: `I'll continue with your hobbies`, // Priority buttons
-          trigger: 'aa555702-702b-4821-b8a0-0cc1e92c6b49',
-        },
       ]}
       />
     )
@@ -383,13 +378,13 @@ export default [
         },
         {
           value: 1,
-          label: 'Do you have any side projects',
-          trigger: '5eb2a29c-3f7e-4ca5-a691-84e4f73836b5',
+          label: 'Do you write',
+          trigger: 'ade03d57-a390-46ed-ae5b-16df08760972',
         },
         {
           value: 2,
-          label: 'Do you write',
-          trigger: 'ade03d57-a390-46ed-ae5b-16df08760972',
+          label: 'Do you have any side projects',
+          trigger: '5eb2a29c-3f7e-4ca5-a691-84e4f73836b5',
         },
       ]}
       />
@@ -717,9 +712,24 @@ export default [
       <ProjectsSlider
         activeSlideId={1}
         secondaryButton={{
-          label: 'Wish to contact you', //Priority buttons
+          label: 'Show me this project',
           trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
         }} />
+    ),
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: `Wish to contact you`,
+          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+        },
+        {
+          value: 1,
+          label: `Let’s talk about something else`, // Leads to meadiator
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+      ]}
+      />
     ),
   }, {
     id: '1c9beb0b-7a8c-4ca5-b40a-10fc2eb7d8e8',
@@ -798,7 +808,7 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Show them to me', // Priority buttons
+          label: 'Nice. Can I see your work', // Priority buttons
           trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
         },
       ]}
@@ -818,13 +828,13 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Wish to contact you',
-          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+          label: 'Show them to me',
+          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
         },
         {
           value: 1,
-          label: 'Show them to me',
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          label: 'Wish to contact you',
+          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
         },
         {
           value: 2,
@@ -844,28 +854,24 @@ export default [
     trigger: '5e16c545-2f39-4a20-a1b8-3c978fce84cb',
   }, {
     id: '5e16c545-2f39-4a20-a1b8-3c978fce84cb',
-    message: `Long story short, I write what I’ve done so far and what I'm doing`,
+    message: ` Long story short, I write what I’ve done so far and what I'm doing.`,
     trigger: '131a2787-d265-4d0f-bea2-a3167bec1f7c',
   }, {
     id: '131a2787-d265-4d0f-bea2-a3167bec1f7c',
-    message: 'You can check some of my articles:',
+    message: 'You can check some of my articles: infinitecrave.com', //infinitecrave is link
     trigger: '7921568d-5249-40e2-b03a-62e9237b4558',
   }, {
     id: '7921568d-5249-40e2-b03a-62e9237b4558',
-    message: 'infinitecrave.com',
-    trigger: '77354dc1-df81-4ac2-9d42-c5e5dce4df38',
-  }, {
-    id: '77354dc1-df81-4ac2-9d42-c5e5dce4df38',
     component: (
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Great, can you show me your projects?',
+          label: 'Great, can you show me your work?',
           trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
         },
         {
           value: 1,
-          label: `Why you've started your own blog?`,
+          label: `Why you’ve started your own blog?`,
           trigger: '66f0c177-f9b9-40b7-a109-cb31074f5c01',
         },
       ]}
@@ -873,7 +879,7 @@ export default [
     ),
   }, {
     id: '66f0c177-f9b9-40b7-a109-cb31074f5c01',
-    message: `I'll try to be as short as possible`,
+    message: `I'll try to be as short as possible.`,
     trigger: '3a255ae9-d7b9-4a0e-888b-9f071b86e3f3',
   }, {
     id: '3a255ae9-d7b9-4a0e-888b-9f071b86e3f3',
@@ -881,7 +887,7 @@ export default [
     trigger: '392b12c8-91a4-4890-8d3e-77cad2c5d4bf',
   }, {
     id: '392b12c8-91a4-4890-8d3e-77cad2c5d4bf',
-    message: 'So it took me a while before I started to produce quality work and make my way in the right direction.',
+    message: 'So it took me a while before I started to produce great work and see results in the eyes of the customers.',
     trigger: '6dedb432-b073-4022-9c0e-ccda5bacc613',
   }, {
     id: '6dedb432-b073-4022-9c0e-ccda5bacc613',
@@ -901,7 +907,7 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Great, can I see your projects',
+          label: 'Nice story. Would like to see your work', //Priority buttons
           trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
         },
       ]}
@@ -910,19 +916,19 @@ export default [
   },
 
   /**
-   * VOLUNTEER EXPERIENCE STEPS
+   * SIDE PROJECTS STEPS
    */
   {
     id: '5eb2a29c-3f7e-4ca5-a691-84e4f73836b5',
-    message: 'Glad that you have the desire to know me better',
+    message: `Glad that you have the desire to know me better. Actually my side work is a hobby for me. Here is some of the things I've done`,
     trigger: 'b32930ef-d88f-4e08-ab84-44fe7f921a88',
   }, {
     id: 'b32930ef-d88f-4e08-ab84-44fe7f921a88',
-    message: 'Well I was one of the organizers of IONIC Bulgaria',
+    message: 'I was one of the organizers of IONIC Bulgaria. IONIC is a hybrid mobile development framework, which we’ve used in Snapp.',
     trigger: '776a47a6-5924-4081-bcd0-93eee330963b',
   }, {
     id: '776a47a6-5924-4081-bcd0-93eee330963b',
-    message: 'I was helping a friend of mine to start a business - recycled bags. This was challenging for me - I  helped her to start the business from scratch and understand the behavior of the people who buy that kind of bags. She stopped because of health issues.',
+    message: 'I was helping a friend of mine to start a business - upcycled-recycled bags. This was challenging for me - I  helped her to start the business from scratch and understand the behavior of the people who buy that kind of bags. She stopped because of health issues.',
     trigger: 'e92543e9-ed1b-4727-95db-8b0e92965e06',
   }, {
     id: 'e92543e9-ed1b-4727-95db-8b0e92965e06',
@@ -930,7 +936,11 @@ export default [
     trigger: '483331f9-ec6e-493b-8cab-42b54f9bf4e6',
   }, {
     id: '483331f9-ec6e-493b-8cab-42b54f9bf4e6',
-    message: `And finally I'm trying to help new designers get into the design world faster by sharing my personal experience`,
+    message: `With my girlfriend we’ve started a handmade family business of creating cozy and ergonomic bean bags. Yeah the cozy furniture in your home. Which so far is gaining popularity very quickly.`,
+    trigger: 'd7e3ddc1-5890-4123-8878-eba0898fce81',
+  }, {
+    id: 'd7e3ddc1-5890-4123-8878-eba0898fce81',
+    message: `And finally I'm trying to help new designers get into the design world faster by sharing my personal experience.`,
     trigger: 'ee2d98c2-d202-4929-81ae-64c09846e39b',
   }, {
     id: 'ee2d98c2-d202-4929-81ae-64c09846e39b',
@@ -938,7 +948,7 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Financial project?',
+          label: 'Financial project',
           trigger: 'ee60602f-c72e-4158-9ffb-6ecccc935ab7',
         }, {
           value: 1,
@@ -948,6 +958,10 @@ export default [
           value: 2,
           label: 'How do you help those designers',
           trigger: '3d0e8fee-49c1-4404-ba1a-5f4758d7eba5',
+        }, {
+          value: 3,
+          label: 'Wow, bean bag family business',
+          trigger: '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
         },
       ]}
       />
@@ -958,7 +972,7 @@ export default [
     trigger: '9dc20388-3ddf-4660-973a-00a02d129f01',
   }, {
     id: '9dc20388-3ddf-4660-973a-00a02d129f01',
-    message: 'My responsibilities are huge since I am the only designers, working on prototypes and pivoting the idea to the shape that it took now with a strategy for further growth also on the information architecture, research and leading the communication with the developer.',
+    message: 'My responsibilities are bigger since I am the only designers, working on prototypes and pivoting the idea to the shape that it took now with a strategy for further growth also on the information architecture, research and leading the communication with the developer.',
     trigger: 'a559ee93-3c91-43e2-a33e-24549b6a2efa',
   }, {
     id: 'a559ee93-3c91-43e2-a33e-24549b6a2efa',
@@ -966,12 +980,12 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Amazing. Can I see it?',
+          label: 'Amazing. Can I see Ale',
           trigger: '672c6044-cf8e-4fa5-b3c2-875fca2d050c',
         }, {
           value: 1,
-          label: 'Do you have more projects like ALE?',
-          trigger: '0e0fc28e-aef3-4333-8d2b-29ea3f84da11',
+          label: 'Do you have other projects like Ale',
+          trigger: '0e0fc28e-aef3-4333-8d2b-29ea3f84da11', //Priority buttons
         },
       ]}
       />
@@ -1004,12 +1018,13 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'I want to contact you!',
-          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
-        }, {
-          value: 1,
           label: 'Would like to see your projects',
           trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+        },
+        {
+          value: 1,
+          label: 'Man, I want to contact you',
+          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
         },
       ]}
       />
@@ -1020,15 +1035,11 @@ export default [
     trigger: '32ae398c-a7ef-4b50-ad2a-78c82aa83c8e',
   }, {
     id: '32ae398c-a7ef-4b50-ad2a-78c82aa83c8e',
-    message: 'You can find everything on my blog:',
+    message: 'You can find everything on my blog: infinitecrave.com', //infinitecrave.com link
     trigger: 'ffd450a6-46ae-43e0-b99d-f4a250b46176',
   }, {
     id: 'ffd450a6-46ae-43e0-b99d-f4a250b46176',
-    message: 'infinitecrave.com',
-    trigger: '23ca1979-45f5-4e23-b9ed-32c3a632348f',
-  }, {
-    id: '23ca1979-45f5-4e23-b9ed-32c3a632348f',
-    message: 'and also the digital projects you can find on dribbble.com',
+    message: ' Another media that you could find on is dribbble.com', //dribbble.com link
     trigger: '21c17276-eea8-47bc-8a99-c6df97fd416f',
   }, {
     id: '21c17276-eea8-47bc-8a99-c6df97fd416f',
@@ -1065,23 +1076,7 @@ export default [
         }, {
           value: 1,
           label: 'Nice! Tell me something else',
-          trigger: 'af40af2a-a4d4-4b5b-8192-1887f01bfaf8',
-        },
-      ]}
-      />
-    ),
-  }, {
-    id: 'af40af2a-a4d4-4b5b-8192-1887f01bfaf8',
-    message: 'Well, on what topic would you like to talk about?',
-    trigger: '8bb69cb2-85d6-4a2c-984d-f2eb7dc1f9a8',
-  }, {
-    id: '8bb69cb2-85d6-4a2c-984d-f2eb7dc1f9a8',
-    component: (
-      <CustomOptions options={[
-        {
-          value: 0,
-          label: 'About your projects',
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
         },
       ]}
       />
@@ -1090,7 +1085,50 @@ export default [
 
 
   /**
-   * CONTANT ME STEPS
+   * FAMILY BUSINESS
+   */
+  {
+    id: '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
+    message: 'Yeah. A side project that we’ve started with my girlfriend which became to generate us serious income. People loved the brand and wanted to have a handmade bean bag so we saw that we could take a big % of the market share so we acted upon this opportunity.',
+    trigger: '939b4944-f170-4d9d-a1e6-e7b59c7aa496',
+  }, {
+    id: '939b4944-f170-4d9d-a1e6-e7b59c7aa496',
+    message: 'You could check out the story in my blog: infinitecrave.com.', //infinitecrave link
+    trigger: '7f5e3c39-04bb-4c7a-9b17-11959b1ada53',
+  }, {
+    id: '7f5e3c39-04bb-4c7a-9b17-11959b1ada53',
+    message: 'And check out our facebook page: www.facebook/barbarondesign.', //facebook/barbarondesign link
+    trigger: 'f2dd8d7d-d267-42f0-932f-2ef90a41e0eb',
+  }, {
+    id: 'f2dd8d7d-d267-42f0-932f-2ef90a41e0eb',
+    message: 'Hope you’ll like it. But in the meantime do you like us to talk on something else?',
+    trigger: '287fc5a1-9669-4b24-a52f-8023944b57cf',
+  }, {
+    id: '287fc5a1-9669-4b24-a52f-8023944b57cf',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Great, can you show me your digital work', //Priority buttons
+          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+        },
+      ]}
+      />
+    ),
+  },
+
+  /**
+    * MEDIATOR STEP
+    */
+  {
+    id: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+    message: 'Okay, what would like of me to show you?',
+    trigger: '', //Priority buttons
+  },
+
+
+  /**
+   * CONTACT ME STEPS
    */
 
   {
@@ -1193,3 +1231,4 @@ export default [
     message: `Have a nice day ${localStorage.getItem('user-name')} and till next time!`
   }
 ];
+
