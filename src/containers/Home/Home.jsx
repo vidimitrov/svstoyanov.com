@@ -35,6 +35,20 @@ class Home extends React.Component {
     this.getChatComponent = this.getChatComponent.bind(this);
   }
 
+  componentDidMount() {
+    const chat = this.getChatComponent();
+    const renderedSteps = chat.state.renderedSteps;
+    if (renderedSteps && renderedSteps.length > 1) {
+      // TODO: Add the final id and uncomment when ready with the rest
+      //       of the features, otherwise it would be extremely annoying while working
+      //
+      //  chat.triggerNextStep({
+      //   stepId: 'some-id-here', 
+      //   externalTrigger: true
+      //  });
+    }
+  }
+
   getChatComponent() {
     return this.chat;
   }
