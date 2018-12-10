@@ -1075,6 +1075,16 @@ export default [
     ),
   },
 
+ /**
+   * MEDIATOR STEP
+   */
+  {
+    id: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+    message: 'Okay, what would like of me to show you?',
+    trigger: '', //Priority buttons
+  },
+
+
   /**
    * CONTACT ME STEPS
    */
@@ -1179,3 +1189,4 @@ export default [
     message: `Have a nice day ${localStorage.getItem('user-name')} and till next time!`
   }
 ];
+
