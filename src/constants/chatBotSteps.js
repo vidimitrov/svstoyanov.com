@@ -801,7 +801,7 @@ export default [
         },
         {
           value: 2,
-          label: 'Let’s talk about something else',
+          label: 'Hm, let’s skip the topic',
           trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', //Go to section 3 mediator
         },
       ]}
