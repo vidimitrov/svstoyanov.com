@@ -302,6 +302,11 @@ export default [
           label: 'Okay, I want to contact you', // Priority buttons
           trigger: 'baf603af-c5b3-4357-8973-eda635bd1d76',
         },
+        {
+          value: 1,
+          label: `Okay, let's discuss on another topic`, // Priority buttons
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
       ]}
       />
     )
