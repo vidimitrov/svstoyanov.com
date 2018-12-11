@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import ProjectsSlider from '../components/ProjectsSlider/ProjectsSlider';
 import CustomOptions from '../components/CustomOptions/CustomOptions';
 import Input from '../components/Inputs/Input';
@@ -7,6 +8,12 @@ import ImageStep from '../components/steps/Image';
 import stoyanBushcraftingImg from '../assets/img/stoyan-bushcrafting.jpg';
 
 const CHATBOT_VISITED_SECTIONS = 'cb-vs';
+
+function hasVisitedSections() {
+  const chatbotVisitedSections = localStorage.getItem(CHATBOT_VISITED_SECTIONS) || '{}';
+  const sections = JSON.parse(chatbotVisitedSections);
+  return !_.isEmpty(sections);
+}
 
 function isVisited(sectionId) {
   const chatbotVisitedSections = localStorage.getItem(CHATBOT_VISITED_SECTIONS) || '{}';
@@ -21,6 +28,11 @@ function setVisited(sectionId) {
     sections[sectionId] = true;
     localStorage.setItem(CHATBOT_VISITED_SECTIONS, JSON.stringify(sections));
   }
+}
+
+function acknowledgementMessage() {
+  const variations = ['Okay', 'Awesome', 'Great', 'Sure'];
+  return variations[Math.floor(Math.random() * variations.length)];
 }
 
 export default [
@@ -227,7 +239,18 @@ export default [
     trigger: '0b4909a6-b354-4295-83d8-6a4b9fe2daff',
   }, {
     id: '0b4909a6-b354-4295-83d8-6a4b9fe2daff',
-    component: (<ProjectsSlider />),
+    component: (
+      <ProjectsSlider
+        secondaryButton={
+          hasVisitedSections() ?
+            {
+              label: `Let's talk about something else`,
+              trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+            } : {
+              label: 'Nice, but first tell me more about yourself',
+              trigger: 'bc45efbf-270f-4ff0-810b-d26b9ce598ca',
+            }} />
+    ),
     style: {
       width: '100%',
       backgroundColor: 'transparent',
@@ -354,7 +377,10 @@ export default [
   }, {
     id: 'aa555702-702b-4821-b8a0-0cc1e92c6b49',
     message: 'Of course, would be a pleasure for me!',
-    trigger: 'f5273870-f3d6-40ca-9329-98af52ea0b58'
+    trigger: 'f5273870-f3d6-40ca-9329-98af52ea0b58',
+    callback: () => {
+      setVisited('aa555702-702b-4821-b8a0-0cc1e92c6b49');
+    }
   }, {
     id: 'f5273870-f3d6-40ca-9329-98af52ea0b58',
     message: `You are very curious, ${localStorage.getItem('user-name')}!`,
@@ -373,7 +399,7 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'What’s bushcraft',
+          label: `What's bushcraft`,
           trigger: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
         },
         {
@@ -399,6 +425,9 @@ export default [
     id: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
     message: `Okay I think that you’ll like it!`,
     trigger: 'fcb7566d-e735-4a96-9c35-cb2231b6924f',
+    callback: () => {
+      setVisited('36acf53a-d579-4c5d-8e6c-d6726e51737f');
+    }
   }, {
     id: 'fcb7566d-e735-4a96-9c35-cb2231b6924f',
     message: 'Basically, it is a skill that teaches you to live in the woods, build shelter, find water and food and take care of yourself.',
@@ -482,7 +511,7 @@ export default [
             trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
           },
         ]}
-        dynamicOptions={[
+        priorityOptions={[
           {
             value: 1,
             isVisible: () => !isVisited('30ac9e09-0053-48dd-beb5-08207c6a4da5'),
@@ -630,6 +659,9 @@ export default [
     id: '47820655-90b7-4a62-8223-7601362c66b1',
     message: 'Okay!',
     trigger: '6b795579-a172-40a2-bb37-164b0150559a',
+    callback: () => {
+      setVisited('47820655-90b7-4a62-8223-7601362c66b1');
+    }
   }, {
     id: '6b795579-a172-40a2-bb37-164b0150559a',
     message: 'I need to warn you, though, that so far my capabilities are limited but I am learning.',
@@ -848,6 +880,9 @@ export default [
     id: '572159ba-5f1f-4c5b-9813-cf67c5cd4441',
     message: 'Actually I write on many topics.',
     trigger: '4d10e7d4-9e96-4630-aa90-567354b47aec',
+    callback: () => {
+      setVisited('572159ba-5f1f-4c5b-9813-cf67c5cd4441');
+    }
   }, {
     id: '4d10e7d4-9e96-4630-aa90-567354b47aec',
     message: 'To name few them: Universal design and UX, tinkering, Sharing my personal experience, entrepreneurship, leading, communication and technology.',
@@ -970,6 +1005,9 @@ export default [
     id: 'ee60602f-c72e-4158-9ffb-6ecccc935ab7',
     message: `Yeah, I mentioned the project which is called ALE and it’s goal is to help people with their finances. By putting a clear financial goal it will help them reach it. ALE is a project for a financial consultant and his clients. After working on his service and improving it he had this idea for an application for his customers to help them track their expenses and budgets. Peter, the financial consultant goal is make ALE personal financial assistant that every person have in his own pocket powered by AI.`,
     trigger: '9dc20388-3ddf-4660-973a-00a02d129f01',
+    callback: () => {
+      setVisited('ee60602f-c72e-4158-9ffb-6ecccc935ab7');
+    }
   }, {
     id: '9dc20388-3ddf-4660-973a-00a02d129f01',
     message: 'My responsibilities are bigger since I am the only designers, working on prototypes and pivoting the idea to the shape that it took now with a strategy for further growth also on the information architecture, research and leading the communication with the developer.',
@@ -1061,6 +1099,9 @@ export default [
     id: '3d0e8fee-49c1-4404-ba1a-5f4758d7eba5',
     message: `I've started a group about design here in Bulgaria, where the goal is to help designers get into UX.`,
     trigger: '744b0bab-015f-48b3-b2b0-cf166ad65b93',
+    callback: () => {
+      setVisited('3d0e8fee-49c1-4404-ba1a-5f4758d7eba5');
+    }
   }, {
     id: '744b0bab-015f-48b3-b2b0-cf166ad65b93',
     message: `Another thing is the blog that I've created which goal is exactly to share my personal point of view so people can learn and leverage on top of it`,
@@ -1091,6 +1132,9 @@ export default [
     id: '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
     message: 'Yeah. A side project that we’ve started with my girlfriend which became to generate us serious income. People loved the brand and wanted to have a handmade bean bag so we saw that we could take a big % of the market share so we acted upon this opportunity.',
     trigger: '939b4944-f170-4d9d-a1e6-e7b59c7aa496',
+    callback: () => {
+      setVisited('7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b');
+    }
   }, {
     id: '939b4944-f170-4d9d-a1e6-e7b59c7aa496',
     message: 'You could check out the story in my blog: infinitecrave.com.', //infinitecrave link
@@ -1122,8 +1166,70 @@ export default [
     */
   {
     id: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
-    message: 'Okay, what would like of me to show you?',
-    trigger: '', //Priority buttons
+    message: `${acknowledgementMessage()}, what would like of me to show you?`,
+    trigger: '16b17727-e325-4285-8555-b1fe0a171faf',
+  }, {
+    id: '16b17727-e325-4285-8555-b1fe0a171faf',
+    component: (
+      <CustomOptions
+        options={[
+          {
+            value: 0,
+            label: 'I wish to contact you',
+            trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+          },
+        ]}
+        dynamicOptions={[
+          {
+            value: 1,
+            label: 'Can I see your hobbies',
+            trigger: 'aa555702-702b-4821-b8a0-0cc1e92c6b49',
+            isVisible: () => !isVisited('aa555702-702b-4821-b8a0-0cc1e92c6b49'),
+            topics: [
+              {
+                value: 2,
+                label: 'Earlier you mention that you write',
+                trigger: 'ade03d57-a390-46ed-ae5b-16df08760972',
+                isVisible: () => !isVisited('ade03d57-a390-46ed-ae5b-16df08760972'),
+                topics: [
+                  {
+                    value: 3,
+                    label: 'On what topics you write',
+                    trigger: '572159ba-5f1f-4c5b-9813-cf67c5cd4441',
+                    isVisible: () => !isVisited('572159ba-5f1f-4c5b-9813-cf67c5cd4441'),
+                  }, {
+                    value: 4,
+                    label: `Let's discuss a topic`,
+                    trigger: '47820655-90b7-4a62-8223-7601362c66b1',
+                    isVisible: () => !isVisited('47820655-90b7-4a62-8223-7601362c66b1'),
+                  }
+                ]
+              }, {
+                value: 5,
+                label: 'What is this bushcraft',
+                trigger: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
+                isVisible: () => !isVisited('36acf53a-d579-4c5d-8e6c-d6726e51737f'),
+              }, {
+                value: 6,
+                label: 'How do you help those designers',
+                trigger: '3d0e8fee-49c1-4404-ba1a-5f4758d7eba5',
+                isVisible: () => !isVisited('3d0e8fee-49c1-4404-ba1a-5f4758d7eba5'),
+              }, {
+                value: 7,
+                label: 'Tell me more about the financial project',
+                trigger: 'ee60602f-c72e-4158-9ffb-6ecccc935ab7',
+                isVisible: () => !isVisited('ee60602f-c72e-4158-9ffb-6ecccc935ab7'),
+              }, {
+                value: 8,
+                label: 'Can I see your family business',
+                trigger: '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
+                isVisible: () => !isVisited('7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b'),
+              }
+            ]
+          }
+        ]}
+      />
+    ),
   },
 
 
