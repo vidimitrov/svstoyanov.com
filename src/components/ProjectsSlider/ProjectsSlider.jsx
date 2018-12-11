@@ -75,25 +75,15 @@ class ProjectsSlider extends React.Component {
                   Show me this project
                 </Button>
                 {
-                  secondaryButton ?
-                    <Button onClick={() => {
-                      triggerNextStep({
-                        stepId: secondaryButton.trigger,
-                        externalTrigger: true,
-                      });
-                    }}
-                    >
-                      {secondaryButton.label}
-                    </Button>
-                    :
-                    <Button onClick={() => {
-                      triggerNextStep({
-                        stepId: '4b13debb-298f-4fe5-b909-e5f3ae5ab95a',
-                        externalTrigger: true,
-                      });
-                    }}
-                    >
-                      I'd like to know more about you
+                  secondaryButton &&
+                  <Button onClick={() => {
+                    triggerNextStep({
+                      stepId: secondaryButton.trigger,
+                      externalTrigger: true,
+                    });
+                  }}
+                  >
+                    {secondaryButton.label}
                   </Button>
                 }
               </div>
