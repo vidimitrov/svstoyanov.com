@@ -620,7 +620,7 @@ export default [
     ),
   }, {
     id: 'ee80840e-aaac-405d-be59-09dbae8a4ba2',
-    message: 'Amazed that you have this interest! 😎',
+    message: `I'm amazed that you have this interest! 😎`,
     trigger: '3416f306-a239-4554-ace5-a80d40b39602',
   }, {
     id: '3416f306-a239-4554-ace5-a80d40b39602',
@@ -688,7 +688,7 @@ export default [
         },
         {
           value: 1,
-          label: `Let’s talk about something else`, // Leads to meadiator
+          label: `Can we change the topic`, // Leads to meadiator
           trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
         },
       ]}
