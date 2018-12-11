@@ -441,7 +441,7 @@ export default [
         options={[
           {
             value: 0,
-            label: 'Show me your projects',
+            label: 'Can I see your work',
             trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
           },
         ]}
@@ -489,13 +489,13 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Yeah',
-          trigger: '3cd011b6-fcba-4c2a-b2cc-090b779a9004',
+          label: 'Nah, not that much',
+          trigger: '9eab3571-2eba-4a6b-9cb4-54634c5e835f',
         },
         {
           value: 1,
-          label: 'Nah, I am  more of a city person',
-          trigger: '9eab3571-2eba-4a6b-9cb4-54634c5e835f',
+          label: 'Yeah',
+          trigger: '3cd011b6-fcba-4c2a-b2cc-090b779a9004',
         },
       ]}
       />
