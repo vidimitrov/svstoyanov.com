@@ -641,7 +641,7 @@ export default [
         },
         {
           value: 1,
-          label: 'Can you show me your work on CI',
+          label: 'Can you show me other work on CI',
           trigger: '649d08f0-7d48-43fd-8acb-0810396ea76d',
         },
       ]}
