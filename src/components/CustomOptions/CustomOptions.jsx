@@ -7,13 +7,65 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '../Buttons/Button';
 import styles from './styles';
 
+const filterOnlyVisible = (dynamicOption) => {
+  return dynamicOption.isVisible();
+}
+
+const getNestedNotVisitedTopic = (topics) => {
+  for (let topic of topics) {
+    if (topic.isVisible()) {
+      return topic;
+    } else if (topic.topics) {
+      let nestedTopic = getNestedNotVisitedTopic(topic.topics);
+      if (nestedTopic) {
+        return nestedTopic;
+      }
+    }
+  }
+}
+
 class CustomOptions extends React.Component {
+  constructor(props) {
+    super(props);
+
+    let options = [...props.options];
+    const { priorityOptions, dynamicOptions } = props;
+
+    if (dynamicOptions) {
+      let computedOptions = dynamicOptions.map((dOption, dOptionIndex) => {
+        if (dOption.isVisible()) {
+          return _.omit(dOption, ['isVisible', 'topics']);
+        } else {
+          const topics = dOption.topics;
+          let firstNestedNotVisitedTopic = getNestedNotVisitedTopic(topics);
+          if (firstNestedNotVisitedTopic) {
+            return _.omit(firstNestedNotVisitedTopic, ['isVisible', 'topics']);
+          } else {
+            return null;
+          }
+        }
+      }).filter((dOption) => dOption !== null);
+
+      options.push(...computedOptions);
+    }
+
+    if (priorityOptions) {
+      options.push(_.head(priorityOptions.filter(filterOnlyVisible)));
+    }
+
+    this.state = {
+      options,
+    };
+  }
 
   render() {
-    const { classes, options, dynamicOptions, triggerNextStep } = this.props;
-    const filterOnlyVisible = (dynamicOption) => {
-      return dynamicOption.isVisible();
-    }
+    const {
+      options,
+    } = this.state;
+    const {
+      classes,
+      triggerNextStep
+    } = this.props;
     const renderOption = (option, index) => (
       <Button
         key={index}
@@ -39,16 +91,10 @@ class CustomOptions extends React.Component {
         {option.label.split(' ').join('_').toUpperCase()}
       </Button>
     );
-    let dynamicOption;
-
-    if (dynamicOptions) {
-      dynamicOption = _.head(dynamicOptions.filter(filterOnlyVisible));
-    }
 
     return (
       <Grid container className={classes.customOptionsWrapper} justify="flex-start">
         {options.map(renderOption)}
-        {dynamicOption && renderOption(dynamicOption, 10)}
       </Grid>
     )
   };
@@ -57,6 +103,7 @@ class CustomOptions extends React.Component {
 CustomOptions.propTypes = {
   classes: PropTypes.object.isRequired,
   options: PropTypes.array.isRequired,
+  priorityOptions: PropTypes.array,
   dynamicOptions: PropTypes.array,
   triggerNextStep: PropTypes.func.isRequired,
 };
