@@ -258,48 +258,6 @@ export default [
     },
   },
 
-
-  {
-    id: '4b13debb-298f-4fe5-b909-e5f3ae5ab95a',
-    message: 'Of course where are my manners!',
-    trigger: 'b0f9b1bc-9867-40b3-a97a-4bda2367c36e',
-  }, {
-    id: 'b0f9b1bc-9867-40b3-a97a-4bda2367c36e',
-    message: 'You know there is a saying “You can know the person by the hobbies he has”!',
-    trigger: 'e6143b48-2e42-44d7-a678-56385c3542ee',
-  }, {
-    id: 'e6143b48-2e42-44d7-a678-56385c3542ee',
-    message: 'Speaking in this direction what would you like to understand about me?',
-    trigger: 'b9b5ec19-5aaa-44b0-93ba-1c5efbae2e82',
-  }, {
-    id: 'b9b5ec19-5aaa-44b0-93ba-1c5efbae2e82',
-    component: (
-      <CustomOptions options={[
-        {
-          value: 0,
-          label: 'On what topics you write', // Priority buttons
-          trigger: '572159ba-5f1f-4c5b-9813-cf67c5cd4441',
-        },
-        {
-          value: 1,
-          label: 'Your volunteering experience', // Priority buttons
-          trigger: '5eb2a29c-3f7e-4ca5-a691-84e4f73836b5',
-        },
-        {
-          value: 2,
-          label: 'What is bushcraft', // Priority buttons
-          trigger: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
-        },
-        {
-          value: 3,
-          label: `What drives you`, // Priority buttons
-          trigger: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
-        },
-      ]}
-      />
-    ),
-  },
-
   /**
    *  WHAT DRIVES YOU STEPS
    */
@@ -366,6 +324,11 @@ export default [
           value: 0,
           label: 'Okay, I want to contact you', // Priority buttons
           trigger: 'baf603af-c5b3-4357-8973-eda635bd1d76',
+        },
+        {
+          value: 1,
+          label: `Okay, let's discuss on another topic`, // Priority buttons
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
         },
       ]}
       />
@@ -507,7 +470,7 @@ export default [
         options={[
           {
             value: 0,
-            label: 'Show me your projects',
+            label: 'Can I see your work',
             trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
           },
         ]}
@@ -555,13 +518,13 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Yeah',
-          trigger: '3cd011b6-fcba-4c2a-b2cc-090b779a9004',
+          label: 'Nah, not that much',
+          trigger: '9eab3571-2eba-4a6b-9cb4-54634c5e835f',
         },
         {
           value: 1,
-          label: 'Nah, I am  more of a city person',
-          trigger: '9eab3571-2eba-4a6b-9cb4-54634c5e835f',
+          label: 'Yeah',
+          trigger: '3cd011b6-fcba-4c2a-b2cc-090b779a9004',
         },
       ]}
       />
@@ -689,7 +652,7 @@ export default [
     ),
   }, {
     id: 'ee80840e-aaac-405d-be59-09dbae8a4ba2',
-    message: 'Amazed that you have this interest! 😎',
+    message: `I'm amazed that you have this interest! 😎`,
     trigger: '3416f306-a239-4554-ace5-a80d40b39602',
   }, {
     id: '3416f306-a239-4554-ace5-a80d40b39602',
@@ -710,7 +673,7 @@ export default [
         },
         {
           value: 1,
-          label: 'Can you show me your work on CI',
+          label: 'Can you show me other work on CI',
           trigger: '649d08f0-7d48-43fd-8acb-0810396ea76d',
         },
       ]}
@@ -757,7 +720,7 @@ export default [
         },
         {
           value: 1,
-          label: `Let’s talk about something else`, // Leads to meadiator
+          label: `Can we change the topic`, // Leads to meadiator
           trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
         },
       ]}
@@ -870,7 +833,7 @@ export default [
         },
         {
           value: 2,
-          label: 'Let’s talk about something else',
+          label: 'Hm, let’s skip the topic',
           trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', //Go to section 3 mediator
         },
       ]}
