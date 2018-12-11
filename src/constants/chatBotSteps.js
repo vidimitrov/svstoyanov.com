@@ -235,48 +235,6 @@ export default [
     },
   },
 
-
-  {
-    id: '4b13debb-298f-4fe5-b909-e5f3ae5ab95a',
-    message: 'Of course where are my manners!',
-    trigger: 'b0f9b1bc-9867-40b3-a97a-4bda2367c36e',
-  }, {
-    id: 'b0f9b1bc-9867-40b3-a97a-4bda2367c36e',
-    message: 'You know there is a saying “You can know the person by the hobbies he has”!',
-    trigger: 'e6143b48-2e42-44d7-a678-56385c3542ee',
-  }, {
-    id: 'e6143b48-2e42-44d7-a678-56385c3542ee',
-    message: 'Speaking in this direction what would you like to understand about me?',
-    trigger: 'b9b5ec19-5aaa-44b0-93ba-1c5efbae2e82',
-  }, {
-    id: 'b9b5ec19-5aaa-44b0-93ba-1c5efbae2e82',
-    component: (
-      <CustomOptions options={[
-        {
-          value: 0,
-          label: 'On what topics you write', // Priority buttons
-          trigger: '572159ba-5f1f-4c5b-9813-cf67c5cd4441',
-        },
-        {
-          value: 1,
-          label: 'Your volunteering experience', // Priority buttons
-          trigger: '5eb2a29c-3f7e-4ca5-a691-84e4f73836b5',
-        },
-        {
-          value: 2,
-          label: 'What is bushcraft', // Priority buttons
-          trigger: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
-        },
-        {
-          value: 3,
-          label: `What drives you`, // Priority buttons
-          trigger: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
-        },
-      ]}
-      />
-    ),
-  },
-
   /**
    *  WHAT DRIVES YOU STEPS
    */
