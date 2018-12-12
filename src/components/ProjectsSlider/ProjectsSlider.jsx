@@ -12,6 +12,11 @@ import SliderButton from '../Buttons/SliderButton';
 import Button from '../Buttons/Button';
 import styles from './styles';
 
+function showProjectMessage() {
+  const variations = ['Show me this project', 'Want to understand more about it'];
+  return variations[Math.floor(Math.random() * variations.length)];
+}
+
 class ProjectsSlider extends React.Component {
   componentDidMount() {
     const { activeSlideId } = this.props;
@@ -21,7 +26,7 @@ class ProjectsSlider extends React.Component {
   }
 
   render() {
-    const { projects, classes, secondaryButton } = this.props;
+    const { projects, classes, secondaryButtons } = this.props;
     const { triggerNextStep } = this.props;
     const settings = {
       dots: false,
@@ -72,19 +77,21 @@ class ProjectsSlider extends React.Component {
                   navigate(`/projects/${project.id}`);
                 }}
                 >
-                  Show me this project
+                  {showProjectMessage()}
                 </Button>
                 {
-                  secondaryButton &&
-                  <Button onClick={() => {
-                    triggerNextStep({
-                      stepId: secondaryButton.trigger,
-                      externalTrigger: true,
-                    });
-                  }}
-                  >
-                    {secondaryButton.label}
-                  </Button>
+                  secondaryButtons &&
+                  secondaryButtons.map((secondaryButton, idx) =>
+                    <Button key={idx} onClick={() => {
+                      triggerNextStep({
+                        stepId: secondaryButton.trigger,
+                        externalTrigger: true,
+                      });
+                    }}
+                    >
+                      {secondaryButton.label}
+                    </Button>
+                  )
                 }
               </div>
             </div>
@@ -98,7 +105,7 @@ class ProjectsSlider extends React.Component {
 ProjectsSlider.propTypes = {
   activeSlideId: PropTypes.number,
   step: PropTypes.any,
-  secondaryButton: PropTypes.any,
+  secondaryButtons: PropTypes.any,
   classes: PropTypes.any,
   steps: PropTypes.object,
   projects: PropTypes.array,
