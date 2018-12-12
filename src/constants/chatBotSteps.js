@@ -31,7 +31,7 @@ function setVisited(sectionId) {
 }
 
 function acknowledgementMessage() {
-  const variations = ['Sure', 'Of course', 'Ready.2.1', 'Awesome', 'Amazing', 'Well done', 'Well now..', 'Okay so', 'By the way', 'No problem', 'Actually', 'Roger that'];
+  const variations = ['Sure', 'Of course', 'Ready.2.1', 'Awesome', 'Amazing', 'Okay', 'No problem', 'Roger that'];
   return variations[Math.floor(Math.random() * variations.length)];
 }
 
@@ -47,6 +47,16 @@ function changeTopicMessage() {
 
 function nonLexicalMessage() {
   const variations = ['yeah', 'okay', 'uh', 'oh', 'aum', 'mmm', 'uhh', 'uh-huh', 'uu', 'you know', 'ermmm', 'mhmm'];
+  return variations[Math.floor(Math.random() * variations.length)];
+}
+
+function mediatorMessage() {
+  const variations = [
+    `${acknowledgementMessage()}, what would like of me to show you?`,
+    `${acknowledgementMessage()}, what you would like us to have a conversation on?`,
+    `${acknowledgementMessage()}, which is the thing you want to understand about me?`,
+    `${nonLexicalMessage()}, I can say that I have the feeling you are an amazing person. Now I can reveal more about me, but on what topic you'd like to continue our conversation?`
+  ];
   return variations[Math.floor(Math.random() * variations.length)];
 }
 
@@ -246,10 +256,7 @@ export default [
 
   {
     id: '89695e34-2a77-4f0e-ab39-8602906dde0b',
-    message: () => {
-      const variations = ['No problem!', 'Of course!'];
-      return variations[Math.floor(Math.random() * variations.length)];
-    },
+    message: acknowledgementMessage(),
     trigger: '165cbbdb-a0cc-40be-b294-f1757ff23d64',
     callback: () => {
       setVisited('89695e34-2a77-4f0e-ab39-8602906dde0b');
@@ -285,6 +292,41 @@ export default [
       padding: 0,
     },
   },
+
+
+  /**
+   * SPECIFIC PROJECT STEPS
+   */
+
+  {
+    id: 'project-info-step-1',
+    message: 'Glad that you chose Snapp. So let’s start….',
+    trigger: '9d2d1738-2672-40d8-b2ea-b497fc7aef8d',
+  }, {
+    id: 'project-info-step-2',
+    message: 'Glad that you chose Seemba. So let’s start….',
+    trigger: '0b2e19b6-373a-495e-aaf0-85f747947b02',
+  },
+  // ...
+
+  /**
+   * SNAPP PROJECT TOPIC
+   */
+  {
+    id: '9d2d1738-2672-40d8-b2ea-b497fc7aef8d',
+    message: 'So the Snapp project is...',
+    // trigger: '997ced25-ee98-4611-b51a-6ca14b3f9b2f',
+  },
+
+  /**
+   * SEEMBA PROJECT TOPIC
+   */
+  {
+    id: '0b2e19b6-373a-495e-aaf0-85f747947b02',
+    message: 'So the Seemba project is...',
+    // trigger: 'f7f6dffc-b5a8-4a7d-971e-a36c8208329b',
+  },
+
 
   /**
    *  WHAT DRIVES YOU STEPS
@@ -801,23 +843,6 @@ export default [
       />
     ),
   }, {
-    id: '',
-    component: (
-      <CustomOptions options={[
-        {
-          value: 0,
-          label: `Wish to contact you`,
-          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
-        },
-        {
-          value: 1,
-          label: `Can we change the topic`,
-          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
-        },
-      ]}
-      />
-    ),
-  }, {
     id: '1c9beb0b-7a8c-4ca5-b40a-10fc2eb7d8e8',
     message: 'Hmmm...',
     trigger: 'b2ac6908-434a-492e-9eca-e67327abe2e8',
@@ -1327,7 +1352,7 @@ export default [
     */
   {
     id: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
-    message: `${acknowledgementMessage()}, what would like of me to show you?`,
+    message: mediatorMessage(), // `${acknowledgementMessage()}, what would like of me to show you?`,
     trigger: '16b17727-e325-4285-8555-b1fe0a171faf',
   }, {
     id: '16b17727-e325-4285-8555-b1fe0a171faf',
