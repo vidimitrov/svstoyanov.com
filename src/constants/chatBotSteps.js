@@ -31,8 +31,31 @@ function setVisited(sectionId) {
 }
 
 function acknowledgementMessage() {
-  const variations = ['Okay', 'Awesome', 'Great', 'Sure'];
+  const variations = ['Sure', 'Of course', 'Ready.2.1', 'Awesome', 'Amazing', 'Well done', 'Well now..', 'Okay so', 'By the way', 'No problem', 'Actually', 'Roger that'];
   return variations[Math.floor(Math.random() * variations.length)];
+}
+
+function showProjectsMessage() {
+  const variations = ['Can I see your work', 'Show me your projects', 'Can you show me your projects again'];
+  return variations[Math.floor(Math.random() * variations.length)];
+}
+
+function changeTopicMessage() {
+  const variations = ['Can we change the topic', `Let's talk about something else`];
+  return variations[Math.floor(Math.random() * variations.length)];
+}
+
+function nonLexicalMessage() {
+  const variations = ['yeah', 'okay', 'uh', 'oh', 'aum', 'mmm', 'uhh', 'uh-huh', 'uu', 'you know', 'ermmm', 'mhmm'];
+  return variations[Math.floor(Math.random() * variations.length)];
+}
+
+function areAllTopicsVisited() {
+  // TODO: Implement the function. Return true or false
+}
+
+function daytimeMessage() {
+  // TODO: Return "morning", "day" or "evening" string depending on the current browser time
 }
 
 export default [
@@ -140,7 +163,7 @@ export default [
     ),
   }, {
     id: 'cdeea2f9-3978-416a-bae4-88fa08978217',
-    message: 'I am glad to hear this. Now I can become smarter:-)',
+    message: 'I am glad to hear this. Now I can become smarter 🙂',
     trigger: 'cf8ea5df-1283-4219-b545-27443fa3b381',
   }, {
     id: 'cf8ea5df-1283-4219-b545-27443fa3b381',
@@ -183,8 +206,7 @@ export default [
     trigger: '42d6f01d-3c44-43da-bea8-b1fa301af378'
   }, {
     id: '42d6f01d-3c44-43da-bea8-b1fa301af378',
-    message: `I’m a curious guy, who is constantly 
-    learning and experimenting with different technologies! That’s why I’ve created my digital twin to represent me. Haha!`,
+    message: `I’m a curious guy, who is constantly learning and experimenting with different technologies! That’s why I’ve created my digital twin to represent me. Haha!`,
     trigger: 'e29b9ed5-f83d-48ba-bd6d-b9891ec8ad23'
   }, {
     id: 'e29b9ed5-f83d-48ba-bd6d-b9891ec8ad23',
@@ -205,7 +227,7 @@ export default [
         },
         {
           value: 1,
-          label: `What drives you`,
+          label: 'What drives you',
           trigger: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
         },
         {
@@ -224,14 +246,20 @@ export default [
 
   {
     id: '89695e34-2a77-4f0e-ab39-8602906dde0b',
-    message: 'No problem!',
+    message: () => {
+      const variations = ['No problem!', 'Of course!'];
+      return variations[Math.floor(Math.random() * variations.length)];
+    },
     trigger: '165cbbdb-a0cc-40be-b294-f1757ff23d64',
     callback: () => {
       setVisited('89695e34-2a77-4f0e-ab39-8602906dde0b');
     }
   }, {
     id: '165cbbdb-a0cc-40be-b294-f1757ff23d64',
-    message: 'Taking them out from my magic 🎩 (Fresh, evenly baked on both sides/Take a look at them)',
+    message: () => {
+      const variations = ['Taking them out from my magic 🎩', 'Fresh, evenly baked on both sides', 'Take a look at them'];
+      return variations[Math.floor(Math.random() * variations.length)];
+    },
     trigger: '1a6c0ea0-c902-4762-836c-536b75b6d542',
   }, {
     id: '1a6c0ea0-c902-4762-836c-536b75b6d542',
@@ -241,15 +269,15 @@ export default [
     id: '0b4909a6-b354-4295-83d8-6a4b9fe2daff',
     component: (
       <ProjectsSlider
-        secondaryButton={
+        secondaryButtons={
           hasVisitedSections() ?
-            {
+            [{
               label: `Let's talk about something else`,
               trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
-            } : {
+            }] : [{
               label: 'Nice, but first tell me more about yourself',
               trigger: 'bc45efbf-270f-4ff0-810b-d26b9ce598ca',
-            }} />
+            }]} />
     ),
     style: {
       width: '100%',
@@ -288,7 +316,7 @@ export default [
         },
         {
           value: 1,
-          label: 'Amazing, tell me more about your drive',
+          label: 'Tell me more',
           trigger: '555d3b51-1647-45d4-a2e0-cb3119b87efa',
         },
       ]}
@@ -296,7 +324,7 @@ export default [
     )
   }, {
     id: '58302e93-08aa-43fb-9d4e-ed0b925ebfc6',
-    message: 'Sure, here it is!',
+    message: acknowledgementMessage() + ', here it is!',
     trigger: 'f5273870-f3d6-40ca-9329-98af52ea0b58',
   }, {
     id: 'f5273870-f3d6-40ca-9329-98af52ea0b58',
@@ -322,12 +350,12 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Okay, I want to contact you', // Priority buttons
+          label: 'Okay, I want to contact you',
           trigger: 'baf603af-c5b3-4357-8973-eda635bd1d76',
         },
         {
           value: 1,
-          label: `Okay, let's discuss on another topic`, // Priority buttons
+          label: `Okay, let's discuss on another topic`,
           trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
         },
       ]}
@@ -335,7 +363,7 @@ export default [
     )
   }, {
     id: 'baf603af-c5b3-4357-8973-eda635bd1d76',
-    message: 'Sure. One moment please',
+    message: acknowledgementMessage() + ' One moment please',
     trigger: '1d895783-da23-4713-8354-d939001f7614',
   }, {
     id: 'aa555702-702b-4821-b8a0-0cc1e92c6b49',
@@ -544,18 +572,39 @@ export default [
   }, {
     id: 'c7c867db-7ecf-4988-98dc-89d03d47e4ee',
     component: (
-      <CustomOptions options={[
-        {
-          value: 0,
-          label: 'Nice, I want to contact you',
-          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
-        },
-        {
-          value: 1,
-          label: 'Can you show me your work',
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
-        },
-      ]}
+      <CustomOptions
+        options={[
+          {
+            value: 0,
+            label: 'Nice, I want to contact you',
+            trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+          },
+          {
+            value: 1,
+            label: 'Can you show me your work',
+            trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          },
+        ]}
+        priorityOptions={[
+          {
+            value: 2,
+            label: 'What drives you',
+            trigger: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
+            isVisible: () => !isVisited('30ac9e09-0053-48dd-beb5-08207c6a4da5'),
+          },
+          {
+            value: 3,
+            label: 'Earlier you mention that you write',
+            trigger: 'ade03d57-a390-46ed-ae5b-16df08760972',
+            isVisible: () => !isVisited('ade03d57-a390-46ed-ae5b-16df08760972'),
+          },
+          {
+            value: 4,
+            label: 'I saw that you have side projects',
+            trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+            isVisible: () => !isVisited('89695e34-2a77-4f0e-ab39-8602906dde0b'),
+          },
+        ]}
       />
     ),
   }, {
@@ -569,18 +618,39 @@ export default [
   }, {
     id: '464868a3-de36-4e6f-8e0b-fc2be3372032',
     component: (
-      <CustomOptions options={[
-        {
-          value: 0,
-          label: 'I like to talk with you',
-          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
-        },
-        {
-          value: 1,
-          label: 'Show me your projects',
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
-        },
-      ]}
+      <CustomOptions
+        options={[
+          {
+            value: 0,
+            label: `I'd like to talk with you`,
+            trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+          },
+          {
+            value: 1,
+            label: showProjectsMessage(),
+            trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          },
+        ]}
+        priorityOptions={[
+          {
+            value: 2,
+            label: 'What drives you',
+            trigger: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
+            isVisible: () => !isVisited('30ac9e09-0053-48dd-beb5-08207c6a4da5'),
+          },
+          {
+            value: 3,
+            label: 'Earlier you mention that you write',
+            trigger: 'ade03d57-a390-46ed-ae5b-16df08760972',
+            isVisible: () => !isVisited('ade03d57-a390-46ed-ae5b-16df08760972'),
+          },
+          {
+            value: 4,
+            label: 'I saw that you have side projects',
+            trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+            isVisible: () => !isVisited('89695e34-2a77-4f0e-ab39-8602906dde0b'),
+          },
+        ]}
       />
     ),
   },
@@ -681,12 +751,24 @@ export default [
     ),
   }, {
     id: '649d08f0-7d48-43fd-8acb-0810396ea76d',
-    message: 'Sure. This is one of my CI projects.',
+    message: `${acknowledgementMessage()}. This is one of my CI projects.`,
     trigger: '4d5776b5-5eae-495c-868c-eae02cc797d7',
   }, {
     id: '4d5776b5-5eae-495c-868c-eae02cc797d7',
     component: (
-      <ProjectsSlider activeSlideId={4} />
+      <ProjectsSlider
+        activeSlideId={4} // Panto project
+        secondaryButtons={[
+          {
+            label: 'Wish to contact you',
+            trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+          },
+          {
+            label: changeTopicMessage(),
+            trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+          }
+        ]}
+      />
     ),
     style: {
       width: '100%',
@@ -695,7 +777,7 @@ export default [
     },
   }, {
     id: '298d9a15-04c2-4e9a-882a-2ddc8750ef01',
-    message: 'No problem.',
+    message: acknowledgementMessage(),
     trigger: 'c70a8dfa-e78c-4d85-8159-8aa280449634',
   }, {
     id: 'c70a8dfa-e78c-4d85-8159-8aa280449634',
@@ -705,12 +787,21 @@ export default [
     id: '2c3868eb-0a5b-4723-b64d-2762d7ca37d3',
     component: (
       <ProjectsSlider
-        activeSlideId={1}
-        secondaryButton={{
-          label: 'Show me this project',
-          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
-        }} />
+        activeSlideId={5} // svstoyanov.com website
+        secondaryButtons={[
+          {
+            label: 'Wish to contact you',
+            trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+          },
+          {
+            label: changeTopicMessage(),
+            trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+          }
+        ]}
+      />
     ),
+  }, {
+    id: '',
     component: (
       <CustomOptions options={[
         {
@@ -720,7 +811,7 @@ export default [
         },
         {
           value: 1,
-          label: `Can we change the topic`, // Leads to meadiator
+          label: `Can we change the topic`,
           trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
         },
       ]}
@@ -902,16 +993,38 @@ export default [
   }, {
     id: '99219871-c480-47de-85c4-e272267ab316',
     component: (
-      <CustomOptions options={[
-        {
-          value: 0,
-          label: 'Nice story. Would like to see your work', //Priority buttons
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
-        },
-      ]}
+      <CustomOptions
+        options={[
+          {
+            value: 0,
+            label: 'Nice story. Would like to see your work',
+            trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          },
+        ]}
+        priorityOptions={[
+          {
+            value: 2,
+            label: 'What drives you',
+            trigger: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
+            isVisible: () => !isVisited('30ac9e09-0053-48dd-beb5-08207c6a4da5'),
+          },
+          {
+            value: 3,
+            label: 'I saw that you have side projects',
+            trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+            isVisible: () => !isVisited('89695e34-2a77-4f0e-ab39-8602906dde0b'),
+          },
+          {
+            value: 4,
+            label: 'Curious to know more about this bushcraft',
+            trigger: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
+            isVisible: () => !isVisited('36acf53a-d579-4c5d-8e6c-d6726e51737f'),
+          },
+        ]}
       />
     ),
   },
+
 
   /**
    * SIDE PROJECTS STEPS
@@ -978,17 +1091,44 @@ export default [
   }, {
     id: 'a559ee93-3c91-43e2-a33e-24549b6a2efa',
     component: (
-      <CustomOptions options={[
-        {
-          value: 0,
-          label: 'Amazing. Can I see Ale',
-          trigger: '672c6044-cf8e-4fa5-b3c2-875fca2d050c',
-        }, {
-          value: 1,
-          label: 'Do you have other projects like Ale',
-          trigger: '0e0fc28e-aef3-4333-8d2b-29ea3f84da11', //Priority buttons
-        },
-      ]}
+      <CustomOptions
+        options={[
+          {
+            value: 0,
+            label: 'Amazing. Can I see Ale',
+            trigger: '672c6044-cf8e-4fa5-b3c2-875fca2d050c',
+          }, {
+            value: 1,
+            label: 'Do you have other projects like Ale',
+            trigger: '0e0fc28e-aef3-4333-8d2b-29ea3f84da11',
+          },
+        ]}
+        priorityOptions={[
+          {
+            value: 2,
+            label: 'What drives you',
+            trigger: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
+            isVisible: () => !isVisited('30ac9e09-0053-48dd-beb5-08207c6a4da5'),
+          },
+          {
+            value: 3,
+            label: 'Earlier you mention that you write',
+            trigger: 'ade03d57-a390-46ed-ae5b-16df08760972',
+            isVisible: () => !isVisited('ade03d57-a390-46ed-ae5b-16df08760972'),
+          },
+          {
+            value: 4,
+            label: 'What is bushcraft',
+            trigger: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
+            isVisible: () => !isVisited('36acf53a-d579-4c5d-8e6c-d6726e51737f'),
+          },
+          {
+            value: 5,
+            label: 'You mentioned a family business',
+            trigger: '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
+            isVisible: () => !isVisited('7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b'),
+          },
+        ]}
       />
     ),
   }, {
@@ -998,7 +1138,7 @@ export default [
   }, {
     id: '8f906bb3-a50a-4d2e-93b1-938b15748c0c',
     component: (
-      <ProjectsSlider activeSlideId={4} />
+      <ProjectsSlider activeSlideId={4} /> // Ale project
     ),
     style: {
       width: '100%',
@@ -1045,17 +1185,44 @@ export default [
   }, {
     id: '21c17276-eea8-47bc-8a99-c6df97fd416f',
     component: (
-      <CustomOptions options={[
-        {
-          value: 0,
-          label: 'Show me your projects',
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
-        }, {
-          value: 1,
-          label: 'Man, I want to contact you',
-          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
-        },
-      ]}
+      <CustomOptions
+        options={[
+          {
+            value: 0,
+            label: 'Show me your projects',
+            trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          }, {
+            value: 1,
+            label: 'Man, I want to contact you',
+            trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+          },
+        ]}
+        priorityOptions={[
+          {
+            value: 2,
+            label: 'What drives you',
+            trigger: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
+            isVisible: () => !isVisited('30ac9e09-0053-48dd-beb5-08207c6a4da5'),
+          },
+          {
+            value: 3,
+            label: 'Earlier you mention that you write',
+            trigger: 'ade03d57-a390-46ed-ae5b-16df08760972',
+            isVisible: () => !isVisited('ade03d57-a390-46ed-ae5b-16df08760972'),
+          },
+          {
+            value: 4,
+            label: 'What is bushcraft',
+            trigger: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
+            isVisible: () => !isVisited('36acf53a-d579-4c5d-8e6c-d6726e51737f'),
+          },
+          {
+            value: 5,
+            label: 'You mentioned a family business',
+            trigger: '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
+            isVisible: () => !isVisited('7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b'),
+          },
+        ]}
       />
     ),
   }, {
@@ -1093,18 +1260,22 @@ export default [
    */
   {
     id: '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
-    message: 'Yeah. A side project that we’ve started with my girlfriend which became to generate us serious income. People loved the brand and wanted to have a handmade bean bag so we saw that we could take a big % of the market share so we acted upon this opportunity.',
-    trigger: '939b4944-f170-4d9d-a1e6-e7b59c7aa496',
+    message: 'Yeah. A side project that we’ve started with my girlfriend. It is a business for hand crafted bean bags. The e-commerce business had to be started and validated in a week and fully automated in a month. The end result… Customers loved them, we’ve got few sales in the first week, seeing that we are in the right direction.',
+    trigger: '539b4944-f470-439d-a1e6-edb59c7aa496',
     callback: () => {
       setVisited('7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b');
     }
   }, {
+    id: '539b4944-f470-439d-a1e6-edb59c7aa496',
+    message: 'At this moment it is almost automated and ready for scale.',
+    trigger: '939b4944-f170-4d9d-a1e6-e7b59c7aa496',
+  }, {
     id: '939b4944-f170-4d9d-a1e6-e7b59c7aa496',
-    message: 'You could check out the story in my blog: infinitecrave.com.', //infinitecrave link
+    message: 'You could check out the full story at http://infinitecrave.com.', //infinitecrave link
     trigger: '7f5e3c39-04bb-4c7a-9b17-11959b1ada53',
   }, {
     id: '7f5e3c39-04bb-4c7a-9b17-11959b1ada53',
-    message: 'And check out our facebook page: www.facebook/barbarondesign.', //facebook/barbarondesign link
+    message: 'And check out our facebook page: https://facebook.com/barbarondesign', //facebook/barbarondesign link
     trigger: 'f2dd8d7d-d267-42f0-932f-2ef90a41e0eb',
   }, {
     id: 'f2dd8d7d-d267-42f0-932f-2ef90a41e0eb',
@@ -1113,13 +1284,40 @@ export default [
   }, {
     id: '287fc5a1-9669-4b24-a52f-8023944b57cf',
     component: (
-      <CustomOptions options={[
-        {
-          value: 0,
-          label: 'Great, can you show me your digital work', //Priority buttons
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
-        },
-      ]}
+      <CustomOptions
+        options={[
+          {
+            value: 0,
+            label: 'What else you did',
+            trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          },
+        ]}
+        priorityOptions={[
+          {
+            value: 2,
+            label: 'What drives you',
+            trigger: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
+            isVisible: () => !isVisited('30ac9e09-0053-48dd-beb5-08207c6a4da5'),
+          },
+          {
+            value: 3,
+            label: 'Earlier you mention that you write',
+            trigger: 'ade03d57-a390-46ed-ae5b-16df08760972',
+            isVisible: () => !isVisited('ade03d57-a390-46ed-ae5b-16df08760972'),
+          },
+          {
+            value: 4,
+            label: 'What is bushcraft',
+            trigger: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
+            isVisible: () => !isVisited('36acf53a-d579-4c5d-8e6c-d6726e51737f'),
+          },
+          {
+            value: 5,
+            label: 'You mentioned a family business',
+            trigger: '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
+            isVisible: () => !isVisited('7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b'),
+          },
+        ]}
       />
     ),
   },
@@ -1143,6 +1341,12 @@ export default [
           },
         ]}
         dynamicOptions={[
+          {
+            value: 0,
+            label: 'What drives you',
+            trigger: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
+            isVisible: () => !isVisited('30ac9e09-0053-48dd-beb5-08207c6a4da5'),
+          },
           {
             value: 1,
             label: 'Can I see your hobbies',
@@ -1226,7 +1430,14 @@ export default [
   }, {
     id: '3055ede5-e6b5-48b7-855a-e891ed9adaa2',
     message: `I can't wait to read it!`,
-    trigger: 'e8d4ce93-bcee-42c8-986a-e93cefecc448',
+    trigger: !!localStorage.getItem('user-email') ? '6aad7f2f-295e-4406-ab3e-bfe54efb56b3' : 'e8d4ce93-bcee-42c8-986a-e93cefecc448',
+  }, {
+    id: '6aad7f2f-295e-4406-ab3e-bfe54efb56b3',
+    message: `I'll send the message with the email ${localStorage.getItem('user-email')} you gave me.`,
+    trigger: 'ef8d2487-80e9-4403-939b-57704a47596c',
+    callback: () => {
+      console.log('Sending the email...');
+    }
   }, {
     id: 'e8d4ce93-bcee-42c8-986a-e93cefecc448',
     message: 'And your email?',
@@ -1239,6 +1450,7 @@ export default [
         placeholder='Type your email...'
         callback={(value) => {
           localStorage.setItem('user-email', value);
+          console.log('Sending the email...');
         }}
       />
     )
@@ -1248,16 +1460,69 @@ export default [
     trigger: '7fbe2eb2-af3d-44cf-93d3-184dd1780595',
   }, {
     id: '7fbe2eb2-af3d-44cf-93d3-184dd1780595',
-    message: `By the way, I am leaving my contacts if you would like to 
-    reach me out on my phone number +359897923839 and by email on svs7oyanov@gmail.com`,
-    trigger: '09c4294f-cead-4955-9c79-6f4f148c29cd',
+    message: `By the way, I am leaving my contacts if you would like to reach me out on my phone number +359897923839 and by email on svs7oyanov@gmail.com`,
+    trigger: areAllTopicsVisited() ? '977a727c-ae64-4c60-9487-66c429fb3cfc' : '09c4294f-cead-4955-9c79-6f4f148c29cd',
+  }, {
+    id: '977a727c-ae64-4c60-9487-66c429fb3cfc',
+    message: `It was a pleasure meeting and chatting with you ${localStorage.getItem('user-name')}. 🤗!`,
+    trigger: 'e867812a-834f-4699-9cca-49a553b781d7',
+  }, {
+    id: 'e867812a-834f-4699-9cca-49a553b781d7',
+    message: 'If you enjoyed it you can tell a word to your friends and colleagues about me!',
+    trigger: '4c9e96c6-4488-4d71-ab27-c2c2f780d5cf',
+  }, {
+    id: '4c9e96c6-4488-4d71-ab27-c2c2f780d5cf',
+    message: `Have a nice ${daytimeMessage()} ${localStorage.getItem('user-name')} and till next time!`,
+    trigger: 'd032ef9e-6955-414d-9e0b-0cb7a65b60d5',
+  }, {
+    id: 'd032ef9e-6955-414d-9e0b-0cb7a65b60d5',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Will tell them, Thx',
+          trigger: 'bd049c9e-345a-45e2-920f-98a1e8f9be55',
+        }, {
+          value: 1,
+          label: 'Thx man, you too',
+          trigger: 'd3f61129-15f0-49b8-a7f4-f7c7aa513415',
+        },
+      ]}
+      />
+    ),
+  }, {
+    id: 'bd049c9e-345a-45e2-920f-98a1e8f9be55',
+    message: '🙂 Thx! Appreciate it',
+    trigger: 'ac049c9e-345a-4532-920f-98a1e8f9be66',
+  }, {
+    id: 'ac049c9e-345a-4532-920f-98a1e8f9be66',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Facebook',
+        }, {
+          value: 1,
+          label: 'Twitter',
+        }, {
+          value: 2,
+          label: 'LinkedIn',
+        }, {
+          value: 3,
+          label: 'Copy URL',
+        },
+      ]}
+      />
+    ),
+  }, {
+    id: 'd3f61129-15f0-49b8-a7f4-f7c7aa513415',
+    message: '🙂 See, ya!',
   }, {
     id: '09c4294f-cead-4955-9c79-6f4f148c29cd',
     message: 'In the meantime what would you like to know about me?',
     trigger: '7c2a69d7-2c99-4a69-9469-15dcf41daca2'
   }, {
     id: '7c2a69d7-2c99-4a69-9469-15dcf41daca2',
-    // The following options will be computed dynamically, for now this is all of them
     component: (
       <CustomOptions options={[
         {
