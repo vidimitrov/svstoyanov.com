@@ -1,5 +1,5 @@
 /* eslint react/no-find-dom-node:0 */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Loading from '../common/Loading';
@@ -21,11 +21,11 @@ class CustomStep extends Component {
   }
 
   componentDidMount() {
-    const {step} = this.props;
-    const {delay, waitAction} = step;
+    const { step } = this.props;
+    const { delay, waitAction } = step;
 
     setTimeout(() => {
-      this.setState({loading: false}, () => {
+      this.setState({ loading: false }, () => {
         if (!waitAction && !step.rendered) {
           this.props.triggerNextStep();
         }
@@ -39,8 +39,8 @@ class CustomStep extends Component {
   }
 
   renderComponent() {
-    const {step, steps, previousStep, triggerNextStep} = this.props;
-    const {component} = step;
+    const { step, steps, previousStep, triggerNextStep } = this.props;
+    const { component } = step;
     return React.cloneElement(component, {
       step,
       steps,
@@ -50,8 +50,8 @@ class CustomStep extends Component {
   }
 
   render() {
-    const {loading, stepEl} = this.state;
-    const {style} = this.props;
+    const { loading, stepEl } = this.state;
+    const { style } = this.props;
 
     return (
       <CustomStepContainer
@@ -65,9 +65,10 @@ class CustomStep extends Component {
         }}
       >
         {
-          loading ? (
-            <Loading />
-          ) : this.renderComponent()
+          // loading ? (
+          //   <Loading />
+          // ) : 
+          this.renderComponent()
         }
       </CustomStepContainer>
     );
