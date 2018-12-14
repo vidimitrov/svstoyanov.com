@@ -270,7 +270,7 @@ export default [
     trigger: '1a6c0ea0-c902-4762-836c-536b75b6d542',
   }, {
     id: '1a6c0ea0-c902-4762-836c-536b75b6d542',
-    message: 'Bzmmm',
+    message: nonLexicalMessage(),
     trigger: '0b4909a6-b354-4295-83d8-6a4b9fe2daff',
   }, {
     id: '0b4909a6-b354-4295-83d8-6a4b9fe2daff',
