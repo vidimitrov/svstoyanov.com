@@ -26,7 +26,7 @@ import 'intersection-observer';
 
 // TODO: Tweak it if you need, now its ~ twice as fast a normal human
 //       The higher the WRITING_SPEED constant, the faster the message will be displayed
-const WRITING_SPEED = 10;
+const WRITING_SPEED = 12;
 
 class ChatBot extends Component {
   /* istanbul ignore next */
