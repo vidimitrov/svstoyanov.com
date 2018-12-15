@@ -12,11 +12,6 @@ import SliderButton from '../Buttons/SliderButton';
 import Button from '../Buttons/Button';
 import styles from './styles';
 
-function showProjectMessage() {
-  const variations = ['Show me this project', 'Want to understand more about it'];
-  return variations[Math.floor(Math.random() * variations.length)];
-}
-
 class ProjectsSlider extends React.Component {
   componentDidMount() {
     const { activeSlideId } = this.props;
@@ -26,7 +21,7 @@ class ProjectsSlider extends React.Component {
   }
 
   render() {
-    const { projects, classes, secondaryButtons } = this.props;
+    const { projects, classes, primaryButtonLabel, secondaryButtons } = this.props;
     const { triggerNextStep } = this.props;
     const settings = {
       dots: false,
@@ -74,7 +69,7 @@ class ProjectsSlider extends React.Component {
                   }, true);
                 }}
                 >
-                  {showProjectMessage()}
+                  {primaryButtonLabel.toUpperCase().split(' ').join('_')}
                 </Button>
                 {
                   secondaryButtons &&
@@ -86,7 +81,7 @@ class ProjectsSlider extends React.Component {
                       });
                     }}
                     >
-                      {secondaryButton.label}
+                      {secondaryButton.label.toUpperCase().split(' ').join('_')}
                     </Button>
                   )
                 }

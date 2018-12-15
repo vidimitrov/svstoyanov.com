@@ -46,7 +46,12 @@ function changeTopicMessage() {
 }
 
 function nonLexicalMessage() {
-  const variations = ['yeah', 'okay', 'uh', 'oh', 'aum', 'mmm', 'uhh', 'uh-huh', 'uu', 'you know', 'ermmm', 'mhmm'];
+  const variations = ['Yeah', 'Okay', 'Uh', 'Oh', 'Aum', 'Mmm', 'Uhh', 'Uh-huh', 'Uu', 'You know', 'Ermmm', 'Mhmm'];
+  return variations[Math.floor(Math.random() * variations.length)];
+}
+
+function showProjectMessage() {
+  const variations = ['Show me this project', 'Want to understand more about it'];
   return variations[Math.floor(Math.random() * variations.length)];
 }
 
@@ -129,7 +134,7 @@ export default [
     trigger: 'c0c44de7-8c36-43d7-8130-346cf336755d',
   }, {
     id: 'c0c44de7-8c36-43d7-8130-346cf336755d',
-    message: 'I need to remember the name of the person I am talking to: 🙂',
+    message: 'I need to remember the name of the person I am talking to 🙂',
     trigger: '9fa71636-9458-41b4-9760-e952ea4fd8d0',
   }, {
     id: '9fa71636-9458-41b4-9760-e952ea4fd8d0',
@@ -276,6 +281,7 @@ export default [
     id: '0b4909a6-b354-4295-83d8-6a4b9fe2daff',
     component: (
       <ProjectsSlider
+        primaryButtonLabel={showProjectMessage()}
         secondaryButtons={
           hasVisitedSections() ?
             [{
@@ -371,7 +377,9 @@ export default [
   }, {
     id: 'f5273870-f3d6-40ca-9329-98af52ea0b58',
     component: (
-      <ProjectsSlider activeSlideId={1} />
+      <ProjectsSlider
+        primaryButtonLabel={showProjectMessage()}
+        activeSlideId={1} />
     ),
     style: {
       width: '100%',
@@ -800,6 +808,7 @@ export default [
     component: (
       <ProjectsSlider
         activeSlideId={4} // Panto project
+        primaryButtonLabel={showProjectMessage()}
         secondaryButtons={[
           {
             label: 'Wish to contact you',
@@ -830,6 +839,7 @@ export default [
     component: (
       <ProjectsSlider
         activeSlideId={5} // svstoyanov.com website
+        primaryButtonLabel={showProjectMessage()}
         secondaryButtons={[
           {
             label: 'Wish to contact you',
@@ -1163,7 +1173,9 @@ export default [
   }, {
     id: '8f906bb3-a50a-4d2e-93b1-938b15748c0c',
     component: (
-      <ProjectsSlider activeSlideId={4} /> // Ale project
+      <ProjectsSlider
+        primaryButtonLabel={showProjectMessage()}
+        activeSlideId={4} /> // Ale project
     ),
     style: {
       width: '100%',
