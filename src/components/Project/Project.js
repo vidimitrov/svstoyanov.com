@@ -8,8 +8,6 @@ import uuid from 'uuid/v4';
 import { withStyles } from '@material-ui/core/styles';
 import CloseIcon from '@material-ui/icons/Close';
 import { ThemeProvider } from 'styled-components';
-import firebase from 'firebase/app';
-import 'firebase/functions';
 
 import Grid from '@material-ui/core/Grid';
 import Footer from '../Footer/Footer';
@@ -159,14 +157,8 @@ class Project extends React.Component {
             label: 'Send it',
             trigger: 'message-sent',
             callback: () => {
-              const sendEmail = firebase.functions().httpsCallable('sendEmail');
-              sendEmail({
-                email: localStorage.getItem('cf-email'),
-                message: localStorage.getItem('cf-message'),
-              }).then(() => {
-                localStorage.removeItem('cf-email');
-                localStorage.removeItem('cf-message');
-              });
+              localStorage.removeItem('cf-email');
+              localStorage.removeItem('cf-message');
             },
           },
         ]}

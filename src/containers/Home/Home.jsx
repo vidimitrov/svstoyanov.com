@@ -5,9 +5,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from 'styled-components';
 import Grid from '@material-ui/core/Grid';
-import firebase from 'firebase/app';
 import ChatBot from '../../lib/ChatBot';
-import 'firebase/functions';
 
 import Preloader from '../../components/Preloader/Preloader';
 import Footer from '../../components/Footer/Footer';
@@ -18,11 +16,6 @@ import logo from '../../assets/img/logo.png';
 import mp4Video from '../../assets/video/bg-spin.mp4';
 import webmVideo from '../../assets/video/bg-spin.webm';
 import backgroundMusic from '../../assets/audio/background-sound.mp3';
-
-firebase.initializeApp({
-  apiKey: 'AIzaSyA7pJMXQS-7h3xYDiUF5Uz5kSiodXZSVCw',
-  projectId: 'svstoyanov-com',
-});
 
 class Home extends React.Component {
   constructor(props) {
