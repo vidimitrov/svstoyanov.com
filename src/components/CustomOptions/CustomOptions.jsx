@@ -92,7 +92,6 @@ class CustomOptions extends React.Component {
 
           if (option.redirect) {
             window.open(option.redirect, '_blank');
-            return;
           }
 
           if (option.callback) {
