@@ -2,12 +2,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
 import Button from '../Buttons/Button';
 import ArrowAvatar from '../Avatars/ArrowAvatar';
 import arrowAvatar from '../../assets/img/bot-arrow.svg';
+
+const SelectedOption = styled.div`
+  font-family: "Space Mono";
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  max-width: 100%;
+  text-transform: uppercase;
+`;
 
 const filterOnlyVisible = (dynamicOption) => {
   return dynamicOption.isVisible();
@@ -57,12 +68,14 @@ class CustomOptions extends React.Component {
 
     this.state = {
       options,
+      selectedOption: null,
     };
   }
 
   render() {
     const {
       options,
+      selectedOption,
     } = this.state;
     const {
       classes,
@@ -73,6 +86,10 @@ class CustomOptions extends React.Component {
         key={index}
         className={classes.optionsButton}
         onClick={() => {
+          this.setState({
+            selectedOption: option,
+          });
+
           if (option.redirect) {
             window.open(option.redirect, '_blank');
             return;
@@ -93,6 +110,9 @@ class CustomOptions extends React.Component {
         {option.label.split(' ').join('_').toUpperCase()}
       </Button>
     );
+    const renderSelectedOption = (option) => (
+      <SelectedOption>{option.label}</SelectedOption>
+    );
 
     return (
       <Grid container className={classes.customOptionsWrapper} justify="flex-start">
@@ -100,7 +120,7 @@ class CustomOptions extends React.Component {
           <ArrowAvatar src={arrowAvatar} />
         </Grid>
         <Grid item className={classes.optionsWrapper}>
-          {options.map(renderOption)}
+          {selectedOption ? renderSelectedOption(selectedOption) : options.map(renderOption)}
         </Grid>
       </Grid>
     )
