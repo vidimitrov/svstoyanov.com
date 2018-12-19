@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import copy from 'copy-to-clipboard';
 import ProjectsSlider from '../components/ProjectsSlider/ProjectsSlider';
 import CustomOptions from '../components/CustomOptions/CustomOptions';
 import Input from '../components/Inputs/Input';
@@ -225,7 +226,7 @@ export default [
     trigger: 'e29b9ed5-f83d-48ba-bd6d-b9891ec8ad23'
   }, {
     id: 'e29b9ed5-f83d-48ba-bd6d-b9891ec8ad23',
-    message: 'Recently I started my personal blog called infinitecrave.com',
+    message: 'Recently I started my personal blog called <a class="url" href="http://infinitecrave.com" target="_blank">infinitecrave.com</a>',
     trigger: '7c478cfc-2415-45be-a953-422002116874'
   }, {
     id: '7c478cfc-2415-45be-a953-422002116874',
@@ -921,7 +922,7 @@ export default [
     trigger: 'd0836ef8-c4ca-4755-b020-336e84d0cc3d',
   }, {
     id: 'd0836ef8-c4ca-4755-b020-336e84d0cc3d',
-    message: `In the meantime while I read it and answer you can see some of my UX topics in my personal blog infinitecrave.com or if you want we can talk about something else!`, //Infinitecrave here is a link
+    message: `In the meantime while I read it and answer you can see some of my UX topics in my personal blog <a class="url" href="http://infinitecrave.com" target="_blank">infinitecrave.com</a> or if you want we can talk about something else!`,
     trigger: '33c0e0da-b505-42f5-ab41-522f792e23f2',
   }, {
     id: '33c0e0da-b505-42f5-ab41-522f792e23f2',
@@ -982,7 +983,7 @@ export default [
     trigger: '131a2787-d265-4d0f-bea2-a3167bec1f7c',
   }, {
     id: '131a2787-d265-4d0f-bea2-a3167bec1f7c',
-    message: 'You can check some of my articles: infinitecrave.com', //infinitecrave is link
+    message: 'You can check some of my articles: <a class="url" href="http://infinitecrave.com" target="_blank">infinitecrave.com</a>',
     trigger: '7921568d-5249-40e2-b03a-62e9237b4558',
   }, {
     id: '7921568d-5249-40e2-b03a-62e9237b4558',
@@ -1213,11 +1214,11 @@ export default [
     trigger: '32ae398c-a7ef-4b50-ad2a-78c82aa83c8e',
   }, {
     id: '32ae398c-a7ef-4b50-ad2a-78c82aa83c8e',
-    message: 'You can find everything on my blog: infinitecrave.com', //infinitecrave.com link
+    message: 'You can find everything on my blog: <a class="url" href="http://infinitecrave.com" target="_blank">infinitecrave.com</a>',
     trigger: 'ffd450a6-46ae-43e0-b99d-f4a250b46176',
   }, {
     id: 'ffd450a6-46ae-43e0-b99d-f4a250b46176',
-    message: ' Another media that you could find on is dribbble.com', //dribbble.com link
+    message: 'Another media that you could find me on is <a class="url" href="https://dribbble.com/svstoyanov" target="_blank">dribbble.com/svstoyanov</a>',
     trigger: '21c17276-eea8-47bc-8a99-c6df97fd416f',
   }, {
     id: '21c17276-eea8-47bc-8a99-c6df97fd416f',
@@ -1308,11 +1309,11 @@ export default [
     trigger: '939b4944-f170-4d9d-a1e6-e7b59c7aa496',
   }, {
     id: '939b4944-f170-4d9d-a1e6-e7b59c7aa496',
-    message: 'You could check out the full story at http://infinitecrave.com.', //infinitecrave link
+    message: 'You could check out the full story at <a class="url" href="http://infinitecrave.com" target="_blank">infinitecrave.com</a>',
     trigger: '7f5e3c39-04bb-4c7a-9b17-11959b1ada53',
   }, {
     id: '7f5e3c39-04bb-4c7a-9b17-11959b1ada53',
-    message: 'And check out our facebook page: https://facebook.com/barbarondesign', //facebook/barbarondesign link
+    message: 'And check out our facebook page: <a class="url" href="https://facebook.com/barbarondesign" target="_blank">facebook.com/barbarondesign</a>',
     trigger: 'f2dd8d7d-d267-42f0-932f-2ef90a41e0eb',
   }, {
     id: 'f2dd8d7d-d267-42f0-932f-2ef90a41e0eb',
@@ -1538,22 +1539,37 @@ export default [
         {
           value: 0,
           label: 'Facebook',
+          redirect: `https://www.facebook.com/sharer/sharer.php?u=http%3A//svstoyanov.com`,
+          trigger: 'd3f61129-15f0-49b8-a7f4-f7c7aa513415',
         }, {
           value: 1,
           label: 'Twitter',
+          redirect: `https://twitter.com/home?status=Stoyan's%20website%20is%20awesome!%20Visit%20http%3A//svstoyanov.com%20to%20check%20it%20out`,
+          trigger: 'd3f61129-15f0-49b8-a7f4-f7c7aa513415',
         }, {
           value: 2,
           label: 'LinkedIn',
+          redirect: `https://www.linkedin.com/shareArticle?mini=true&url=http%3A//svstoyanov.com&title=Stoyan%20Stoyanov%20-%20Product%20Designer&summary=Hi%20there,%20I%20am%20Stoyan,%20a%20UX%20designer%20%26%20researcher%20located%20in%20Bulgaria`,
+          trigger: 'd3f61129-15f0-49b8-a7f4-f7c7aa513415',
         }, {
           value: 3,
           label: 'Copy URL',
+          callback: () => {
+            copy('http://svstoyanov.com');
+          },
+          trigger: 'bcf61129-15f0-33b8-a7f4-a9c7aa513354',
         },
       ]}
       />
     ),
   }, {
+    id: 'bcf61129-15f0-33b8-a7f4-a9c7aa513354',
+    message: 'Copied!',
+    trigger: 'd3f61129-15f0-49b8-a7f4-f7c7aa513415',
+  }, {
     id: 'd3f61129-15f0-49b8-a7f4-f7c7aa513415',
     message: '🙂 See, ya!',
+    end: true,
   }, {
     id: '09c4294f-cead-4955-9c79-6f4f148c29cd',
     message: 'In the meantime what would you like to know about me?',
