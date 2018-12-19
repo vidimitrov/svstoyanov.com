@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
-import Button from '../Buttons/Button';
 import styles from './styles';
+import Button from '../Buttons/Button';
+import ArrowAvatar from '../Avatars/ArrowAvatar';
+import arrowAvatar from '../../assets/img/bot-arrow.svg';
 
 const filterOnlyVisible = (dynamicOption) => {
   return dynamicOption.isVisible();
@@ -94,7 +96,12 @@ class CustomOptions extends React.Component {
 
     return (
       <Grid container className={classes.customOptionsWrapper} justify="flex-start">
-        {options.map(renderOption)}
+        <Grid item className={classes.avatarWrapper}>
+          <ArrowAvatar src={arrowAvatar} />
+        </Grid>
+        <Grid item className={classes.optionsWrapper}>
+          {options.map(renderOption)}
+        </Grid>
       </Grid>
     )
   };
