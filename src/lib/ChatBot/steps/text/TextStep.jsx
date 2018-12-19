@@ -1,5 +1,5 @@
 /* eslint react/no-find-dom-node:0 */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Bubble from './Bubble';
@@ -9,6 +9,11 @@ import Loading from '../common/Loading';
 import TextStepContainer from './TextStepContainer';
 
 const LIMIT = 450;
+var URL_REGEX = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm;
+
+function hasUrls(message) {
+  return URL_REGEX.test(message);
+};
 
 class TextStep extends Component {
   /* istanbul ignore next */
@@ -23,12 +28,12 @@ class TextStep extends Component {
   }
 
   componentDidMount() {
-    const {step} = this.props;
-    const {component, delay, waitAction} = step;
+    const { step } = this.props;
+    const { component, delay, waitAction } = step;
     const isComponentWaitingUser = component && waitAction;
 
     setTimeout(() => {
-      this.setState({loading: false}, () => {
+      this.setState({ loading: false }, () => {
         if (!isComponentWaitingUser && !step.rendered) {
           this.props.triggerNextStep();
         }
@@ -49,8 +54,8 @@ class TextStep extends Component {
       previousStep,
       triggerNextStep,
     } = this.props;
-    const {component} = step;
-    let {message} = step;
+    const { component } = step;
+    let { message } = step;
 
     if (component) {
       return React.cloneElement(component, {
@@ -64,11 +69,12 @@ class TextStep extends Component {
 
     message = message.replace(/{previousValue}/g, previousValue);
 
-    return message;
+    // TODO: Create a new step for the links or find a way how to fix this security issue
+    return (<span dangerouslySetInnerHTML={{ __html: message }}></span>);
   }
 
   render() {
-    const {stepEl} = this.state;
+    const { stepEl } = this.state;
     const {
       step,
       style,
@@ -126,10 +132,7 @@ class TextStep extends Component {
             this.state.loading &&
             <Loading />
           }
-          {(!this.state.loading && user) &&
-            <span style={{color: 'rgba(255,255,255,0.54)'}}>&gt; {this.renderMessage()}</span>
-          }
-          {(!this.state.loading && !user) && this.renderMessage()}
+          {(!this.state.loading) && this.renderMessage()}
         </Bubble>
       </TextStepContainer>
     );
