@@ -8,6 +8,13 @@ export default {
   wrapper: {
     display: 'flex',
     flex: 1,
+    borderBottom: '1px solid #fff',
+    paddingRight: '10px',
+  },
+  buttonWrapper: {
+    borderBottom: '1px solid #fff',
+    display: 'flex',
+    alignItems: 'center',
   },
   input: {
     fontFamily: 'Space Mono',
@@ -32,6 +39,7 @@ export default {
     height: '50px',
     backgroundColor: 'transparent',
     border: 'none',
+    resize: 'none',
     color: 'rgba(255,255,255,0.54)',
     width: '100%',
     '&:focus': {

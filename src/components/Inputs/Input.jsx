@@ -80,7 +80,7 @@ class Input extends React.Component {
             }}
           />
         </Grid>
-        <Grid item>
+        <Grid item className={classes.buttonWrapper}>
           <Button
             onClick={this.submit}
             disabled={!value}

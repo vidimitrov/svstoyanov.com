@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import styles from './styles';
+import Button from '../Buttons/NavigationButton';
 import ArrowAvatar from '../Avatars/ArrowAvatar';
 import arrowAvatar from '../../assets/img/bot-arrow.svg';
 
@@ -13,9 +14,11 @@ class TextArea extends React.Component {
     this.state = {
       value: '',
       initialValueUsed: false,
+      isButtonHidden: false,
     };
 
     this.onValueChange = this.onValueChange.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
   componentWillMount() {
@@ -37,14 +40,39 @@ class TextArea extends React.Component {
     this.setState({ value: e.target.value });
   }
 
-  render() {
-    const { value } = this.state;
+  submit() {
     const {
-      classes,
       triggerNextStep,
       trigger,
-      placeholder,
       callback,
+    } = this.props;
+    const { value } = this.state;
+
+    triggerNextStep({
+      stepId: trigger,
+      externalTrigger: true,
+      value,
+    });
+
+    if (this.textarea) {
+      this.textarea.blur();
+      this.textarea.disabled = true;
+    }
+
+    if (callback) {
+      callback(value);
+    }
+
+    this.setState({
+      isButtonHidden: true,
+    });
+  }
+
+  render() {
+    const { value, isButtonHidden } = this.state;
+    const {
+      classes,
+      placeholder,
     } = this.props;
 
     return (
@@ -62,24 +90,22 @@ class TextArea extends React.Component {
             onChange={this.onValueChange}
             onKeyUp={(e) => {
               this.textarea.style.height = "1px";
-              this.textarea.style.height = (25 + this.textarea.scrollHeight) + "px";
+              this.textarea.style.height = (10 + this.textarea.scrollHeight) + "px";
             }}
             onKeyPress={(e) => {
               if (e.key === 'Enter') {
-                triggerNextStep({
-                  stepId: trigger,
-                  externalTrigger: true,
-                  value,
-                });
-                this.textarea.blur();
-                this.textarea.disabled = true;
-
-                if (callback) {
-                  callback(value);
-                }
+                this.submit();
               }
             }}
           />
+        </Grid>
+        <Grid item className={classes.buttonWrapper}>
+          <Button
+            onClick={this.submit}
+            disabled={!value}
+            hidden={isButtonHidden}>
+            SENT
+          </Button>
         </Grid>
       </Grid >
     );
