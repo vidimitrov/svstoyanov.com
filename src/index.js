@@ -23,7 +23,7 @@ export const store = createStore(
     applyMiddleware(...middlewares),
     window.devToolsExtension
       && process.env.NODE_ENV === 'development'
-      ? window.devToolsExtension() : f => f,
+      ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f,
   ),
 );
 
