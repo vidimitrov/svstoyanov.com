@@ -27,7 +27,7 @@ export default {
     zIndex: 999,
   },
   mainSection: {
-    padding: '72px 72px 0px',
+    padding: '72px 0px 0px',
   },
   chatContainer: {
     height: '100%',
