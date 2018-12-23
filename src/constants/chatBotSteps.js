@@ -5,7 +5,7 @@ import ProjectsSlider from '../components/ProjectsSlider/ProjectsSlider';
 import CustomOptions from '../components/CustomOptions/CustomOptions';
 import Input from '../components/Inputs/Input';
 import TextArea from '../components/Inputs/TextArea';
-import ImageStep from '../components/steps/Image';
+import ImageStep from '../components/Steps/Image';
 import stoyanBushcraftingImg from '../assets/img/stoyan-bushcrafting.jpg';
 
 const CHATBOT_VISITED_SECTIONS = 'cb-vs';
@@ -42,7 +42,7 @@ function showProjectsMessage() {
 }
 
 function changeTopicMessage() {
-  const variations = ['Can we change the topic', `Let's talk about something else`];
+  const variations = ['Can we change the topic', 'Let\'s talk about something else'];
   return variations[Math.floor(Math.random() * variations.length)];
 }
 
@@ -61,7 +61,7 @@ function mediatorMessage() {
     `${acknowledgementMessage()}, what would like of me to show you?`,
     `${acknowledgementMessage()}, what you would like us to have a conversation on?`,
     `${acknowledgementMessage()}, which is the thing you want to understand about me?`,
-    `${nonLexicalMessage()}, I can say that I have the feeling you are an amazing person. Now I can reveal more about me, but on what topic you'd like to continue our conversation?`
+    `${nonLexicalMessage()}, I can say that I have the feeling you are an amazing person. Now I can reveal more about me, but on what topic you'd like to continue our conversation?`,
   ];
   return variations[Math.floor(Math.random() * variations.length)];
 }
@@ -76,24 +76,24 @@ function daytimeMessage() {
 
 export default [
   /**
-   * INTRO STEPS 
+   * INTRO STEPS
    */
 
   {
     id: 'c57a7186-8a45-4980-9fb0-69752959a661',
     message: '👋 Hi there, I am Stoyan, a UX designer & researcher located in Bulgaria 🇧🇬',
     trigger: '09352513-9901-4844-9a15-b4a08f30d18d',
-    delay: 4000
+    delay: 4000,
   }, {
     id: '09352513-9901-4844-9a15-b4a08f30d18d',
-    message: `What's your name?`,
+    message: 'What\'s your name?',
     trigger: '05014868-72e1-4468-a688-6d0ec1b61455',
   }, {
     id: '05014868-72e1-4468-a688-6d0ec1b61455',
     component: (
       <Input
-        trigger='994885e8-5e24-4034-9a79-92a27fb2962f'
-        placeholder='Type your name...'
+        trigger="994885e8-5e24-4034-9a79-92a27fb2962f"
+        placeholder="Type your name..."
         callback={(value) => {
           localStorage.setItem('user-name', value);
         }}
@@ -125,10 +125,10 @@ export default [
           value: 2,
           label: 'Nah',
           trigger: 'cdeea2f9-3978-416a-bae4-88fa08978217',
-        }
+        },
       ]}
       />
-    )
+    ),
   }, {
     id: '7d538274-a6af-41af-bd3d-371edc1bb0ab',
     message: 'Well they are making me smarter',
@@ -139,7 +139,7 @@ export default [
     trigger: '9fa71636-9458-41b4-9760-e952ea4fd8d0',
   }, {
     id: '9fa71636-9458-41b4-9760-e952ea4fd8d0',
-    message: `That's why I’m using them, but don’t worry, my memory is not that long so in 30 days I’ll not remember a thing.`,
+    message: 'That\'s why I’m using them, but don’t worry, my memory is not that long so in 30 days I’ll not remember a thing.',
     trigger: 'b8460185-2c66-4de5-bc1b-4a83a9b206fa',
   }, {
     id: 'b8460185-2c66-4de5-bc1b-4a83a9b206fa',
@@ -149,7 +149,7 @@ export default [
           value: 0,
           label: 'Got it',
           trigger: 'cf8ea5df-1283-4219-b545-27443fa3b381',
-        }
+        },
       ]}
       />
     ),
@@ -159,11 +159,11 @@ export default [
     trigger: '1df69e15-2e9a-4b01-b51b-c129159395bc',
   }, {
     id: '1df69e15-2e9a-4b01-b51b-c129159395bc',
-    message: `Haha kidding, they are like a memory, allowing me to remember what we’ve talked about.`,
+    message: 'Haha kidding, they are like a memory, allowing me to remember what we’ve talked about.',
     trigger: 'a2a3096c-1e7f-4419-b435-5a6a2fafa241',
   }, {
     id: 'a2a3096c-1e7f-4419-b435-5a6a2fafa241',
-    message: `After all I need to inform you because of the GDPR.`,
+    message: 'After all I need to inform you because of the GDPR.',
     trigger: 'a9ed115b-a723-4395-9afd-f676e5255b55',
   }, {
     id: 'a9ed115b-a723-4395-9afd-f676e5255b55',
@@ -173,7 +173,7 @@ export default [
           value: 0,
           label: 'Of course',
           trigger: 'cf8ea5df-1283-4219-b545-27443fa3b381',
-        }
+        },
       ]}
       />
     ),
@@ -202,7 +202,7 @@ export default [
           value: 1,
           label: 'I want to contact you',
           trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
-        }
+        },
       ]}
       />
     ),
@@ -215,23 +215,23 @@ export default [
   {
     id: 'bc45efbf-270f-4ff0-810b-d26b9ce598ca',
     message: 'I am grateful!',
-    trigger: '818027c8-982d-46ae-85b5-1762fe3e980c'
+    trigger: '818027c8-982d-46ae-85b5-1762fe3e980c',
   }, {
     id: '818027c8-982d-46ae-85b5-1762fe3e980c',
     message: 'I’m a UX designer and a strategist, who loves creating value for companies with people-centric solutions. My goal is to deliver products that people use. I’ve worked with different startups and companies on exciting projects across different industries and countries from simple prototypes, MVP’s to final products.',
-    trigger: '42d6f01d-3c44-43da-bea8-b1fa301af378'
+    trigger: '42d6f01d-3c44-43da-bea8-b1fa301af378',
   }, {
     id: '42d6f01d-3c44-43da-bea8-b1fa301af378',
-    message: `I’m a curious guy, who is constantly learning and experimenting with different technologies! That’s why I’ve created my digital twin to represent me. Haha!`,
-    trigger: 'e29b9ed5-f83d-48ba-bd6d-b9891ec8ad23'
+    message: 'I’m a curious guy, who is constantly learning and experimenting with different technologies! That’s why I’ve created my digital twin to represent me. Haha!',
+    trigger: 'e29b9ed5-f83d-48ba-bd6d-b9891ec8ad23',
   }, {
     id: 'e29b9ed5-f83d-48ba-bd6d-b9891ec8ad23',
     message: 'Recently I started my personal blog called <a class="url" href="http://infinitecrave.com" target="_blank">infinitecrave.com</a>',
-    trigger: '7c478cfc-2415-45be-a953-422002116874'
+    trigger: '7c478cfc-2415-45be-a953-422002116874',
   }, {
     id: '7c478cfc-2415-45be-a953-422002116874',
-    message: `And last but not least I’m a nature freak who loves to practice bushcraft 🏕️ in his spare time.`,
-    trigger: '3e7b3a0a-ae39-42eb-a9c0-12c84b7515a4'
+    message: 'And last but not least I’m a nature freak who loves to practice bushcraft 🏕️ in his spare time.',
+    trigger: '3e7b3a0a-ae39-42eb-a9c0-12c84b7515a4',
   }, {
     id: '3e7b3a0a-ae39-42eb-a9c0-12c84b7515a4',
     component: (
@@ -248,9 +248,9 @@ export default [
         },
         {
           value: 2,
-          label: `Curious to know about your hobbies`,
+          label: 'Curious to know about your hobbies',
           trigger: 'aa555702-702b-4821-b8a0-0cc1e92c6b49',
-        }
+        },
       ]}
       />
     ),
@@ -266,7 +266,7 @@ export default [
     trigger: '165cbbdb-a0cc-40be-b294-f1757ff23d64',
     callback: () => {
       setVisited('89695e34-2a77-4f0e-ab39-8602906dde0b');
-    }
+    },
   }, {
     id: '165cbbdb-a0cc-40be-b294-f1757ff23d64',
     message: () => {
@@ -284,14 +284,15 @@ export default [
       <ProjectsSlider
         primaryButtonLabel={showProjectMessage()}
         secondaryButtons={
-          hasVisitedSections() ?
-            [{
-              label: `Let's talk about something else`,
+          hasVisitedSections()
+            ? [{
+              label: 'Let\'s talk about something else',
               trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
             }] : [{
               label: 'Nice, but first tell me more about yourself',
               trigger: 'bc45efbf-270f-4ff0-810b-d26b9ce598ca',
-            }]} />
+            }]}
+      />
     ),
     style: {
       width: '100%',
@@ -345,10 +346,10 @@ export default [
     trigger: 'f6cf0d43-2d27-490a-96f4-a2d6bad760e8',
     callback: () => {
       setVisited('30ac9e09-0053-48dd-beb5-08207c6a4da5');
-    }
+    },
   }, {
     id: 'f6cf0d43-2d27-490a-96f4-a2d6bad760e8',
-    message: `Because for me design isn't just some fancy term, drawing or research. For me it is creating a proper products for the people out there in the proper way.`,
+    message: 'Because for me design isn\'t just some fancy term, drawing or research. For me it is creating a proper products for the people out there in the proper way.',
     trigger: '1e9ff7c4-bbf4-41b2-9741-de6363090ac8',
   }, {
     id: '1e9ff7c4-bbf4-41b2-9741-de6363090ac8',
@@ -370,17 +371,18 @@ export default [
         },
       ]}
       />
-    )
+    ),
   }, {
     id: '58302e93-08aa-43fb-9d4e-ed0b925ebfc6',
-    message: acknowledgementMessage() + ', here it is!',
+    message: `${acknowledgementMessage()}, here it is!`,
     trigger: 'f5273870-f3d6-40ca-9329-98af52ea0b58',
   }, {
     id: 'f5273870-f3d6-40ca-9329-98af52ea0b58',
     component: (
       <ProjectsSlider
         primaryButtonLabel={showProjectMessage()}
-        activeSlideId={1} />
+        activeSlideId={1}
+      />
     ),
     style: {
       width: '100%',
@@ -389,7 +391,7 @@ export default [
     },
   }, {
     id: '555d3b51-1647-45d4-a2e0-cb3119b87efa',
-    message: `Aha nice that you have the interest of knowing more.`,
+    message: 'Aha nice that you have the interest of knowing more.',
     trigger: '00de876c-632d-4d12-8b33-4334f35278bb',
   }, {
     id: '00de876c-632d-4d12-8b33-4334f35278bb',
@@ -406,15 +408,15 @@ export default [
         },
         {
           value: 1,
-          label: `Okay, let's discuss on another topic`,
+          label: 'Okay, let\'s discuss on another topic',
           trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
         },
       ]}
       />
-    )
+    ),
   }, {
     id: 'baf603af-c5b3-4357-8973-eda635bd1d76',
-    message: acknowledgementMessage() + ' One moment please',
+    message: `${acknowledgementMessage()} One moment please`,
     trigger: '1d895783-da23-4713-8354-d939001f7614',
   }, {
     id: 'aa555702-702b-4821-b8a0-0cc1e92c6b49',
@@ -422,7 +424,7 @@ export default [
     trigger: 'f5273870-f3d6-40ca-9329-98af52ea0b58',
     callback: () => {
       setVisited('aa555702-702b-4821-b8a0-0cc1e92c6b49');
-    }
+    },
   }, {
     id: 'f5273870-f3d6-40ca-9329-98af52ea0b58',
     message: `You are very curious, ${localStorage.getItem('user-name')}!`,
@@ -441,7 +443,7 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: `What's bushcraft`,
+          label: 'What\'s bushcraft',
           trigger: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
         },
         {
@@ -456,7 +458,7 @@ export default [
         },
       ]}
       />
-    )
+    ),
   },
 
   /**
@@ -465,11 +467,11 @@ export default [
 
   {
     id: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
-    message: `Okay I think that you’ll like it!`,
+    message: 'Okay I think that you’ll like it!',
     trigger: 'fcb7566d-e735-4a96-9c35-cb2231b6924f',
     callback: () => {
       setVisited('36acf53a-d579-4c5d-8e6c-d6726e51737f');
-    }
+    },
   }, {
     id: 'fcb7566d-e735-4a96-9c35-cb2231b6924f',
     message: 'Basically, it is a skill that teaches you to live in the woods, build shelter, find water and food and take care of yourself.',
@@ -494,18 +496,18 @@ export default [
         },
       ]}
       />
-    )
+    ),
   }, {
     id: 'aab29c25-b0d4-4050-8bb3-8065cfd0b18f',
     message: 'Well, what can I say 😀',
     trigger: '2066f091-0eb2-4039-96ce-9dbc749b3460',
   }, {
     id: '2066f091-0eb2-4039-96ce-9dbc749b3460',
-    message: `I like it because it teaches me a lot on keeping my spirit up, it creates discipline, teaches you on self-reliance and lastly, you need to be creative to build something like let's say a shelter or an MVP of a shelter 😀`,
+    message: 'I like it because it teaches me a lot on keeping my spirit up, it creates discipline, teaches you on self-reliance and lastly, you need to be creative to build something like let\'s say a shelter or an MVP of a shelter 😀',
     trigger: 'a5564d31-ffc8-4bff-b3da-06927c38bf84',
   }, {
     id: 'a5564d31-ffc8-4bff-b3da-06927c38bf84',
-    message: `I'll show you something!`,
+    message: 'I\'ll show you something!',
     trigger: '5de220b0-70fc-41b3-aee5-aefdd93126d6',
   }, {
     id: '5de220b0-70fc-41b3-aee5-aefdd93126d6',
@@ -528,7 +530,7 @@ export default [
         },
         {
           value: 1,
-          label: `Think that it's not for me`,
+          label: 'Think that it\'s not for me',
           trigger: '41e28014-62ba-441b-aeab-44b2ee0fa2d8',
         },
       ]}
@@ -571,7 +573,7 @@ export default [
             isVisible: () => !isVisited('89695e34-2a77-4f0e-ab39-8602906dde0b'),
             label: 'I saw that you have side projects',
             trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
-          }
+          },
         ]}
       />
     ),
@@ -664,7 +666,7 @@ export default [
     trigger: '638e0fd9-b044-4467-bdff-14b4cbfdc182',
   }, {
     id: '638e0fd9-b044-4467-bdff-14b4cbfdc182',
-    message: `Let's not keep secrets from one another and tell me what would you like to do next?`,
+    message: 'Let\'s not keep secrets from one another and tell me what would you like to do next?',
     trigger: '464868a3-de36-4e6f-8e0b-fc2be3372032',
   }, {
     id: '464868a3-de36-4e6f-8e0b-fc2be3372032',
@@ -673,7 +675,7 @@ export default [
         options={[
           {
             value: 0,
-            label: `I'd like to talk with you`,
+            label: 'I\'d like to talk with you',
             trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
           },
           {
@@ -717,7 +719,7 @@ export default [
     trigger: '42054d9c-1fe6-4956-8c36-96958456e3db',
     callback: () => {
       setVisited('ade03d57-a390-46ed-ae5b-16df08760972');
-    }
+    },
   }, {
     id: '42054d9c-1fe6-4956-8c36-96958456e3db',
     message: 'What do you want to know about my writing career ✍️?',
@@ -728,7 +730,7 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: `Let’s discuss on a topic`,
+          label: 'Let’s discuss on a topic',
           trigger: '47820655-90b7-4a62-8223-7601362c66b1',
         },
         {
@@ -745,14 +747,14 @@ export default [
     trigger: '6b795579-a172-40a2-bb37-164b0150559a',
     callback: () => {
       setVisited('47820655-90b7-4a62-8223-7601362c66b1');
-    }
+    },
   }, {
     id: '6b795579-a172-40a2-bb37-164b0150559a',
     message: 'I need to warn you, though, that so far my capabilities are limited but I am learning.',
     trigger: '7a395f80-0cf2-4d95-b834-4e504c8dd1f7',
   }, {
     id: '7a395f80-0cf2-4d95-b834-4e504c8dd1f7',
-    message: `Check them out I've prepared something for you: Conversational UI (CI) or UX?`,
+    message: 'Check them out I\'ve prepared something for you: Conversational UI (CI) or UX?',
     trigger: '4984873c-010a-499b-a7bb-2c80cc94fe7d',
   }, {
     id: '4984873c-010a-499b-a7bb-2c80cc94fe7d',
@@ -760,7 +762,7 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: `No prob, let's discuss on CI`,
+          label: 'No prob, let\'s discuss on CI',
           trigger: 'ee80840e-aaac-405d-be59-09dbae8a4ba2',
         },
         {
@@ -773,15 +775,15 @@ export default [
     ),
   }, {
     id: 'ee80840e-aaac-405d-be59-09dbae8a4ba2',
-    message: `I'm amazed that you have this interest! 😎`,
+    message: 'I\'m amazed that you have this interest! 😎',
     trigger: '3416f306-a239-4554-ace5-a80d40b39602',
   }, {
     id: '3416f306-a239-4554-ace5-a80d40b39602',
-    message: `Humans talk from millennials but machines, why can't machines do so? Now it's a bit hard because of the fact that speech is a complex thing and differs a lot based on culture and language. So there are conversational rules, which to say that I’m using, haha, needs to be implemented in order we to have a conversation now. For instance, I can say that my distant cousins Siri, Cortana, and Alexa can even talk. I hope I’ll also do that soon!`,
+    message: 'Humans talk from millennials but machines, why can\'t machines do so? Now it\'s a bit hard because of the fact that speech is a complex thing and differs a lot based on culture and language. So there are conversational rules, which to say that I’m using, haha, needs to be implemented in order we to have a conversation now. For instance, I can say that my distant cousins Siri, Cortana, and Alexa can even talk. I hope I’ll also do that soon!',
     trigger: 'e219c554-20f0-4b2b-a65c-bba31668b1ab',
   }, {
     id: 'e219c554-20f0-4b2b-a65c-bba31668b1ab',
-    message: `I like a quote that I heard from National Geographic: “Building the Babylon tower to the sky was possible because everyone was speaking the same language! Now God was scared so he had a solution to this, and thus created the languages and separated the people. Which stopped building the tower because they couldn’t communicate in the same language”.`,
+    message: 'I like a quote that I heard from National Geographic: “Building the Babylon tower to the sky was possible because everyone was speaking the same language! Now God was scared so he had a solution to this, and thus created the languages and separated the people. Which stopped building the tower because they couldn’t communicate in the same language”.',
     trigger: 'c1c997b8-43d8-45f5-9c73-6f5501759048',
   }, {
     id: 'c1c997b8-43d8-45f5-9c73-6f5501759048',
@@ -818,7 +820,7 @@ export default [
           {
             label: changeTopicMessage(),
             trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
-          }
+          },
         ]}
       />
     ),
@@ -849,7 +851,7 @@ export default [
           {
             label: changeTopicMessage(),
             trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
-          }
+          },
         ]}
       />
     ),
@@ -859,7 +861,7 @@ export default [
     trigger: 'b2ac6908-434a-492e-9eca-e67327abe2e8',
   }, {
     id: 'b2ac6908-434a-492e-9eca-e67327abe2e8',
-    message: `For me UX is all about people. It is the core in design since design is just a term for creating solutions that people love. Sometimes the fundamentals need to be challenged in order to create the optimal solution. Design can be found everywhere and in everything, no matter if it's a product or a service.`,
+    message: 'For me UX is all about people. It is the core in design since design is just a term for creating solutions that people love. Sometimes the fundamentals need to be challenged in order to create the optimal solution. Design can be found everywhere and in everything, no matter if it\'s a product or a service.',
     trigger: '823ba471-8c15-410b-9636-6275bca7464a',
   }, {
     id: '823ba471-8c15-410b-9636-6275bca7464a',
@@ -875,12 +877,12 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: `Okay, I'll tell you`,
+          label: 'Okay, I\'ll tell you',
           trigger: 'c7737cd4-cf1f-4a1e-b1d6-e3ce363789f7',
         },
         {
           value: 1,
-          label: `Wow, you've got me unprepared`,
+          label: 'Wow, you\'ve got me unprepared',
           trigger: 'dea627fc-240a-4f92-814c-4bf33a5bb259',
         },
       ]}
@@ -890,8 +892,8 @@ export default [
     id: 'c7737cd4-cf1f-4a1e-b1d6-e3ce363789f7',
     component: (
       <TextArea
-        trigger='7703d3ff-1e61-45d4-9c14-f4b1e411a86d'
-        placeholder='So UX for me is...'
+        trigger="7703d3ff-1e61-45d4-9c14-f4b1e411a86d"
+        placeholder="So UX for me is..."
         callback={(value) => {
           localStorage.setItem('ux-explanation', value);
         }}
@@ -909,8 +911,8 @@ export default [
     id: '9f08c306-c990-4ae3-95e8-9f59b2bb8e08',
     component: (
       <Input
-        trigger='fcff86e7-bd2e-4279-97f2-aa2088d574ab'
-        placeholder='Type your email...'
+        trigger="fcff86e7-bd2e-4279-97f2-aa2088d574ab"
+        placeholder="Type your email..."
         callback={(value) => {
           localStorage.setItem('user-email', value);
         }}
@@ -922,7 +924,7 @@ export default [
     trigger: 'd0836ef8-c4ca-4755-b020-336e84d0cc3d',
   }, {
     id: 'd0836ef8-c4ca-4755-b020-336e84d0cc3d',
-    message: `In the meantime while I read it and answer you can see some of my UX topics in my personal blog <a class="url" href="http://infinitecrave.com" target="_blank">infinitecrave.com</a> or if you want we can talk about something else!`,
+    message: 'In the meantime while I read it and answer you can see some of my UX topics in my personal blog <a class="url" href="http://infinitecrave.com" target="_blank">infinitecrave.com</a> or if you want we can talk about something else!',
     trigger: '33c0e0da-b505-42f5-ab41-522f792e23f2',
   }, {
     id: '33c0e0da-b505-42f5-ab41-522f792e23f2',
@@ -961,7 +963,7 @@ export default [
         {
           value: 2,
           label: 'Hm, let’s skip the topic',
-          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', //Go to section 3 mediator
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', // Go to section 3 mediator
         },
       ]}
       />
@@ -972,14 +974,14 @@ export default [
     trigger: '4d10e7d4-9e96-4630-aa90-567354b47aec',
     callback: () => {
       setVisited('572159ba-5f1f-4c5b-9813-cf67c5cd4441');
-    }
+    },
   }, {
     id: '4d10e7d4-9e96-4630-aa90-567354b47aec',
     message: 'To name few them: Universal design and UX, tinkering, Sharing my personal experience, entrepreneurship, leading, communication and technology.',
     trigger: '5e16c545-2f39-4a20-a1b8-3c978fce84cb',
   }, {
     id: '5e16c545-2f39-4a20-a1b8-3c978fce84cb',
-    message: ` Long story short, I write what I’ve done so far and what I'm doing.`,
+    message: ' Long story short, I write what I’ve done so far and what I\'m doing.',
     trigger: '131a2787-d265-4d0f-bea2-a3167bec1f7c',
   }, {
     id: '131a2787-d265-4d0f-bea2-a3167bec1f7c',
@@ -996,7 +998,7 @@ export default [
         },
         {
           value: 1,
-          label: `Why you’ve started your own blog?`,
+          label: 'Why you’ve started your own blog?',
           trigger: '66f0c177-f9b9-40b7-a109-cb31074f5c01',
         },
       ]}
@@ -1004,7 +1006,7 @@ export default [
     ),
   }, {
     id: '66f0c177-f9b9-40b7-a109-cb31074f5c01',
-    message: `I'll try to be as short as possible.`,
+    message: 'I\'ll try to be as short as possible.',
     trigger: '3a255ae9-d7b9-4a0e-888b-9f071b86e3f3',
   }, {
     id: '3a255ae9-d7b9-4a0e-888b-9f071b86e3f3',
@@ -1016,7 +1018,7 @@ export default [
     trigger: '6dedb432-b073-4022-9c0e-ccda5bacc613',
   }, {
     id: '6dedb432-b073-4022-9c0e-ccda5bacc613',
-    message: `My goal is to help designers learn about this world before going in there unprepared. That’s how I think I'll shorten their cycle of learning. And I love to talk.`,
+    message: 'My goal is to help designers learn about this world before going in there unprepared. That’s how I think I\'ll shorten their cycle of learning. And I love to talk.',
     trigger: 'd2840803-f2e6-4a39-acb9-c7d2f308d29a',
   }, {
     id: 'd2840803-f2e6-4a39-acb9-c7d2f308d29a',
@@ -1067,7 +1069,7 @@ export default [
    */
   {
     id: '5eb2a29c-3f7e-4ca5-a691-84e4f73836b5',
-    message: `Glad that you have the desire to know me better. Actually my side work is a hobby for me. Here is some of the things I've done`,
+    message: 'Glad that you have the desire to know me better. Actually my side work is a hobby for me. Here is some of the things I\'ve done',
     trigger: 'b32930ef-d88f-4e08-ab84-44fe7f921a88',
   }, {
     id: 'b32930ef-d88f-4e08-ab84-44fe7f921a88',
@@ -1079,15 +1081,15 @@ export default [
     trigger: 'e92543e9-ed1b-4727-95db-8b0e92965e06',
   }, {
     id: 'e92543e9-ed1b-4727-95db-8b0e92965e06',
-    message: `I've started working on a project in the finance world with a financial consultant that had this idea. His idea was to start this project after working on his service and improving it and developing also his brand strategy. Peter, the financial consultant, wants to solve the issue here in Bulgaria for people to have a easy way to track their expenses and budget with a clear financial goals.`,
+    message: 'I\'ve started working on a project in the finance world with a financial consultant that had this idea. His idea was to start this project after working on his service and improving it and developing also his brand strategy. Peter, the financial consultant, wants to solve the issue here in Bulgaria for people to have a easy way to track their expenses and budget with a clear financial goals.',
     trigger: '483331f9-ec6e-493b-8cab-42b54f9bf4e6',
   }, {
     id: '483331f9-ec6e-493b-8cab-42b54f9bf4e6',
-    message: `With my girlfriend we’ve started a handmade family business of creating cozy and ergonomic bean bags. Yeah the cozy furniture in your home. Which so far is gaining popularity very quickly.`,
+    message: 'With my girlfriend we’ve started a handmade family business of creating cozy and ergonomic bean bags. Yeah the cozy furniture in your home. Which so far is gaining popularity very quickly.',
     trigger: 'd7e3ddc1-5890-4123-8878-eba0898fce81',
   }, {
     id: 'd7e3ddc1-5890-4123-8878-eba0898fce81',
-    message: `And finally I'm trying to help new designers get into the design world faster by sharing my personal experience.`,
+    message: 'And finally I\'m trying to help new designers get into the design world faster by sharing my personal experience.',
     trigger: 'ee2d98c2-d202-4929-81ae-64c09846e39b',
   }, {
     id: 'ee2d98c2-d202-4929-81ae-64c09846e39b',
@@ -1115,11 +1117,11 @@ export default [
     ),
   }, {
     id: 'ee60602f-c72e-4158-9ffb-6ecccc935ab7',
-    message: `Yeah, I mentioned the project which is called ALE and it’s goal is to help people with their finances. By putting a clear financial goal it will help them reach it. ALE is a project for a financial consultant and his clients. After working on his service and improving it he had this idea for an application for his customers to help them track their expenses and budgets. Peter, the financial consultant goal is make ALE personal financial assistant that every person have in his own pocket powered by AI.`,
+    message: 'Yeah, I mentioned the project which is called ALE and it’s goal is to help people with their finances. By putting a clear financial goal it will help them reach it. ALE is a project for a financial consultant and his clients. After working on his service and improving it he had this idea for an application for his customers to help them track their expenses and budgets. Peter, the financial consultant goal is make ALE personal financial assistant that every person have in his own pocket powered by AI.',
     trigger: '9dc20388-3ddf-4660-973a-00a02d129f01',
     callback: () => {
       setVisited('ee60602f-c72e-4158-9ffb-6ecccc935ab7');
-    }
+    },
   }, {
     id: '9dc20388-3ddf-4660-973a-00a02d129f01',
     message: 'My responsibilities are bigger since I am the only designers, working on prototypes and pivoting the idea to the shape that it took now with a strategy for further growth also on the information architecture, research and leading the communication with the developer.',
@@ -1176,7 +1178,8 @@ export default [
     component: (
       <ProjectsSlider
         primaryButtonLabel={showProjectMessage()}
-        activeSlideId={4} /> // Ale project
+        activeSlideId={4}
+      /> // Ale project
     ),
     style: {
       width: '100%',
@@ -1265,14 +1268,14 @@ export default [
     ),
   }, {
     id: '3d0e8fee-49c1-4404-ba1a-5f4758d7eba5',
-    message: `I've started a group about design here in Bulgaria, where the goal is to help designers get into UX.`,
+    message: 'I\'ve started a group about design here in Bulgaria, where the goal is to help designers get into UX.',
     trigger: '744b0bab-015f-48b3-b2b0-cf166ad65b93',
     callback: () => {
       setVisited('3d0e8fee-49c1-4404-ba1a-5f4758d7eba5');
-    }
+    },
   }, {
     id: '744b0bab-015f-48b3-b2b0-cf166ad65b93',
-    message: `Another thing is the blog that I've created which goal is exactly to share my personal point of view so people can learn and leverage on top of it`,
+    message: 'Another thing is the blog that I\'ve created which goal is exactly to share my personal point of view so people can learn and leverage on top of it',
     trigger: '25bcbb27-fc8e-4acd-857d-725f3bd21e0e',
   }, {
     id: '25bcbb27-fc8e-4acd-857d-725f3bd21e0e',
@@ -1302,7 +1305,7 @@ export default [
     trigger: '539b4944-f470-439d-a1e6-edb59c7aa496',
     callback: () => {
       setVisited('7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b');
-    }
+    },
   }, {
     id: '539b4944-f470-439d-a1e6-edb59c7aa496',
     message: 'At this moment it is almost automated and ready for scale.',
@@ -1365,7 +1368,7 @@ export default [
     */
   {
     id: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
-    message: mediatorMessage(), // `${acknowledgementMessage()}, what would like of me to show you?`,
+    message: mediatorMessage(),
     trigger: '16b17727-e325-4285-8555-b1fe0a171faf',
   }, {
     id: '16b17727-e325-4285-8555-b1fe0a171faf',
@@ -1404,11 +1407,11 @@ export default [
                     isVisible: () => !isVisited('572159ba-5f1f-4c5b-9813-cf67c5cd4441'),
                   }, {
                     value: 4,
-                    label: `Let's discuss a topic`,
+                    label: 'Let\'s discuss a topic',
                     trigger: '47820655-90b7-4a62-8223-7601362c66b1',
                     isVisible: () => !isVisited('47820655-90b7-4a62-8223-7601362c66b1'),
-                  }
-                ]
+                  },
+                ],
               }, {
                 value: 5,
                 label: 'What is this bushcraft',
@@ -1429,9 +1432,9 @@ export default [
                 label: 'Can I see your family business',
                 trigger: '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
                 isVisible: () => !isVisited('7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b'),
-              }
-            ]
-          }
+              },
+            ],
+          },
         ]}
       />
     ),
@@ -1454,28 +1457,28 @@ export default [
     id: '5106d26e-0975-4fe3-ae31-0b87630201ea',
     component: (
       <TextArea
-        trigger='8f854714-69f0-4a81-972c-e4bc18c47d0e'
-        placeholder='Type your message...'
+        trigger="8f854714-69f0-4a81-972c-e4bc18c47d0e"
+        placeholder="Type your message..."
         callback={(value) => {
           localStorage.setItem('cf-message', value);
         }}
       />
-    )
+    ),
   }, {
     id: '8f854714-69f0-4a81-972c-e4bc18c47d0e',
     message: 'Nice',
     trigger: '3055ede5-e6b5-48b7-855a-e891ed9adaa2',
   }, {
     id: '3055ede5-e6b5-48b7-855a-e891ed9adaa2',
-    message: `I can't wait to read it!`,
-    trigger: !!localStorage.getItem('user-email') ? '6aad7f2f-295e-4406-ab3e-bfe54efb56b3' : 'e8d4ce93-bcee-42c8-986a-e93cefecc448',
+    message: 'I can\'t wait to read it!',
+    trigger: localStorage.getItem('user-email') ? '6aad7f2f-295e-4406-ab3e-bfe54efb56b3' : 'e8d4ce93-bcee-42c8-986a-e93cefecc448',
   }, {
     id: '6aad7f2f-295e-4406-ab3e-bfe54efb56b3',
     message: `I'll send the message with the email ${localStorage.getItem('user-email')} you gave me.`,
     trigger: 'ef8d2487-80e9-4403-939b-57704a47596c',
     callback: () => {
       console.log('Sending the email...');
-    }
+    },
   }, {
     id: 'e8d4ce93-bcee-42c8-986a-e93cefecc448',
     message: 'And your email?',
@@ -1484,21 +1487,21 @@ export default [
     id: 'c5932de6-7185-496f-bd88-efd489bc09c3',
     component: (
       <Input
-        trigger='ef8d2487-80e9-4403-939b-57704a47596c'
-        placeholder='Type your email...'
+        trigger="ef8d2487-80e9-4403-939b-57704a47596c"
+        placeholder="Type your email..."
         callback={(value) => {
           localStorage.setItem('user-email', value);
           console.log('Sending the email...');
         }}
       />
-    )
+    ),
   }, {
     id: 'ef8d2487-80e9-4403-939b-57704a47596c',
     message: 'Sent it! Will check it ASAP!',
     trigger: '7fbe2eb2-af3d-44cf-93d3-184dd1780595',
   }, {
     id: '7fbe2eb2-af3d-44cf-93d3-184dd1780595',
-    message: `By the way, I am leaving my contacts if you would like to reach me out on my phone number +359897923839 and by email on svs7oyanov@gmail.com`,
+    message: 'By the way, I am leaving my contacts if you would like to reach me out on my phone number +359897923839 and by email on svs7oyanov@gmail.com',
     trigger: areAllTopicsVisited() ? '977a727c-ae64-4c60-9487-66c429fb3cfc' : '09c4294f-cead-4955-9c79-6f4f148c29cd',
   }, {
     id: '977a727c-ae64-4c60-9487-66c429fb3cfc',
@@ -1539,17 +1542,17 @@ export default [
         {
           value: 0,
           label: 'Facebook',
-          redirect: `https://www.facebook.com/sharer/sharer.php?u=http%3A//svstoyanov.com`,
+          redirect: 'https://www.facebook.com/sharer/sharer.php?u=http%3A//svstoyanov.com',
           trigger: 'd3f61129-15f0-49b8-a7f4-f7c7aa513415',
         }, {
           value: 1,
           label: 'Twitter',
-          redirect: `https://twitter.com/home?status=Stoyan's%20website%20is%20awesome!%20Visit%20http%3A//svstoyanov.com%20to%20check%20it%20out`,
+          redirect: 'https://twitter.com/home?status=Stoyan\'s%20website%20is%20awesome!%20Visit%20http%3A//svstoyanov.com%20to%20check%20it%20out',
           trigger: 'd3f61129-15f0-49b8-a7f4-f7c7aa513415',
         }, {
           value: 2,
           label: 'LinkedIn',
-          redirect: `https://www.linkedin.com/shareArticle?mini=true&url=http%3A//svstoyanov.com&title=Stoyan%20Stoyanov%20-%20Product%20Designer&summary=Hi%20there,%20I%20am%20Stoyan,%20a%20UX%20designer%20%26%20researcher%20located%20in%20Bulgaria`,
+          redirect: 'https://www.linkedin.com/shareArticle?mini=true&url=http%3A//svstoyanov.com&title=Stoyan%20Stoyanov%20-%20Product%20Designer&summary=Hi%20there,%20I%20am%20Stoyan,%20a%20UX%20designer%20%26%20researcher%20located%20in%20Bulgaria',
           trigger: 'd3f61129-15f0-49b8-a7f4-f7c7aa513415',
         }, {
           value: 3,
@@ -1573,7 +1576,7 @@ export default [
   }, {
     id: '09c4294f-cead-4955-9c79-6f4f148c29cd',
     message: 'In the meantime what would you like to know about me?',
-    trigger: '7c2a69d7-2c99-4a69-9469-15dcf41daca2'
+    trigger: '7c2a69d7-2c99-4a69-9469-15dcf41daca2',
   }, {
     id: '7c2a69d7-2c99-4a69-9469-15dcf41daca2',
     component: (
@@ -1597,10 +1600,10 @@ export default [
           value: 4,
           label: 'Gotta go, sorry',
           trigger: '618ce22b-e7b3-45d2-864d-e8de9f4d2e5e',
-        }
+        },
       ]}
       />
-    )
+    ),
   }, {
     id: '618ce22b-e7b3-45d2-864d-e8de9f4d2e5e',
     message: 'Of course.',
@@ -1615,7 +1618,6 @@ export default [
     trigger: '7a3bd063-07e6-423a-a6bc-3966f47174e9',
   }, {
     id: '7a3bd063-07e6-423a-a6bc-3966f47174e9',
-    message: `Have a nice day ${localStorage.getItem('user-name')} and till next time!`
-  }
+    message: `Have a nice day ${localStorage.getItem('user-name')} and till next time!`,
+  },
 ];
-
