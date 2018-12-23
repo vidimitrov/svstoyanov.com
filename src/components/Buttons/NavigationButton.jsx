@@ -38,7 +38,7 @@ const ButtonWrapper = styled.div`
     background-color: rgba(73, 221, 186, 0.12);
   }
 
-  ${(props) => !props.disabled && css`
+  ${props => !props.disabled && css`
     &:hover {
       cursor: crosshair;
       border: 1px solid ${colors.white};
@@ -54,7 +54,7 @@ const ButtonWrapper = styled.div`
     }
   `}
 
-  ${(props) => props.active && css`
+  ${props => props.active && css`
     padding: 4px 16px;
     border: 1px solid ${colors.white};
 
@@ -69,12 +69,12 @@ const ButtonWrapper = styled.div`
     }
   `}
 
-  ${(props) => props.disabled && css`
+  ${props => props.disabled && css`
     opacity: 0.24;
     pointer-events: none;
   `}
 
-  ${(props) => props.hidden && css`
+  ${props => props.hidden && css`
     display: none;
   `}
 `;
