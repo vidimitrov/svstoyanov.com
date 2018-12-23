@@ -4,6 +4,10 @@ import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 import Image from '../Image';
 
+const Wrapper = styled(Grid)`
+  margin-top: 32px;
+`;
+
 const ImageWrapper = styled(Grid)`
   && {
     max-width: 60%;
@@ -16,10 +20,11 @@ const Key = styled.div`
 `;
 const Info = styled(Grid)`
   font-family: 'Space Mono';
+  padding-left: 72px;
 `;
 
 const Heading = ({ imageSrc, project }) => (
-  <Grid container>
+  <Wrapper container>
     <Info item xs={2}>
       <div>
         <img src={project.icon} width={36} alt="" />
@@ -44,7 +49,7 @@ const Heading = ({ imageSrc, project }) => (
       <Image src={imageSrc} />
     </ImageWrapper>
     <Grid item xs={2} />
-  </Grid>
+  </Wrapper>
 );
 
 Heading.propTypes = {
