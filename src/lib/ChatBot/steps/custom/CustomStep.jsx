@@ -33,13 +33,23 @@ class CustomStep extends Component {
     }, delay);
 
     const stepEl = ReactDOM.findDOMNode(this.stepContainer);
+
+    setTimeout(() => {
+      stepEl.offsetParent.scrollTop = stepEl.offsetParent.scrollHeight;
+    }, 50);
+
     this.setState({
       stepEl,
     });
   }
 
   renderComponent() {
-    const { step, steps, previousStep, triggerNextStep } = this.props;
+    const {
+      step,
+      steps,
+      previousStep,
+      triggerNextStep,
+    } = this.props;
     const { component } = step;
     return React.cloneElement(component, {
       step,
@@ -50,7 +60,7 @@ class CustomStep extends Component {
   }
 
   render() {
-    const { loading, stepEl } = this.state;
+    const { stepEl } = this.state;
     const { style } = this.props;
 
     return (
@@ -67,7 +77,7 @@ class CustomStep extends Component {
         {
           // loading ? (
           //   <Loading />
-          // ) : 
+          // ) :
           this.renderComponent()
         }
       </CustomStepContainer>
