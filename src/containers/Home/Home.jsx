@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from 'styled-components';
 import Grid from '@material-ui/core/Grid';
+
+import { wakeUp } from '../../api';
 import ChatBot from '../../lib/ChatBot';
 
 import Preloader from '../../components/Preloader/Preloader';
@@ -22,7 +24,7 @@ class Home extends React.Component {
     super(props);
     this.state = {
       muted: false,
-      activeStep: null,
+      // activeStep: null,
     };
     this.togglePlayer = this.togglePlayer.bind(this);
     this.getChatComponent = this.getChatComponent.bind(this);
@@ -36,10 +38,12 @@ class Home extends React.Component {
       //       of the features, otherwise it would be extremely annoying while working
       //
       //  chat.triggerNextStep({
-      //   stepId: 'some-id-here', 
+      //   stepId: 'some-id-here',
       //   externalTrigger: true
       //  });
     }
+
+    wakeUp();
   }
 
   getChatComponent() {
@@ -129,11 +133,14 @@ class Home extends React.Component {
                   // { renderedSteps, steps, values }
                   // TODO: Handle the end of the flow
                 }}
-                handleStepChange={(step) => {
-                  this.setState({
-                    activeStep: step,
-                  });
-                }}
+                handleStepChange={
+                  // (step) => {
+                  //   this.setState({
+                  //     activeStep: step,
+                  //   });
+                  // }
+                  () => { }
+                }
               />
             </ThemeProvider>
           </div>
@@ -160,7 +167,6 @@ class Home extends React.Component {
 Home.propTypes = {
   classes: PropTypes.object.isRequired,
   steps: PropTypes.array.isRequired,
-  projects: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = state => ({
