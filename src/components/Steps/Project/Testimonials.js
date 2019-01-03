@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
+import testimonialsQuoteImg from '../../../assets/img/testimonials-quote.svg';
 
 const Wrapper = styled.div`
   font-family: 'Space Mono';
@@ -25,6 +26,11 @@ const ImageWrapper = styled(Grid)`
   display: flex;
   align-items: flex-end;
 `;
+const Quote = styled(Grid)`
+  align-items: baseline;
+  justify-content: center;
+  display: flex;
+`;
 
 const Testimonials = ({ title, content, avatarSrc }) => (
   <Wrapper>
@@ -34,7 +40,12 @@ const Testimonials = ({ title, content, avatarSrc }) => (
         <img src={avatarSrc} width={40} alt="" />
       </ImageWrapper>
       <Grid item xs={11}>
-        <div>{content}</div>
+        <Grid container item>
+          <Quote item xs={1}>
+            <img src={testimonialsQuoteImg} alt="" />
+          </Quote>
+          <Grid item xs={11}>{content}</Grid>
+        </Grid>
       </Grid>
     </Content>
   </Wrapper>
