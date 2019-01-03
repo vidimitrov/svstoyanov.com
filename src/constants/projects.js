@@ -66,3 +66,75 @@ export default [{
   },
   images: ['image_1_uri', 'image_1_uri', 'image_1_uri'],
 }];
+
+
+/* Example project steps
+
+  {
+    id: '1',
+    component: (
+      <Heading
+        imageSrc={historyParkHeadingImg}
+        project={{
+          name: 'History Park',
+          duration: '3 months',
+          role: 'UX Designer, Strategiest & Researcher',
+          icon: historyParkIcon,
+        }}
+      />
+    ),
+    trigger: '2',
+    style: {
+      width: '100%',
+      backgroundColor: 'transparent',
+      padding: 0,
+    },
+  }, {
+    id: '2',
+    component: (
+      <ProblemSection
+        items={[{
+          key: '1',
+          type: 'text',
+          content: 'Imagine Disney Land but instead of the cartoon characters real ones.',
+        }, {
+          key: '2',
+          type: 'bullet',
+          content: 'Imagine Disney Land but instead of the cartoon characters real ones.',
+        }, {
+          key: '3',
+          type: 'bullet',
+          content: 'Imagine Disney Land but instead of the cartoon characters real ones.',
+        }, {
+          key: '4',
+          type: 'image',
+          imageSrc: stoyanBushcraftingImg,
+        }]}
+      />
+    ),
+    trigger: '3',
+  }, {
+    id: '3',
+    component: (
+      <Testimonials
+        title="Georgi - customer"
+        content="Working with Stoyan was just an awesome experience."
+        avatarSrc={historyParkAvatar}
+      />
+    ),
+    trigger: '4',
+  }, {
+    id: '4',
+    component: (
+      <Image
+        src={historyParkFullImage}
+      />
+    ),
+    style: {
+      padding: 0,
+      margin: '32px 0 0',
+      backgroundColor: 'transparent',
+    },
+  },
+
+*/

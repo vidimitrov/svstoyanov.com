@@ -1,12 +1,14 @@
 import React from 'react';
 import _ from 'lodash';
 import copy from 'copy-to-clipboard';
+import moment from 'moment';
 import ProjectsSlider from '../components/ProjectsSlider/ProjectsSlider';
 import CustomOptions from '../components/CustomOptions/CustomOptions';
 import Input from '../components/Inputs/Input';
 import TextArea from '../components/Inputs/TextArea';
-import ImageStep from '../components/Steps/Image';
-import stoyanBushcraftingImg from '../assets/img/stoyan-bushcrafting.jpg';
+import Image from '../components/Steps/Image';
+import { sendEmail } from '../api';
+import stoyanBushcraftingImg from '../assets/img/stoyan-bushcrafting.png';
 
 const CHATBOT_VISITED_SECTIONS = 'cb-vs';
 
@@ -70,8 +72,26 @@ function areAllTopicsVisited() {
   // TODO: Implement the function. Return true or false
 }
 
-function daytimeMessage() {
-  // TODO: Return "morning", "day" or "evening" string depending on the current browser time
+function daytimeMessage(currentTime) {
+  if (!currentTime || !currentTime.isValid()) {
+    return null;
+  }
+
+  const splitAfternoon = 12; // 24hr time to split the afternoon
+  const splitEvening = 17; // 24hr time to split the evening
+  const currentHour = parseFloat(currentTime.format('HH'));
+
+  if (currentHour >= splitAfternoon && currentHour <= splitEvening) {
+    // Between 12 PM and 5PM
+    return 'afternoon';
+  }
+
+  if (currentHour >= splitEvening) {
+    // Between 5PM and Midnight
+    return 'evening';
+  }
+  // Between dawn and noon
+  return 'morning';
 }
 
 export default [
@@ -512,7 +532,7 @@ export default [
   }, {
     id: '5de220b0-70fc-41b3-aee5-aefdd93126d6',
     component: (
-      <ImageStep src={stoyanBushcraftingImg} />
+      <Image src={stoyanBushcraftingImg} />
     ),
     trigger: '22d776eb-721d-4544-8e53-f8efaabc3648',
   }, {
@@ -915,6 +935,8 @@ export default [
         placeholder="Type your email..."
         callback={(value) => {
           localStorage.setItem('user-email', value);
+          const message = localStorage.getItem('ux-explanation');
+          sendEmail(value, message);
         }}
       />
     ),
@@ -932,8 +954,13 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Nice. Can I see your work', // Priority buttons
+          label: 'Nice. Can I see your work',
           trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+        },
+        {
+          value: 1,
+          label: 'Can I see more from you',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
         },
       ]}
       />
@@ -1477,7 +1504,9 @@ export default [
     message: `I'll send the message with the email ${localStorage.getItem('user-email')} you gave me.`,
     trigger: 'ef8d2487-80e9-4403-939b-57704a47596c',
     callback: () => {
-      console.log('Sending the email...');
+      const recipient = localStorage.getItem('user-email');
+      const message = localStorage.getItem('cf-message');
+      sendEmail(recipient, message);
     },
   }, {
     id: 'e8d4ce93-bcee-42c8-986a-e93cefecc448',
@@ -1491,7 +1520,8 @@ export default [
         placeholder="Type your email..."
         callback={(value) => {
           localStorage.setItem('user-email', value);
-          console.log('Sending the email...');
+          const message = localStorage.getItem('cf-message');
+          sendEmail(value, message);
         }}
       />
     ),
@@ -1513,7 +1543,10 @@ export default [
     trigger: '4c9e96c6-4488-4d71-ab27-c2c2f780d5cf',
   }, {
     id: '4c9e96c6-4488-4d71-ab27-c2c2f780d5cf',
-    message: `Have a nice ${daytimeMessage()} ${localStorage.getItem('user-name')} and till next time!`,
+    message: () => {
+      const now = moment();
+      return `Have a nice ${daytimeMessage(now)} ${localStorage.getItem('user-name')} and till next time!`;
+    },
     trigger: 'd032ef9e-6955-414d-9e0b-0cb7a65b60d5',
   }, {
     id: 'd032ef9e-6955-414d-9e0b-0cb7a65b60d5',

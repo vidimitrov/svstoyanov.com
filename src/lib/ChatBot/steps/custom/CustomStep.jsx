@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import Loading from '../common/Loading';
+// import Loading from '../common/Loading';
 import CustomStepContainer from './CustomStepContainer';
 
 const LIMIT = 450;
@@ -13,7 +13,7 @@ class CustomStep extends Component {
     super(props);
 
     this.state = {
-      loading: true,
+      // loading: true,
       stepEl: null,
     };
 
@@ -21,15 +21,15 @@ class CustomStep extends Component {
   }
 
   componentDidMount() {
-    const { step } = this.props;
+    const { step, triggerNextStep } = this.props;
     const { delay, waitAction } = step;
 
     setTimeout(() => {
-      this.setState({ loading: false }, () => {
-        if (!waitAction && !step.rendered) {
-          this.props.triggerNextStep();
-        }
-      });
+      // this.setState({ loading: false }, () => {
+      if (!waitAction && !step.rendered) {
+        triggerNextStep();
+      }
+      // });
     }, delay);
 
     const stepEl = ReactDOM.findDOMNode(this.stepContainer);
@@ -89,7 +89,7 @@ CustomStep.propTypes = {
   step: PropTypes.object.isRequired,
   steps: PropTypes.object.isRequired,
   style: PropTypes.object,
-  isLast: PropTypes.bool.isRequired,
+  // isLast: PropTypes.bool.isRequired,
   previousStep: PropTypes.object.isRequired,
   triggerNextStep: PropTypes.func.isRequired,
 };
