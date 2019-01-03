@@ -32,7 +32,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     const chat = this.getChatComponent();
-    const renderedSteps = chat.state.renderedSteps;
+    const { renderedSteps } = chat.state;
     if (renderedSteps && renderedSteps.length > 1) {
       // TODO: Add the final id and uncomment when ready with the rest
       //       of the features, otherwise it would be extremely annoying while working
@@ -111,7 +111,7 @@ class Home extends React.Component {
                 }}
                 bubbleStyle={{
                   fontFamily: 'Space Mono',
-                  fontSize: '24px',
+                  fontSize: '20px',
                   lineHeight: 1.5,
                   letterSpacing: '2px',
                   maxWidth: '100%',
