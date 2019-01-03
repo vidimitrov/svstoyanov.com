@@ -11,11 +11,35 @@ import { sendEmail } from '../api';
 import stoyanBushcraftingImg from '../assets/img/stoyan-bushcrafting.png';
 
 const CHATBOT_VISITED_SECTIONS = 'cb-vs';
+const CHATBOT_RECURSIVE_TOPICS = [
+  '89695e34-2a77-4f0e-ab39-8602906dde0b',
+  '30ac9e09-0053-48dd-beb5-08207c6a4da5',
+  'aa555702-702b-4821-b8a0-0cc1e92c6b49',
+  '36acf53a-d579-4c5d-8e6c-d6726e51737f',
+  'ade03d57-a390-46ed-ae5b-16df08760972',
+  '47820655-90b7-4a62-8223-7601362c66b1',
+  '572159ba-5f1f-4c5b-9813-cf67c5cd4441',
+  'ee60602f-c72e-4158-9ffb-6ecccc935ab7',
+  '3d0e8fee-49c1-4404-ba1a-5f4758d7eba5',
+  '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
+];
 
 function hasVisitedSections() {
   const chatbotVisitedSections = localStorage.getItem(CHATBOT_VISITED_SECTIONS) || '{}';
   const sections = JSON.parse(chatbotVisitedSections);
   return !_.isEmpty(sections);
+}
+
+function areAllSectionsVisited() {
+  const chatbotVisitedSections = localStorage.getItem(CHATBOT_VISITED_SECTIONS) || '{}';
+  const sections = JSON.parse(chatbotVisitedSections);
+  const topics = Object.keys(sections);
+
+  if (topics.length === CHATBOT_RECURSIVE_TOPICS.length) {
+    return true;
+  }
+
+  return false;
 }
 
 function isVisited(sectionId) {
@@ -66,10 +90,6 @@ function mediatorMessage() {
     `${nonLexicalMessage()}, I can say that I have the feeling you are an amazing person. Now I can reveal more about me, but on what topic you'd like to continue our conversation?`,
   ];
   return variations[Math.floor(Math.random() * variations.length)];
-}
-
-function areAllTopicsVisited() {
-  // TODO: Implement the function. Return true or false
 }
 
 function daytimeMessage(currentTime) {
@@ -1532,7 +1552,7 @@ export default [
   }, {
     id: '7fbe2eb2-af3d-44cf-93d3-184dd1780595',
     message: 'By the way, I am leaving my contacts if you would like to reach me out on my phone number +359897923839 and by email on svs7oyanov@gmail.com',
-    trigger: areAllTopicsVisited() ? '977a727c-ae64-4c60-9487-66c429fb3cfc' : '09c4294f-cead-4955-9c79-6f4f148c29cd',
+    trigger: areAllSectionsVisited() ? '977a727c-ae64-4c60-9487-66c429fb3cfc' : '09c4294f-cead-4955-9c79-6f4f148c29cd',
   }, {
     id: '977a727c-ae64-4c60-9487-66c429fb3cfc',
     message: `It was a pleasure meeting and chatting with you ${localStorage.getItem('user-name')}. 🤗!`,
