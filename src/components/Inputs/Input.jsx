@@ -1,11 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import styles from './styles';
 import Button from '../Buttons/NavigationButton';
 import ArrowAvatar from '../Avatars/ArrowAvatar';
 import arrowAvatar from '../../assets/img/bot-arrow.svg';
+import { isValidEmail } from '../../lib/validations';
+
+const ValidationLabel = styled.p`
+  display: none;
+
+  ${props => props.invalid && css`
+    display: block;
+    color: #ff387b;
+    text-align: left;
+    margin: 0 auto 20px;
+    width: 85%;
+  `}
+`;
 
 class Input extends React.Component {
   constructor(props) {
@@ -13,6 +27,7 @@ class Input extends React.Component {
 
     this.state = {
       value: '',
+      validEmail: true,
       isButtonHidden: false,
     };
 
@@ -21,7 +36,22 @@ class Input extends React.Component {
   }
 
   onValueChange(e) {
-    this.setState({ value: e.target.value });
+    let { validEmail } = this.state;
+    const { value } = this.state;
+    const { type } = this.props;
+
+    if (type === 'email') {
+      if (!isValidEmail(value)) {
+        validEmail = false;
+      } else {
+        validEmail = true;
+      }
+    }
+
+    this.setState({
+      validEmail,
+      value: e.target.value,
+    });
   }
 
   submit() {
@@ -53,10 +83,15 @@ class Input extends React.Component {
   }
 
   render() {
-    const { value, isButtonHidden } = this.state;
+    const {
+      value,
+      isButtonHidden,
+      validEmail,
+    } = this.state;
     const {
       classes,
       placeholder,
+      type,
     } = this.props;
 
     return (
@@ -84,10 +119,19 @@ class Input extends React.Component {
           <Button
             onClick={this.submit}
             disabled={!value}
-            hidden={isButtonHidden}>
+            hidden={isButtonHidden}
+          >
             SENT
           </Button>
         </Grid>
+        {
+          type === 'email'
+          && (
+          <Grid item xs={12}>
+            <ValidationLabel invalid={!validEmail}>Email is incorrect</ValidationLabel>
+          </Grid>
+          )
+        }
       </Grid>
     );
   }
@@ -99,6 +143,7 @@ Input.propTypes = {
   callback: PropTypes.func,
   trigger: PropTypes.string,
   placeholder: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default withStyles(styles)(Input);
