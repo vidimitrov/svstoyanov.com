@@ -48,7 +48,7 @@ const ButtonWrapper = styled.div`
       }
 
       ${LabelWrapper} {
-        background-color: #49ddba;
+        background-color: #02A0A7;
         color: ${colors.black};
       };
     }
@@ -59,7 +59,7 @@ const ButtonWrapper = styled.div`
     border: 1px solid ${colors.white};
 
     ${LabelWrapper} {
-      background-color: #49ddba;
+      background-color: #02A0A7;
       padding: 0 4px;
 
       ${Label} {

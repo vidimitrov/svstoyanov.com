@@ -25,7 +25,7 @@ export default {
     textAlign: 'center',
     fontSize: '12px',
     letterSpacing: '2px',
-    color: 'rgba(73, 221, 186, 0.64)',
+    color: '#02A0A7',
   },
   projectName: {
     fontSize: '72px',
