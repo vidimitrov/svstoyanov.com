@@ -88,9 +88,9 @@ class TextArea extends React.Component {
             placeholder={placeholder}
             value={value}
             onChange={this.onValueChange}
-            onKeyUp={(e) => {
-              this.textarea.style.height = "1px";
-              this.textarea.style.height = (10 + this.textarea.scrollHeight) + "px";
+            onKeyUp={() => {
+              this.textarea.style.height = '1px';
+              this.textarea.style.height = `${10 + this.textarea.scrollHeight}px`;
             }}
             onKeyPress={(e) => {
               if (e.key === 'Enter') {
@@ -103,11 +103,12 @@ class TextArea extends React.Component {
           <Button
             onClick={this.submit}
             disabled={!value}
-            hidden={isButtonHidden}>
+            hidden={isButtonHidden}
+          >
             SENT
           </Button>
         </Grid>
-      </Grid >
+      </Grid>
     );
   }
 }
