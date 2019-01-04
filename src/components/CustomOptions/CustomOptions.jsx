@@ -81,6 +81,7 @@ class CustomOptions extends React.Component {
       classes,
       triggerNextStep,
     } = this.props;
+
     const renderOption = (option, index) => (
       <Button
         key={index}

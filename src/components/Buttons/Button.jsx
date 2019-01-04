@@ -12,6 +12,11 @@ const ButtonRightBorder = require('../../assets/img/buttons/button-right-border.
 const styles = {
   button: {
     margin: '20px 20px 20px 0',
+    '&:hover': {
+      '& img': {
+        height: '40px',
+      },
+    },
   },
   text: {
     ...typography.buttons,

@@ -11,11 +11,10 @@ export default {
     maxWidth: '70px',
   },
   optionsWrapper: {
+    height: '80px',
     display: 'flex',
     flexWrap: 'wrap',
     flex: 10,
-  },
-  optionsButton: {
-    marginRight: '40px',
+    alignItems: 'center',
   },
 };
