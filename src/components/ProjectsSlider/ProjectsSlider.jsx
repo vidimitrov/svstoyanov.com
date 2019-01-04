@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
-import { navigate } from '@reach/router';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import SliderButton from '../Buttons/SliderButton';
@@ -13,6 +12,14 @@ import Button from '../Buttons/Button';
 import styles from './styles';
 
 class ProjectsSlider extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selected: false,
+    };
+  }
+
   componentDidMount() {
     const { activeSlideId } = this.props;
     if (activeSlideId !== undefined) {
@@ -21,16 +28,22 @@ class ProjectsSlider extends React.Component {
   }
 
   render() {
-    const { projects, classes, primaryButtonLabel, secondaryButtons } = this.props;
-    const { triggerNextStep } = this.props;
+    const {
+      projects,
+      classes,
+      primaryButtonLabel,
+      secondaryButtons,
+      triggerNextStep,
+    } = this.props;
+    const { selected } = this.state;
     const settings = {
       dots: false,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      nextArrow: <SliderButton next>Next</SliderButton>,
-      prevArrow: <SliderButton prev>Previous</SliderButton>,
+      nextArrow: !selected ? <SliderButton next>Next</SliderButton> : null,
+      prevArrow: !selected ? <SliderButton prev>Previous</SliderButton> : null,
     };
     return (
       <Slider ref={c => (this.slider = c)} {...settings} className={classes.slider}>
@@ -61,31 +74,41 @@ class ProjectsSlider extends React.Component {
                 {' '}
                 {project.shortDescription}
               </div>
-              <div>
-                <Button onClick={() => {
-                  triggerNextStep({
-                    stepId: `project-info-step-${project.id}`,
-                    externalTrigger: true,
-                  }, true);
-                }}
-                >
-                  {primaryButtonLabel.toUpperCase().split(' ').join('_')}
-                </Button>
-                {
-                  secondaryButtons &&
-                  secondaryButtons.map((secondaryButton, idx) =>
-                    <Button key={idx} onClick={() => {
+              {
+                !selected && (
+                <div>
+                  <Button onClick={() => {
+                    this.setState({
+                      selected: true,
+                    }, () => {
                       triggerNextStep({
-                        stepId: secondaryButton.trigger,
+                        stepId: `project-info-step-${project.id}`,
                         externalTrigger: true,
                       });
-                    }}
+                    });
+                  }}
+                  >
+                    {primaryButtonLabel.toUpperCase().split(' ').join('_')}
+                  </Button>
+                  {
+                  secondaryButtons
+                  && secondaryButtons.map((secondaryButton, idx) => (
+                    <Button
+                      key={idx}
+                      onClick={() => {
+                        triggerNextStep({
+                          stepId: secondaryButton.trigger,
+                          externalTrigger: true,
+                        });
+                      }}
                     >
                       {secondaryButton.label.toUpperCase().split(' ').join('_')}
                     </Button>
-                  )
+                  ))
                 }
-              </div>
+                </div>
+                )
+            }
             </div>
           );
         })}
@@ -104,6 +127,7 @@ ProjectsSlider.propTypes = {
   triggerNextStep: PropTypes.func,
   trigger: PropTypes.string,
   navigate: PropTypes.func,
+  selected: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
