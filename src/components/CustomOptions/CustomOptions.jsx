@@ -20,16 +20,18 @@ const SelectedOption = styled.div`
   text-transform: uppercase;
 `;
 
-const filterOnlyVisible = (dynamicOption) => {
-  return dynamicOption.isVisible();
-}
+const filterOnlyVisible = dynamicOption => dynamicOption.isVisible();
 
-const getNestedNotVisitedTopic = (topics) => {
-  for (let topic of topics) {
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable consistent-return */
+function getNestedNotVisitedTopic(topics) {
+  for (const topic of topics) {
     if (topic.isVisible()) {
       return topic;
-    } else if (topic.topics) {
-      let nestedTopic = getNestedNotVisitedTopic(topic.topics);
+    }
+
+    if (topic.topics) {
+      const nestedTopic = getNestedNotVisitedTopic(topic.topics);
       if (nestedTopic) {
         return nestedTopic;
       }
@@ -41,23 +43,21 @@ class CustomOptions extends React.Component {
   constructor(props) {
     super(props);
 
-    let options = [...props.options];
+    const options = [...props.options];
     const { priorityOptions, dynamicOptions } = props;
 
     if (dynamicOptions) {
-      let computedOptions = dynamicOptions.map((dOption, dOptionIndex) => {
+      const computedOptions = dynamicOptions.map((dOption) => {
         if (dOption.isVisible()) {
           return _.omit(dOption, ['isVisible', 'topics']);
-        } else {
-          const topics = dOption.topics;
-          let firstNestedNotVisitedTopic = getNestedNotVisitedTopic(topics);
-          if (firstNestedNotVisitedTopic) {
-            return _.omit(firstNestedNotVisitedTopic, ['isVisible', 'topics']);
-          } else {
-            return null;
-          }
         }
-      }).filter((dOption) => dOption !== null);
+        const { topics } = dOption;
+        const firstNestedNotVisitedTopic = getNestedNotVisitedTopic(topics);
+        if (firstNestedNotVisitedTopic) {
+          return _.omit(firstNestedNotVisitedTopic, ['isVisible', 'topics']);
+        }
+        return null;
+      }).filter(dOption => dOption !== null);
 
       options.push(...computedOptions);
     }
@@ -79,7 +79,7 @@ class CustomOptions extends React.Component {
     } = this.state;
     const {
       classes,
-      triggerNextStep
+      triggerNextStep,
     } = this.props;
     const renderOption = (option, index) => (
       <Button
@@ -109,7 +109,7 @@ class CustomOptions extends React.Component {
         {option.label.split(' ').join('_').toUpperCase()}
       </Button>
     );
-    const renderSelectedOption = (option) => (
+    const renderSelectedOption = option => (
       <SelectedOption>{option.label}</SelectedOption>
     );
 
@@ -122,8 +122,8 @@ class CustomOptions extends React.Component {
           {selectedOption ? renderSelectedOption(selectedOption) : options.map(renderOption)}
         </Grid>
       </Grid>
-    )
-  };
+    );
+  }
 }
 
 CustomOptions.propTypes = {
