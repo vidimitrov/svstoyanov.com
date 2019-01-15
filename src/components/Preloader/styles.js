@@ -1,4 +1,10 @@
-import { colors, typography } from '../../styles';
+import { colors } from '../../styles';
+
+const font = {
+  fontSize: '16px',
+  lineHeight: '32px',
+  textAlign: 'center',
+};
 
 export default {
   preloader: {
@@ -14,18 +20,27 @@ export default {
     transition: 'all 0.5s ease',
     zIndex: 99999999999999,
   },
+  innerContainer: {
+    width: '500px',
+    margin: '0 auto',
+  },
+  wrapper: {
+    alignItems: 'center',
+    maxWidth: '350px',
+  },
   show: {
     visibility: 'visible !important',
     opacity: '1 !important',
     transition: 'all 0.5s ease',
   },
-  preloaderInner: {
-    textAlign: 'center',
-    fontSize: '3em',
-    color: colors.white,
+  text: {
+    ...font,
   },
-  loading: {
-    ...typography.h2,
-    textAlign: 'center',
+  arrow: {
+    height: '16px',
+    marginRight: '17px',
+  },
+  percentageWrapper: {
+    marginLeft: '16px',
   },
 };

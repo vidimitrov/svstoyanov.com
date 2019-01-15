@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import arrowAvatar from '../../assets/img/bot-arrow.svg';
 import styles from './styles';
 
 class Preloader extends Component {
@@ -35,7 +36,7 @@ class Preloader extends Component {
       }
 
       return null;
-    }, 10);
+    }, 20);
   }
 
   componentWillUnmount() {
@@ -47,20 +48,33 @@ class Preloader extends Component {
   render() {
     const { classes } = this.props;
     const { showPreloader } = this.state;
+
+    const percentageClassName = [
+      classes.text,
+      classes.percentageWrapper,
+    ].join(' ');
     return (
       <Grid
         container
-        justify="center"
         alignItems="center"
         className={`${classes.preloader} ${(showPreloader ? classes.show : '')}`}
       >
-        <Grid item xs={12}>
-          <h1 className={classes.loading}>LOADING</h1>
-          <div className={`preloader_inner ${classes.preloaderInner}`}>
-            0
-            <sup className={classes.percentage}>%</sup>
-          </div>
-        </Grid>
+        <div className={classes.innerContainer}>
+          <Grid item container xs={12} className={classes.wrapper}>
+            <Grid item>
+              <img src={arrowAvatar} className={classes.arrow} alt="" />
+            </Grid>
+            <Grid item>
+              <h1 className={classes.text}>Loading your experience</h1>
+            </Grid>
+            <Grid item>
+              <div className={`preloader_inner ${percentageClassName}`}>
+                0
+                <sup className={classes.percentage}>%</sup>
+              </div>
+            </Grid>
+          </Grid>
+        </div>
       </Grid>
     );
   }
