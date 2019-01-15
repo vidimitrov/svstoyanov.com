@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import styles from './styles';
 import Button from '../Buttons/NavigationButton';
+import FormControlWrapper from './components/FormControlWrapper';
+import ButtonWrapper from './components/ButtonWrapper';
 import ArrowAvatar from '../Avatars/ArrowAvatar';
 import arrowAvatar from '../../assets/img/bot-arrow.svg';
 
@@ -80,7 +82,7 @@ class TextArea extends React.Component {
         <Grid item className={classes.avatarWrapper}>
           <ArrowAvatar src={arrowAvatar} />
         </Grid>
-        <Grid item className={classes.wrapper}>
+        <FormControlWrapper item>
           <textarea
             className={classes.textarea}
             // eslint-disable-next-line no-return-assign
@@ -98,8 +100,8 @@ class TextArea extends React.Component {
               }
             }}
           />
-        </Grid>
-        <Grid item className={classes.buttonWrapper}>
+        </FormControlWrapper>
+        <ButtonWrapper item>
           <Button
             onClick={this.submit}
             disabled={!value}
@@ -107,7 +109,7 @@ class TextArea extends React.Component {
           >
             SENT
           </Button>
-        </Grid>
+        </ButtonWrapper>
       </Grid>
     );
   }
