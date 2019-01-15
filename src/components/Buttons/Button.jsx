@@ -2,63 +2,76 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
-import { colors, typography } from '../../styles';
+import { colors } from '../../styles';
 
-const ButtonLeftBorder = require('../../assets/img/buttons/button-left-border.svg');
-const ButtonRightBorder = require('../../assets/img/buttons/button-right-border.svg');
+const borderFontFamily = '"Space Mono"';
+const borderFontSize = '28px';
 
-const styles = {
-  button: {
-    margin: '20px 20px 20px 0',
-    '&:hover': {
-      '& img': {
-        height: '40px',
-      },
-    },
-  },
-  text: {
-    ...typography.buttons,
-    margin: '0 16px',
-    fontWeight: 'bold',
-    color: colors.primary,
-    letterSpacing: '2px',
-    lineHeight: 1.5,
-    '&:hover': {
-      backgroundColor: colors.primary,
-      color: colors.black,
-      cursor: 'crosshair',
-    },
-  },
-  center: {
-    textAlign: 'center',
-  },
-};
+const ButtonText = styled.span`
+  font-size: 16px;
+  line-height: 21px;
+  margin: 0 16px;
+  font-weight: bold;
+  color: ${colors.primary};
+  letter-spacing: 2px;
+  line-height: 1.5;
+  transform: none;
+`;
+
+const ButtonOutline = styled.div`
+  display: flex;
+  align-items: center;  
+
+  &:before, &:after {
+    color: ${colors.primary};
+    font-family: ${borderFontFamily};
+    font-size: ${borderFontSize};
+  }
+
+  &:before {
+    content: "[";
+  }
+
+  &:after {
+    content: "]";
+  }
+`;
+
+const Wrapper = styled.div`
+  margin: 20px 20px 20px 0;
+
+  &:hover {
+    ${ButtonOutline} {
+      &:before, &:after {
+        transition: transform 100ms ease-in-out;
+        transform: scale(1.3);
+      }
+    }
+
+    ${ButtonText} {
+      background-color: ${colors.primary};
+      color: ${colors.black};
+      cursor: crosshair;
+    }
+  }
+`;
 
 const Button = ({ ...props }) => {
   const {
     children,
-    classes,
     onClick,
   } = props;
 
   return (
-    <div className={classes.button} onClick={onClick}>
+    <Wrapper onClick={onClick}>
       <Grid container direction="row" alignItems="center">
-        {/* <Grid item className={classes.center}>
-
-        </Grid> */}
-        <img src={ButtonLeftBorder} alt="" />
-        <div>
-          <span className={classes.text}>{children}</span>
-        </div>
-        <img src={ButtonRightBorder} alt="" />
-        {/* <Grid item className={classes.center}>
-
-        </Grid> */}
+        <ButtonOutline>
+          <ButtonText>{children}</ButtonText>
+        </ButtonOutline>
       </Grid>
-    </div>
+    </Wrapper>
   );
 };
 
@@ -68,4 +81,4 @@ Button.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default withStyles(styles)(Button);
+export default Button;

@@ -11,7 +11,7 @@ export default {
     maxWidth: '70px',
   },
   optionsWrapper: {
-    height: '80px',
+    // height: '80px',
     display: 'flex',
     flexWrap: 'wrap',
     flex: 10,
