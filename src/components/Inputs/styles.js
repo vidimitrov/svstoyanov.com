@@ -5,17 +5,6 @@ export default {
     justifyContent: 'center',
     alignItems: 'center',
   },
-  wrapper: {
-    display: 'flex',
-    flex: 1,
-    borderBottom: '1px solid #fff',
-    paddingRight: '10px',
-  },
-  buttonWrapper: {
-    borderBottom: '1px solid #fff',
-    display: 'flex',
-    alignItems: 'center',
-  },
   input: {
     fontFamily: 'Space Mono',
     fontSize: '24px',
