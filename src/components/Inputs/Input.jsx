@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+
 import styles from './styles';
 import Button from '../Buttons/NavigationButton';
+import FormControlWrapper from './components/FormControlWrapper';
+import ButtonWrapper from './components/ButtonWrapper';
+import ValidationLabel from './components/ValidationLabel';
 import ArrowAvatar from '../Avatars/ArrowAvatar';
 import arrowAvatar from '../../assets/img/bot-arrow.svg';
 import { isValidEmail } from '../../lib/validations';
 
-const ValidationLabel = styled.p`
-  display: none;
+const Container = styled(Grid)`
+  margin-bottom: 0;
 
-  ${props => props.invalid && css`
-    display: block;
-    color: #ff387b;
-    text-align: left;
-    margin: 0 auto 20px;
-    width: 85%;
+  ${props => props.valid && css`
+    margin-bottom: 40px;
   `}
 `;
 
@@ -27,7 +27,7 @@ class Input extends React.Component {
 
     this.state = {
       value: '',
-      validEmail: true,
+      validEmail: false,
       isButtonHidden: false,
     };
 
@@ -36,9 +36,9 @@ class Input extends React.Component {
   }
 
   onValueChange(e) {
-    let { validEmail } = this.state;
-    const { value } = this.state;
+    const { value } = e.target;
     const { type } = this.props;
+    let { validEmail } = this.state;
 
     if (type === 'email') {
       if (!isValidEmail(value)) {
@@ -94,12 +94,14 @@ class Input extends React.Component {
       type,
     } = this.props;
 
+    const isValid = value && validEmail;
+
     return (
-      <Grid container>
+      <Container container valid={!value || isValid}>
         <Grid item className={classes.avatarWrapper}>
           <ArrowAvatar src={arrowAvatar} />
         </Grid>
-        <Grid item className={classes.wrapper}>
+        <FormControlWrapper item>
           <input
             type="text"
             className={classes.input}
@@ -110,29 +112,35 @@ class Input extends React.Component {
             onChange={this.onValueChange}
             onKeyPress={(e) => {
               if (e.key === 'Enter') {
-                this.submit();
+                if (validEmail) {
+                  this.submit();
+                }
               }
             }}
           />
-        </Grid>
-        <Grid item className={classes.buttonWrapper}>
+        </FormControlWrapper>
+        <ButtonWrapper item>
           <Button
             onClick={this.submit}
-            disabled={!value}
+            disabled={!isValid}
             hidden={isButtonHidden}
           >
             SENT
           </Button>
-        </Grid>
+        </ButtonWrapper>
         {
           type === 'email'
           && (
           <Grid item xs={12}>
-            <ValidationLabel invalid={!validEmail}>Email is incorrect</ValidationLabel>
+            <ValidationLabel
+              invalid={value && !isValid}
+            >
+            Email is incorrect
+            </ValidationLabel>
           </Grid>
           )
         }
-      </Grid>
+      </Container>
     );
   }
 }
