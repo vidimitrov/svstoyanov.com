@@ -52,10 +52,14 @@ class CustomOptions extends React.Component {
           return _.omit(dOption, ['isVisible', 'topics']);
         }
         const { topics } = dOption;
-        const firstNestedNotVisitedTopic = getNestedNotVisitedTopic(topics);
-        if (firstNestedNotVisitedTopic) {
-          return _.omit(firstNestedNotVisitedTopic, ['isVisible', 'topics']);
+
+        if (topics) {
+          const firstNestedNotVisitedTopic = getNestedNotVisitedTopic(topics);
+          if (firstNestedNotVisitedTopic) {
+            return _.omit(firstNestedNotVisitedTopic, ['isVisible', 'topics']);
+          }
         }
+
         return null;
       }).filter(dOption => dOption !== null);
 
