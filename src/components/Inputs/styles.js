@@ -5,7 +5,7 @@ const formControl = {
   letterSpacing: '2px',
   backgroundColor: 'transparent',
   border: 'none',
-  color: 'rgba(255,255,255,0.54)',
+  color: 'rgba(255,255,255,1)',
   width: '100%',
 };
 
@@ -22,6 +22,9 @@ export default {
     '&:focus': {
       outline: 'none',
     },
+    '&::placeholder': {
+      color: 'rgba(255,255,255,0.54)',
+    },
   },
   textarea: {
     ...formControl,
@@ -30,6 +33,9 @@ export default {
     resize: 'none',
     '&:focus': {
       outline: 'none',
+    },
+    '&::placeholder': {
+      color: 'rgba(255,255,255,0.54)',
     },
   },
 };
