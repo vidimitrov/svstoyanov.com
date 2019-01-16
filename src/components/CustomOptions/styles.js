@@ -9,13 +9,13 @@ export default {
     alignItems: 'flex-end',
     flex: 2,
     maxWidth: '70px',
-    paddingBottom: '26px',
+    paddingBottom: '32px',
   },
   optionsWrapper: {
-    // height: '80px',
     display: 'flex',
     flexWrap: 'wrap',
     flex: 10,
     alignItems: 'center',
+    margin: '32px 0 8px -24px',
   },
 };

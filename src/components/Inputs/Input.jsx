@@ -14,10 +14,10 @@ import arrowAvatar from '../../assets/img/bot-arrow.svg';
 import { isValidEmail } from '../../lib/validations';
 
 const Container = styled(Grid)`
-  margin-bottom: 0;
+  margin: 32px 0 0;
 
   ${props => props.valid && css`
-    margin-bottom: 40px;
+    margin: 32px 0;
   `}
 `;
 

@@ -22,7 +22,7 @@ const ButtonText = styled.span`
 
 const ButtonOutline = styled.div`
   display: flex;
-  align-items: center;  
+  align-items: center;
 
   &:before, &:after {
     color: ${colors.primary};
@@ -40,7 +40,7 @@ const ButtonOutline = styled.div`
 `;
 
 const Wrapper = styled.div`
-  margin: 20px 20px 20px 0;
+  margin: 0 0 24px 12px;
 
   &:hover {
     ${ButtonOutline} {
