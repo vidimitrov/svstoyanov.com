@@ -94,7 +94,10 @@ class Input extends React.Component {
       type,
     } = this.props;
 
-    const isValid = value && validEmail;
+    let isValid = value;
+    if (type === 'email') {
+      isValid = value && validEmail;
+    }
 
     return (
       <Container container valid={!value || isValid}>
@@ -103,7 +106,7 @@ class Input extends React.Component {
         </Grid>
         <FormControlWrapper item>
           <input
-            type="text"
+            type={type || 'text'}
             className={classes.input}
             // eslint-disable-next-line no-return-assign
             ref={inputRef => (this.input = inputRef)}
