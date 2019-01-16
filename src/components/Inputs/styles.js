@@ -25,6 +25,9 @@ export default {
     '&::placeholder': {
       color: 'rgba(255,255,255,0.54)',
     },
+    '&:disabled': {
+      color: 'rgba(255,255,255,0.54)',
+    },
   },
   textarea: {
     ...formControl,
@@ -35,6 +38,9 @@ export default {
       outline: 'none',
     },
     '&::placeholder': {
+      color: 'rgba(255,255,255,0.54)',
+    },
+    '&:disabled': {
       color: 'rgba(255,255,255,0.54)',
     },
   },
