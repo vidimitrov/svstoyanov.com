@@ -1,3 +1,14 @@
+const formControl = {
+  fontFamily: 'Space Mono',
+  fontSize: '18px',
+  lineHeight: 1.5,
+  letterSpacing: '2px',
+  backgroundColor: 'transparent',
+  border: 'none',
+  color: 'rgba(255,255,255,0.54)',
+  width: '100%',
+};
+
 export default {
   avatarWrapper: {
     width: '70px',
@@ -6,31 +17,17 @@ export default {
     alignItems: 'center',
   },
   input: {
-    fontFamily: 'Space Mono',
-    fontSize: '24px',
-    lineHeight: 1.5,
-    letterSpacing: '2px',
-    backgroundColor: 'transparent',
-    border: 'none',
-    color: 'rgba(255,255,255,0.54)',
-    width: '100%',
+    ...formControl,
     paddingBottom: '16px',
     '&:focus': {
       outline: 'none',
     },
   },
   textarea: {
-    fontFamily: 'Space Mono',
-    fontSize: '24px',
-    lineHeight: 1.5,
-    letterSpacing: '2px',
+    ...formControl,
     maxWidth: '100%',
     height: '50px',
-    backgroundColor: 'transparent',
-    border: 'none',
     resize: 'none',
-    color: 'rgba(255,255,255,0.54)',
-    width: '100%',
     '&:focus': {
       outline: 'none',
     },
