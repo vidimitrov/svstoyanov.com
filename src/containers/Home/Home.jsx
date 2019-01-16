@@ -111,7 +111,7 @@ class Home extends React.Component {
                 }}
                 bubbleStyle={{
                   fontFamily: 'Space Mono',
-                  fontSize: '20px',
+                  fontSize: '18px',
                   lineHeight: 1.5,
                   letterSpacing: '2px',
                   maxWidth: '100%',
