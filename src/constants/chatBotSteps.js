@@ -82,6 +82,11 @@ function showProjectMessage() {
   return variations[Math.floor(Math.random() * variations.length)];
 }
 
+function secondTimeGreetings() {
+  const variations = [`Привет! It means 'Greetings' in Bulgarian`, `Здравей! This is 'Hi' in Bulgarian`];
+  return variations[Math.floor(Math.random() * variations.length)];
+}
+
 function mediatorMessage() {
   const variations = [
     `${acknowledgementMessage()}, what would like of me to show you?`,
@@ -1494,7 +1499,7 @@ export default [
 
   {
     id: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
-    message: 'Awesome',
+    message: acknowledgementMessage(),
     trigger: '1d895783-da23-4713-8354-d939001f7614',
   }, {
     id: '1d895783-da23-4713-8354-d939001f7614',
@@ -1673,4 +1678,109 @@ export default [
     id: '7a3bd063-07e6-423a-a6bc-3966f47174e9',
     message: `Have a nice day ${localStorage.getItem('user-name')} and till next time!`,
   },
+
+
+
+  /**
+   * USER COMES IN THE SAME DAY
+   */
+
+
+  {
+    id: '676a522c-fd7b-4923-a40e-1fef304c3611',
+    message: `Welcome back ${localStorage.getItem('user-name')}. 🤗`,
+    trigger: '0969a3d0-e364-44bd-ba55-874b7d1dff22',
+  }, {
+    id: '0969a3d0-e364-44bd-ba55-874b7d1dff22',
+    message: `Where we were last time, hmmm?`,
+    trigger: 'e55ad60e-130e-4b98-8149-31ed516efd2f',
+  }, {
+    id: 'e55ad60e-130e-4b98-8149-31ed516efd2f',
+    message: 'Aha, remembered!',
+    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', // Go to section 3 mediator
+  }, 
+
+
+
+  /**
+   * USER COMES AFTER 24HOURS+
+   */
+
+  {
+    id: 'a2bf3b98-78a9-4a76-ad02-4a3f4982baf4', 
+    message: secondTimeGreetings(),
+    trigger: '1114f7e3-9a19-4974-84af-668f3301adc1',
+  }, {
+    id: '1114f7e3-9a19-4974-84af-668f3301adc1',
+    message: `How are you today ${localStorage.getItem('user-name')} ?`,
+    trigger: 'a8638245-4c63-4019-89de-86cd0cbebe25',
+  }, {
+    id: 'a8638245-4c63-4019-89de-86cd0cbebe25',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Had been better',
+          trigger: '8c626a9b-63f6-4bf1-bc6a-6def272c830e',
+        }, {
+          value: 1,
+          label: 'I feel wonderful',
+          trigger: '82360ad1-075d-45a7-b316-687d35d0445f',
+        },
+      ]}
+      />
+    ),
+  }, { 
+    id: '8c626a9b-63f6-4bf1-bc6a-6def272c830e',
+    message: `Hey, it happens even to the best.`,
+    trigger: 'fd8fe851-7ca6-4746-ae45-ba4923f65cd5',
+  }, {
+    id: 'fd8fe851-7ca6-4746-ae45-ba4923f65cd5',
+    message: `Have a digital beer with me 🍺 It will help you to feel better!`,
+    trigger: '3b5414f3-a678-40e3-816b-1563d450feec',
+  }, {
+    id: '3b5414f3-a678-40e3-816b-1563d450feec',
+    message: `Come on! Cheers!`,
+    trigger: '7263c08e-3067-4245-ae6b-e971fbbee847',
+  }, {
+    id: '7263c08e-3067-4245-ae6b-e971fbbee847',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Cheers man',
+          trigger: '035da6df-7e22-42f7-8a1b-283db87aa856',
+        },
+      ]}
+      />
+    ),
+  }, {
+    id: '035da6df-7e22-42f7-8a1b-283db87aa856',
+    message: `Okay, where were we at last time?`,
+    trigger: '7fd4ed2e-bcb9-4464-94bb-b56cd35e6c5d',
+  }, {
+    id: '7fd4ed2e-bcb9-4464-94bb-b56cd35e6c5d',
+    message: `Ahh remembered!`,
+    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', // Go to section 3 mediator
+  }, {
+    id: '82360ad1-075d-45a7-b316-687d35d0445f',
+    message: `Amazing! Glad to hear it.`,
+    trigger: '039026c9-e9a9-4997-98f3-432aef4fc221',
+  }, {
+    id: '039026c9-e9a9-4997-98f3-432aef4fc221',
+    message: `Okay, where were we at last time?`,
+    trigger: 'c5832308-80d5-4247-b9c8-37b4ea18c6c9',
+  }, {
+    id: 'c5832308-80d5-4247-b9c8-37b4ea18c6c9',
+    message: `Ahh remembered! `,
+    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', // Go to section 3 mediator
+  },
+
 ];
+
+
+
+
+
+
+   
