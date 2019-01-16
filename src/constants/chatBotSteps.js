@@ -952,6 +952,7 @@ export default [
     component: (
       <Input
         trigger="fcff86e7-bd2e-4279-97f2-aa2088d574ab"
+        type="email"
         placeholder="Type your email..."
         callback={(value) => {
           localStorage.setItem('user-email', value);
@@ -1537,6 +1538,7 @@ export default [
     component: (
       <Input
         trigger="ef8d2487-80e9-4403-939b-57704a47596c"
+        type="email"
         placeholder="Type your email..."
         callback={(value) => {
           localStorage.setItem('user-email', value);
