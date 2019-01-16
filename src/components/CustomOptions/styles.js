@@ -6,9 +6,10 @@ export default {
     width: '70px',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     flex: 2,
     maxWidth: '70px',
+    paddingBottom: '26px',
   },
   optionsWrapper: {
     // height: '80px',
