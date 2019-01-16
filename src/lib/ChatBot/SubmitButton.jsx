@@ -30,8 +30,7 @@ const SubmitButton = styled.button`
     width: 23px;
     height: 23px;
     border-radius: 50%;
-    animation: ${({ theme, speaking }) =>
-      speaking ? `${pulse(theme.headerBgColor)} 2s ease infinite` : ''};
+    animation: ${({ theme, speaking }) => (speaking ? `${pulse(theme.headerBgColor)} 2s ease infinite` : '')};
   }
   &:not(:disabled):hover {
     opacity: 0.7;
