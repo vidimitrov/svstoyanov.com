@@ -1,5 +1,5 @@
 /* eslint react/no-find-dom-node:0 */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
@@ -7,8 +7,7 @@ import Option from './Option';
 import OptionElement from './OptionElement';
 import Options from './Options';
 import OptionsStepContainer from './OptionsStepContainer';
-
-const LIMIT = 450;
+import { calculateOpacity } from '../common/utils/opacity';
 
 class OptionsStep extends Component {
   /* istanbul ignore next */
@@ -30,17 +29,17 @@ class OptionsStep extends Component {
     });
   }
 
-  onOptionClick({value, redirect}) {
-    this.props.triggerNextStep({value});
+  onOptionClick({ value, redirect }) {
+    this.props.triggerNextStep({ value });
     if (redirect) {
       window.open(redirect, '_blank');
     }
   }
 
   renderOption(option) {
-    const {bubbleOptionStyle} = this.props;
-    const {user} = this.props.step;
-    const {value, label, redirect} = option;
+    const { bubbleOptionStyle } = this.props;
+    const { user } = this.props.step;
+    const { value, label, redirect } = option;
 
     return (
       <Option
@@ -51,7 +50,7 @@ class OptionsStep extends Component {
           className="rsc-os-option-element"
           style={bubbleOptionStyle}
           user={user}
-          onClick={() => this.onOptionClick({value, redirect})}
+          onClick={() => this.onOptionClick({ value, redirect })}
         >
           {label}
         </OptionElement>
@@ -60,20 +59,26 @@ class OptionsStep extends Component {
   }
 
   render() {
-    const {stepEl} = this.state;
-    const {options} = this.props.step;
-    const {style} = this.props;
+    const { stepEl } = this.state;
+    const { options } = this.props.step;
+    const { style } = this.props;
+
+    let opacity = 1;
+    if (stepEl) {
+      opacity = calculateOpacity(stepEl);
+    }
 
     return (
       <OptionsStepContainer
         className="rsc-os"
         style={{
           ...style,
-          opacity: stepEl ? 1 - (0.8 - stepEl.getBoundingClientRect().y / LIMIT) : 1,
+          opacity,
         }}
         ref={(element) => {
           this.stepContainer = element;
-        }}>
+        }}
+      >
         <Options className="rsc-os-options">
           {_.map(options, this.renderOption)}
         </Options>

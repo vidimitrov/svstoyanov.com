@@ -4,8 +4,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 // import Loading from '../common/Loading';
 import CustomStepContainer from './CustomStepContainer';
-
-const LIMIT = 450;
+import { calculateOpacity } from '../common/utils/opacity';
 
 class CustomStep extends Component {
   /* istanbul ignore next */
@@ -63,12 +62,18 @@ class CustomStep extends Component {
     const { stepEl } = this.state;
     const { style } = this.props;
 
+    let opacity = 1;
+
+    if (stepEl) {
+      opacity = calculateOpacity(stepEl);
+    }
+
     return (
       <CustomStepContainer
         className="rsc-cs"
         style={{
           ...style,
-          opacity: stepEl ? 1 - (0.8 - stepEl.getBoundingClientRect().y / LIMIT) : 1,
+          opacity,
         }}
         ref={(element) => {
           this.stepContainer = element;

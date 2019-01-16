@@ -7,13 +7,13 @@ import Image from './Image';
 import ImageContainer from './ImageContainer';
 import Loading from '../common/Loading';
 import TextStepContainer from './TextStepContainer';
+import { calculateOpacity } from '../common/utils/opacity';
 
-const LIMIT = 450;
-var URL_REGEX = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm;
+const URL_REGEX = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm;
 
 function hasUrls(message) {
   return URL_REGEX.test(message);
-};
+}
 
 class TextStep extends Component {
   /* istanbul ignore next */
@@ -70,7 +70,7 @@ class TextStep extends Component {
     message = message.replace(/{previousValue}/g, previousValue);
 
     // TODO: Create a new step for the links or find a way how to fix this security issue
-    return (<span dangerouslySetInnerHTML={{ __html: message }}></span>);
+    return (<span dangerouslySetInnerHTML={{ __html: message }} />);
   }
 
   render() {
@@ -92,12 +92,17 @@ class TextStep extends Component {
 
     const showAvatar = user ? !hideUserAvatar : !hideBotAvatar;
 
+    let opacity = 1;
+    if (stepEl) {
+      opacity = calculateOpacity(stepEl);
+    }
+
     return (
       <TextStepContainer
         className="rsc-ts"
         style={{
           ...style,
-          opacity: stepEl ? 1 - (0.8 - stepEl.getBoundingClientRect().y / LIMIT) : 1,
+          opacity,
         }}
         ref={(element) => {
           this.stepContainer = element;
@@ -109,7 +114,8 @@ class TextStep extends Component {
           user={user}
         >
           {
-            isFirst && showAvatar &&
+            isFirst && showAvatar
+            && (
             <Image
               className="rsc-ts-image"
               style={avatarStyle}
@@ -118,6 +124,7 @@ class TextStep extends Component {
               src={avatar}
               alt="avatar"
             />
+            )
           }
         </ImageContainer>
         <Bubble
@@ -129,8 +136,8 @@ class TextStep extends Component {
           isLast={isLast}
         >
           {
-            this.state.loading &&
-            <Loading />
+            this.state.loading
+            && <Loading />
           }
           {(!this.state.loading) && this.renderMessage()}
         </Bubble>
