@@ -44,6 +44,10 @@ body {
 .rsc-content {
   box-sizing: content-box;
   padding-right: 17px;
+
+  & > div:first-child {
+    margin-top: 400px !important;
+  }
 }
 .rsc-input:disabled {
     display: none;
