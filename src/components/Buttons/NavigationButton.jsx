@@ -21,6 +21,7 @@ const ButtonWrapper = styled.div`
   letter-spacing: 2px;
   font-weight: bold;
   box-sizing: border-box;
+  margin-bottom: 16px;
   border-radius: 1px;
   border-top: 1px dotted rgba(255,255,255,0.48);
   border-bottom: 1px dotted rgba(255,255,255,0.48);
