@@ -9,7 +9,7 @@ export default {
     alignItems: 'flex-end',
     flex: 2,
     maxWidth: '70px',
-    paddingBottom: '32px',
+    paddingBottom: '35px',
   },
   optionsWrapper: {
     display: 'flex',

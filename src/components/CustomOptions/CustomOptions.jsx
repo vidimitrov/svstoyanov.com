@@ -12,12 +12,12 @@ import arrowAvatar from '../../assets/img/bot-arrow.svg';
 
 const SelectedOption = styled.div`
   font-family: "Space Mono";
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
-  line-height: 68px;
   letter-spacing: 2px;
   max-width: 100%;
   text-transform: uppercase;
+  margin: 0 0 24px 16px;
 `;
 
 const filterOnlyVisible = dynamicOption => dynamicOption.isVisible();

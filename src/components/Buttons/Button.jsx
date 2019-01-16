@@ -41,6 +41,19 @@ const ButtonOutline = styled.div`
 
 const Wrapper = styled.div`
   margin: 0 0 24px 12px;
+  position: relative;
+
+  &:before {
+    content: no-close-quote;
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 24px;
+    width: 24px;
+    height: 24px;
+    background-color: #02a0a7;
+    opacity: 0.12;
+}
 
   &:hover {
     ${ButtonOutline} {
