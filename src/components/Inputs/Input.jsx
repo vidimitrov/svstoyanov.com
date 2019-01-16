@@ -94,7 +94,7 @@ class Input extends React.Component {
       type,
     } = this.props;
 
-    let isValid = value;
+    let isValid = !!value;
     if (type === 'email') {
       isValid = value && validEmail;
     }
@@ -115,7 +115,7 @@ class Input extends React.Component {
             onChange={this.onValueChange}
             onKeyPress={(e) => {
               if (e.key === 'Enter') {
-                if (validEmail) {
+                if (isValid) {
                   this.submit();
                 }
               }
