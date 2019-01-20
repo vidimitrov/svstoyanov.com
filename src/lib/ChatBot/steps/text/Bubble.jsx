@@ -16,8 +16,8 @@ const Bubble = styled.div`
   }};
   color: ${props => (props.user ? props.theme.userFontColor : props.theme.botFontColor)};
   display: inline-block;
-  font-size: 14px;
   max-width: 50%;
+  max-width: 100%;
   margin: ${(props) => {
     const { isFirst, showAvatar, user } = props;
     if (!isFirst && showAvatar) {
@@ -40,6 +40,18 @@ const Bubble = styled.div`
 
     return user ? 'top right' : 'top left';
   }};
+
+
+  font-family: 'Space Mono';
+  font-size: 10px;
+  line-height: 1.8;
+  letter-spacing: 1px;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: 2px;
+  }
 `;
 
 Bubble.defaultProps = {
