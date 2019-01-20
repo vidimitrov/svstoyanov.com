@@ -56,6 +56,10 @@ const Wrapper = styled.div`
 }
 
   &:hover {
+    &:before {
+      display: none;
+    }
+    
     ${ButtonOutline} {
       &:before, &:after {
         transition: transform 100ms ease-in-out;
