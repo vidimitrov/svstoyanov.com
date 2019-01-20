@@ -6,6 +6,7 @@ import styles from './styles';
 import Button from '../Buttons/NavigationButton';
 import FormControlWrapper from './components/FormControlWrapper';
 import ButtonWrapper from './components/ButtonWrapper';
+import Container from './components/Container';
 import ArrowAvatar from '../Avatars/ArrowAvatar';
 import arrowAvatar from '../../assets/img/bot-arrow.svg';
 
@@ -78,7 +79,7 @@ class TextArea extends React.Component {
     } = this.props;
 
     return (
-      <Grid container>
+      <Container container>
         <Grid item className={classes.avatarWrapper}>
           <ArrowAvatar src={arrowAvatar} />
         </Grid>
@@ -110,7 +111,7 @@ class TextArea extends React.Component {
             SENT
           </Button>
         </ButtonWrapper>
-      </Grid>
+      </Container>
     );
   }
 }

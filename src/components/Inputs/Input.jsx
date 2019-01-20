@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
@@ -8,18 +7,11 @@ import styles from './styles';
 import Button from '../Buttons/NavigationButton';
 import FormControlWrapper from './components/FormControlWrapper';
 import ButtonWrapper from './components/ButtonWrapper';
+import Container from './components/Container';
 import ValidationLabel from './components/ValidationLabel';
 import ArrowAvatar from '../Avatars/ArrowAvatar';
 import arrowAvatar from '../../assets/img/bot-arrow.svg';
 import { isValidEmail } from '../../lib/validations';
-
-const Container = styled(Grid)`
-  margin: 32px 0 0;
-
-  ${props => props.valid && css`
-    margin: 32px 0;
-  `}
-`;
 
 class Input extends React.Component {
   constructor(props) {
