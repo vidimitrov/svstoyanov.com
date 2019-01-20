@@ -70,8 +70,6 @@ class ProjectsSlider extends React.Component {
               </Grid>
               <div className={classes.projectName}>{projectCodeName}</div>
               <div className={classes.projectDescription}>
-                &gt;
-                {' '}
                 {project.shortDescription}
               </div>
               {

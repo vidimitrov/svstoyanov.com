@@ -10,11 +10,10 @@ export default {
     justifyContent: 'center',
     alignItems: 'center',
     fontFamily: 'Space Mono',
-    marginTop: '50px',
-    marginBottom: '50px',
+    margin: '72px 0',
   },
   projectId: {
-    fontSize: '16px',
+    fontSize: '12px',
     lineHeight: 1.5,
     letterSpacing: '2px',
     color: 'rgba(255, 255, 255, 0.54)',
@@ -34,7 +33,7 @@ export default {
     letterSpacing: '4px',
   },
   projectDescription: {
-    fontSize: '24px',
+    fontSize: '20px',
     lineHeight: 1.5,
     letterSpacing: '2px',
     color: 'rgba(255, 255, 255, 0.9)',
