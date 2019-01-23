@@ -99,22 +99,9 @@ class Home extends React.Component {
                   bottom: 0,
                   width: '100%',
                 }}
-                stepContainerStyle={{
-                  backgroundColor: 'transparent',
-                  padding: 0,
-                  width: '60%',
-                  margin: '0 auto',
-                }}
                 avatarStyle={{
                   borderRadius: 0,
                   minWidth: '38px',
-                }}
-                bubbleStyle={{
-                  fontFamily: 'Space Mono',
-                  fontSize: '18px',
-                  lineHeight: 1.5,
-                  letterSpacing: '2px',
-                  maxWidth: '100%',
                 }}
                 bubbleOptionStyle={{
                   fontFamily: 'Space Mono',
