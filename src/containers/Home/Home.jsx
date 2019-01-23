@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
@@ -34,15 +35,30 @@ class Home extends React.Component {
     const chat = this.getChatComponent();
     const { renderedSteps } = chat.state;
     if (renderedSteps && renderedSteps.length > 1) {
-      // TODO: Add the final id and uncomment when ready with the rest
-      //       of the features, otherwise it would be extremely annoying while working
-      //
-      //  chat.triggerNextStep({
-      //   stepId: 'some-id-here',
-      //   externalTrigger: true
-      //  });
+      const lastVisitDateString = JSON.parse(localStorage.getItem('last-visit'));
+      const lastVisitDate = moment(lastVisitDateString);
+      const now = moment();
+      const difference = now.diff(lastVisitDate, 'hours');
+
+      if (difference >= 0 && difference < 24) {
+        // Start the convo for less than 24 hours since last visit
+        chat.triggerNextStep({
+          stepId: '676a522c-fd7b-4923-a40e-1fef304c3611',
+          externalTrigger: true,
+        });
+      } else if (difference >= 24) {
+        // Start the convo for more than 24 hours since last visit
+        chat.triggerNextStep({
+          stepId: 'a2bf3b98-78a9-4a76-ad02-4a3f4982baf4',
+          externalTrigger: true,
+        });
+      }
     }
 
+    localStorage.setItem('last-visit', JSON.stringify(new Date()));
+
+    // Send just a simple ping request to the API
+    // so the free dyno of Heroku gets awaken for the current session
     wakeUp();
   }
 
