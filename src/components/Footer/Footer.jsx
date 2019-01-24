@@ -5,15 +5,15 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import TimeCounter from '../TimeCounter/TimeCounter';
+import SoundControl from '../SoundControl/SoundControl';
 import styles from './styles';
-// import equalizerImg from '../../assets/img/equalizer.gif';
-import eqImg from '../../assets/img/eq.gif';
-// import musicImg from '../../assets/img/music.svg';
-import mutedImg from '../../assets/img/muted.svg';
 
 function Footer(props) {
   const {
-    classes, content, muted, togglePlayer,
+    classes,
+    children,
+    muted,
+    togglePlayer,
   } = props;
 
   return (
@@ -22,16 +22,12 @@ function Footer(props) {
         <TimeCounter start={Date.now()} />
       </Grid>
       <Grid item xs={8}>
-        {content}
+        {children}
       </Grid>
       <Grid item xs className={classes.musicPlayer}>
-        <img
-          src={muted ? mutedImg : eqImg}
-          className={muted ? classes.muted : classes.equalizer}
-          alt="music"
-          onClick={() => {
-            togglePlayer();
-          }}
+        <SoundControl
+          muted={muted}
+          onClick={togglePlayer}
         />
       </Grid>
     </Grid>
@@ -40,7 +36,7 @@ function Footer(props) {
 
 Footer.propTypes = {
   classes: PropTypes.any,
-  content: PropTypes.any,
+  children: PropTypes.any,
   muted: PropTypes.bool,
   togglePlayer: PropTypes.func,
 };

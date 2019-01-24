@@ -151,17 +151,16 @@ class Home extends React.Component {
         <Footer
           muted={muted}
           togglePlayer={this.togglePlayer}
-          content={(
-            <Grid
-              container
-              justify="center"
-              alignItems="center"
-              className={classes.navigation}
-            >
-              <img src={logo} className={classes.logo} alt="" />
-            </Grid>
-          )}
-        />
+        >
+          <Grid
+            container
+            justify="center"
+            alignItems="center"
+            className={classes.navigation}
+          >
+            <img src={logo} className={classes.logo} alt="" />
+          </Grid>
+        </Footer>
       </Grid>
     );
   }
