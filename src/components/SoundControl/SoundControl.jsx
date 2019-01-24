@@ -60,10 +60,28 @@ const Toggle = styled.div`
   justify-content: space-between;
   flex: 1;
   min-width: 120px;
+  max-width: 120px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Label = styled.span`
   margin-right: 40px;
+  position: relative;
+
+  &:before {
+    content: no-close-quote;
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -8px;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    opacity: 0.12;
+  }
 `;
 
 const SoundControlWrapper = styled.div`
