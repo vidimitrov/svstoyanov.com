@@ -24,8 +24,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      muted: false,
-      // activeStep: null,
+      muted: true,
     };
     this.togglePlayer = this.togglePlayer.bind(this);
     this.getChatComponent = this.getChatComponent.bind(this);
@@ -68,6 +67,9 @@ class Home extends React.Component {
 
   togglePlayer() {
     const { muted } = this.state;
+    if (muted) {
+      this.player.play();
+    }
     this.setState({
       muted: !muted,
     });
@@ -88,8 +90,15 @@ class Home extends React.Component {
           <source src={webmVideo} type="video/webm" />
         </video>
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-        <audio src={backgroundMusic} muted={muted} autoPlay loop />
-        <iframe title="audio" allow="autoplay" id="audio" style={{ display: 'none' }} />
+        <audio
+          ref={(element) => {
+            this.player = element;
+          }}
+          src={backgroundMusic}
+          muted={muted}
+          loop
+          preload="auto"
+        />
         <Preloader />
         <Grid item xs={12} className={classes.mainSection}>
           <div className={`${classes.chatContainer} chat-container`}>
