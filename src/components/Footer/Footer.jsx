@@ -3,7 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import { Grid, Hidden } from '@material-ui/core';
 import TimeCounter from '../TimeCounter/TimeCounter';
 import SoundControl from '../SoundControl/SoundControl';
 import styles from './styles';
@@ -18,18 +18,22 @@ function Footer(props) {
 
   return (
     <Grid container className={classes.footer}>
-      <Grid item xs>
-        <TimeCounter start={Date.now()} />
-      </Grid>
-      <Grid item xs={8}>
+      <Hidden only="xs">
+        <Grid item xs>
+          <TimeCounter start={Date.now()} />
+        </Grid>
+      </Hidden>
+      <Grid item xs={12} sm={8}>
         {children}
       </Grid>
-      <Grid item xs className={classes.musicPlayer}>
-        <SoundControl
-          muted={muted}
-          onClick={togglePlayer}
-        />
-      </Grid>
+      <Hidden only="xs">
+        <Grid item xs className={classes.musicPlayer}>
+          <SoundControl
+            muted={muted}
+            onClick={togglePlayer}
+          />
+        </Grid>
+      </Hidden>
     </Grid>
   );
 }

@@ -8,12 +8,11 @@ import { ThemeProvider } from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 
 import { wakeUp } from '../../api';
-import ChatBot from '../../lib/ChatBot';
-
-import Preloader from '../../components/Preloader/Preloader';
-import Footer from '../../components/Footer/Footer';
 import styles from './styles';
 import chatTheme from '../Chat/styles/theme';
+import ChatBot from '../../lib/ChatBot';
+import Preloader from '../../components/Preloader/Preloader';
+import Footer from '../../components/Footer/Footer';
 import avatar from '../../assets/img/sto-avatar.png';
 import logo from '../../assets/img/logo.png';
 import mp4Video from '../../assets/video/bg-spin.mp4';

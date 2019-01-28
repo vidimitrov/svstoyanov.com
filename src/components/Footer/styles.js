@@ -7,6 +7,7 @@ export default {
     position: 'fixed',
     padding: '24px 72px 32px',
     bottom: 0,
+    minHeight: '53px',
   },
   musicPlayer: {
     textAlign: 'right',

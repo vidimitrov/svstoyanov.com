@@ -33,6 +33,9 @@ export default {
   },
   logo: {
     position: 'absolute',
-    width: '90px',
+    width: '35px',
+    '@media (min-width: 600px)': {
+      width: '90px',
+    },
   },
 };
