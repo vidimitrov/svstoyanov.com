@@ -7,10 +7,9 @@ import Grid from '@material-ui/core/Grid';
 import { colors } from '../../styles';
 
 const borderFontFamily = '"Space Mono"';
-const borderFontSize = '28px';
 
 const ButtonText = styled.span`
-  font-size: 16px;
+  font-size: 8px;
   line-height: 21px;
   margin: 0 16px;
   font-weight: bold;
@@ -18,6 +17,10 @@ const ButtonText = styled.span`
   letter-spacing: 2px;
   line-height: 1.5;
   transform: none;
+
+  @media (min-width: 960px) {
+    font-size: 16px;
+  }
 `;
 
 const ButtonOutline = styled.div`
@@ -27,7 +30,13 @@ const ButtonOutline = styled.div`
   &:before, &:after {
     color: ${colors.primary};
     font-family: ${borderFontFamily};
-    font-size: ${borderFontSize};
+    font-size: 16px;
+  }
+
+  @media (min-width: 960px) {
+    &:before, &:after {
+      font-size: 28px;
+    }
   }
 
   &:before {

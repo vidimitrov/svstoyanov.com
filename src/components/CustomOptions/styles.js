@@ -16,6 +16,10 @@ export default {
     flexWrap: 'wrap',
     flex: 10,
     alignItems: 'center',
-    margin: '32px 0 8px -24px',
+    margin: '16px 0 8px -5px',
+
+    '@media (min-width: 960px)': {
+      margin: '32px 0 8px -24px',
+    },
   },
 };

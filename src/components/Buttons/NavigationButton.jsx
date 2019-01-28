@@ -8,25 +8,31 @@ import { colors } from '../../styles';
 const Label = styled.span``;
 const LabelWrapper = styled.div``;
 const ButtonWrapper = styled.div`
-  font-size: 16px;
-  max-width: 200px;
-  text-align: center;
-  height: 36px;
-  color: ${colors.white};
-  padding: 8px 16px 8px 24px;
-  position: relative;
   display: flex;
   align-items: center;
-  line-height: 1.5;
-  letter-spacing: 2px;
-  font-weight: bold;
+  position: relative;
+  height: 24px;
+  max-width: 200px;
   box-sizing: border-box;
-  margin-bottom: 16px;
-  border-radius: 1px;
+  padding: 8px 16px 8px 24px;
+  margin-bottom: 8px;
   border-top: 1px dotted rgba(255,255,255,0.48);
   border-bottom: 1px dotted rgba(255,255,255,0.48);
   border-left: 1px solid ${colors.white};
   border-right: 1px solid ${colors.white};
+  border-radius: 1px;
+  font-size: 8px;
+  font-weight: bold;
+  text-align: center;
+  color: ${colors.white};
+  line-height: 1.5;
+  letter-spacing: 2px;
+
+  @media (min-width: 960px) {
+    height: 36px;
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
   
   &:before {
     content: no-close-quote;

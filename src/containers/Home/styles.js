@@ -6,7 +6,11 @@ export default {
     fontFamily: 'Space Mono',
     color: colors.white,
     flexGrow: 1,
-    height: 'calc(100% - 135px)',
+    height: 'calc(100% - 57px)',
+
+    '@media (min-width: 960px)': {
+      height: 'calc(100% - 135px)',
+    },
   },
   videoBackground: {
     position: 'fixed',

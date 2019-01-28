@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const TextStepContainer = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: 'flex-start';
   background-color: transparent;
   padding: 0 16px;

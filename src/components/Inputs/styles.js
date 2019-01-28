@@ -1,12 +1,16 @@
 const formControl = {
   fontFamily: 'Space Mono',
-  fontSize: '18px',
+  fontSize: '10px',
   lineHeight: 1.5,
   letterSpacing: '2px',
   backgroundColor: 'transparent',
   border: 'none',
   color: 'rgba(255,255,255,1)',
   width: '100%',
+
+  '@media (min-width: 960px)': {
+    fontSize: '18px',
+  },
 };
 
 export default {
@@ -18,7 +22,7 @@ export default {
   },
   input: {
     ...formControl,
-    paddingBottom: '16px',
+    paddingBottom: '8px',
     '&:focus': {
       outline: 'none',
     },
@@ -27,6 +31,9 @@ export default {
     },
     '&:disabled': {
       color: 'rgba(255,255,255,0.54)',
+    },
+    '@media (min-width: 960px)': {
+      paddingBottom: '16px',
     },
   },
   textarea: {
