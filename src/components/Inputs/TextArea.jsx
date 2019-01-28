@@ -78,8 +78,11 @@ class TextArea extends React.Component {
       placeholder,
     } = this.props;
 
+    // TODO: Implement some validation if needed
+    const isValid = 'true';
+
     return (
-      <Container container>
+      <Container container valid={isValid}>
         <Grid item className={classes.avatarWrapper}>
           <ArrowAvatar src={arrowAvatar} />
         </Grid>

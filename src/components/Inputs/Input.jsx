@@ -92,7 +92,7 @@ class Input extends React.Component {
     }
 
     return (
-      <Container container valid={!value || isValid}>
+      <Container container valid={!value || isValid ? 'true' : 'false'}>
         <Grid item className={classes.avatarWrapper}>
           <ArrowAvatar src={arrowAvatar} />
         </Grid>
