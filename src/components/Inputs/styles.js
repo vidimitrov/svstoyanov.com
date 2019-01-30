@@ -34,6 +34,7 @@ export default {
     },
     '@media (min-width: 960px)': {
       paddingBottom: '16px',
+      ...formControl['@media (min-width: 960px)'],
     },
   },
   textarea: {
@@ -49,6 +50,10 @@ export default {
     },
     '&:disabled': {
       color: 'rgba(255,255,255,0.54)',
+    },
+    '@media (min-width: 960px)': {
+      paddingBottom: '16px',
+      ...formControl['@media (min-width: 960px)'],
     },
   },
 };
