@@ -30,8 +30,15 @@
 
     flex: 0 0 auto;
     box-sizing: border-box;
-    flex-basis: 50%;
+    flex-basis: 70%;
 }
+
+@media (min-width: 960px) {
+    .slick-list {
+        flex-basis: 50%;
+    }
+}
+
 .slick-list:focus
 {
     outline: none;

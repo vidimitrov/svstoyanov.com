@@ -49,8 +49,12 @@ const ButtonOutline = styled.div`
 `;
 
 const Wrapper = styled.div`
-  margin: 0 0 24px 12px;
+  margin: 0;
   position: relative;
+
+  @media (min-width: 960px) {
+    margin: 0 0 24px 12px;
+  }
 
   &:before {
     content: no-close-quote;

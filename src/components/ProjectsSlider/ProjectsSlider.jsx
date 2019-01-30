@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import SliderButton from '../Buttons/SliderButton';
 import Button from '../Buttons/Button';
+import { isMobile } from '../../lib/viewport';
 import styles from './styles';
 
 class ProjectsSlider extends React.Component {
@@ -18,6 +19,9 @@ class ProjectsSlider extends React.Component {
     this.state = {
       selected: false,
     };
+
+    this.nextSlide = this.nextSlide.bind(this);
+    this.prevSlide = this.prevSlide.bind(this);
   }
 
   componentDidMount() {
@@ -25,6 +29,14 @@ class ProjectsSlider extends React.Component {
     if (activeSlideId !== undefined) {
       this.slider.slickGoTo(activeSlideId, true);
     }
+  }
+
+  nextSlide() {
+    this.slider.slickNext();
+  }
+
+  prevSlide() {
+    this.slider.slickPrev();
   }
 
   render() {
@@ -42,8 +54,8 @@ class ProjectsSlider extends React.Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      nextArrow: !selected ? <SliderButton next>Next</SliderButton> : null,
-      prevArrow: !selected ? <SliderButton prev>Previous</SliderButton> : null,
+      nextArrow: !selected && !isMobile() ? <SliderButton next>Next</SliderButton> : null,
+      prevArrow: !selected && !isMobile() ? <SliderButton prev>Previous</SliderButton> : null,
     };
     return (
       <Slider ref={c => (this.slider = c)} {...settings} className={classes.slider}>
@@ -74,7 +86,7 @@ class ProjectsSlider extends React.Component {
               </div>
               {
                 !selected && (
-                <div>
+                <div className={classes.buttonsWrapper}>
                   <Button onClick={() => {
                     this.setState({
                       selected: true,
@@ -86,24 +98,25 @@ class ProjectsSlider extends React.Component {
                     });
                   }}
                   >
-                    {primaryButtonLabel.toUpperCase().split(' ').join('_')}
+                    { isMobile() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join('_')}
                   </Button>
                   {
-                  secondaryButtons
-                  && secondaryButtons.map((secondaryButton, idx) => (
-                    <Button
-                      key={idx}
-                      onClick={() => {
-                        triggerNextStep({
-                          stepId: secondaryButton.trigger,
-                          externalTrigger: true,
-                        });
-                      }}
-                    >
-                      {secondaryButton.label.toUpperCase().split(' ').join('_')}
-                    </Button>
-                  ))
-                }
+                    secondaryButtons
+                    && secondaryButtons.map((secondaryButton, idx) => (
+                      <Button
+                        key={idx}
+                        onClick={() => {
+                          triggerNextStep({
+                            stepId: secondaryButton.trigger,
+                            externalTrigger: true,
+                          });
+                        }}
+                      >
+                        { isMobile() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join('_')}
+                      </Button>
+                    ))
+                  }
+                  {/* <SliderButton prev onClick={this.nextSlide}>Test  Button</SliderButton> */}
                 </div>
                 )
             }
