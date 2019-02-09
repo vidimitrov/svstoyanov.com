@@ -72,4 +72,7 @@ export default {
 
     },
   },
+  navigationButtons: {
+    display: 'flex',
+  }
 };

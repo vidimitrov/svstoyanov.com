@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 import { colors } from '../../styles';
 
@@ -10,8 +10,8 @@ const borderFontFamily = '"Space Mono"';
 
 const ButtonText = styled.span`
   font-size: 8px;
-  line-height: 21px;
-  margin: 0 16px;
+  line-height: 21px; 
+  margin: 0 8px;
   font-weight: bold;
   color: ${colors.primary};
   letter-spacing: 2px;
@@ -20,6 +20,7 @@ const ButtonText = styled.span`
 
   @media (min-width: 960px) {
     font-size: 16px;
+    margin: 0 16px;
   }
 `;
 
@@ -57,7 +58,7 @@ const Wrapper = styled.div`
     display: block;
     position: absolute;
     top: 2px;
-    left: 22px;
+    left: 13px;
     width: 12px;
     height: 12px;
     background-color: #02a0a7;
@@ -92,16 +93,41 @@ const Wrapper = styled.div`
       cursor: crosshair;
     }
   }
+
+  ${props => props.navigational && css`
+    &:before {
+      display: none;
+    }
+
+    &:hover {
+      ${ButtonText} {
+        background-color: ${colors.white};
+        color: ${colors.black};
+        cursor: crosshair;
+      }
+    }
+
+    ${ButtonOutline} {
+      &:before, &:after {
+        color: ${colors.white};
+      }
+    }
+
+    ${ButtonText} {
+      color: ${colors.white};
+    }
+  `}
 `;
 
 const Button = ({ ...props }) => {
   const {
     children,
     onClick,
+    navigational,
   } = props;
 
   return (
-    <Wrapper onClick={onClick}>
+    <Wrapper navigational={navigational} onClick={onClick}>
       <Grid container direction="row" alignItems="center">
         <ButtonOutline>
           <ButtonText>{children}</ButtonText>
@@ -115,6 +141,7 @@ Button.propTypes = {
   children: PropTypes.any,
   classes: PropTypes.any,
   onClick: PropTypes.func,
+  navigational: PropTypes.bool,
 };
 
 export default Button;
