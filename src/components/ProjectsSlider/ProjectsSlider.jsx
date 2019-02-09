@@ -53,6 +53,8 @@ class ProjectsSlider extends React.Component {
       dots: false,
       infinite: true,
       speed: 500,
+      swipe: !selected,
+      accessibility: false,
       slidesToShow: 1,
       slidesToScroll: 1,
       nextArrow: !selected && !isMobile() ? <SliderButton next>Next</SliderButton> : null,
