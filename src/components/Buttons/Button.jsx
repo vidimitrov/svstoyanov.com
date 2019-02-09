@@ -52,21 +52,27 @@ const Wrapper = styled.div`
   margin: 0;
   position: relative;
 
-  @media (min-width: 960px) {
-    margin: 0 0 24px 12px;
-  }
-
   &:before {
     content: no-close-quote;
     display: block;
     position: absolute;
     top: 2px;
-    left: 24px;
-    width: 24px;
-    height: 24px;
+    left: 22px;
+    width: 12px;
+    height: 12px;
     background-color: #02a0a7;
     opacity: 0.12;
-}
+  }
+
+  @media (min-width: 960px) {
+    margin: 0 0 24px 12px;
+
+    &:before {
+      left: 24px;
+      width: 24px;
+      height: 24px;
+    }
+  }
 
   &:hover {
     &:before {

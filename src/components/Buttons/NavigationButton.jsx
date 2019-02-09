@@ -14,7 +14,7 @@ const ButtonWrapper = styled.div`
   height: 24px;
   max-width: 200px;
   box-sizing: border-box;
-  padding: 8px 16px 8px 24px;
+  padding: 8px 8px 8px 16px;
   margin-bottom: 8px;
   border-top: 1px dotted rgba(255,255,255,0.48);
   border-bottom: 1px dotted rgba(255,255,255,0.48);
@@ -23,26 +23,35 @@ const ButtonWrapper = styled.div`
   border-radius: 1px;
   font-size: 8px;
   font-weight: bold;
+  font-family: "Space Mono";
   text-align: center;
   color: ${colors.white};
   line-height: 1.5;
   letter-spacing: 2px;
 
-  @media (min-width: 960px) {
-    height: 36px;
-    margin-bottom: 16px;
-    font-size: 16px;
-  }
-  
   &:before {
     content: no-close-quote;
     display: block;
     position: absolute;
-    top: 6px;
-    left: 16px;
-    width: 24px;
-    height: 24px;
+    top: 5px;
+    left: 13px;
+    width: 12px;
+    height: 12px;
     background-color: rgba(73, 221, 186, 0.12);
+  }
+
+  @media (min-width: 960px) {
+    height: 36px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    padding: 8px 16px 8px 24px;
+
+    &:before {
+      top: 6px;
+      left: 16px;
+      width: 24px;
+      height: 24px;
+    }
   }
 
   ${props => !props.disabled && css`
