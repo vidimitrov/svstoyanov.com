@@ -3,10 +3,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
+import Grid from '@material-ui/core/Grid';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
-import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
+
 import SliderButton from '../Buttons/SliderButton';
 import Button from '../Buttons/Button';
 import { isMobile } from '../../lib/viewport';
@@ -60,7 +61,7 @@ class ProjectsSlider extends React.Component {
     return (
       <Slider ref={c => (this.slider = c)} {...settings} className={classes.slider}>
         {projects.map((project, index) => {
-          const projectCodeName = `P${project.id}_${project.name.split(' ').join('_').toUpperCase()}`;
+          const projectCodeName = `P${project.id} ${project.name.split(' ').join(' ').toUpperCase()}`;
           return (
             <div key={index}>
               <Grid container>
@@ -86,40 +87,55 @@ class ProjectsSlider extends React.Component {
               </div>
               {
                 !selected && (
-                <div className={classes.buttonsWrapper}>
-                  <Button onClick={() => {
-                    this.setState({
-                      selected: true,
-                    }, () => {
-                      triggerNextStep({
-                        stepId: `project-info-step-${project.id}`,
-                        externalTrigger: true,
+                  <div className={classes.buttonsWrapper}>
+                    <Button onClick={() => {
+                      this.setState({
+                        selected: true,
+                      }, () => {
+                        triggerNextStep({
+                          stepId: `project-info-step-${project.id}`,
+                          externalTrigger: true,
+                        });
                       });
-                    });
-                  }}
-                  >
-                    { isMobile() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join('_')}
-                  </Button>
-                  {
-                    secondaryButtons
-                    && secondaryButtons.map((secondaryButton, idx) => (
-                      <Button
-                        key={idx}
-                        onClick={() => {
-                          triggerNextStep({
-                            stepId: secondaryButton.trigger,
-                            externalTrigger: true,
-                          });
-                        }}
-                      >
-                        { isMobile() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join('_')}
-                      </Button>
-                    ))
-                  }
-                  {/* <SliderButton prev onClick={this.nextSlide}>Test  Button</SliderButton> */}
-                </div>
+                    }}
+                    >
+                      { isMobile() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join('_')}
+                    </Button>
+                    {
+                      secondaryButtons
+                      && secondaryButtons.map((secondaryButton, idx) => (
+                        <Button
+                          key={idx}
+                          onClick={() => {
+                            triggerNextStep({
+                              stepId: secondaryButton.trigger,
+                              externalTrigger: true,
+                            });
+                          }}
+                        >
+                          { isMobile() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join('_')}
+                        </Button>
+                      ))
+                    }
+                    {/* <SliderButton prev onClick={this.nextSlide}>Test  Button</SliderButton> */}
+                  </div>
                 )
-            }
+              }
+              {
+                !selected && isMobile() &&
+                <div className={classes.navigationButtons}>
+                  <Button navigational onClick={() => {
+                    this.prevSlide();
+                  }}>
+                    PREV_PROJECT
+                  </Button>
+                  <Button navigational onClick={() => {
+                    this.nextSlide();
+                  }}>
+                    NEXT_PROJECT
+                  </Button>
+                </div>
+              }
             </div>
           );
         })}
