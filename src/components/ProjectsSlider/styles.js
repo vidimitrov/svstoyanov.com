@@ -16,6 +16,9 @@ export default {
       margin: '72px 0',
     },
   },
+  projectSliderContainer: {
+    display: 'flex !important',
+  },
   projectId: {
     fontSize: '8px',
     lineHeight: '15px',

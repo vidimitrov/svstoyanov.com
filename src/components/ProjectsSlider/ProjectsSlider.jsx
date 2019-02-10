@@ -57,88 +57,98 @@ class ProjectsSlider extends React.Component {
       accessibility: false,
       slidesToShow: 1,
       slidesToScroll: 1,
-      nextArrow: !selected && !isMobile() ? <SliderButton next>Next</SliderButton> : null,
-      prevArrow: !selected && !isMobile() ? <SliderButton prev>Previous</SliderButton> : null,
     };
     return (
       <Slider ref={c => (this.slider = c)} {...settings} className={classes.slider}>
         {projects.map((project, index) => {
           const projectCodeName = `P${project.id} ${project.name.split(' ').join(' ').toUpperCase()}`;
           return (
-            <div key={index}>
-              <Grid container>
-                <Grid item xs={9}>
-                  <div className={classes.projectId}>
-                    Portfolio_Project: 0
-                    {project.id}
-                    _0
-                    {projects.length}
-                  </div>
+            <Grid container key={index} className={classes.projectSliderContainer}>
+              { !selected && !isMobile() &&
+                <Grid item xs={0} sm={3}>
+                  <SliderButton prev>Previous</SliderButton>
                 </Grid>
-                <Grid item xs={3}>
-                  <div className={classes.duration}>
-                    {project.duration}
-                    {' '}
-                    DURATION
-                  </div>
-                </Grid>
-              </Grid>
-              <div className={classes.projectName}>{projectCodeName}</div>
-              <div className={classes.projectDescription}>
-                {project.shortDescription}
-              </div>
-              {
-                !selected && (
-                  <div className={classes.buttonsWrapper}>
-                    <Button onClick={() => {
-                      this.setState({
-                        selected: true,
-                      }, () => {
-                        triggerNextStep({
-                          stepId: `project-info-step-${project.id}`,
-                          externalTrigger: true,
-                        });
-                      });
-                    }}
-                    >
-                      { isMobile() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join('_')}
-                    </Button>
-                    {
-                      secondaryButtons
-                      && secondaryButtons.map((secondaryButton, idx) => (
-                        <Button
-                          key={idx}
-                          onClick={() => {
-                            triggerNextStep({
-                              stepId: secondaryButton.trigger,
-                              externalTrigger: true,
-                            });
-                          }}
-                        >
-                          { isMobile() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join('_')}
-                        </Button>
-                      ))
-                    }
-                    {/* <SliderButton prev onClick={this.nextSlide}>Test  Button</SliderButton> */}
-                  </div>
-                )
               }
-              {
-                !selected && isMobile() &&
-                <div className={classes.navigationButtons}>
-                  <Button navigational onClick={() => {
-                    this.prevSlide();
-                  }}>
-                    PREV_PROJECT
-                  </Button>
-                  <Button navigational onClick={() => {
-                    this.nextSlide();
-                  }}>
-                    NEXT_PROJECT
-                  </Button>
+              <Grid item xs={12} sm={6}>
+                <Grid container>
+                  <Grid item xs={9}>
+                    <div className={classes.projectId}>
+                      Portfolio_Project: 0
+                      {project.id}
+                      _0
+                      {projects.length}
+                    </div>
+                  </Grid>
+                  <Grid item xs={3}>
+                    <div className={classes.duration}>
+                      {project.duration}
+                      {' '}
+                      DURATION
+                    </div>
+                  </Grid>
+                </Grid>
+                <div className={classes.projectName}>{projectCodeName}</div>
+                <div className={classes.projectDescription}>
+                  {project.shortDescription}
                 </div>
+                {
+                  !selected && (
+                    <div className={classes.buttonsWrapper}>
+                      <Button onClick={() => {
+                        this.setState({
+                          selected: true,
+                        }, () => {
+                          triggerNextStep({
+                            stepId: `project-info-step-${project.id}`,
+                            externalTrigger: true,
+                          });
+                        });
+                      }}
+                      >
+                        { isMobile() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join('_')}
+                      </Button>
+                      {
+                        secondaryButtons
+                        && secondaryButtons.map((secondaryButton, idx) => (
+                          <Button
+                            key={idx}
+                            onClick={() => {
+                              triggerNextStep({
+                                stepId: secondaryButton.trigger,
+                                externalTrigger: true,
+                              });
+                            }}
+                          >
+                            { isMobile() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join('_')}
+                          </Button>
+                        ))
+                      }
+                      {/* <SliderButton prev onClick={this.nextSlide}>Test  Button</SliderButton> */}
+                    </div>
+                  )
+                }
+                {
+                  !selected && isMobile() &&
+                  <div className={classes.navigationButtons}>
+                    <Button navigational onClick={() => {
+                      this.prevSlide();
+                    }}>
+                      PREV_PROJECT
+                    </Button>
+                    <Button navigational onClick={() => {
+                      this.nextSlide();
+                    }}>
+                      NEXT_PROJECT
+                    </Button>
+                  </div>
+                }
+              </Grid>
+              { !selected && !isMobile() &&
+                <Grid item xs={0} sm={3}>
+                  <SliderButton nexy>Next</SliderButton>
+                </Grid>
               }
-            </div>
+            </Grid>
           );
         })}
       </Slider>
