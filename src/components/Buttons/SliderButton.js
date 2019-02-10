@@ -5,7 +5,9 @@ import Grid from '@material-ui/core/Grid';
 import { colors, typography } from '../../styles';
 
 const NextButton = require('../../assets/img/buttons/slider-next-button.svg');
+const NextButtonHovered = require('../../assets/img/buttons/hover-slider-next-btn.svg');
 const PrevButton = require('../../assets/img/buttons/slider-prev-button.svg');
+const PrevButtonHovered = require('../../assets/img/buttons/hover-slider-prev-btn.svg');
 
 const styles = {
   button: {
@@ -32,34 +34,63 @@ const styles = {
     marginRight: '16px',
   },
   prevContainer: {
-    marginRight: '80px',
   },
   nextContainer: {
-    marginLeft: '80px',
   },
 };
 
-const SliderButton = ({ ...props }) => {
-  const {
-    children,
-    classes,
-    prev,
-    next,
-    onClick,
-  } = props;
+class SliderButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hovered: false,
+    };
 
-  return (
-    <Grid item className={`${classes.button} ${prev ? classes.prevContainer : classes.nextContainer}`} onClick={onClick}>
-      <Grid container direction="row" justify="center" alignItems="center">
-        {prev && <img src={PrevButton} alt="" />}
-        <div>
-          <span className={`${classes.highlight} ${prev ? classes.prevText : classes.nextText}`}>{children}</span>
-        </div>
-        {next && <img src={NextButton} alt="" />}
+    this.onHover = this.onHover.bind(this);
+    this.onBlur = this.onBlur.bind(this);
+  }
+
+  onHover () {
+    this.setState({
+      hovered: true,
+    });
+  }
+
+  onBlur () {
+    this.setState({
+      hovered: false,
+    });
+  }
+
+  render () {
+    const {
+      children,
+      classes,
+      prev,
+      next,
+      onClick,
+    } = this.props;
+    const {
+      hovered,
+    } = this.state;
+  
+    return (
+      <Grid item 
+        className={`${classes.button} ${prev ? classes.prevContainer : classes.nextContainer}`} 
+        onClick={onClick}
+        onMouseEnter={this.onHover}
+        onMouseLeave={this.onBlur}>
+        <Grid container direction="row" justify="center" alignItems="center">
+          {prev && <img src={hovered ? PrevButtonHovered : PrevButton} alt="" />}
+          <div>
+            <span className={`${classes.highlight} ${prev ? classes.prevText : classes.nextText}`}>{children}</span>
+          </div>
+          {next && <img src={hovered ? NextButtonHovered : NextButton} alt="" />}
+        </Grid>
       </Grid>
-    </Grid>
-  );
-};
+    );
+  }
+}
 
 SliderButton.propTypes = {
   children: PropTypes.any,
