@@ -67,6 +67,7 @@ export default {
   },
   buttonsWrapper: {
     display: 'flex',
+    flexWrap: 'wrap',
 
     '@media (min-width: 960px)': {
 
