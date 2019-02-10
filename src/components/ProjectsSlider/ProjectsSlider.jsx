@@ -65,8 +65,12 @@ class ProjectsSlider extends React.Component {
           return (
             <Grid container key={index} className={classes.projectSliderContainer}>
               { !selected && !isMobile() &&
-                <Grid item xs={0} sm={3}>
-                  <SliderButton prev>Previous</SliderButton>
+                <Grid item xs={false} sm={3} className={classes.sliderNavButton}>
+                  <SliderButton prev onClick={() => {
+                      this.prevSlide();
+                    }}>
+                    Previous
+                  </SliderButton>
                 </Grid>
               }
               <Grid item xs={12} sm={6}>
@@ -123,7 +127,6 @@ class ProjectsSlider extends React.Component {
                           </Button>
                         ))
                       }
-                      {/* <SliderButton prev onClick={this.nextSlide}>Test  Button</SliderButton> */}
                     </div>
                   )
                 }
@@ -144,8 +147,12 @@ class ProjectsSlider extends React.Component {
                 }
               </Grid>
               { !selected && !isMobile() &&
-                <Grid item xs={0} sm={3}>
-                  <SliderButton nexy>Next</SliderButton>
+                <Grid item xs={false} sm={3} className={classes.sliderNavButton}>
+                  <SliderButton next onClick={() => {
+                      this.nextSlide();
+                    }}>
+                    Next
+                  </SliderButton>
                 </Grid>
               }
             </Grid>

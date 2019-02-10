@@ -35,6 +35,7 @@ export default {
     display: 'none',
 
     '@media (min-width: 960px)': {
+      display: 'block',
       borderBottom: '1px solid',
       paddingBottom: '6px',
       textAlign: 'center',
@@ -50,7 +51,7 @@ export default {
     letterSpacing: '1.78px',
 
     '@media (min-width: 960px)': {
-      fontSize: '72px',
+      fontSize: '56px',
       lineHeight: 1.5,
       letterSpacing: '4px',
     },
@@ -78,5 +79,10 @@ export default {
   },
   navigationButtons: {
     display: 'flex',
+  },
+  sliderNavButton: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 };
