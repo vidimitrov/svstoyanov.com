@@ -1,9 +1,9 @@
 @charset 'UTF-8';
 /* Slider */
-.slick-loading .slick-list
-{
-    // background: #fff url('./ajax-loader.gif') center center no-repeat;
-}
+// .slick-loading .slick-list
+// {
+//     // background: #fff url('./ajax-loader.gif') center center no-repeat;
+// }
 
 /* Icons */
 // @font-face
@@ -25,7 +25,7 @@
     position: absolute;
     top: 50%;
 
-    display: block;
+    display: none !important;
 
     width: 20px;
     height: 20px;
@@ -201,4 +201,10 @@
 {
     opacity: .75;
     color: black;
+}
+
+.slick-list {
+    @media (min-width: 960px) {
+        flex-basis: 100%
+    }
 }
