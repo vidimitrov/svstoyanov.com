@@ -8,6 +8,7 @@ import ImageContainer from './ImageContainer';
 import Loading from '../common/Loading';
 import TextStepContainer from './TextStepContainer';
 import { calculateOpacity } from '../common/utils/opacity';
+import InolaText from '../../../../components/Text/Tsula';
 
 const URL_REGEX = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm;
 
@@ -70,7 +71,8 @@ class TextStep extends Component {
     message = message.replace(/{previousValue}/g, previousValue);
 
     // TODO: Create a new step for the links or find a way how to fix this security issue
-    return (<span dangerouslySetInnerHTML={{ __html: message }} />);
+    // return (<span dangerouslySetInnerHTML={{ __html: message }} />);
+    return (<InolaText>{message}</InolaText>);
   }
 
   render() {
@@ -135,11 +137,12 @@ class TextStep extends Component {
           isFirst={isFirst}
           isLast={isLast}
         >
-          {
+          {/* {
             this.state.loading
             && <Loading />
-          }
-          {(!this.state.loading) && this.renderMessage()}
+          } */}
+          {/* {(!this.state.loading) && this.renderMessage()} */}
+          {this.renderMessage()}
         </Bubble>
       </TextStepContainer>
     );
