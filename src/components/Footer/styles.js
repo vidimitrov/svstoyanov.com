@@ -17,7 +17,8 @@ export default {
     }
   },
   musicPlayer: {
-    textAlign: 'right',
+    display: 'flex',
+    justifyContent: 'flex-end',
   },
   muted: {
     width: '24px',

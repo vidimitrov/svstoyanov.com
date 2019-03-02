@@ -22,7 +22,7 @@ const Bubble = styled.div`
   margin: ${(props) => {
     const { isFirst, showAvatar, user } = props;
     if (!isFirst && showAvatar) {
-      return user ? '-8px 46px 0 0' : '-8px 0 0 46px';
+      return user ? '-8px 46px 0 0' : '-8px 0 0 54px';
     } if (!isFirst && !showAvatar) {
       return user ? '-8px 0px 0 0' : '-8px 0 0 0px';
     }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { colors } from '../../styles';
 
-const OnOption = styled.div`
+const OffOption = styled.div`
   position: relative; 
   text-align: left;
   color: ${colors.lighterGray};
@@ -15,13 +15,13 @@ const OnOption = styled.div`
   &:after {
     content: '';
     display: block;
-    width: 26px;
+    width: 28px;
     height: 2px;
     box-sizing: border-box;
     border: 1px solid ${colors.lighterGray};
     position: absolute;
     top: 7px;
-    left: 30px;
+    left: 37px;
 
     ${props => props.active && css`
       border: 1px solid ${colors.primary};
@@ -29,7 +29,7 @@ const OnOption = styled.div`
   }
 `;
 
-const OffOption = styled.div`
+const OnOption = styled.div`
   position: relative;
   text-align: right;
   color: ${colors.lighterGray};
@@ -68,17 +68,17 @@ const Toggle = styled.div`
 `;
 
 const Label = styled.span`
-  margin-right: 40px;
+  margin-right: 24px;
   position: relative;
 
   &:before {
     content: no-close-quote;
     display: block;
     position: absolute;
-    top: -5px;
+    top: -8px;
     left: -8px;
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     background-color: #fff;
     opacity: 0.12;
   }
@@ -86,7 +86,7 @@ const Label = styled.span`
 
 const SoundControlWrapper = styled.div`
   display: flex;
-  max-width: 260px;
+  width: 210px;
   font-family: 'Space Mono';
   font-size: 14px;
   letter-spacing: 1.2px;
@@ -102,8 +102,8 @@ const SoundControl = (props) => {
     <SoundControlWrapper>
       <Label>SOUND</Label>
       <Toggle onClick={onClick}>
-        <OnOption active={!muted}>ON</OnOption>
         <OffOption active={muted}>OFF</OffOption>
+        <OnOption active={!muted}>ON</OnOption>
       </Toggle>
     </SoundControlWrapper>
   );
