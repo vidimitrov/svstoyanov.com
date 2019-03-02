@@ -9,6 +9,7 @@ import styles from './styles';
 import Button from '../Buttons/Button';
 import ArrowAvatar from '../Avatars/ArrowAvatar';
 import arrowAvatar from '../../assets/img/bot-arrow.svg';
+import { breakpoints } from '../../styles';
 
 const SelectedOption = styled.div`
   font-family: "Space Mono";
@@ -19,7 +20,7 @@ const SelectedOption = styled.div`
   text-transform: uppercase;
   margin: 0 0 24px 16px;
 
-  @media (min-width: 960px) {
+  ${breakpoints.md} {
     font-size: 20px;
   }
 `;

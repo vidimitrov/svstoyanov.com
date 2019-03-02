@@ -70,8 +70,6 @@ class TextStep extends Component {
 
     message = message.replace(/{previousValue}/g, previousValue);
 
-    // TODO: Create a new step for the links or find a way how to fix this security issue
-    // return (<span dangerouslySetInnerHTML={{ __html: message }} />);
     return (<AnimatedText text={message}/>);
   }
 

@@ -1,3 +1,5 @@
+import { breakpoints } from '../../styles';
+
 export default {
   customOptionsWrapper: {
     fontFamily: 'Space Mono',
@@ -18,7 +20,7 @@ export default {
     alignItems: 'center',
     margin: '16px 0 8px -5px',
 
-    '@media (min-width: 960px)': {
+    [breakpoints.md]: {
       margin: '32px 0 8px -24px',
     },
   },

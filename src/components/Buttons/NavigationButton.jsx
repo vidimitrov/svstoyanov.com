@@ -3,7 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { colors } from '../../styles';
+import { colors, breakpoints } from '../../styles';
 
 const Label = styled.span``;
 const LabelWrapper = styled.div``;
@@ -40,7 +40,7 @@ const ButtonWrapper = styled.div`
     background-color: rgba(73, 221, 186, 0.12);
   }
 
-  @media (min-width: 960px) {
+  ${breakpoints.md} {
     height: 36px;
     margin-bottom: 16px;
     font-size: 16px;

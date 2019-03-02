@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import Grid from '@material-ui/core/Grid';
-import { colors } from '../../styles';
+import { colors, breakpoints } from '../../styles';
 
 const borderFontFamily = '"Space Mono"';
 
@@ -18,7 +18,7 @@ const ButtonText = styled.span`
   line-height: 1.5;
   transform: none;
 
-  @media (min-width: 960px) {
+  ${breakpoints.md} {
     font-size: 16px;
     margin: 0 16px;
   }
@@ -34,7 +34,7 @@ const ButtonOutline = styled.div`
     font-size: 16px;
   }
 
-  @media (min-width: 960px) {
+  ${breakpoints.md} {
     &:before, &:after {
       font-size: 28px;
     }
@@ -65,7 +65,7 @@ const Wrapper = styled.div`
     opacity: 0.12;
   }
 
-  @media (min-width: 960px) {
+  ${breakpoints.md} {
     margin: 0 0 24px 12px;
 
     &:before {

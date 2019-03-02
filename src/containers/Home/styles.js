@@ -1,5 +1,5 @@
 /* eslint max-len: 0 */
-import { colors } from '../../styles';
+import { colors, breakpoints } from '../../styles';
 
 export default {
   container: {
@@ -8,7 +8,7 @@ export default {
     flexGrow: 1,
     height: 'calc(100% - 57px)',
 
-    '@media (min-width: 960px)': {
+    [breakpoints.md]: {
       height: 'calc(100% - 135px)',
     },
   },
@@ -38,7 +38,7 @@ export default {
   logo: {
     position: 'absolute',
     width: '35px',
-    '@media (min-width: 600px)': {
+    [breakpoints.sm]: {
       width: '90px',
     },
   },

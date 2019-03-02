@@ -5,7 +5,7 @@ export default {
     borderTop: `1px solid ${colors.gray}`,
     alignItems: 'center',
     position: 'fixed',
-    padding: '24px 72px 32px',
+    padding: '16px 72px 24px',
     bottom: 0,
     minHeight: '53px',
   },

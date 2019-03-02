@@ -1,3 +1,5 @@
+import { breakpoints } from '../../styles';
+
 export default {
   navLink: {
     textDecoration: 'none',
@@ -12,7 +14,7 @@ export default {
     margin: '16px 0',
     fontFamily: 'Space Mono',
 
-    '@media (min-width: 960px)': {
+    [breakpoints.md]: {
       margin: '72px 0',
     },
   },
@@ -25,7 +27,7 @@ export default {
     letterSpacing: '1px',
     color: 'rgba(255, 255, 255, 0.54)',
 
-    '@media (min-width: 960px)': {
+    [breakpoints.md]: {
       fontSize: '12px',
       lineHeight: 1.5,
       letterSpacing: '2px',
@@ -34,7 +36,7 @@ export default {
   duration: {
     display: 'none',
 
-    '@media (min-width: 960px)': {
+    [breakpoints.md]: {
       display: 'block',
       borderBottom: '1px solid',
       paddingBottom: '6px',
@@ -50,7 +52,7 @@ export default {
     lineHeight: '48px',
     letterSpacing: '1.78px',
 
-    '@media (min-width: 960px)': {
+    [breakpoints.md]: {
       fontSize: '56px',
       lineHeight: 1.5,
       letterSpacing: '4px',
@@ -63,7 +65,7 @@ export default {
     color: 'rgba(255, 255, 255, 0.9)',
     margin: '32px 0 46px',
 
-    '@media (min-width: 960px)': {
+    [breakpoints.md]: {
       fontSize: '20px',
       lineHeight: 1.5,
       letterSpacing: '2px',
@@ -73,9 +75,7 @@ export default {
     display: 'flex',
     flexWrap: 'wrap',
 
-    '@media (min-width: 960px)': {
-
-    },
+    [breakpoints.md]: {},
   },
   navigationButtons: {
     display: 'flex',

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { scale } from '../../common/animations';
 import defaultTheme from '../../theme';
+import { breakpoints } from '../../../../styles';
 
 const Bubble = styled.div`
   animation: ${scale} .3s ease forwards;
@@ -47,7 +48,7 @@ const Bubble = styled.div`
   line-height: 1.8;
   letter-spacing: 1px;
 
-  @media (min-width: 768px) {
+  ${breakpoints.sm} {
     font-size: 18px;
     line-height: 1.5;
     letter-spacing: 2px;

@@ -1,3 +1,5 @@
+import { breakpoints } from '../../styles';
+
 const formControl = {
   fontFamily: 'Space Mono',
   fontSize: '10px',
@@ -8,7 +10,7 @@ const formControl = {
   color: 'rgba(255,255,255,1)',
   width: '100%',
 
-  '@media (min-width: 960px)': {
+  [breakpoints.md]: {
     fontSize: '18px',
   },
 };
@@ -32,9 +34,9 @@ export default {
     '&:disabled': {
       color: 'rgba(255,255,255,0.54)',
     },
-    '@media (min-width: 960px)': {
+    [breakpoints.md]: {
       paddingBottom: '16px',
-      ...formControl['@media (min-width: 960px)'],
+      ...formControl[breakpoints.md],
     },
   },
   textarea: {
@@ -51,9 +53,9 @@ export default {
     '&:disabled': {
       color: 'rgba(255,255,255,0.54)',
     },
-    '@media (min-width: 960px)': {
+    [breakpoints.md]: {
       paddingBottom: '16px',
-      ...formControl['@media (min-width: 960px)'],
+      ...formControl[breakpoints.md],
     },
   },
 };
