@@ -21,6 +21,7 @@ export default {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    paddingBottom:'16px',
   },
   input: {
     ...formControl,
@@ -54,7 +55,7 @@ export default {
       color: 'rgba(255,255,255,0.54)',
     },
     [breakpoints.md]: {
-      paddingBottom: '16px',
+      //paddingBottom: '16px',
       ...formControl[breakpoints.md],
     },
   },

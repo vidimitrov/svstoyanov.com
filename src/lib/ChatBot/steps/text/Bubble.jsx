@@ -51,7 +51,7 @@ const Bubble = styled.div`
   ${breakpoints.sm} {
     font-size: 18px;
     line-height: 1.5;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
   }
 `;
 

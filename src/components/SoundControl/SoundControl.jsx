@@ -21,7 +21,7 @@ const OffOption = styled.div`
     border: 1px solid ${colors.lighterGray};
     position: absolute;
     top: 7px;
-    left: 37px;
+    left: 39px;
 
     ${props => props.active && css`
       border: 1px solid ${colors.primary};
@@ -75,7 +75,7 @@ const Label = styled.span`
     content: no-close-quote;
     display: block;
     position: absolute;
-    top: -8px;
+    top: -10px;
     left: -8px;
     width: 32px;
     height: 32px;
@@ -86,10 +86,9 @@ const Label = styled.span`
 
 const SoundControlWrapper = styled.div`
   display: flex;
-  width: 210px;
   font-family: 'Space Mono';
-  font-size: 14px;
-  letter-spacing: 1.2px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
 `;
 
 const SoundControl = (props) => {
