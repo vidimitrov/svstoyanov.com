@@ -9,7 +9,7 @@ const TextStepContainer = styled.div`
   padding: 0 16px;
   margin: 0 auto;
 
-  ${breakpoints.sm} {
+  ${breakpoints.md} {
     padding: 0;
     width: 60%;
   }

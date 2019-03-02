@@ -8,6 +8,9 @@ export default {
     flexGrow: 1,
     height: 'calc(100% - 57px)',
 
+    [breakpoints.sm]: {
+      height: 'calc(100% - 125px)',
+    },
     [breakpoints.md]: {
       height: 'calc(100% - 135px)',
     },
@@ -39,6 +42,9 @@ export default {
     position: 'absolute',
     width: '35px',
     [breakpoints.sm]: {
+      width: '80px',
+    },
+    [breakpoints.md]: {
       width: '90px',
     },
   },

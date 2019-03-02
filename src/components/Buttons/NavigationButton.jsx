@@ -40,6 +40,20 @@ const ButtonWrapper = styled.div`
     background-color: rgba(73, 221, 186, 0.12);
   }
 
+  ${breakpoints.sm} {
+    height: 36px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    padding: 8px 16px 8px 24px;
+
+    &:before {
+      top: 6px;
+      left: 16px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
   ${breakpoints.md} {
     height: 36px;
     margin-bottom: 16px;

@@ -1,4 +1,4 @@
-import { colors } from '../../styles';
+import { colors, breakpoints } from '../../styles';
 
 export default {
   footer: {
@@ -8,6 +8,13 @@ export default {
     padding: '16px 72px 24px',
     bottom: 0,
     minHeight: '53px',
+
+    [breakpoints.sm]: {
+      padding: '24px 24px 32px',
+    },
+    [breakpoints.md]: {
+      padding: '24px 72px 32px',
+    }
   },
   musicPlayer: {
     textAlign: 'right',

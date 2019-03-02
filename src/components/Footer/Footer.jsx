@@ -18,7 +18,7 @@ function Footer(props) {
 
   return (
     <Grid container className={classes.footer}>
-      <Hidden only="xs">
+      <Hidden only={['xs', 'sm']}>
         <Grid item xs sm={3}>
           <TimeCounter start={Date.now()} />
         </Grid>
@@ -26,7 +26,7 @@ function Footer(props) {
       <Grid item xs={12} sm={6}>
         {children}
       </Grid>
-      <Hidden only="xs">
+      <Hidden only={['xs', 'sm']}>
         <Grid item xs sm={3} className={classes.musicPlayer}>
           <SoundControl
             muted={muted}
