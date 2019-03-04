@@ -9,7 +9,7 @@ export default {
     height: 'calc(100% - 57px)',
 
     [breakpoints.sm]: {
-      height: 'calc(100% - 125px)',
+      height: 'calc(100% - 80px)',
     },
     [breakpoints.md]: {
       height: 'calc(100% - 135px)',
