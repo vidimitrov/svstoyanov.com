@@ -49,7 +49,7 @@ body {
   &:after {
     content: "";
     pointer-events: none;
-    box-shadow: inset 0px 70px 70px #171717, inset 0px -40px 50px #171717;
+    box-shadow: inset 0px 80px 70px #000, inset 0px -32px 50px #000;
     height: 100%;
     position: absolute;
     width: 200%;
@@ -64,6 +64,10 @@ body {
 
   & > div:first-child {
     margin-top: 400px !important;
+  }
+
+  & > div:last-child {
+    margin-bottom: 30px !important;
   }
 }
 .rsc-input:disabled {
