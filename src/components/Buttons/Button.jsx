@@ -82,8 +82,8 @@ const Wrapper = styled.div`
     
     ${ButtonOutline} {
       &:before, &:after {
-        transition: transform 100ms ease-in-out;
-        transform: scale(1.3);
+        transition: transform 150ms ease-in-out;
+        transform: scale(1.1);
       }
     }
 

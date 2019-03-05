@@ -10,6 +10,7 @@ const OffOption = styled.div`
 
   ${props => props.active && css`
     color: ${colors.white};
+    font-weight: bold;
   `}
 
   &:after {
@@ -20,7 +21,7 @@ const OffOption = styled.div`
     box-sizing: border-box;
     border: 1px solid ${colors.lighterGray};
     position: absolute;
-    top: 7px;
+    top: 4px;
     left: 39px;
 
     ${props => props.active && css`
@@ -36,6 +37,7 @@ const OnOption = styled.div`
 
   ${props => props.active && css`
     color: ${colors.white};
+    font-weight: bold;
   `}
 
   &:before {
@@ -46,7 +48,7 @@ const OnOption = styled.div`
     box-sizing: border-box;
     border: 1px solid ${colors.lighterGray};
     position: absolute;
-    top: 7px;
+    top: 4px;
     left: -35px;
 
     ${props => props.active && css`
