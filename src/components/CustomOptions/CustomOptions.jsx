@@ -25,7 +25,7 @@ const SelectedOption = styled.div`
   }
 
   ${breakpoints.md} {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 

@@ -10,9 +10,9 @@ const borderFontFamily = '"Space Mono"';
 
 const ButtonText = styled.span`
   font-size: 8px;
+  font-weight: bold;
   line-height: 21px; 
   margin: 0 8px;
-  font-weight: bold;
   color: ${colors.primary};
   letter-spacing: 2px;
   line-height: 1.5;
@@ -66,7 +66,7 @@ const Wrapper = styled.div`
   }
 
   ${breakpoints.md} {
-    margin: 0 0 24px 12px;
+    margin: 0 0 24px 16px;
 
     &:before {
       left: 24px;
