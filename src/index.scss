@@ -44,6 +44,19 @@ body {
 }
 .rsc-container {
   height: 100%;
+  border-radius: 0 !important;
+  
+  &:after {
+    content: "";
+    pointer-events: none;
+    box-shadow: inset 0px 70px 70px #171717, inset 0px -40px 50px #171717;
+    height: 100%;
+    position: absolute;
+    width: 200%;
+    left: 0px;
+    top: 0px;
+    margin-left: -100px;
+  }
 }
 .rsc-content {
   box-sizing: content-box;
