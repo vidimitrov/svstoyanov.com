@@ -3,6 +3,7 @@ import { colors, breakpoints } from '../../styles';
 export default {
   footer: {
     borderTop: `1px solid ${colors.gray}`,
+    backgroundColor: '#000000',
     alignItems: 'center',
     position: 'fixed',
     padding: '16px 72px 24px',

@@ -18,6 +18,7 @@ import logo from '../../assets/img/logo.png';
 import mp4Video from '../../assets/video/bg-spin.mp4';
 import webmVideo from '../../assets/video/bg-spin.webm';
 import backgroundMusic from '../../assets/audio/background-sound.mp3';
+import Hud from '../../components/Hud/Hud';
 
 class Home extends React.Component {
   constructor(props) {
@@ -84,10 +85,7 @@ class Home extends React.Component {
         justify="flex-end"
         className={classes.container}
       >
-        <video autoPlay muted loop className={classes.videoBackground}>
-          <source src={mp4Video} type="video/mp4" />
-          <source src={webmVideo} type="video/webm" />
-        </video>
+        <Hud/>
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
         <audio
           ref={(element) => {
