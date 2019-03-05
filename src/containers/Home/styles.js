@@ -1,4 +1,3 @@
-/* eslint max-len: 0 */
 import { colors, breakpoints } from '../../styles';
 
 export default {
@@ -9,10 +8,10 @@ export default {
     height: 'calc(100% - 57px)',
 
     [breakpoints.sm]: {
-      height: 'calc(100% - 125px)',
+      height: 'calc(100% - 72px)',
     },
     [breakpoints.md]: {
-      height: 'calc(100% - 135px)',
+      height: 'calc(100% - 125px)',
     },
   },
   videoBackground: {

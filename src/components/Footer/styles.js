@@ -7,10 +7,11 @@ export default {
     position: 'fixed',
     padding: '16px 72px 24px',
     bottom: 0,
-    minHeight: '53px',
+    minHeight: '56px',
 
     [breakpoints.sm]: {
-      padding: '24px 24px 32px',
+      padding: '16px 24px',
+      minHeight: '72px',
     },
     [breakpoints.md]: {
       padding: '24px 72px 32px',
