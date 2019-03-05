@@ -18,7 +18,7 @@ const SelectedOption = styled.div`
   letter-spacing: 2px;
   max-width: 100%;
   text-transform: uppercase;
-  margin: 0 0 24px 30px;
+  margin: 0 0 24px 20px;
 
   ${breakpoints.sm} {
     font-size: 16px;

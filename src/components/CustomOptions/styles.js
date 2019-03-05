@@ -11,7 +11,8 @@ export default {
     alignItems: 'flex-end',
     flex: 2,
     maxWidth: '70px',
-    paddingBottom: '38px',
+    paddingBottom: '24px',
+
   },
   optionsWrapper: {
     display: 'flex',
@@ -21,7 +22,7 @@ export default {
     margin: '16px 0 8px -5px',
 
     [breakpoints.md]: {
-      margin: '32px 0 8px -24px',
+      margin: '32px 0 0 -16px',
     },
   },
 };
