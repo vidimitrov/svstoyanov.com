@@ -11,7 +11,7 @@ export default {
     alignItems: 'flex-end',
     flex: 2,
     maxWidth: '70px',
-    paddingBottom: '24px',
+    paddingBottom: '28px',
 
   },
   optionsWrapper: {
