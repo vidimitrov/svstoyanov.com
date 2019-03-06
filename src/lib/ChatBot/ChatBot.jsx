@@ -24,9 +24,7 @@ import {
 } from './icons';
 import 'intersection-observer';
 
-// TODO: Tweak it if you need, now its ~ twice as fast a normal human
-//       The higher the WRITING_SPEED constant, the faster the message will be displayed
-const WRITING_SPEED = 12;
+const WRITING_SPEED = 20;
 
 class ChatBot extends Component {
   /* istanbul ignore next */
@@ -319,9 +317,9 @@ class ChatBot extends Component {
       const nextStep = Object.assign({}, steps[data.stepId]);
       nextStep.key = Random(24);
 
-      if (nextStep.message) {
-        const lettersCount = nextStep.message.split('').length;
-        nextStep.delay = parseInt(lettersCount / WRITING_SPEED) * 1000;
+      if (currentStep.message) {
+        const lettersCount = currentStep.message.split('').length;
+        nextStep.delay = parseInt(lettersCount * WRITING_SPEED);
       }
 
       if (data.delay) {
@@ -388,9 +386,9 @@ class ChatBot extends Component {
         }
       }
 
-      if (nextStep.message) {
-        const lettersCount = nextStep.message.split('').length;
-        nextStep.delay = parseInt(lettersCount / WRITING_SPEED) * 1000;
+      if (currentStep.message) {
+        const lettersCount = currentStep.message.split('').length;
+        nextStep.delay = parseInt(lettersCount * WRITING_SPEED) + 200;
       }
 
       nextStep.key = Random(24);
