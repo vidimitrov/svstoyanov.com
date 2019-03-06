@@ -79,15 +79,15 @@ class ProjectsSlider extends React.Component {
             </Grid>
             <Grid item xs={3}>
               <div className={classes.duration}>
-                <AnimatedText text={`${project.duration} DURATION`} delay={1000}/>
+                <AnimatedText text={`${project.duration} DURATION`}/>
               </div>
             </Grid>
           </Grid>
           <div className={classes.projectName}>
-            <AnimatedText text={`P${project.id} ${project.name.split(' ').join(' ').toUpperCase()}`} delay={1000}/>
+            <AnimatedText text={`P${project.id} ${project.name.split(' ').join(' ').toUpperCase()}`}/>
           </div>
           <div className={classes.projectDescription}>
-            <AnimatedText text={project.shortDescription} delay={2000}/>
+            <AnimatedText text={project.shortDescription}/>
           </div>
           {
             !selected && (
@@ -103,7 +103,7 @@ class ProjectsSlider extends React.Component {
                   });
                 }}
                 >
-                  <AnimatedText text={ isMobile() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join('_')} delay={3000}/>
+                  <AnimatedText text={ isMobile() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join('_')}/>
                 </Button>
                 {
                   secondaryButtons
@@ -117,7 +117,7 @@ class ProjectsSlider extends React.Component {
                         });
                       }}
                     >
-                      <AnimatedText text={ isMobile() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join('_')} delay={4000}/>
+                      <AnimatedText text={ isMobile() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join('_')}/>
                     </Button>
                   ))
                 }
