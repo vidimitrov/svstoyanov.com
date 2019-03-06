@@ -426,7 +426,7 @@ export default [
     component: (
       <ProjectsSlider
         primaryButtonLabel={showProjectMessage()}
-        activeSlideId={1}
+        startFrom={0}
       />
     ),
     style: {
@@ -855,7 +855,7 @@ export default [
     id: '4d5776b5-5eae-495c-868c-eae02cc797d7',
     component: (
       <ProjectsSlider
-        activeSlideId={4} // Panto project
+        startFrom={3} // Panto project
         primaryButtonLabel={showProjectMessage()}
         secondaryButtons={[
           {
@@ -886,7 +886,7 @@ export default [
     id: '2c3868eb-0a5b-4723-b64d-2762d7ca37d3',
     component: (
       <ProjectsSlider
-        activeSlideId={5} // svstoyanov.com website
+        startFrom={4} // svstoyanov.com website
         primaryButtonLabel={showProjectMessage()}
         secondaryButtons={[
           {
@@ -1231,7 +1231,7 @@ export default [
     component: (
       <ProjectsSlider
         primaryButtonLabel={showProjectMessage()}
-        activeSlideId={4}
+        startFrom={3}
       /> // Ale project
     ),
     style: {
