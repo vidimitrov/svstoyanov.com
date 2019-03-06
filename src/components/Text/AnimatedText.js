@@ -9,11 +9,38 @@ import { WRITING_SPEED } from '../../constants';
 class AnimatedText extends React.Component {
   constructor(props) {
     super(props);
+
     this.lettersWrapper = React.createRef();
     this.lettersElements = null;
+    this.state = {
+      startRendering: props.delay ? false : true,
+    }
+
+    this.animateText = this.animateText.bind(this);
   }
 
   componentDidMount() {
+    const {delay} = this.props;
+
+    if (delay) {
+      setTimeout(() => {
+        this.setState({ startRendering: true }, () => {
+          this.animateText();
+        });
+      }, delay);
+    } else {
+      this.animateText();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const {text} = this.props;
+    if (text !== prevProps.text) {
+      this.animateText();
+    }
+  }
+
+  animateText() {
     this.lettersElements = this.lettersWrapper.current.querySelectorAll('span');
     anime.remove(this.lettersElements);
     anime({
@@ -26,9 +53,13 @@ class AnimatedText extends React.Component {
   }
 
   render() {
-    const { text, classes } = this.props;
+    const { startRendering } = this.state;
+    const { 
+      text, 
+      classes 
+    } = this.props;
 
-    return (
+    return startRendering &&
       <Charming 
         className={classes.letter}
         letters={text} 
@@ -38,8 +69,7 @@ class AnimatedText extends React.Component {
           ref={this.lettersWrapper}>
           {letters}
         </h1>
-      )}/>
-    );
+      )}/>;
   }
 }
 
