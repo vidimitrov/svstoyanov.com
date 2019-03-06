@@ -17,8 +17,8 @@ class AnimatedText extends React.Component {
     anime.remove(this.lettersElements);
     anime({
       targets: this.lettersElements,
-      duration: 20,
-      delay: (t,i) => (i+5)*30,
+      duration: 20, // The bigger the duration, the smoother it renders a letter
+      delay: (t,i) => (i + 1) * 20, // For now let's assume that the last number is the milliseconds
       easing: 'linear',
       opacity: [0,1]
     });
