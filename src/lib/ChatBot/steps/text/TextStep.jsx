@@ -7,7 +7,6 @@ import Image from './Image';
 import ImageContainer from './ImageContainer';
 import Loading from '../common/Loading';
 import TextStepContainer from './TextStepContainer';
-import { calculateOpacity } from '../common/utils/opacity';
 import AnimatedText from '../../../../components/Text/AnimatedText';
 
 const URL_REGEX = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm;
@@ -21,25 +20,42 @@ class TextStep extends Component {
   constructor(props) {
     super(props);
 
+    const { isFirst } = props;
+
     this.state = {
-      loading: true,
+      startRendering: false,
+      loading: isFirst ? true : false,
     };
 
     this.renderMessage = this.renderMessage.bind(this);
   }
 
   componentDidMount() {
-    const { step } = this.props;
+    const { step, isFirst } = this.props;
     const { component, delay, waitAction } = step;
     const isComponentWaitingUser = component && waitAction;
 
-    setTimeout(() => {
-      this.setState({ loading: false }, () => {
-        if (!isComponentWaitingUser && !step.rendered) {
-          this.props.triggerNextStep();
-        }
-      });
-    }, delay);
+    if (isFirst) {
+      setTimeout(() => {
+        this.setState({ loading: false, startRendering: true }, () => {
+          if (!isComponentWaitingUser && !step.rendered) {
+            this.props.triggerNextStep();
+          }
+        });
+      }, delay);
+    } else {
+      setTimeout(() => {
+        this.setState({ loading: true }, () => {
+          setTimeout(() => {
+            this.setState({ loading: false, startRendering: true }, () => {
+              if (!isComponentWaitingUser && !step.rendered) {
+                this.props.triggerNextStep();
+              }
+            });
+          }, 500);
+        });
+      }, delay);
+    }
 
     const stepEl = ReactDOM.findDOMNode(this.stepContainer);
     this.setState({
@@ -74,7 +90,6 @@ class TextStep extends Component {
   }
 
   render() {
-    const { stepEl } = this.state;
     const {
       step,
       style,
@@ -92,17 +107,11 @@ class TextStep extends Component {
 
     const showAvatar = user ? !hideUserAvatar : !hideBotAvatar;
 
-    let opacity = 1;
-    if (stepEl) {
-      opacity = calculateOpacity(stepEl);
-    }
-
     return (
       <TextStepContainer
         className="rsc-ts"
         style={{
           ...style,
-          opacity,
         }}
         ref={(element) => {
           this.stepContainer = element;
@@ -139,7 +148,7 @@ class TextStep extends Component {
             this.state.loading
             && <Loading />
           }
-          {(!this.state.loading) && this.renderMessage()}
+          {(this.state.startRendering) && this.renderMessage()}
         </Bubble>
       </TextStepContainer>
     );

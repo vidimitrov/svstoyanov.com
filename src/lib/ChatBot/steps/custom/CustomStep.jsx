@@ -2,9 +2,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-// import Loading from '../common/Loading';
 import CustomStepContainer from './CustomStepContainer';
-import { calculateOpacity } from '../common/utils/opacity';
 
 class CustomStep extends Component {
   /* istanbul ignore next */
@@ -12,8 +10,7 @@ class CustomStep extends Component {
     super(props);
 
     this.state = {
-      // loading: true,
-      stepEl: null,
+      startRendering: false,
     };
 
     this.renderComponent = this.renderComponent.bind(this);
@@ -24,22 +21,15 @@ class CustomStep extends Component {
     const { delay, waitAction } = step;
 
     setTimeout(() => {
-      // this.setState({ loading: false }, () => {
-      if (!waitAction && !step.rendered) {
-        triggerNextStep();
-      }
-      // });
+      this.setState({ startRendering: true }, () => {
+        const stepEl = ReactDOM.findDOMNode(this.stepContainer);
+        stepEl.offsetParent.scrollTop = stepEl.offsetParent.scrollHeight;
+
+        if (!waitAction && !step.rendered) {
+          triggerNextStep();
+        }
+      });
     }, delay);
-
-    const stepEl = ReactDOM.findDOMNode(this.stepContainer);
-
-    setTimeout(() => {
-      stepEl.offsetParent.scrollTop = stepEl.offsetParent.scrollHeight;
-    }, 50);
-
-    this.setState({
-      stepEl,
-    });
   }
 
   renderComponent() {
@@ -59,32 +49,19 @@ class CustomStep extends Component {
   }
 
   render() {
-    const { stepEl } = this.state;
     const { style } = this.props;
-
-    let opacity = 1;
-
-    if (stepEl) {
-      opacity = calculateOpacity(stepEl);
-    }
 
     return (
       <CustomStepContainer
         className="rsc-cs"
         style={{
           ...style,
-          opacity,
         }}
         ref={(element) => {
           this.stepContainer = element;
         }}
       >
-        {
-          // loading ? (
-          //   <Loading />
-          // ) :
-          this.renderComponent()
-        }
+        { this.state.startRendering && this.renderComponent() }
       </CustomStepContainer>
     );
   }
@@ -94,7 +71,6 @@ CustomStep.propTypes = {
   step: PropTypes.object.isRequired,
   steps: PropTypes.object.isRequired,
   style: PropTypes.object,
-  // isLast: PropTypes.bool.isRequired,
   previousStep: PropTypes.object.isRequired,
   triggerNextStep: PropTypes.func.isRequired,
 };
