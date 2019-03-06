@@ -2,7 +2,6 @@
 /* eslint-disable no-return-assign */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Slider from 'react-slick';
 import Grid from '@material-ui/core/Grid';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
@@ -10,6 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import SliderButton from '../Buttons/SliderButton';
 import Button from '../Buttons/Button';
+import AnimatedText from '../Text/AnimatedText';
 import { isMobile } from '../../lib/viewport';
 import styles from './styles';
 
@@ -17,30 +17,40 @@ class ProjectsSlider extends React.Component {
   constructor(props) {
     super(props);
 
+    const { startFrom, projects } = props;
+
     this.state = {
       selected: false,
+      currentProject: startFrom !== undefined ? projects[startFrom] : projects[0],
     };
 
-    this.nextSlide = this.nextSlide.bind(this);
-    this.prevSlide = this.prevSlide.bind(this);
+    this.nextProject = this.nextProject.bind(this);
+    this.prevProject = this.prevProject.bind(this);
+    this.renderProject = this.renderProject.bind(this);
   }
 
-  componentDidMount() {
-    const { activeSlideId } = this.props;
-    if (activeSlideId !== undefined) {
-      this.slider.slickGoTo(activeSlideId, true);
-    }
+  nextProject() {
+    const {currentProject} = this.state;
+    const {projects} = this.props;
+    const nextProjectId = currentProject.id + 1 < projects.length ? currentProject.id + 1 : 0;
+
+    this.setState({
+      currentProject: projects[nextProjectId],
+    });
   }
 
-  nextSlide() {
-    this.slider.slickNext();
+  prevProject() {
+    const {currentProject} = this.state;
+    const {projects} = this.props;
+    const prevProjectId = currentProject.id - 1 >= 0 ? currentProject.id - 1 : projects.length - 1;
+
+    this.setState({
+      currentProject: projects[prevProjectId],
+    });
   }
 
-  prevSlide() {
-    this.slider.slickPrev();
-  }
-
-  render() {
+  renderProject(project) {
+    const { selected } = this.state;
     const {
       projects,
       classes,
@@ -48,117 +58,109 @@ class ProjectsSlider extends React.Component {
       secondaryButtons,
       triggerNextStep,
     } = this.props;
-    const { selected } = this.state;
-    const settings = {
-      dots: false,
-      infinite: true,
-      speed: 500,
-      swipe: !selected,
-      accessibility: false,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    };
+
     return (
-      <Slider ref={c => (this.slider = c)} {...settings} className={classes.slider}>
-        {projects.map((project, index) => {
-          const projectCodeName = `P${project.id} ${project.name.split(' ').join(' ').toUpperCase()}`;
-          return (
-            <Grid container key={index} className={classes.projectSliderContainer}>
-              { !selected && !isMobile() &&
-                <Grid item xs={false} sm={3} className={classes.sliderNavButton}>
-                  <SliderButton prev onClick={() => {
-                      this.prevSlide();
-                    }}>
-                    Previous
-                  </SliderButton>
-                </Grid>
-              }
-              <Grid item xs={12} sm={6}>
-                <Grid container>
-                  <Grid item xs={9}>
-                    <div className={classes.projectId}>
-                      Portfolio_Project: 0
-                      {project.id}
-                      _0
-                      {projects.length}
-                    </div>
-                  </Grid>
-                  <Grid item xs={3}>
-                    <div className={classes.duration}>
-                      {project.duration}
-                      {' '}
-                      DURATION
-                    </div>
-                  </Grid>
-                </Grid>
-                <div className={classes.projectName}>{projectCodeName}</div>
-                <div className={classes.projectDescription}>
-                  {project.shortDescription}
-                </div>
+      <Grid container className={classes.projectSliderContainer}>
+        { !selected && !isMobile() &&
+          <Grid item xs={false} sm={3} className={classes.sliderNavButton}>
+            <SliderButton prev onClick={() => {
+                this.prevProject();
+              }}>
+              <AnimatedText text="Previous"/>
+            </SliderButton>
+          </Grid>
+        }
+        <Grid item xs={12} sm={6}>
+          <Grid container>
+            <Grid item xs={9}>
+              <div className={classes.projectId}>
+                <AnimatedText text={`Portfolio_Project: 0${project.id}_0${projects.length}`}/>
+              </div>
+            </Grid>
+            <Grid item xs={3}>
+              <div className={classes.duration}>
+                <AnimatedText text={`${project.duration} DURATION`} delay={1000}/>
+              </div>
+            </Grid>
+          </Grid>
+          <div className={classes.projectName}>
+            <AnimatedText text={`P${project.id} ${project.name.split(' ').join(' ').toUpperCase()}`} delay={1000}/>
+          </div>
+          <div className={classes.projectDescription}>
+            <AnimatedText text={project.shortDescription} delay={2000}/>
+          </div>
+          {
+            !selected && (
+              <div className={classes.buttonsWrapper}>
+                <Button onClick={() => {
+                  this.setState({
+                    selected: true,
+                  }, () => {
+                    triggerNextStep({
+                      stepId: `project-info-step-${project.id}`,
+                      externalTrigger: true,
+                    });
+                  });
+                }}
+                >
+                  <AnimatedText text={ isMobile() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join('_')} delay={3000}/>
+                </Button>
                 {
-                  !selected && (
-                    <div className={classes.buttonsWrapper}>
-                      <Button onClick={() => {
-                        this.setState({
-                          selected: true,
-                        }, () => {
-                          triggerNextStep({
-                            stepId: `project-info-step-${project.id}`,
-                            externalTrigger: true,
-                          });
+                  secondaryButtons
+                  && secondaryButtons.map((secondaryButton, idx) => (
+                    <Button
+                      key={idx}
+                      onClick={() => {
+                        triggerNextStep({
+                          stepId: secondaryButton.trigger,
+                          externalTrigger: true,
                         });
                       }}
-                      >
-                        { isMobile() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join('_')}
-                      </Button>
-                      {
-                        secondaryButtons
-                        && secondaryButtons.map((secondaryButton, idx) => (
-                          <Button
-                            key={idx}
-                            onClick={() => {
-                              triggerNextStep({
-                                stepId: secondaryButton.trigger,
-                                externalTrigger: true,
-                              });
-                            }}
-                          >
-                            { isMobile() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join('_')}
-                          </Button>
-                        ))
-                      }
-                    </div>
-                  )
-                }
-                {
-                  !selected && isMobile() &&
-                  <div className={classes.navigationButtons}>
-                    <Button navigational onClick={() => {
-                      this.prevSlide();
-                    }}>
-                      PREV_PROJECT
+                    >
+                      <AnimatedText text={ isMobile() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join('_')} delay={4000}/>
                     </Button>
-                    <Button navigational onClick={() => {
-                      this.nextSlide();
-                    }}>
-                      NEXT_PROJECT
-                    </Button>
-                  </div>
+                  ))
                 }
-              </Grid>
-              { !selected && !isMobile() &&
-                <Grid item xs={false} sm={3} className={classes.sliderNavButton}>
-                  <SliderButton next onClick={() => {
-                      this.nextSlide();
-                    }}>
-                    Next
-                  </SliderButton>
-                </Grid>
-              }
-            </Grid>
-          );
-        })}
-      </Slider>
+              </div>
+            )
+          }
+          {
+            !selected && isMobile() &&
+            <div className={classes.navigationButtons}>
+              <Button navigational onClick={() => {
+                this.prevProject();
+              }}>
+                <AnimatedText text="PREV_PROJECT"/>
+              </Button>
+              <Button navigational onClick={() => {
+                this.nextProject();
+              }}>
+                <AnimatedText text="NEXT_PROJECT"/>
+              </Button>
+            </div>
+          }
+        </Grid>
+        { !selected && !isMobile() &&
+          <Grid item xs={false} sm={3} className={classes.sliderNavButton}>
+            <SliderButton next onClick={() => {
+                this.nextProject();
+              }}>
+              <AnimatedText text="Next"/>
+            </SliderButton>
+          </Grid>
+        }
+      </Grid>
+    );
+  }
+
+  render() {
+    const { currentProject } = this.state;
+    const { classes } = this.props;
+
+    return (
+      <div className={classes.slider}>
+        {this.renderProject(currentProject)}
+      </div>
     );
   }
 }
