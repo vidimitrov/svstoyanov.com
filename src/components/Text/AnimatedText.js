@@ -4,6 +4,7 @@ import anime from 'animejs';
 import { withStyles } from '@material-ui/core/styles';
 
 import styles from './styles';
+import { WRITING_SPEED } from '../../constants';
 
 class AnimatedText extends React.Component {
   constructor(props) {
@@ -17,8 +18,8 @@ class AnimatedText extends React.Component {
     anime.remove(this.lettersElements);
     anime({
       targets: this.lettersElements,
-      duration: 20, // The bigger the duration, the smoother it renders a letter
-      delay: (t,i) => (i + 1) * 20, // For now let's assume that the last number is the milliseconds
+      duration: 40, // The bigger the duration, the smoother it renders a letter
+      delay: (t,i) => (i + 1) * WRITING_SPEED,
       easing: 'linear',
       opacity: [0,1]
     });
