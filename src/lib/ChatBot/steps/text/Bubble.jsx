@@ -20,10 +20,10 @@ const Bubble = styled.div`
   max-width: 50%;
   max-width: 100%;
   margin: ${(props) => {
-    const { isFirst, showAvatar, user } = props;
-    if (!isFirst && showAvatar) {
+    const { isLast, showAvatar, user } = props;
+    if (!isLast && showAvatar) {
       return user ? '-8px 46px 0 0' : '-8px 0 0 54px';
-    } if (!isFirst && !showAvatar) {
+    } if (!isLast && !showAvatar) {
       return user ? '-8px 0px 0 0' : '-8px 0 0 0px';
     }
 
@@ -34,8 +34,8 @@ const Bubble = styled.div`
   padding: 8px;
   transform: scale(0);
   transform-origin: ${(props) => {
-    const { isFirst, user } = props;
-    if (isFirst) {
+    const { isLast, user } = props;
+    if (isLast) {
       return user ? 'bottom right' : 'bottom left';
     }
 
