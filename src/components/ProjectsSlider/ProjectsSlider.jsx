@@ -6,11 +6,13 @@ import Grid from '@material-ui/core/Grid';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
+import classNames from 'classnames';
 
 import SliderButton from '../Buttons/SliderButton';
 import Button from '../Buttons/Button';
 import AnimatedText from '../Text/AnimatedText';
-import { isMobile } from '../../lib/viewport';
+import { isDesktop } from '../../lib/viewport';
+import avatar from '../../assets/img/sto-avatar.png';
 import styles from './styles';
 
 class ProjectsSlider extends React.Component {
@@ -60,17 +62,26 @@ class ProjectsSlider extends React.Component {
     } = this.props;
 
     return (
-      <Grid container className={classes.projectSliderContainer}>
-        { !selected && !isMobile() &&
-          <Grid item xs={false} sm={3} className={classes.sliderNavButton}>
-            <SliderButton prev onClick={() => {
-                this.prevProject();
-              }}>
-              <AnimatedText text="Previous"/>
-            </SliderButton>
-          </Grid>
-        }
-        <Grid item xs={12} sm={6}>
+      <div className={classes.projectSliderContainer}>
+        <div className={classes.sliderBody}>
+          { !selected && isDesktop() &&
+            <div className={classNames(classes.sliderNavButton, classes.sliderLeftButton)}>
+              <SliderButton prev onClick={() => {
+                  this.prevProject();
+                }}>
+                <AnimatedText text="Previous"/>
+              </SliderButton>
+            </div>
+          }
+          { !selected && isDesktop() &&
+            <div className={classNames(classes.sliderNavButton, classes.sliderRightButton)}>
+              <SliderButton next onClick={() => {
+                  this.nextProject();
+                }}>
+                <AnimatedText text="Next"/>
+              </SliderButton>
+            </div>
+          }
           <Grid container>
             <Grid item xs={9}>
               <div className={classes.projectId}>
@@ -87,6 +98,7 @@ class ProjectsSlider extends React.Component {
             <AnimatedText text={`P${project.id} ${project.name.split(' ').join(' ').toUpperCase()}`}/>
           </div>
           <div className={classes.projectDescription}>
+            <img className={classes.avatar} src={avatar} alt="Stoyan avatar"/>
             <AnimatedText text={project.shortDescription}/>
           </div>
           {
@@ -103,7 +115,7 @@ class ProjectsSlider extends React.Component {
                   });
                 }}
                 >
-                  <AnimatedText text={ isMobile() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join('_')}/>
+                  <AnimatedText text={ !isDesktop() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join('_')}/>
                 </Button>
                 {
                   secondaryButtons
@@ -117,7 +129,7 @@ class ProjectsSlider extends React.Component {
                         });
                       }}
                     >
-                      <AnimatedText text={ isMobile() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join('_')}/>
+                      <AnimatedText text={ !isDesktop() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join('_')}/>
                     </Button>
                   ))
                 }
@@ -125,7 +137,7 @@ class ProjectsSlider extends React.Component {
             )
           }
           {
-            !selected && isMobile() &&
+            !selected && !isDesktop() &&
             <div className={classes.navigationButtons}>
               <Button navigational onClick={() => {
                 this.prevProject();
@@ -139,17 +151,8 @@ class ProjectsSlider extends React.Component {
               </Button>
             </div>
           }
-        </Grid>
-        { !selected && !isMobile() &&
-          <Grid item xs={false} sm={3} className={classes.sliderNavButton}>
-            <SliderButton next onClick={() => {
-                this.nextProject();
-              }}>
-              <AnimatedText text="Next"/>
-            </SliderButton>
-          </Grid>
-        }
-      </Grid>
+        </div>
+      </div>
     );
   }
 

@@ -18,6 +18,16 @@ export default {
       margin: '72px 0',
     },
   },
+  sliderBody: {
+    maxWidth: '100%',
+    position: 'relative',
+    margin: '0 auto',
+    padding: '0 16px',
+
+    [breakpoints.md]: {
+      maxWidth: '60%',
+    },
+  },
   projectSliderContainer: {
     display: 'flex !important',
   },
@@ -58,18 +68,28 @@ export default {
       letterSpacing: '4px',
     },
   },
+  avatar: {
+    height: '48px',
+    width: '48px',
+    padding: '9px',
+  },
   projectDescription: {
     fontSize: '12px',
     lineHeight: '18px',
     letterSpacing: '1.2px',
     color: 'rgba(255, 255, 255, 0.9)',
     margin: '32px 0 46px',
+    display: 'flex',
 
     [breakpoints.md]: {
       fontSize: '20px',
       lineHeight: 1.5,
       letterSpacing: '2px',
     },
+
+    '& > div': {
+      padding: 8,
+    }
   },
   buttonsWrapper: {
     display: 'flex',
@@ -83,6 +103,14 @@ export default {
   sliderNavButton: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+    position: 'absolute',
+    top: '180px',
+  },
+  sliderRightButton: {
+    right: '-170px',
+  },
+  sliderLeftButton: {
+    left: '-200px',
+  },
 };
