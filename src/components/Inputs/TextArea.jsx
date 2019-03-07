@@ -39,6 +39,10 @@ class TextArea extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.textarea.focus();
+  }
+
   onValueChange(e) {
     this.setState({ value: e.target.value });
   }

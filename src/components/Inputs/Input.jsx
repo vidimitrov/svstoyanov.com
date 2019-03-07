@@ -27,6 +27,10 @@ class Input extends React.Component {
     this.submit = this.submit.bind(this);
   }
 
+  componentDidMount() {
+    this.input.focus();
+  }
+
   onValueChange(e) {
     const { value } = e.target;
     const { type } = this.props;
