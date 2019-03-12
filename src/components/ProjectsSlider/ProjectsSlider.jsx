@@ -82,7 +82,7 @@ class ProjectsSlider extends React.Component {
               </SliderButton>
             </div>
           }
-          <Grid container>
+          <Grid container className={classes.sliderOffset}>
             <Grid item xs={9}>
               <div className={classes.projectId}>
                 <AnimatedText text={`Portfolio_Project: 0${project.id}_0${projects.length}`}/>
@@ -94,7 +94,7 @@ class ProjectsSlider extends React.Component {
               </div>
             </Grid>
           </Grid>
-          <div className={classes.projectName}>
+          <div className={classNames(classes.projectName, classes.sliderOffset)}>
             <AnimatedText text={`P${project.id} ${project.name.split(' ').join(' ').toUpperCase()}`}/>
           </div>
           <div className={classes.projectDescription}>
@@ -103,7 +103,7 @@ class ProjectsSlider extends React.Component {
           </div>
           {
             !selected && (
-              <div className={classes.buttonsWrapper}>
+              <div className={classNames(classes.buttonsWrapper, classes.sliderOffset)}>
                 <Button onClick={() => {
                   this.setState({
                     selected: true,

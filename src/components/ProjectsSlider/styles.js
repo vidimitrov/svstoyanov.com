@@ -56,6 +56,9 @@ export default {
       color: '#02A0A7',
     },
   },
+  sliderOffset: {
+    padding: '0 72px',
+  },
   projectName: {
     fontSize: '32px',
     fontWeight: 'bold',

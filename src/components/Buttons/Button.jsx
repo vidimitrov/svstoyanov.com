@@ -66,7 +66,7 @@ const Wrapper = styled.div`
   }
 
   ${breakpoints.md} {
-    margin: 0 0 24px 16px;
+    margin: 0 0 24px 0;
 
     &:before {
       left: 24px;
