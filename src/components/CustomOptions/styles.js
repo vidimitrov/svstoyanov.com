@@ -22,7 +22,7 @@ export default {
     margin: '16px 0 8px -5px',
 
     [breakpoints.md]: {
-      margin: '32px 0 0 -16px',
+      margin: '32px 0 0 0',
     },
   },
 };
