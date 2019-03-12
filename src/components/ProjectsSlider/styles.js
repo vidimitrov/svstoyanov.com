@@ -70,6 +70,17 @@ export default {
       lineHeight: 1.5,
       letterSpacing: '4px',
     },
+    '&:before': {
+      content: 'no-close-quote',
+      display: 'block',
+      position: 'absolute',
+      top: '22px',
+      left: '64px',
+      width: '80px',
+      height: '80px',
+      backgroundColor: '#ffffff',
+      opacity: 0.07,
+    },
   },
   avatar: {
     height: '48px',
