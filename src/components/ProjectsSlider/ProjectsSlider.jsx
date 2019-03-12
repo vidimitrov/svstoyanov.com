@@ -9,6 +9,9 @@ import { withStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 
 import SliderButton from '../Buttons/SliderButton';
+import {SelectedOption} from '../CustomOptions/CustomOptions';
+import ArrowAvatar from '../Avatars/ArrowAvatar';
+import arrowAvatar from '../../assets/img/bot-arrow.svg';
 import Button from '../Buttons/Button';
 import AnimatedText from '../Text/AnimatedText';
 import { isDesktop } from '../../lib/viewport';
@@ -23,6 +26,7 @@ class ProjectsSlider extends React.Component {
 
     this.state = {
       selected: false,
+      selectedOptionName: null,
       currentProject: startFrom !== undefined ? projects[startFrom] : projects[0],
     };
 
@@ -52,7 +56,10 @@ class ProjectsSlider extends React.Component {
   }
 
   renderProject(project) {
-    const { selected } = this.state;
+    const { 
+      selected, 
+      selectedOptionName 
+    } = this.state;
     const {
       projects,
       classes,
@@ -101,56 +108,72 @@ class ProjectsSlider extends React.Component {
             <img className={classes.avatar} src={avatar} alt="Stoyan avatar"/>
             <AnimatedText text={project.shortDescription}/>
           </div>
-          {
-            !selected && (
-              <div className={classNames(classes.buttonsWrapper, classes.sliderOffset)}>
-                <Button onClick={() => {
-                  this.setState({
-                    selected: true,
-                  }, () => {
-                    triggerNextStep({
-                      stepId: `project-info-step-${project.id}`,
-                      externalTrigger: true,
+          <Grid container>
+            <Grid item className={classes.arrowAvatar}>
+              <ArrowAvatar src={arrowAvatar} />
+            </Grid>
+            {
+              !selected && (
+                <Grid item className={classes.buttonsWrapper}>
+                  <Button onClick={() => {
+                    this.setState({
+                      selected: true,
+                      selectedOptionName: !isDesktop() ? 'LEARN MORE' : primaryButtonLabel.toUpperCase()
+                    }, () => {
+                      triggerNextStep({
+                        stepId: `project-info-step-${project.id}`,
+                        externalTrigger: true,
+                      });
                     });
-                  });
-                }}
-                >
-                  <AnimatedText text={ !isDesktop() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join('_')}/>
+                  }}
+                  >
+                    <AnimatedText text={ !isDesktop() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join('_')}/>
+                  </Button>
+                  {
+                    secondaryButtons
+                    && secondaryButtons.map((secondaryButton, idx) => (
+                      <Button
+                        key={idx}
+                        onClick={() => {
+                          this.setState({
+                            selected: true,
+                            selectedOptionName: !isDesktop() ? 'SKIP' : secondaryButton.label.toUpperCase()
+                          }, () => {
+                          triggerNextStep({
+                            stepId: secondaryButton.trigger,
+                            externalTrigger: true,
+                          });
+                        })}}>
+                        <AnimatedText text={ !isDesktop() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join('_')}/>
+                      </Button>
+                    ))
+                  }
+                </Grid>
+              )
+            }
+            {
+              !selected && !isDesktop() &&
+              <Grid item className={classes.navigationButtons}>
+                <Button navigational onClick={() => {
+                  this.prevProject();
+                }}>
+                  <AnimatedText text="PREV_PROJECT"/>
                 </Button>
-                {
-                  secondaryButtons
-                  && secondaryButtons.map((secondaryButton, idx) => (
-                    <Button
-                      key={idx}
-                      onClick={() => {
-                        triggerNextStep({
-                          stepId: secondaryButton.trigger,
-                          externalTrigger: true,
-                        });
-                      }}
-                    >
-                      <AnimatedText text={ !isDesktop() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join('_')}/>
-                    </Button>
-                  ))
-                }
-              </div>
-            )
-          }
-          {
-            !selected && !isDesktop() &&
-            <div className={classes.navigationButtons}>
-              <Button navigational onClick={() => {
-                this.prevProject();
-              }}>
-                <AnimatedText text="PREV_PROJECT"/>
-              </Button>
-              <Button navigational onClick={() => {
-                this.nextProject();
-              }}>
-                <AnimatedText text="NEXT_PROJECT"/>
-              </Button>
-            </div>
-          }
+                <Button navigational onClick={() => {
+                  this.nextProject();
+                }}>
+                  <AnimatedText text="NEXT_PROJECT"/>
+                </Button>
+              </Grid>
+            }
+            {
+              selected && selectedOptionName &&
+              <Grid item className={classes.selectedOptionOffset}>
+                <SelectedOption className={classes.selectedOption}>{selectedOptionName}</SelectedOption>
+              </Grid>
+            }
+          </Grid>
+          
         </div>
       </div>
     );

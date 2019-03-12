@@ -15,7 +15,7 @@ export default {
     fontFamily: 'Space Mono',
 
     [breakpoints.md]: {
-      margin: '72px 0',
+      margin: '72px 0 0',
     },
   },
   sliderBody: {
@@ -92,7 +92,7 @@ export default {
     lineHeight: '18px',
     letterSpacing: '1.2px',
     color: 'rgba(255, 255, 255, 0.9)',
-    margin: '32px 0 46px',
+    margin: '32px 0 0',
     display: 'flex',
 
     [breakpoints.md]: {
@@ -106,10 +106,11 @@ export default {
     }
   },
   buttonsWrapper: {
-    display: 'flex',
     flexWrap: 'wrap',
 
-    [breakpoints.md]: {},
+    [breakpoints.md]: {
+      paddingTop: '16px',
+    },
   },
   navigationButtons: {
     display: 'flex',
@@ -127,4 +128,16 @@ export default {
   sliderLeftButton: {
     left: '-200px',
   },
+  selectedOption: {
+    margin: 0,
+  },
+  selectedOptionOffset: {
+    padding: '32px 0',
+  },
+  arrowAvatar: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: '72px',
+  }
 };

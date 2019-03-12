@@ -11,7 +11,7 @@ import ArrowAvatar from '../Avatars/ArrowAvatar';
 import arrowAvatar from '../../assets/img/bot-arrow.svg';
 import { breakpoints } from '../../styles';
 
-const SelectedOption = styled.div`
+export const SelectedOption = styled.div`
   font-family: "Space Mono";
   font-size: 10px;
   font-weight: bold;
