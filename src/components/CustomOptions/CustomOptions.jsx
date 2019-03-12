@@ -9,13 +9,14 @@ import styles from './styles';
 import Button from '../Buttons/Button';
 import ArrowAvatar from '../Avatars/ArrowAvatar';
 import arrowAvatar from '../../assets/img/bot-arrow.svg';
-import { breakpoints } from '../../styles';
+import { breakpoints, colors } from '../../styles';
 
 export const SelectedOption = styled.div`
   font-family: "Space Mono";
   font-size: 10px;
   font-weight: bold;
   letter-spacing: 2px;
+  color: ${colors.primary};
   max-width: 100%;
   text-transform: uppercase;
   margin: 0 0 28px 3px;
