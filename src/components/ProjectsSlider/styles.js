@@ -107,6 +107,8 @@ export default {
   },
   buttonsWrapper: {
     flexWrap: 'wrap',
+    display: 'flex',
+    flex: 1,
 
     [breakpoints.md]: {
       paddingTop: '16px',
@@ -137,7 +139,8 @@ export default {
   arrowAvatar: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     minWidth: '72px',
+    paddingBottom: '32px',
   }
 };
