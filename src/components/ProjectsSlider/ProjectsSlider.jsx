@@ -14,6 +14,7 @@ import ArrowAvatar from '../Avatars/ArrowAvatar';
 import arrowAvatar from '../../assets/img/bot-arrow.svg';
 import Button from '../Buttons/Button';
 import AnimatedText from '../Text/AnimatedText';
+// import Loading from '../../lib/ChatBot/steps/common/Loading';
 import { isDesktop } from '../../lib/viewport';
 import avatar from '../../assets/img/sto-avatar.png';
 import styles from './styles';
@@ -27,12 +28,19 @@ class ProjectsSlider extends React.Component {
     this.state = {
       selected: false,
       selectedOptionName: null,
+      loading: true,
       currentProject: startFrom !== undefined ? projects[startFrom] : projects[0],
     };
 
     this.nextProject = this.nextProject.bind(this);
     this.prevProject = this.prevProject.bind(this);
     this.renderProject = this.renderProject.bind(this);
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ loading: false });
+    }, 500);
   }
 
   nextProject() {
@@ -58,7 +66,8 @@ class ProjectsSlider extends React.Component {
   renderProject(project) {
     const { 
       selected, 
-      selectedOptionName 
+      selectedOptionName,
+      loading,
     } = this.state;
     const {
       projects,
@@ -109,6 +118,9 @@ class ProjectsSlider extends React.Component {
           </div>
           <div className={classes.projectDescription}>
             <img className={classes.avatar} src={avatar} alt="Stoyan avatar"/>
+            {/* {
+              loading ? <Loading /> : <AnimatedText text={project.shortDescription}/>
+            } */}
             <AnimatedText text={project.shortDescription}/>
           </div>
           <Grid container>
