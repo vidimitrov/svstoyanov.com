@@ -33,9 +33,19 @@ const styles = {
   nextText: {
     marginRight: '16px',
   },
-  prevContainer: {
+  prev: {
+    background: `url("${PrevButton}") no-repeat`,
+    transition: 'background 250ms ease-in-out',
+    '&:hover': {
+      background: `url("${PrevButtonHovered}") no-repeat`,
+    }
   },
-  nextContainer: {
+  next: {
+    background: `url("${NextButton}") no-repeat`,
+    transition: 'background 250ms ease-in-out',
+    '&:hover': {
+      background: `url("${NextButtonHovered}") no-repeat`,
+    }
   },
 };
 
@@ -81,11 +91,11 @@ class SliderButton extends React.Component {
         onMouseEnter={this.onHover}
         onMouseLeave={this.onBlur}>
         <Grid container direction="row" justify="center" alignItems="center">
-          {prev && <img src={hovered ? PrevButtonHovered : PrevButton} alt="" />}
+          {prev && <img className={classes.prev} src={PrevButton} alt="" />}
           <div>
             <span className={`${classes.highlight} ${prev ? classes.prevText : classes.nextText}`}>{children}</span>
           </div>
-          {next && <img src={hovered ? NextButtonHovered : NextButton} alt="" />}
+          {next && <img className={classes.next} src={NextButton} alt="" />}
         </Grid>
       </Grid>
     );
