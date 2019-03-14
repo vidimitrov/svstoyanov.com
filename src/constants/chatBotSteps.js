@@ -352,13 +352,17 @@ export default [
    */
 
   {
-    id: 'project-info-step-1',
+    id: 'project-info-step-0',
     message: 'Glad that you chose Snapp. So let’s start….',
     trigger: '9d2d1738-2672-40d8-b2ea-b497fc7aef8d',
   }, {
-    id: 'project-info-step-2',
+    id: 'project-info-step-1',
     message: 'Glad that you chose Seemba. So let’s start….',
     trigger: '0b2e19b6-373a-495e-aaf0-85f747947b02',
+  }, {
+    id: 'project-info-step-2',
+    message: 'Glad that you chose History Park. So let’s start….',
+    trigger: '1b2e19b6-373a-495e-aaf0-85f747946602',
   },
   // ...
 
@@ -378,6 +382,15 @@ export default [
     id: '0b2e19b6-373a-495e-aaf0-85f747947b02',
     message: 'So the Seemba project is...',
     // trigger: 'f7f6dffc-b5a8-4a7d-971e-a36c8208329b',
+  },
+
+  /**
+   * SEEMBA PROJECT TOPIC
+   */
+  {
+    id: '1b2e19b6-373a-495e-aaf0-85f747946602',
+    message: 'So the Histry Park project is...',
+    // trigger: '17f6dffc-b5a8-4a7d-971e-a36c82083293',
   },
 
 
