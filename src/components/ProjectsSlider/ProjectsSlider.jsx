@@ -68,10 +68,13 @@ class ProjectsSlider extends React.Component {
       triggerNextStep,
     } = this.props;
 
+    const isFirst = project.id === 0;
+    const isLast = project.id === projects[projects.length - 1].id;
+
     return (
       <div className={classes.projectSliderContainer}>
         <div className={classes.sliderBody}>
-          { !selected && isDesktop() &&
+          { !selected && !isFirst && isDesktop() &&
             <div className={classNames(classes.sliderNavButton, classes.sliderLeftButton)}>
               <SliderButton prev onClick={() => {
                   this.prevProject();
@@ -80,7 +83,7 @@ class ProjectsSlider extends React.Component {
               </SliderButton>
             </div>
           }
-          { !selected && isDesktop() &&
+          { !selected && !isLast && isDesktop() &&
             <div className={classNames(classes.sliderNavButton, classes.sliderRightButton)}>
               <SliderButton next onClick={() => {
                   this.nextProject();
