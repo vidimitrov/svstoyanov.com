@@ -13,6 +13,7 @@ import InputWrapper from './components/InputWrapper';
 import ArrowAvatar from '../Avatars/ArrowAvatar';
 import arrowAvatar from '../../assets/img/bot-arrow.svg';
 import { isValidEmail } from '../../lib/validations';
+import Line from './components/Line';
 
 class Input extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class Input extends React.Component {
       value: '',
       validEmail: false,
       isButtonHidden: false,
+      render: false,
     };
 
     this.onValueChange = this.onValueChange.bind(this);
@@ -30,6 +32,9 @@ class Input extends React.Component {
 
   componentDidMount() {
     this.input.focus();
+    this.setState({
+      rendered: true,
+    });
   }
 
   onValueChange(e) {
@@ -84,6 +89,7 @@ class Input extends React.Component {
       value,
       isButtonHidden,
       validEmail,
+      rendered,
     } = this.state;
     const {
       classes,
@@ -101,7 +107,7 @@ class Input extends React.Component {
         <Grid item className={classes.avatarWrapper}>
           <ArrowAvatar src={arrowAvatar} />
         </Grid>
-        <InputWrapper>
+        <InputWrapper rendered={rendered}>
           <FormControlWrapper item>
             <input
               type={type || 'text'}
@@ -129,6 +135,7 @@ class Input extends React.Component {
               SENT
             </Button>
           </ButtonWrapper>
+          <Line/>
         </InputWrapper>
         {
           type === 'email'

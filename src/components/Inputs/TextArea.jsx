@@ -10,6 +10,7 @@ import Container from './components/Container';
 import InputWrapper from './components/InputWrapper';
 import ArrowAvatar from '../Avatars/ArrowAvatar';
 import arrowAvatar from '../../assets/img/bot-arrow.svg';
+import Line from './components/Line';
 
 class TextArea extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class TextArea extends React.Component {
       value: '',
       initialValueUsed: false,
       isButtonHidden: false,
+      rendered: false,
     };
 
     this.onValueChange = this.onValueChange.bind(this);
@@ -42,6 +44,9 @@ class TextArea extends React.Component {
 
   componentDidMount() {
     this.textarea.focus();
+    this.setState({
+      rendered: true,
+    });
   }
 
   onValueChange(e) {
@@ -77,7 +82,7 @@ class TextArea extends React.Component {
   }
 
   render() {
-    const { value, isButtonHidden } = this.state;
+    const { value, isButtonHidden, rendered } = this.state;
     const {
       classes,
       placeholder,
@@ -91,7 +96,7 @@ class TextArea extends React.Component {
         <Grid item className={classes.avatarWrapper}>
           <ArrowAvatar src={arrowAvatar} />
         </Grid>
-        <InputWrapper>
+        <InputWrapper rendered={rendered}>
           <FormControlWrapper item>
             <textarea
               className={classes.textarea}
@@ -120,6 +125,7 @@ class TextArea extends React.Component {
               SENT
             </Button>
           </ButtonWrapper>
+          <Line />
         </InputWrapper>
       </Container>
     );
