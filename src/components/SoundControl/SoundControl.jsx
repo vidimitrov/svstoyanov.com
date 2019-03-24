@@ -7,6 +7,7 @@ const OffOption = styled.div`
   position: relative; 
   text-align: left;
   color: ${colors.lighterGray};
+  transition: color 250ms ease-in;
 
   ${props => props.active && css`
     color: ${colors.white};
@@ -23,6 +24,7 @@ const OffOption = styled.div`
     position: absolute;
     top: 4px;
     left: 39px;
+    transition: border 250ms ease-in;
 
     ${props => props.active && css`
       border: 1px solid ${colors.primary};
@@ -34,6 +36,7 @@ const OnOption = styled.div`
   position: relative;
   text-align: right;
   color: ${colors.lighterGray};
+  transition: color 250ms ease-in;
 
   ${props => props.active && css`
     color: ${colors.white};
@@ -50,6 +53,7 @@ const OnOption = styled.div`
     position: absolute;
     top: 4px;
     left: -35px;
+    transition: border 250ms ease-in;
 
     ${props => props.active && css`
       border: 1px solid ${colors.primary};
