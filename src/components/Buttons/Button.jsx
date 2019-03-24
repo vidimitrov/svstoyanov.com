@@ -12,11 +12,12 @@ const ButtonText = styled.span`
   font-size: 8px;
   font-weight: bold;
   line-height: 21px; 
-  margin: 0 8px;
+  padding: 0 8px;
   color: ${colors.primary};
   letter-spacing: 2px;
   line-height: 1.5;
   transform: none;
+  transition: background-color 250ms ease-in, color 250ms ease-in;
 
   ${breakpoints.md} {
     font-size: 16px;
