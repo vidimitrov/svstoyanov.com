@@ -1,3 +1,5 @@
+import { keyframes } from 'styled-components';
+
 const colors = {
   white: '#FFFFFF',
   black: '#000',
@@ -48,8 +50,23 @@ const breakpoints = {
   lg: '@media (min-width: 1280px)',
 };
 
+const animations = {
+  fadeIn: keyframes`
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  `
+};
+
 export {
   colors,
   typography,
   breakpoints,
+  animations,
 };
