@@ -100,6 +100,8 @@ class TextArea extends React.Component {
           <FormControlWrapper item>
             <textarea
               className={classes.textarea}
+              data-gramm="false"
+              spellCheck="false"
               // eslint-disable-next-line no-return-assign
               ref={textareaRef => (this.textarea = textareaRef)}
               placeholder={placeholder}
