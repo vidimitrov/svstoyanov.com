@@ -32,29 +32,31 @@ class TextStep extends Component {
 
   componentDidMount() {
     const { step, isFirst } = this.props;
-    const { component, delay, waitAction } = step;
+    const { component, delay, waitAction, message } = step;
     const isComponentWaitingUser = component && waitAction;
 
     if (isFirst) {
       setTimeout(() => {
         this.setState({ loading: false, startRendering: true }, () => {
           if (!isComponentWaitingUser && !step.rendered) {
-            this.props.triggerNextStep();
+            setTimeout(() => {
+              this.props.triggerNextStep();
+            }, message.length * 40);
           }
         });
       }, delay);
     } else {
-      setTimeout(() => {
-        this.setState({ loading: true }, () => {
-          setTimeout(() => {
-            this.setState({ loading: false, startRendering: true }, () => {
-              if (!isComponentWaitingUser && !step.rendered) {
+      this.setState({ loading: true }, () => {
+        setTimeout(() => {
+          this.setState({ loading: false, startRendering: true }, () => {
+            if (!isComponentWaitingUser && !step.rendered) {
+              setTimeout(() => {
                 this.props.triggerNextStep();
-              }
-            });
-          }, 500);
-        });
-      }, delay);
+              }, message.length * 40);
+            }
+          });
+        }, 1000);
+      });
     }
 
     const stepEl = ReactDOM.findDOMNode(this.stepContainer);
