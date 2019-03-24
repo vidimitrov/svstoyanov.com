@@ -7,6 +7,7 @@ import Button from '../Buttons/NavigationButton';
 import FormControlWrapper from './components/FormControlWrapper';
 import ButtonWrapper from './components/ButtonWrapper';
 import Container from './components/Container';
+import InputWrapper from './components/InputWrapper';
 import ArrowAvatar from '../Avatars/ArrowAvatar';
 import arrowAvatar from '../../assets/img/bot-arrow.svg';
 
@@ -90,34 +91,36 @@ class TextArea extends React.Component {
         <Grid item className={classes.avatarWrapper}>
           <ArrowAvatar src={arrowAvatar} />
         </Grid>
-        <FormControlWrapper item>
-          <textarea
-            className={classes.textarea}
-            // eslint-disable-next-line no-return-assign
-            ref={textareaRef => (this.textarea = textareaRef)}
-            placeholder={placeholder}
-            value={value}
-            onChange={this.onValueChange}
-            onKeyUp={() => {
-              this.textarea.style.height = '1px';
-              this.textarea.style.height = `${10 + this.textarea.scrollHeight}px`;
-            }}
-            onKeyPress={(e) => {
-              if (e.key === 'Enter') {
-                this.submit();
-              }
-            }}
-          />
-        </FormControlWrapper>
-        <ButtonWrapper item>
-          <Button
-            onClick={this.submit}
-            disabled={!value}
-            hidden={isButtonHidden}
-          >
-            SENT
-          </Button>
-        </ButtonWrapper>
+        <InputWrapper>
+          <FormControlWrapper item>
+            <textarea
+              className={classes.textarea}
+              // eslint-disable-next-line no-return-assign
+              ref={textareaRef => (this.textarea = textareaRef)}
+              placeholder={placeholder}
+              value={value}
+              onChange={this.onValueChange}
+              onKeyUp={() => {
+                this.textarea.style.height = '1px';
+                this.textarea.style.height = `${10 + this.textarea.scrollHeight}px`;
+              }}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') {
+                  this.submit();
+                }
+              }}
+            />
+          </FormControlWrapper>
+          <ButtonWrapper item>
+            <Button
+              onClick={this.submit}
+              disabled={!value}
+              hidden={isButtonHidden}
+            >
+              SENT
+            </Button>
+          </ButtonWrapper>
+        </InputWrapper>
       </Container>
     );
   }

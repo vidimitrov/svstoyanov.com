@@ -9,6 +9,7 @@ import FormControlWrapper from './components/FormControlWrapper';
 import ButtonWrapper from './components/ButtonWrapper';
 import Container from './components/Container';
 import ValidationLabel from './components/ValidationLabel';
+import InputWrapper from './components/InputWrapper';
 import ArrowAvatar from '../Avatars/ArrowAvatar';
 import arrowAvatar from '../../assets/img/bot-arrow.svg';
 import { isValidEmail } from '../../lib/validations';
@@ -100,33 +101,35 @@ class Input extends React.Component {
         <Grid item className={classes.avatarWrapper}>
           <ArrowAvatar src={arrowAvatar} />
         </Grid>
-        <FormControlWrapper item>
-          <input
-            type={type || 'text'}
-            className={classes.input}
-            // eslint-disable-next-line no-return-assign
-            ref={inputRef => (this.input = inputRef)}
-            placeholder={placeholder}
-            value={value}
-            onChange={this.onValueChange}
-            onKeyPress={(e) => {
-              if (e.key === 'Enter') {
-                if (isValid) {
-                  this.submit();
+        <InputWrapper>
+          <FormControlWrapper item>
+            <input
+              type={type || 'text'}
+              className={classes.input}
+              // eslint-disable-next-line no-return-assign
+              ref={inputRef => (this.input = inputRef)}
+              placeholder={placeholder}
+              value={value}
+              onChange={this.onValueChange}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') {
+                  if (isValid) {
+                    this.submit();
+                  }
                 }
-              }
-            }}
-          />
-        </FormControlWrapper>
-        <ButtonWrapper item>
-          <Button
-            onClick={this.submit}
-            disabled={!isValid}
-            hidden={isButtonHidden}
-          >
-            SENT
-          </Button>
-        </ButtonWrapper>
+              }}
+            />
+          </FormControlWrapper>
+          <ButtonWrapper item>
+            <Button
+              onClick={this.submit}
+              disabled={!isValid}
+              hidden={isButtonHidden}
+            >
+              SENT
+            </Button>
+          </ButtonWrapper>
+        </InputWrapper>
         {
           type === 'email'
           && (
