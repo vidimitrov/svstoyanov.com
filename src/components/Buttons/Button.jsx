@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import Grid from '@material-ui/core/Grid';
-import { colors, breakpoints } from '../../styles';
+import { colors, breakpoints, animations } from '../../styles';
 
 const borderFontFamily = '"Space Mono"';
 
@@ -53,6 +53,17 @@ const ButtonOutline = styled.div`
 const Wrapper = styled.div`
   margin: 0;
   position: relative;
+  opacity: 0;
+  transform: scaleX(0);
+  animation: ${animations.scaleIn} 200ms ease-in-out;
+  animation-fill-mode: forwards;
+
+  &:nth-child(2) {
+    animation-delay: .2s;
+  }
+  &:nth-child(3) {
+    animation-delay: .4s;
+  }
 
   &:before {
     content: no-close-quote;
