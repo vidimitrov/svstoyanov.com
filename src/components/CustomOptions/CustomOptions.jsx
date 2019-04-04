@@ -99,7 +99,6 @@ class CustomOptions extends React.Component {
     const renderOption = (option, index) => (
       <Button
         key={index}
-        className={classes.optionsButton}
         onClick={() => {
           this.setState({
             selectedOption: option,

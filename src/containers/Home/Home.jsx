@@ -15,8 +15,6 @@ import Preloader from '../../components/Preloader/Preloader';
 import Footer from '../../components/Footer/Footer';
 import avatar from '../../assets/img/sto-avatar.png';
 import logo from '../../assets/img/logo.png';
-import mp4Video from '../../assets/video/bg-spin.mp4';
-import webmVideo from '../../assets/video/bg-spin.webm';
 import backgroundMusic from '../../assets/audio/background-sound.mp3';
 import Hud from '../../components/Hud/Hud';
 
@@ -85,7 +83,7 @@ class Home extends React.Component {
         justify="flex-end"
         className={classes.container}
       >
-        <Hud/>
+        <Hud />
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
         <audio
           ref={(element) => {
