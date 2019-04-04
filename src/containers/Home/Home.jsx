@@ -110,7 +110,7 @@ class Home extends React.Component {
                 hideBotAvatar={false}
                 hideSubmitButton
                 className="chat-bot"
-                // cache
+                cache
                 contentStyle={{
                   overflowX: 'hidden',
                   maxHeight: '100%',
