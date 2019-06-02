@@ -7,13 +7,13 @@ import { withStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 import Modal from '@material-ui/core/Modal';
-import Typography from '@material-ui/core/Typography';
 
 import { wakeUp } from '../../api';
 import styles from './styles';
 import chatTheme from '../Chat/styles/theme';
 import ChatBot from '../../lib/ChatBot';
 import Preloader from '../../components/Preloader/Preloader';
+import Project from '../../components/Project/Project';
 import Footer from '../../components/Footer/Footer';
 import avatar from '../../assets/img/sto-avatar.png';
 import logo from '../../assets/img/logo.png';
@@ -127,17 +127,18 @@ class Home extends React.Component {
             });
           }}
         >
-          <div
-            style={{
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-            }}
-            className={classes.paper}
-          >
-            <Typography variant="h6" id="modal-title">
-              {projectDetails && projectDetails.name}
-            </Typography>
+          <div className={classes.paper}>
+            <Project
+              project={projectDetails}
+              onClose={() => {
+                const { trigger } = projectDetails;
+                this.setState({
+                  projectDetails: null,
+                }, () => {
+                  this.continueTheFlow(trigger);
+                });
+              }}
+            />
           </div>
         </Modal>
         <Grid item xs={12} className={classes.mainSection}>

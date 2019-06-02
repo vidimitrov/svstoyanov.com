@@ -49,11 +49,12 @@ export default {
   },
   paper: {
     position: 'absolute',
-    width: '80%',
-    height: '80%',
-    backgroundColor: '#005053',
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#000',
     color: '#fff',
     padding: 24,
     outline: 'none',
+    boxSizing: 'border-box',
   },
 };
