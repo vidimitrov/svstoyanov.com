@@ -50,6 +50,7 @@ class CustomStep extends Component {
 
   render() {
     const { style } = this.props;
+    const { startRendering } = this.state;
 
     return (
       <CustomStepContainer
@@ -61,7 +62,7 @@ class CustomStep extends Component {
           this.stepContainer = element;
         }}
       >
-        { this.state.startRendering && this.renderComponent() }
+        { startRendering && this.renderComponent() }
       </CustomStepContainer>
     );
   }
