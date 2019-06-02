@@ -8,14 +8,13 @@ export default {
     height: '100%',
   },
   mainSection: {
-    height: 'calc(100% - 125px)',
+    height: '100%',
     overflowY: 'scroll',
   },
   mainSectionContainer: {
 
   },
   headline: {
-    // ...typography.h2,
     fontSize: '70px',
     textTransform: 'uppercase',
     fontWeight: 'bold',
