@@ -47,4 +47,13 @@ export default {
       width: '90px',
     },
   },
+  paper: {
+    position: 'absolute',
+    width: '80%',
+    height: '80%',
+    backgroundColor: '#005053',
+    color: '#fff',
+    padding: 24,
+    outline: 'none',
+  },
 };

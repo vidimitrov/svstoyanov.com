@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from 'styled-components';
 import Grid from '@material-ui/core/Grid';
+import Modal from '@material-ui/core/Modal';
+import Typography from '@material-ui/core/Typography';
 
 import { wakeUp } from '../../api';
 import styles from './styles';
@@ -23,9 +25,12 @@ class Home extends React.Component {
     super(props);
     this.state = {
       muted: true,
+      projectDetails: null,
     };
     this.togglePlayer = this.togglePlayer.bind(this);
     this.getChatComponent = this.getChatComponent.bind(this);
+    this.showProjectInfo = this.showProjectInfo.bind(this);
+    this.continueTheFlow = this.continueTheFlow.bind(this);
   }
 
   componentDidMount() {
@@ -63,6 +68,20 @@ class Home extends React.Component {
     return this.chat;
   }
 
+  showProjectInfo(option) {
+    this.setState({
+      projectDetails: option.projectDetails,
+    });
+  }
+
+  continueTheFlow(stepId) {
+    const chat = this.getChatComponent();
+    chat.triggerNextStep({
+      stepId,
+      externalTrigger: true,
+    });
+  }
+
   togglePlayer() {
     const { muted } = this.state;
     if (muted) {
@@ -75,7 +94,7 @@ class Home extends React.Component {
 
   render() {
     const { classes, steps } = this.props;
-    const { muted } = this.state;
+    const { muted, projectDetails } = this.state;
 
     return (
       <Grid
@@ -95,6 +114,32 @@ class Home extends React.Component {
           preload="auto"
         />
         <Preloader />
+        <Modal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={!!projectDetails}
+          onClose={() => {
+            const { trigger } = projectDetails;
+            this.setState({
+              projectDetails: null,
+            }, () => {
+              this.continueTheFlow(trigger);
+            });
+          }}
+        >
+          <div
+            style={{
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+            }}
+            className={classes.paper}
+          >
+            <Typography variant="h6" id="modal-title">
+              {projectDetails && projectDetails.name}
+            </Typography>
+          </div>
+        </Modal>
         <Grid item xs={12} className={classes.mainSection}>
           <div className={`${classes.chatContainer} chat-container`}>
             <ThemeProvider theme={chatTheme}>
@@ -136,17 +181,10 @@ class Home extends React.Component {
                   color: '#fff',
                 }}
                 placeholder="Enter your message here..."
-                handleEnd={() => {
-                  // { renderedSteps, steps, values }
-                  // TODO: Handle the end of the flow
-                }}
-                handleStepChange={
-                  // (step) => {
-                  //   this.setState({
-                  //     activeStep: step,
-                  //   });
-                  // }
-                  () => { }
+                handleShowProjectModal={
+                  (step) => {
+                    this.showProjectInfo(step);
+                  }
                 }
               />
             </ThemeProvider>

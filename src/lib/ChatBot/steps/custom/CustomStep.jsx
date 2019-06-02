@@ -36,6 +36,7 @@ class CustomStep extends Component {
       steps,
       previousStep,
       triggerNextStep,
+      showProjectInfo,
     } = this.props;
     const { component } = step;
     return React.cloneElement(component, {
@@ -43,6 +44,7 @@ class CustomStep extends Component {
       steps,
       previousStep,
       triggerNextStep,
+      showProjectInfo,
     });
   }
 
@@ -71,6 +73,7 @@ CustomStep.propTypes = {
   style: PropTypes.object,
   previousStep: PropTypes.object.isRequired,
   triggerNextStep: PropTypes.func.isRequired,
+  showProjectInfo: PropTypes.func.isRequired,
 };
 
 export default CustomStep;

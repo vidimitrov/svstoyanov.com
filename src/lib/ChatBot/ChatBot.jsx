@@ -55,10 +55,12 @@ class ChatBot extends Component {
     this.getTriggeredStep = this.getTriggeredStep.bind(this);
     this.generateRenderedStepsById = this.generateRenderedStepsById.bind(this);
     this.triggerNextStep = this.triggerNextStep.bind(this);
+    this.showProjectInfo = this.showProjectInfo.bind(this);
     this.onValueChange = this.onValueChange.bind(this);
     this.onRecognitionChange = this.onRecognitionChange.bind(this);
     this.onRecognitionEnd = this.onRecognitionEnd.bind(this);
     this.onRecognitionStop = this.onRecognitionStop.bind(this);
+    this.onProjectInfoRequested = this.onProjectInfoRequested.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSubmitButton = this.handleSubmitButton.bind(this);
     this.handleContentScroll = this.handleContentScroll.bind(this);
@@ -243,6 +245,10 @@ class ChatBot extends Component {
     this.handleSubmitButton();
   }
 
+  onProjectInfoRequested() {
+    
+  }
+
   onRecognitionStop() {
     this.setState({ speaking: false });
   }
@@ -274,6 +280,14 @@ class ChatBot extends Component {
     }
 
     return steps;
+  }
+
+  showProjectInfo(option) {
+    const { handleShowProjectModal } = this.props;
+
+    if (handleShowProjectModal) {
+      handleShowProjectModal(option);
+    }
   }
 
   triggerNextStep(data, delayRendering) {
@@ -600,6 +614,7 @@ class ChatBot extends Component {
           style={step.style || stepContainerStyle}
           previousStep={previousStep}
           triggerNextStep={this.triggerNextStep}
+          showProjectInfo={this.showProjectInfo}
           isLast={this.isLastPosition(step)}
         />
       );
@@ -765,6 +780,7 @@ ChatBot.propTypes = {
   footerStyle: PropTypes.object,
   handleEnd: PropTypes.func,
   handleStepChange: PropTypes.func,
+  handleShowProjectModal: PropTypes.func,
   headerComponent: PropTypes.element,
   headerTitle: PropTypes.string,
   hideBotAvatar: PropTypes.bool,
