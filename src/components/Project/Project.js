@@ -5,16 +5,17 @@ import PropTypes from 'prop-types';
 import uuid from 'uuid/v4';
 import { withStyles } from '@material-ui/core/styles';
 import CloseIcon from '@material-ui/icons/Close';
-
 import Grid from '@material-ui/core/Grid';
 
+import Footer from '../Footer/Footer';
 import style from './styles';
-import defaultImage from '../../assets/img/default-thumb.png';
-import avatarImage from '../../assets/img/avatar-wrapper.png';
 
 class Project extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      muted: true,
+    };
     this.togglePlayer = this.togglePlayer.bind(this);
     this.onNodeInserted = this.onNodeInserted.bind(this);
   }
@@ -47,12 +48,13 @@ class Project extends React.Component {
   }
 
   render() {
+    const { muted } = this.state;
     const {
       classes,
       project,
       onClose,
     } = this.props;
-    // const projectCodeName = `P${project.id}_${project.name.split(' ').join('_').toUpperCase()}`;
+    const projectCodeName = `P${project.id}_${project.name.split(' ').join('_').toUpperCase()}`;
     const problem = project && project.problem;
 
     return (
@@ -64,38 +66,31 @@ class Project extends React.Component {
           className={classes.mainSection}
         >
           <Grid container className={classes.mainSectionContainer}>
-            <Grid item xs={3} className={classes.sidebar}>
-              <Grid container direction="column">
-                <Grid item className={classes.closeIconWrapper}>
-                  <CloseIcon
-                    className={classes.closeIcon}
-                    onClick={() => {
-                      onClose();
-                    }}
-                  />
-                </Grid>
-                <Grid item>
-                  <div>
-                    <span className={classes.bold}>PROJECT_NAME:</span>
-                    {' '}
-                    {project.name}
-                  </div>
-                  <div>
-                    <span className={classes.bold}>DURATION:</span>
-                    {' '}
-                    {project.duration}
-                  </div>
-                  <div>
-                    <span className={classes.bold}>CLIENT:</span>
-                    {' '}
-                    {project.review.companyName}
-                  </div>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid item xs={9}>
-              <h1 className={classes.headline}>{project.headline}</h1>
-              <img src={defaultImage} className={classes.landingImage} alt="" />
+            <CloseIcon
+              className={classes.closeIcon}
+              onClick={() => {
+                onClose();
+              }}
+            />
+            {/* <Grid item>
+              <div>
+                <span className={classes.bold}>PROJECT_NAME:</span>
+                {' '}
+                {project.name}
+              </div>
+              <div>
+                <span className={classes.bold}>DURATION:</span>
+                {' '}
+                {project.duration}
+              </div>
+              <div>
+                <span className={classes.bold}>CLIENT:</span>
+                {' '}
+                {project.review.companyName}
+              </div>
+            </Grid> */}
+            <Grid item xs={12}>
+              <img src={project.landingImage} className={classes.landingImage} alt="" />
               <h4 className={classes.description}>{project.description}</h4>
               {problem
                 && (
@@ -117,16 +112,15 @@ class Project extends React.Component {
             </Grid>
           </Grid>
           <Grid container className={classes.review}>
-            <Grid item xs={4} className={classes.avatarContainer}>
-              <img src={avatarImage} className={classes.reviewAvatar} alt="" />
+            <Grid item xs={1} className={classes.avatarContainer}>
+              <img src={project.review.avatar} className={classes.reviewAvatar} alt="" />
             </Grid>
-            <Grid item xs={8}>
-              <div className={classes.reviewerInfo}>
-                <div className={classes.reviewerNameContainer}>
-                  <span className={classes.reviewerName}>{project.review.representative}</span>
-                </div>
-                <div>{project.review.representativeRole}</div>
-              </div>
+            <Grid item xs={11}>
+              <h2 className={classes.reviewHeadline}>
+                &gt;
+                {' '}
+                <span className={classes.highlighted}>{project.review.headline}</span>
+              </h2>
               <div className={classes.reviewContainer}>
                 <div className={classes.reviewContent}>
                   {project.review.content}
@@ -135,9 +129,21 @@ class Project extends React.Component {
             </Grid>
           </Grid>
           <div className={classes.imageSection}>
-            <img className={classes.imageSectionImage} src={defaultImage} alt="" />
+            <img className={classes.imageSectionImage} src={project.fullWidthImage} alt="" />
           </div>
         </div>
+        <Footer
+          muted={muted}
+          togglePlayer={this.togglePlayer}
+        >
+          <Grid
+            container
+            justify="center"
+            className={classes.navigation}
+          >
+            <h1 className={classes.projectName}>{projectCodeName}</h1>
+          </Grid>
+        </Footer>
       </Grid>
     );
   }

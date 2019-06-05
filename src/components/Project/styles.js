@@ -8,17 +8,17 @@ export default {
     height: '100%',
   },
   mainSection: {
-    height: '100%',
+    height: 'calc(100% - 119px)',
     overflowY: 'scroll',
   },
   mainSectionContainer: {
-
+    width: '70%',
+    margin: '96px auto',
   },
   headline: {
     fontSize: '70px',
     textTransform: 'uppercase',
     fontWeight: 'bold',
-    margin: '50px 30% 50px 0',
   },
   subHeadline: {
     fontSize: '40px',
@@ -40,25 +40,6 @@ export default {
     color: 'rgba(255,255,255,0.72)',
     margin: '0 10% 20px 50px',
   },
-  contactMeSection: {
-    overflow: 'auto',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: '30px',
-  },
-  videoBackground: {
-    position: 'fixed',
-    top: '50%',
-    left: '50%',
-    overflow: 'hidden',
-    zIndex: -100,
-    width: 'auto',
-    height: 'auto',
-    minWidth: '100%',
-    minHeight: '100%',
-    transform: 'translate(-50%, -50%)',
-  },
   landingImage: {
     width: '90%',
   },
@@ -68,7 +49,9 @@ export default {
   closeIcon: {
     fontSize: '60px !important',
     color: 'rgba(255,255,255, 0.24)',
-    margin: '20px 0 150px 20px',
+    position: 'absolute',
+    right: '80px',
+    top: '80px',
   },
   imageSection: {
     textAlign: 'center',
@@ -79,16 +62,23 @@ export default {
     margin: '0 auto',
   },
   review: {
-    padding: '20px 72px 50px',
+    width: '70%',
+    margin: '96px auto',
   },
   avatarContainer: {
-    paddingLeft: '72px',
+  },
+  reviewHeadline: {
+    fontSize: '40px',
+    marginBottom: '40px',
+    '& $highlighted': {
+      background: '#f8e71c',
+    },
   },
   reviewAvatar: {
-    width: '100%',
+    width: '58px',
   },
   reviewerInfo: {
-    margin: '10px 40px 30px',
+    margin: '0 0 32px',
     color: colors.primary,
   },
   reviewerNameContainer: {
@@ -98,11 +88,12 @@ export default {
     borderBottom: `2px solid  ${colors.primary}`,
   },
   reviewContainer: {
-    paddingLeft: '40px',
   },
-  reviewContent: {},
+  reviewContent: {
+    ...typography.h3,
+  },
   projectName: {
-    fontSize: '24px',
+    fontSize: '20px',
     lineHeight: 1.5,
     letterSpacing: '2px',
     color: 'rgba(255,255,255,0.9)',
