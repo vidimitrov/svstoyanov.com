@@ -22,7 +22,7 @@ const typography = {
     lineHeight: '72px',
   },
   h3: {
-    fontSize: '24px',
+    fontSize: '20px',
     lineHeight: '36px',
   },
   h4: {
