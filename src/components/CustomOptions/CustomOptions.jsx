@@ -94,6 +94,7 @@ class CustomOptions extends React.Component {
     const {
       classes,
       triggerNextStep,
+      showProjectInfo,
     } = this.props;
 
     const renderOption = (option, index) => (
@@ -110,6 +111,10 @@ class CustomOptions extends React.Component {
 
           if (option.callback) {
             option.callback();
+          }
+
+          if (option.projectDetails) {
+            showProjectInfo(option);
           }
 
           if (option.trigger) {
@@ -146,6 +151,7 @@ CustomOptions.propTypes = {
   priorityOptions: PropTypes.array,
   dynamicOptions: PropTypes.array,
   triggerNextStep: PropTypes.func.isRequired,
+  showProjectInfo: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(CustomOptions);
