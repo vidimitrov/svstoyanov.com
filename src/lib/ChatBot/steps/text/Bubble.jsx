@@ -46,12 +46,12 @@ const Bubble = styled.div`
   font-family: 'Space Mono';
   font-size: 10px;
   line-height: 1.8;
-  letter-spacing: 1px;
+  letter-spacing: .5px;
 
   ${breakpoints.sm} {
     font-size: 18px;
     line-height: 1.5;
-    letter-spacing: 1.5px;
+    letter-spacing: .5px;
   }
 `;
 
