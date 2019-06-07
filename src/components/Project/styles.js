@@ -20,7 +20,7 @@ export default {
 
     [breakpoints.md]: {
       height: 'calc(100% - 119px)',
-    }
+    },
   },
   sections: {
     paddingTop: '88px',
@@ -31,7 +31,7 @@ export default {
 
     '& > :last-child': {
       marginBottom: 0,
-    }
+    },
   },
   headline: {
     fontSize: '32px',
@@ -42,7 +42,7 @@ export default {
 
     [breakpoints.sm]: {
       fontSize: '56px',
-    }
+    },
   },
   subHeadline: {
     fontSize: '40px',
@@ -59,7 +59,7 @@ export default {
     [breakpoints.md]: {
       padding: '16px 8px',
       fontSize: 40,
-    }
+    },
   },
   projectLogo: {
     position: 'absolute',
@@ -91,11 +91,11 @@ export default {
   sectionWrapper: {
     width: '86%',
     margin: '0 auto 56px',
-    
+
     [breakpoints.sm]: {
       width: '80%',
       margin: '0 auto 64px',
-    }
+    },
   },
 
 
@@ -104,7 +104,7 @@ export default {
 
     [breakpoints.sm]: {
       ...typography.h3,
-    }
+    },
   },
 
   sectionContent: {
@@ -114,7 +114,7 @@ export default {
 
     [breakpoints.sm]: {
       ...typography.h3,
-    }
+    },
   },
   bullet: {
     color: colors.primary,
@@ -127,7 +127,7 @@ export default {
     [breakpoints.sm]: {
       ...typography.h3,
       margin: '0 0 24px 40px',
-    }
+    },
   },
 
 
@@ -140,7 +140,7 @@ export default {
 
     [breakpoints.sm]: {
       width: '90%',
-    }
+    },
   },
 
 
@@ -150,7 +150,7 @@ export default {
 
     [breakpoints.sm]: {
       margin: '0 auto 64px',
-    }
+    },
   },
   fullWidthImage: {
     width: '100%',
@@ -165,7 +165,7 @@ export default {
 
     [breakpoints.md]: {
       textAlign: 'left',
-    }
+    },
   },
   reviewAvatar: {
     width: '96px',
@@ -174,7 +174,7 @@ export default {
     [breakpoints.md]: {
       width: '58px',
       margin: 8,
-    }
+    },
   },
   reviewHeadline: {
     fontSize: '40px',
@@ -198,10 +198,10 @@ export default {
   },
   reviewContent: {
     ...typography.h4,
-    
+
     [breakpoints.sm]: {
       ...typography.h3,
-    }
+    },
   },
 
 
