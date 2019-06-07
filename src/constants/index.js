@@ -1,1 +1,1 @@
-export const WRITING_SPEED = 25;
+export const WRITING_SPEED = 10;
