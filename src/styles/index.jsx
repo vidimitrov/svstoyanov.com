@@ -22,12 +22,12 @@ const typography = {
     lineHeight: '72px',
   },
   h3: {
-    fontSize: '20px',
-    lineHeight: '36px',
+    fontSize: '18px',
+    lineHeight: 1.5,
   },
   h4: {
     fontSize: '16px',
-    lineHeight: '24px',
+    lineHeight: 1.5,
   },
   h5: {
     fontSize: '12px',
