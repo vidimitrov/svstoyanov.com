@@ -9,12 +9,12 @@ import { colors, breakpoints, animations } from '../../styles';
 const borderFontFamily = '"Space Mono"';
 
 const ButtonText = styled.span`
-  font-size: 8px;
+  font-size: 12px;
   font-weight: bold;
   line-height: 21px; 
   padding: 0 8px;
   color: ${colors.primary};
-  letter-spacing: 2px;
+  letter-spacing: .5px;
   line-height: 1.5;
   transform: none;
   transition: background-color 250ms ease-in, color 250ms ease-in;
@@ -65,6 +65,10 @@ const Wrapper = styled.div`
     animation-delay: .4s;
   }
 
+  &:last-child:not(:first-child) {
+    margin-top: 12px;
+  }
+
   &:before {
     content: no-close-quote;
     display: block;
@@ -78,7 +82,11 @@ const Wrapper = styled.div`
   }
 
   ${breakpoints.md} {
-    margin: 0 0 24px 0;
+    margin: 0;
+
+    &:last-child:not(:first-child) {
+      margin-top: 0;
+    }
 
     &:before {
       left: 24px;

@@ -13,13 +13,12 @@ import { breakpoints, colors } from '../../styles';
 
 export const SelectedOption = styled.div`
   font-family: "Space Mono";
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
   letter-spacing: 2px;
   color: ${colors.primary};
   max-width: 100%;
   text-transform: uppercase;
-  margin: 0 0 28px 3px;
 
   ${breakpoints.sm} {
     font-size: 16px;
@@ -125,7 +124,7 @@ class CustomOptions extends React.Component {
           }
         }}
       >
-        {option.label.split(' ').join('_').toUpperCase()}
+        {option.label.toUpperCase()}
       </Button>
     );
     const renderSelectedOption = option => (

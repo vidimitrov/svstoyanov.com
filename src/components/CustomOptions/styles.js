@@ -8,10 +8,14 @@ export default {
     width: '70px',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'flex-end',
+    alignItems: 'center',
     flex: 2,
     maxWidth: '70px',
-    paddingBottom: '28px',
+    minWidth: '76px',
+
+    [breakpoints.md]: {
+      minWidth: '70px',
+    },
 
   },
   optionsWrapper: {
@@ -19,10 +23,6 @@ export default {
     flexWrap: 'wrap',
     flex: 10,
     alignItems: 'center',
-    margin: '16px 0 8px -5px',
-
-    [breakpoints.md]: {
-      margin: '32px 0 0 0',
-    },
+    margin: '16px 0',
   },
 };

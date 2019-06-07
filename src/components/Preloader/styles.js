@@ -1,4 +1,4 @@
-import { colors } from '../../styles';
+import { colors, breakpoints } from '../../styles';
 
 const font = {
   fontSize: '16px',
@@ -27,6 +27,11 @@ export default {
   wrapper: {
     alignItems: 'center',
     maxWidth: '350px',
+    margin: '0 auto',
+
+    [breakpoints.md]: {
+      margin: 0,
+    },
   },
   show: {
     visibility: 'visible !important',

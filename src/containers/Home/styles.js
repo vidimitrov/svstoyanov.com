@@ -39,7 +39,7 @@ export default {
   },
   logo: {
     position: 'absolute',
-    width: '35px',
+    width: '48px',
     [breakpoints.sm]: {
       width: '80px',
     },

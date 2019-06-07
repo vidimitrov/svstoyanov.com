@@ -44,8 +44,8 @@ const Bubble = styled.div`
 
 
   font-family: 'Space Mono';
-  font-size: 10px;
-  line-height: 1.8;
+  font-size: 14px;
+  line-height: 1.5;
   letter-spacing: .5px;
 
   ${breakpoints.sm} {
