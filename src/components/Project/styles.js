@@ -1,81 +1,188 @@
-import { colors, typography } from '../../styles';
+import { colors, typography, breakpoints } from '../../styles';
 
 export default {
+  shadow: {
+    position: 'absolute',
+    top: 0,
+    height: '100px',
+    width: '100%',
+    boxShadow: 'inset 0px 50px 46px 14px black',
+  },
   container: {
     fontFamily: 'Space Mono',
     color: colors.white,
     flexGrow: 1,
     height: '100%',
   },
-  mainSection: {
-    height: 'calc(100% - 119px)',
-    overflowY: 'scroll',
-  },
   mainSectionContainer: {
-    width: '70%',
-    margin: '96px auto',
+    height: 'calc(100% - 70px)',
+    overflowY: 'scroll',
+
+    [breakpoints.md]: {
+      height: 'calc(100% - 119px)',
+    }
+  },
+  sections: {
+    paddingTop: '88px',
+
+    [breakpoints.sm]: {
+      paddingTop: '168px',
+    },
+
+    '& > :last-child': {
+      marginBottom: 0,
+    }
   },
   headline: {
-    fontSize: '70px',
+    fontSize: '32px',
     textTransform: 'uppercase',
     fontWeight: 'bold',
+    textAlign: 'center',
+    lineHeight: 1.5,
+
+    [breakpoints.sm]: {
+      fontSize: '56px',
+    }
   },
   subHeadline: {
     fontSize: '40px',
     marginBottom: '50px',
   },
   highlighted: {
-    background: colors.primary,
+    background: colors.white,
     color: colors.black,
+    display: 'inline-block',
+    padding: '16px 8px',
+    fontSize: 24,
+    lineHeight: 1.5,
+
+    [breakpoints.md]: {
+      padding: '16px 8px',
+      fontSize: 40,
+    }
   },
-  description: {
-    ...typography.h3,
-    margin: '50px 10% 50px 0',
+  projectLogo: {
+    position: 'absolute',
+    top: '24px',
+    left: '24px',
+    maxWidth: '48px',
+
+    [breakpoints.sm]: {
+      top: '72px',
+      left: '72px',
+      maxWidth: '64px',
+    },
+  },
+  closeIcon: {
+    position: 'absolute',
+    top: '24px',
+    right: '24px',
+    maxWidth: '48px',
+    cursor: 'pointer',
+
+    [breakpoints.sm]: {
+      top: '72px',
+      right: '72px',
+      maxWidth: '64px',
+    },
+  },
+
+
+  sectionWrapper: {
+    width: '86%',
+    margin: '0 auto 56px',
+    
+    [breakpoints.sm]: {
+      width: '80%',
+      margin: '0 auto 64px',
+    }
+  },
+
+
+  text: {
+    ...typography.h4,
+
+    [breakpoints.sm]: {
+      ...typography.h3,
+    }
+  },
+
+  sectionContent: {
+    ...typography.h4,
+    marginBottom: '32px',
+
+
+    [breakpoints.sm]: {
+      ...typography.h3,
+    }
   },
   bullet: {
     color: colors.primary,
   },
   bulletPoint: {
-    ...typography.h3,
+    ...typography.h4,
     color: 'rgba(255,255,255,0.72)',
-    margin: '0 10% 20px 50px',
-  },
-  landingImage: {
-    width: '90%',
-  },
-  sidebar: {
+    margin: '0 0 24px 24px',
 
+    [breakpoints.sm]: {
+      ...typography.h3,
+      margin: '0 0 24px 40px',
+    }
   },
-  closeIcon: {
-    fontSize: '60px !important',
-    color: 'rgba(255,255,255, 0.24)',
-    position: 'absolute',
-    right: '80px',
-    top: '80px',
-  },
-  imageSection: {
+
+
+  imageWrapper: {
     textAlign: 'center',
   },
-  imageSectionImage: {
+  image: {
+    width: '100%',
+    marginBottom: '8px',
+
+    [breakpoints.sm]: {
+      width: '90%',
+    }
+  },
+
+
+  fullWidthImageContainer: {
+    textAlign: 'center',
+    margin: '0 auto 40px',
+
+    [breakpoints.sm]: {
+      margin: '0 auto 64px',
+    }
+  },
+  fullWidthImage: {
     width: '100%',
     height: 'auto',
-    margin: '0 auto',
   },
+
+
   review: {
-    width: '70%',
-    margin: '96px auto',
   },
-  avatarContainer: {
+  reviewAvatarContainer: {
+    textAlign: 'center',
+
+    [breakpoints.md]: {
+      textAlign: 'left',
+    }
+  },
+  reviewAvatar: {
+    width: '96px',
+    margin: '0 0 24px',
+
+    [breakpoints.md]: {
+      width: '58px',
+      margin: 8,
+    }
   },
   reviewHeadline: {
     fontSize: '40px',
     marginBottom: '40px',
     '& $highlighted': {
+      textAlign: 'center',
       background: '#f8e71c',
     },
-  },
-  reviewAvatar: {
-    width: '58px',
   },
   reviewerInfo: {
     margin: '0 0 32px',
@@ -90,8 +197,14 @@ export default {
   reviewContainer: {
   },
   reviewContent: {
-    ...typography.h3,
+    ...typography.h4,
+    
+    [breakpoints.sm]: {
+      ...typography.h3,
+    }
   },
+
+
   projectName: {
     fontSize: '20px',
     lineHeight: 1.5,
