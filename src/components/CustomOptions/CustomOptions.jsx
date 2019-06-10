@@ -15,7 +15,7 @@ export const SelectedOption = styled.div`
   font-family: "Space Mono";
   font-size: 12px;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: ${colors.primary};
   max-width: 100%;
   text-transform: uppercase;

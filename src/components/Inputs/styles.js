@@ -2,9 +2,9 @@ import { breakpoints } from '../../styles';
 
 const formControl = {
   fontFamily: 'Space Mono',
-  fontSize: '10px',
+  fontSize: '12px',
   lineHeight: 1.5,
-  letterSpacing: '2px',
+  letterSpacing: '1px',
   backgroundColor: 'transparent',
   border: 'none',
   color: 'rgba(255,255,255,1)',
@@ -25,7 +25,7 @@ export default {
   },
   input: {
     ...formControl,
-    paddingBottom: '8px',
+    paddingBottom: '16px',
     '&:focus': {
       outline: 'none',
     },
@@ -43,7 +43,6 @@ export default {
   textarea: {
     ...formControl,
     maxWidth: '100%',
-    height: '50px',
     resize: 'none',
     '&:focus': {
       outline: 'none',
@@ -56,6 +55,7 @@ export default {
     },
     [breakpoints.md]: {
       //paddingBottom: '16px',
+      height: '50px',
       ...formControl[breakpoints.md],
     },
   },

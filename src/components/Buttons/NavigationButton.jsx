@@ -21,13 +21,13 @@ const ButtonWrapper = styled.div`
   border-left: 1px solid ${colors.white};
   border-right: 1px solid ${colors.white};
   border-radius: 1px;
-  font-size: 8px;
+  font-size: 10px;
   font-weight: bold;
   font-family: "Space Mono";
   text-align: center;
   color: ${colors.white};
   line-height: 1.5;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 
   &:before {
     content: no-close-quote;
