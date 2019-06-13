@@ -65,10 +65,6 @@ const Wrapper = styled.div`
     animation-delay: .4s;
   }
 
-  &:last-child:not(:first-child) {
-    margin-top: 12px;
-  }
-
   &:before {
     content: no-close-quote;
     display: block;
@@ -83,10 +79,6 @@ const Wrapper = styled.div`
 
   ${breakpoints.md} {
     margin: 0;
-
-    &:last-child:not(:first-child) {
-      margin-top: 0;
-    }
 
     &:before {
       left: 24px;

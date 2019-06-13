@@ -3,6 +3,7 @@ import { breakpoints } from '../../styles';
 export default {
   customOptionsWrapper: {
     fontFamily: 'Space Mono',
+    margin: '24px 0',
   },
   avatarWrapper: {
     width: '70px',
@@ -18,11 +19,16 @@ export default {
     },
 
   },
+  lineOfOptions: {
+    display: 'flex',
+    alignItems: 'center',
+    '&:nth-child(2)': {
+      margin: '16px 0 0',
+    },
+  },
   optionsWrapper: {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexDirection: 'column',
     flex: 10,
-    alignItems: 'center',
-    margin: '16px 0',
   },
 };

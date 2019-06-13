@@ -130,6 +130,15 @@ class CustomOptions extends React.Component {
     const renderSelectedOption = option => (
       <SelectedOption>{option.label}</SelectedOption>
     );
+    const renderOptions = (optionsToRender) => {
+      const groupedOptions = _.chunk(optionsToRender, 2);
+
+      return groupedOptions.map((lineOfOptions, idx) => (
+        <div className={classes.lineOfOptions} key={idx}>
+          {lineOfOptions.map(renderOption)}
+        </div>
+      ));
+    };
 
     return (
       <Grid container className={classes.customOptionsWrapper} justify="flex-start">
@@ -137,7 +146,7 @@ class CustomOptions extends React.Component {
           <ArrowAvatar src={arrowAvatar} />
         </Grid>
         <Grid item className={classes.optionsWrapper}>
-          {selectedOption ? renderSelectedOption(selectedOption) : options.map(renderOption)}
+          {selectedOption ? renderSelectedOption(selectedOption) : renderOptions(options)}
         </Grid>
       </Grid>
     );
