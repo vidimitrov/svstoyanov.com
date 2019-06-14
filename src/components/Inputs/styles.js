@@ -21,11 +21,17 @@ export default {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom:'16px',
+    paddingBottom: '8px',
+    marginBottom: '16px',
+
+    [breakpoints.md]: {
+      marginBottom: 0,
+      paddingBottom: '16px',
+    },
   },
   input: {
     ...formControl,
-    paddingBottom: '16px',
+    paddingBottom: '8px',
     '&:focus': {
       outline: 'none',
     },

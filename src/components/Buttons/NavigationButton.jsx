@@ -21,7 +21,7 @@ const ButtonWrapper = styled.div`
   border-left: 1px solid ${colors.white};
   border-right: 1px solid ${colors.white};
   border-radius: 1px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
   font-family: "Space Mono";
   text-align: center;
