@@ -101,7 +101,7 @@ class ProjectsSlider extends React.Component {
             </div>
           }
           <Grid container className={classes.sliderOffset}>
-            <Grid item xs={9}>
+            <Grid item xs={12} md={9}>
               <div className={classes.projectId}>
                 <AnimatedText text={`Portfolio_Project: 0${project.id}_0${projects.length}`}/>
               </div>
@@ -138,7 +138,7 @@ class ProjectsSlider extends React.Component {
                     });
                   }}
                   >
-                    <AnimatedText text={ !isDesktop() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join('_')}/>
+                    <AnimatedText text={ !isDesktop() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join(' ')}/>
                   </Button>
                   {
                     secondaryButtons
@@ -155,7 +155,7 @@ class ProjectsSlider extends React.Component {
                             externalTrigger: true,
                           });
                         })}}>
-                        <AnimatedText text={ !isDesktop() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join('_')}/>
+                        <AnimatedText text={ !isDesktop() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join(' ')}/>
                       </Button>
                     ))
                   }
@@ -163,28 +163,28 @@ class ProjectsSlider extends React.Component {
               )
             }
             {
-              !selected && !isDesktop() &&
-              <Grid item className={classes.navigationButtons}>
-                <Button navigational onClick={() => {
-                  this.prevProject();
-                }}>
-                  <AnimatedText text="PREV_PROJECT"/>
-                </Button>
-                <Button navigational onClick={() => {
-                  this.nextProject();
-                }}>
-                  <AnimatedText text="NEXT_PROJECT"/>
-                </Button>
-              </Grid>
-            }
-            {
               selected && selectedOptionName &&
               <Grid item className={classes.selectedOptionOffset}>
                 <SelectedOption className={classes.selectedOption}>{selectedOptionName}</SelectedOption>
               </Grid>
             }
+            {
+              !selected && !isDesktop() && (
+                <Grid item className={classes.navigationButtons}>
+                  <Button navigational onClick={() => {
+                    this.prevProject();
+                  }}>
+                    <AnimatedText text="PREV_PROJECT"/>
+                  </Button>
+                  <Button navigational onClick={() => {
+                    this.nextProject();
+                  }}>
+                    <AnimatedText text="NEXT_PROJECT"/>
+                  </Button>
+                </Grid>
+              )
+            }
           </Grid>
-          
         </div>
       </div>
     );
