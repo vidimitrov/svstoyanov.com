@@ -132,7 +132,7 @@ class Input extends React.Component {
               disabled={!isValid}
               hidden={isButtonHidden}
             >
-              SENT
+              { type === 'email' ? 'SEND' : 'DONE' }
             </Button>
           </ButtonWrapper>
           <Line/>

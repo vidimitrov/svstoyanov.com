@@ -50,6 +50,7 @@ export default {
     ...formControl,
     maxWidth: '100%',
     resize: 'none',
+    height: '32px !important',
     '&:focus': {
       outline: 'none',
     },
@@ -60,8 +61,7 @@ export default {
       color: 'rgba(255,255,255,0.54)',
     },
     [breakpoints.md]: {
-      //paddingBottom: '16px',
-      height: '50px',
+      height: '50px !important',
       ...formControl[breakpoints.md],
     },
   },

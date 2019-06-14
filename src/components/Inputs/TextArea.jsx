@@ -124,7 +124,7 @@ class TextArea extends React.Component {
               disabled={!value}
               hidden={isButtonHidden}
             >
-              SENT
+              DONE
             </Button>
           </ButtonWrapper>
           <Line />
