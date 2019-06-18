@@ -257,7 +257,6 @@ export default [
           value: 0,
           label: 'Show me your projects',
           trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
-          projectDetails={SnappProject}
         },
         {
           value: 1,
