@@ -524,7 +524,7 @@ export default [
   },{
     id: 'ac6f8d4c-6364-404c-ba90-32e6a34197f5',
     message: 'In any case I’m leaving the link to the site. (barbarondesign.shop)',
-    trigger: '89e2dccb-b071-4e0e-9e82-a0b683b16b14',
+    // trigger: '89e2dccb-b071-4e0e-9e82-a0b683b16b14',
   },
   // TODO THE BUTTONS
  
@@ -554,7 +554,7 @@ export default [
   },{
     id: '3d733109-1ed8-49c9-ba56-4f2218ceaaaa',
     message: 'If you are curious about it or you want to share your experience we can have a chit chat.',
-    trigger: '45dc60b8-946e-42c0-87e4-558d1988489b',
+    // trigger: '45dc60b8-946e-42c0-87e4-558d1988489b',
   },
 // TODO THE BUTTONS
 
@@ -582,7 +582,7 @@ export default [
   },{
     id: 'feae1a1a-5ece-4d88-8c16-e6e1f2ef8378',
     message: 'Just drop me a line.',
-    trigger: 'c24cc74a-0ba7-4ade-ac39-0a50867ee197',
+    // trigger: 'c24cc74a-0ba7-4ade-ac39-0a50867ee197',
   },
 
 // TODO THE BUTTONS
