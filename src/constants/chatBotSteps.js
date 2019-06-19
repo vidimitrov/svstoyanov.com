@@ -139,7 +139,7 @@ export default [
     component: (
       <Input
         trigger="994885e8-5e24-4034-9a79-92a27fb2962f"
-        placeholder="Type your name..."
+        placeholder="Type in your name..."
         callback={(value) => {
           localStorage.setItem('user-name', value);
         }}
@@ -1814,7 +1814,7 @@ export default [
     component: (
       <TextArea
         trigger="8f854714-69f0-4a81-972c-e4bc18c47d0e"
-        placeholder="Type your message..."
+        placeholder="Type in your message..."
         callback={(value) => {
           localStorage.setItem('cf-message', value);
         }}
@@ -1847,7 +1847,7 @@ export default [
       <Input
         trigger="ef8d2487-80e9-4403-939b-57704a47596c"
         type="email"
-        placeholder="Type your email..."
+        placeholder="Type in your email..."
         callback={(value) => {
           localStorage.setItem('user-email', value);
           const message = localStorage.getItem('cf-message');
