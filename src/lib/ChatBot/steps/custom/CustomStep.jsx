@@ -18,16 +18,18 @@ class CustomStep extends Component {
 
   componentDidMount() {
     const { step, triggerNextStep } = this.props;
-    const { waitAction } = step;
+    const { waitAction, delay } = step;
 
-    this.setState({ startRendering: true }, () => {
-      const stepEl = ReactDOM.findDOMNode(this.stepContainer);
-      stepEl.offsetParent.scrollTop = stepEl.offsetParent.scrollHeight;
+    setTimeout(() => {
+      this.setState({ startRendering: true }, () => {
+        const stepEl = ReactDOM.findDOMNode(this.stepContainer);
+        stepEl.offsetParent.scrollTop = stepEl.offsetParent.scrollHeight;
 
-      if (!waitAction && !step.rendered) {
-        triggerNextStep();
-      }
-    });
+        if (!waitAction && !step.rendered) {
+          triggerNextStep();
+        }
+      });
+    }, delay);
   }
 
   renderComponent() {

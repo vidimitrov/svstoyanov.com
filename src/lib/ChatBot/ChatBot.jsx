@@ -23,7 +23,7 @@ import {
   ChatIcon, CloseIcon, SubmitIcon, MicIcon,
 } from './icons';
 import 'intersection-observer';
-import { WRITING_SPEED } from '../../constants';
+import { WRITING_SPEED, INTENTIONAL_DELAY } from '../../constants';
 
 class ChatBot extends Component {
   /* istanbul ignore next */
@@ -332,7 +332,7 @@ class ChatBot extends Component {
 
       if (currentStep.message) {
         const lettersCount = currentStep.message.split('').length;
-        nextStep.delay = parseInt(lettersCount * WRITING_SPEED);
+        nextStep.delay = parseInt(lettersCount * WRITING_SPEED) + INTENTIONAL_DELAY;
       }
 
       if (data.delay) {
@@ -401,7 +401,7 @@ class ChatBot extends Component {
 
       if (currentStep.message) {
         const lettersCount = currentStep.message.split('').length;
-        nextStep.delay = parseInt(lettersCount * WRITING_SPEED) + 200;
+        nextStep.delay = parseInt(lettersCount * WRITING_SPEED) + INTENTIONAL_DELAY;
       }
 
       nextStep.key = Random(24);

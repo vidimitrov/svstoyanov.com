@@ -11,6 +11,8 @@ import AnimatedText from '../../../../components/Text/AnimatedText';
 
 const URL_REGEX = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm;
 
+const EXPERIENCE = 10;
+
 function hasUrls(message) {
   return URL_REGEX.test(message);
 }
@@ -41,7 +43,7 @@ class TextStep extends Component {
           if (!isComponentWaitingUser && !step.rendered) {
             setTimeout(() => {
               this.props.triggerNextStep();
-            }, message.length * 40);
+            }, message.length * EXPERIENCE);
           }
         });
       }, delay);
@@ -52,7 +54,7 @@ class TextStep extends Component {
             if (!isComponentWaitingUser && !step.rendered) {
               setTimeout(() => {
                 this.props.triggerNextStep();
-              }, message.length * 40);
+              }, message.length * EXPERIENCE);
             }
           });
         }, 1000);
