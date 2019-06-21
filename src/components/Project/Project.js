@@ -5,6 +5,7 @@
 /* eslint no-restricted-globals:0 */
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled, { css, keyframes } from 'styled-components';
 import uuid from 'uuid/v4';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -122,12 +123,46 @@ Section.propTypes = {
   classes: PropTypes.any,
 };
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
+
+const AnimationWrapper = styled.div`
+  display: block;
+  height: 100%;
+  width: 100%;
+
+  ${props => props.startAnimation && css`
+    animation: ${fadeIn} 1s;
+  `}
+
+  ${props => props.endAnimation && css`
+    animation: ${fadeOut} 1s;
+  `}
+`;
+
 class Project extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       muted: true,
+      startAnimation: true,
+      endAnimation: false,
     };
 
     this.togglePlayer = this.togglePlayer.bind(this);
@@ -147,7 +182,11 @@ class Project extends React.Component {
   }
 
   render() {
-    const { muted } = this.state;
+    const {
+      muted,
+      endAnimation,
+      startAnimation,
+    } = this.state;
     const {
       classes,
       project,
@@ -156,75 +195,84 @@ class Project extends React.Component {
     const projectCodeName = `P${project.id}_${project.name.split(' ').join('_').toUpperCase()}`;
 
     return (
-      <Grid container justify="space-between" className={classes.container}>
-        <div className={classes.shadow}></div>
-        <Grid container className={classes.mainSectionContainer}>
-          <img
-            alt=""
-            src={project.logo}
-            className={classes.projectLogo}
-          />
-          <img
-            alt=""
-            src={CloseIcon}
-            className={classes.closeIcon}
-            onClick={() => {
-              onClose();
-            }}
-          />
-          <Grid item xs={12} className={classes.sections}>
-            <SectionWrapper classes={classes}>
-              <h4 className={classes.headline}>{project.headline}</h4>
-            </SectionWrapper>
-            {
-              project && project.sections && project.sections.map((section, idx) => {
-                switch (section.type) {
-                  case TYPES.Image:
-                    return <Image key={idx} src={section.src} classes={classes} />;
-                  case TYPES.FullWidthImage:
-                    return <FullWidthImage key={idx} src={section.src} classes={classes} />;
-                  case TYPES.Section:
-                    return (
-                      <Section
-                        key={idx}
-                        classes={classes}
-                        heading={section.heading}
-                        content={section.content}
-                        bulletPoints={section.bulletPoints}
-                      />
-                    );
-                  case TYPES.Review:
-                    return (
-                      <Review
-                        key={idx}
-                        classes={classes}
-                        headline={section.headline}
-                        content={section.content}
-                        avatar={section.avatar}
-                      />
-                    );
-                  case TYPES.Text:
-                    return <Text key={idx} content={section.content} classes={classes} />;
-                  default:
-                    return null;
-                }
-              })
-            }
+      <AnimationWrapper startAnimation={startAnimation} endAnimation={endAnimation}>
+        <Grid container justify="space-between" className={classes.container}>
+          <div className={classes.shadow} />
+          <Grid container className={classes.mainSectionContainer}>
+            <img
+              alt=""
+              src={project.logo}
+              className={classes.projectLogo}
+            />
+            <img
+              alt=""
+              src={CloseIcon}
+              className={classes.closeIcon}
+              onClick={() => {
+                this.setState({
+                  startAnimation: false,
+                  endAnimation: true,
+                }, () => {
+                  setTimeout(() => {
+                    onClose();
+                  }, 500);
+                });
+              }}
+            />
+            <Grid item xs={12} className={classes.sections}>
+              <SectionWrapper classes={classes}>
+                <h4 className={classes.headline}>{project.headline}</h4>
+              </SectionWrapper>
+              {
+                project && project.sections && project.sections.map((section, idx) => {
+                  switch (section.type) {
+                    case TYPES.Image:
+                      return <Image key={idx} src={section.src} classes={classes} />;
+                    case TYPES.FullWidthImage:
+                      return <FullWidthImage key={idx} src={section.src} classes={classes} />;
+                    case TYPES.Section:
+                      return (
+                        <Section
+                          key={idx}
+                          classes={classes}
+                          heading={section.heading}
+                          content={section.content}
+                          bulletPoints={section.bulletPoints}
+                        />
+                      );
+                    case TYPES.Review:
+                      return (
+                        <Review
+                          key={idx}
+                          classes={classes}
+                          headline={section.headline}
+                          content={section.content}
+                          avatar={section.avatar}
+                        />
+                      );
+                    case TYPES.Text:
+                      return <Text key={idx} content={section.content} classes={classes} />;
+                    default:
+                      return null;
+                  }
+                })
+              }
+            </Grid>
           </Grid>
-        </Grid>
-        <Footer
-          muted={muted}
-          togglePlayer={this.togglePlayer}
-        >
-          <Grid
-            container
-            justify="center"
-            className={classes.navigation}
+          <Footer
+            muted={muted}
+            togglePlayer={this.togglePlayer}
           >
-            <h1 className={classes.projectName}>{projectCodeName}</h1>
-          </Grid>
-        </Footer>
-      </Grid>
+            <Grid
+              container
+              justify="center"
+              className={classes.navigation}
+            >
+              <h1 className={classes.projectName}>{projectCodeName}</h1>
+            </Grid>
+          </Footer>
+        </Grid>
+      </AnimationWrapper>
     );
   }
 }
