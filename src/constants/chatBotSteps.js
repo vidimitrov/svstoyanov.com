@@ -20,9 +20,10 @@ const CHATBOT_RECURSIVE_TOPICS = [
   'ade03d57-a390-46ed-ae5b-16df08760972',
   '47820655-90b7-4a62-8223-7601362c66b1',
   '572159ba-5f1f-4c5b-9813-cf67c5cd4441',
-  'ee60602f-c72e-4158-9ffb-6ecccc935ab7',
+  'bd61de4a-b8f3-41f1-ab3b-56341afc8112',
   '3d0e8fee-49c1-4404-ba1a-5f4758d7eba5',
-  '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
+  '5328b6cd-7fbb-4690-96e7-ff36070d5318',
+  'd42bac2b-67bd-4d15-bda2-316b99c3773c',
 ];
 
 function hasVisitedSections() {
@@ -69,7 +70,7 @@ function showProjectsMessage() {
 }
 
 function changeTopicMessage() {
-  const variations = ['Can we change the topic', 'Let\'s talk about something else'];
+  const variations = ['Let’s discuss another topic', 'Let\'s talk about something else'];
   return variations[Math.floor(Math.random() * variations.length)];
 }
 
@@ -521,12 +522,43 @@ export default [
     id: '4edc41a0-94ca-4260-a6a8-f36df09e1134',
     message: 'Drop me a line so we can chit chat about it.',
     trigger: 'ac6f8d4c-6364-404c-ba90-32e6a34197f5',
-  },{
+  }, {
     id: 'ac6f8d4c-6364-404c-ba90-32e6a34197f5',
     message: 'In any case I’m leaving the link to the site. (barbarondesign.shop)',
-    // trigger: '89e2dccb-b071-4e0e-9e82-a0b683b16b14',
+    trigger: '89e2dccb-b071-4e0e-9e82-a0b683b16b14',
+  }, {
+    id: '89e2dccb-b071-4e0e-9e82-a0b683b16b14',
+    component: (
+      <CustomOptions
+        options={[
+          {
+            value: 0,
+            label: 'Sure',
+            trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+          },
+          {
+            value: 1,
+            label: changeTopicMessage(),
+            trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+          },
+        ]}
+        dynamicOptions={[
+          {
+            value: 0,
+            label: 'Show me your financial project',
+            trigger: 'bd61de4a-b8f3-41f1-ab3b-56341afc8112',
+            isVisible: () => !isVisited('bd61de4a-b8f3-41f1-ab3b-56341afc8112'),
+          },
+          {
+            value: 0,
+            label: 'Tell me about your workshops',
+            trigger: 'd42bac2b-67bd-4d15-bda2-316b99c3773c',
+            isVisible: () => !isVisited('d42bac2b-67bd-4d15-bda2-316b99c3773c'),
+          },
+        ]}
+      />
+    ),
   },
-  // TODO THE BUTTONS
  
  
  
@@ -1463,7 +1495,7 @@ export default [
         }, {
           value: 3,
           label: 'Wow, bean bag family business',
-          trigger: '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
+          trigger: '5328b6cd-7fbb-4690-96e7-ff36070d5318',
         },
       ]}
       />
@@ -1516,8 +1548,8 @@ export default [
           {
             value: 5,
             label: 'You mentioned a family business',
-            trigger: '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
-            isVisible: () => !isVisited('7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b'),
+            trigger: '5328b6cd-7fbb-4690-96e7-ff36070d5318',
+            isVisible: () => !isVisited('5328b6cd-7fbb-4690-96e7-ff36070d5318'),
           },
         ]}
       />
@@ -1613,8 +1645,8 @@ export default [
           {
             value: 5,
             label: 'You mentioned a family business',
-            trigger: '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
-            isVisible: () => !isVisited('7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b'),
+            trigger: '5328b6cd-7fbb-4690-96e7-ff36070d5318',
+            isVisible: () => !isVisited('5328b6cd-7fbb-4690-96e7-ff36070d5318'),
           },
         ]}
       />
@@ -1653,11 +1685,11 @@ export default [
    * FAMILY BUSINESS
    
   {
-    id: '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
+    id: '5328b6cd-7fbb-4690-96e7-ff36070d5318',
     message: 'Yeah. A side project that we’ve started with my girlfriend. It is a business for hand crafted bean bags. The e-commerce business had to be started and validated in a week and fully automated in a month. The end result… Customers loved them, we’ve got few sales in the first week, seeing that we are in the right direction.',
     trigger: '539b4944-f470-439d-a1e6-edb59c7aa496',
     callback: () => {
-      setVisited('7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b');
+      setVisited('5328b6cd-7fbb-4690-96e7-ff36070d5318');
     },
   }, {
     id: '539b4944-f470-439d-a1e6-edb59c7aa496',
@@ -1708,8 +1740,8 @@ export default [
           {
             value: 5,
             label: 'You mentioned a family business',
-            trigger: '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
-            isVisible: () => !isVisited('7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b'),
+            trigger: '5328b6cd-7fbb-4690-96e7-ff36070d5318',
+            isVisible: () => !isVisited('5328b6cd-7fbb-4690-96e7-ff36070d5318'),
           },
         ]}
       />
@@ -1733,61 +1765,49 @@ export default [
         options={[
           {
             value: 0,
-            label: 'I wish to contact you',
-            trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+            label: 'Can I see your projects',
+            trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
           },
         ]}
         dynamicOptions={[
           {
             value: 0,
-            label: 'What drives you',
+            label: 'How can I contact you',
+            trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+            isVisible: () => !isVisited('eed7338a-dacc-48af-a87b-7085b0736ee8'),
+          },
+          {
+            value: 1,
+            label: 'Tell me more about your process',
             trigger: '30ac9e09-0053-48dd-beb5-08207c6a4da5',
             isVisible: () => !isVisited('30ac9e09-0053-48dd-beb5-08207c6a4da5'),
           },
           {
-            value: 1,
-            label: 'Can I see your hobbies',
+            value: 2,
+            label: 'What side activities you have',
             trigger: 'aa555702-702b-4821-b8a0-0cc1e92c6b49',
             isVisible: () => !isVisited('aa555702-702b-4821-b8a0-0cc1e92c6b49'),
             topics: [
               {
-                value: 2,
-                label: 'Earlier you mention that you write',
-                trigger: 'ade03d57-a390-46ed-ae5b-16df08760972',
-                isVisible: () => !isVisited('ade03d57-a390-46ed-ae5b-16df08760972'),
-                topics: [
-                  {
-                    value: 3,
-                    label: 'On what topics you write',
-                    trigger: '572159ba-5f1f-4c5b-9813-cf67c5cd4441',
-                    isVisible: () => !isVisited('572159ba-5f1f-4c5b-9813-cf67c5cd4441'),
-                  }, {
-                    value: 4,
-                    label: 'Let\'s discuss a topic',
-                    trigger: '47820655-90b7-4a62-8223-7601362c66b1',
-                    isVisible: () => !isVisited('47820655-90b7-4a62-8223-7601362c66b1'),
-                  },
-                ],
+                value: 3,
+                label: 'Tell me about your workshops',
+                trigger: 'd42bac2b-67bd-4d15-bda2-316b99c3773c',
+                isVisible: () => !isVisited('d42bac2b-67bd-4d15-bda2-316b99c3773c'),
+              }, {
+                value: 4,
+                label: 'Tell me more about your financial project',
+                trigger: 'bd61de4a-b8f3-41f1-ab3b-56341afc8112',
+                isVisible: () => !isVisited('bd61de4a-b8f3-41f1-ab3b-56341afc8112'),
               }, {
                 value: 5,
-                label: 'What is this bushcraft',
-                trigger: '36acf53a-d579-4c5d-8e6c-d6726e51737f',
-                isVisible: () => !isVisited('36acf53a-d579-4c5d-8e6c-d6726e51737f'),
+                label: 'Tell me more about your family business',
+                trigger: '5328b6cd-7fbb-4690-96e7-ff36070d5318',
+                isVisible: () => !isVisited('5328b6cd-7fbb-4690-96e7-ff36070d5318'),
               }, {
                 value: 6,
-                label: 'How do you help those designers',
-                trigger: '3d0e8fee-49c1-4404-ba1a-5f4758d7eba5',
-                isVisible: () => !isVisited('3d0e8fee-49c1-4404-ba1a-5f4758d7eba5'),
-              }, {
-                value: 7,
-                label: 'Tell me more about the financial project',
-                trigger: 'ee60602f-c72e-4158-9ffb-6ecccc935ab7',
-                isVisible: () => !isVisited('ee60602f-c72e-4158-9ffb-6ecccc935ab7'),
-              }, {
-                value: 8,
-                label: 'Can I see your family business',
-                trigger: '7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b',
-                isVisible: () => !isVisited('7d02bf1a-9c69-4d15-818a-0c2c9e5e1c8b'),
+                label: 'Tell me more about your bushcraft hobby',
+                trigger: '4ac1dc7b-7a7d-4225-86fc-7b7ce8a83e61',
+                isVisible: () => !isVisited('4ac1dc7b-7a7d-4225-86fc-7b7ce8a83e61'),
               },
             ],
           },
