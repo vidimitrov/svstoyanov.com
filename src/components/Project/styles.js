@@ -4,9 +4,13 @@ export default {
   shadow: {
     position: 'absolute',
     top: 0,
-    height: '100px',
+    height: '150px',
     width: '100%',
-    boxShadow: 'inset 0px 50px 46px 14px black',
+    boxShadow: 'inset 0px 100px 46px -12px black',
+    [breakpoints.md]: {
+      height: '200px',
+      boxShadow: 'inset 0px 100px 45px -6px black',
+    },
   },
   container: {
     fontFamily: 'Space Mono',

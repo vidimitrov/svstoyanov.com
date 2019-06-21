@@ -32,13 +32,7 @@ const ButtonOutline = styled.div`
   &:before, &:after {
     color: ${colors.primary};
     font-family: ${borderFontFamily};
-    font-size: 16px;
-  }
-
-  ${breakpoints.md} {
-    &:before, &:after {
-      font-size: 28px;
-    }
+    font-size: 32px;
   }
 
   &:before {
@@ -54,6 +48,7 @@ const Wrapper = styled.div`
   margin: 0;
   position: relative;
   opacity: 0;
+  height: 37px;
   transform: scaleX(0);
   animation: ${animations.scaleIn} 200ms ease-in-out;
   animation-fill-mode: forwards;
@@ -69,10 +64,10 @@ const Wrapper = styled.div`
     content: no-close-quote;
     display: block;
     position: absolute;
-    top: 2px;
-    left: 13px;
-    width: 12px;
-    height: 12px;
+    top: 4px;
+    left: 18px;
+    width: 24px;
+    height: 24px;
     background-color: #02a0a7;
     opacity: 0.12;
   }
@@ -81,7 +76,8 @@ const Wrapper = styled.div`
     margin: 0;
 
     &:before {
-      left: 24px;
+      top: 5px;
+      left: 32px;
       width: 24px;
       height: 24px;
     }
