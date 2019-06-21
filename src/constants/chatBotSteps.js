@@ -586,9 +586,40 @@ export default [
   },{
     id: '3d733109-1ed8-49c9-ba56-4f2218ceaaaa',
     message: 'If you are curious about it or you want to share your experience we can have a chit chat.',
-    // trigger: '45dc60b8-946e-42c0-87e4-558d1988489b',
+    trigger: '45dc60b8-946e-42c0-87e4-558d1988489b',
+  },{
+    id: '45dc60b8-946e-42c0-87e4-558d1988489b',
+    component: (
+      <CustomOptions
+        options={[
+          {
+            value: 0,
+            label: 'Okay',
+            trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+          },
+          {
+            value: 1,
+            label: changeTopicMessage(),
+            trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+          },
+        ]}
+        dynamicOptions={[
+          {
+            value: 0,
+            label: 'Show me your family business',
+            trigger: '5328b6cd-7fbb-4690-96e7-ff36070d5318',
+            isVisible: () => !isVisited('5328b6cd-7fbb-4690-96e7-ff36070d5318'),
+          },
+          {
+            value: 0,
+            label: 'Tell me about your workshops',
+            trigger: 'd42bac2b-67bd-4d15-bda2-316b99c3773c',
+            isVisible: () => !isVisited('d42bac2b-67bd-4d15-bda2-316b99c3773c'),
+          },
+        ]}
+      />
+    ),
   },
-// TODO THE BUTTONS
 
   // Tell me about your workshops
   {
@@ -614,10 +645,40 @@ export default [
   },{
     id: 'feae1a1a-5ece-4d88-8c16-e6e1f2ef8378',
     message: 'Just drop me a line.',
-    // trigger: 'c24cc74a-0ba7-4ade-ac39-0a50867ee197',
+    trigger: 'c24cc74a-0ba7-4ade-ac39-0a50867ee197',
+  },{
+    id: 'c24cc74a-0ba7-4ade-ac39-0a50867ee197',
+    component: (
+      <CustomOptions
+        options={[
+          {
+            value: 0,
+            label: 'Okay',
+            trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+          },
+          {
+            value: 1,
+            label: changeTopicMessage(),
+            trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+          },
+        ]}
+        dynamicOptions={[
+          {
+            value: 0,
+            label: 'Show me your family business',
+            trigger: '5328b6cd-7fbb-4690-96e7-ff36070d5318',
+            isVisible: () => !isVisited('5328b6cd-7fbb-4690-96e7-ff36070d5318'),
+          },
+          {
+            value: 0,
+            label: 'Show me your financial project',
+            trigger: 'bd61de4a-b8f3-41f1-ab3b-56341afc8112',
+            isVisible: () => !isVisited('bd61de4a-b8f3-41f1-ab3b-56341afc8112'),
+          },
+        ]}
+      />
+    ),
   },
-
-// TODO THE BUTTONS
   
 
 
