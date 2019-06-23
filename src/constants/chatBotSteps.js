@@ -728,7 +728,7 @@ export default [
 
 
   /**
-   * SPECIFIC PROJECT STEPS
+   * SPECIFIC PROJECT STEPS - slider primary step
    */
 
   {
@@ -747,7 +747,7 @@ export default [
   // ...
 
   /**
-   * SNAPP PROJECT TOPIC
+   * SNAPP PROJECT TOPIC - project intro & summary
    */
   {
     id: '9d2d1738-2672-40d8-b2ea-b497fc7aef8d',
