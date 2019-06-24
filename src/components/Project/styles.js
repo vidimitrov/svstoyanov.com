@@ -215,4 +215,15 @@ export default {
     letterSpacing: '2px',
     color: 'rgba(255,255,255,0.9)',
   },
+
+  youtubeContainer: {
+    width: '100%',
+    margin: '32px 0',
+    textAlign: 'center',
+
+    '& > iframe': {
+      width: '80%',
+      height: '400px',
+    },
+  },
 };

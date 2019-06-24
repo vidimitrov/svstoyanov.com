@@ -9,6 +9,7 @@ export const TYPES = {
   Text: 'text',
   Section: 'section',
   Review: 'review',
+  YouTube: 'youtube',
 };
 
 export const SnappProject = {
@@ -68,6 +69,9 @@ export const HistoryParkProject = {
   sections: [{
     type: TYPES.Image,
     src: historyParkHeading,
+  }, {
+    type: TYPES.YouTube,
+    id: 'f6qdAwENFRk',
   }, {
     type: TYPES.Text,
     content: 'Characters that have had created the big part of the European History. Well guess what Bulgaria takes role here in on Balkans with it nation which is several thousand years old. This is History park, it brings Bulgarian and partial Roman history by presenting it in a interactive way and taking you centuries and decades ago. People in the park will be able to experience this time travel, ride horses and shoot with a bow while riding, eat ancient kitchen, leave like the old days, even fight on the arena.',

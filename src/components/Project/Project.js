@@ -9,6 +9,7 @@ import styled, { css, keyframes } from 'styled-components';
 import uuid from 'uuid/v4';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import YouTube from 'react-youtube';
 
 import Footer from '../Footer/Footer';
 import { TYPES } from '../../constants/projects';
@@ -24,6 +25,20 @@ const SectionWrapper = ({ classes, children }) => (
 SectionWrapper.propTypes = {
   classes: PropTypes.any,
   children: PropTypes.any,
+};
+
+const YoutubeVideo = ({ id, classes }) => (
+  <SectionWrapper classes={classes}>
+    <YouTube
+      videoId={id}
+      containerClassName={classes.youtubeContainer}
+    />
+  </SectionWrapper>
+);
+
+YoutubeVideo.propTypes = {
+  id: PropTypes.string,
+  classes: PropTypes.any,
 };
 
 const Image = ({ src, classes }) => (
@@ -252,6 +267,8 @@ class Project extends React.Component {
                       );
                     case TYPES.Text:
                       return <Text key={idx} content={section.content} classes={classes} />;
+                    case TYPES.YouTube:
+                      return <YoutubeVideo key={idx} classes={classes} id={section.id} />;
                     default:
                       return null;
                   }
