@@ -9,7 +9,16 @@ import TextArea from '../components/Inputs/TextArea';
 import Image from '../components/Steps/Image';
 import { sendEmail } from '../api';
 import stoyanBushcraftingImg from '../assets/img/stoyan-bushcrafting.png';
-import {SeembaForEndUsersProject, HistoryParkProject, SeembaProject, SeembaForSales, Panto, MotelNow, MySite} from '../constants/projects';
+import {
+  SeembaForEndUsersProject,
+  HistoryParkProject,
+  SeembaProject,
+  SeembaForSales,
+  Panto,
+  MotelNow,
+  MySite,
+  Hatchery1,
+} from './projects';
 
 const CHATBOT_VISITED_SECTIONS = 'cb-vs';
 const CHATBOT_RECURSIVE_TOPICS = [
@@ -133,7 +142,7 @@ export default [
   {
     id: 'c57a7186-8a45-4980-9fb0-69752959a661',
     message: '👋 Hi there, I am Stoyan, a product designer, researcher & strategist located in Bulgaria. 🇧🇬',
-    trigger: '09352513-9901-4844-9a15-b4a08f30d18d', 
+    trigger: '09352513-9901-4844-9a15-b4a08f30d18d',
     delay: 4000,
   }, {
     id: '09352513-9901-4844-9a15-b4a08f30d18d',

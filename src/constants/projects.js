@@ -162,7 +162,7 @@ export const MySite = {
 
 export const HistoryParkProject = {
   trigger: '986f2b6e-e271-4bf1-9c6a-0ee809026e27',
-  id: '7',
+  id: 7,
   name: 'History Park',
   headline: 'History Park - Its all about history',
   shortDescription: 'History park is one of the biggest interactive parks that gives the opportunity to people to interact with history. My job was creating the online presence of the park.',
@@ -211,4 +211,13 @@ export const HistoryParkProject = {
   }],
 };
 
-export default [SeembaForEndUsersProject, SeembaForSales, SeembaProject, HistoryParkProject, Panto, MotelNow, Hatchery1, MySite];
+export default [
+  SeembaForEndUsersProject,
+  SeembaProject,
+  SeembaForSales,
+  Panto,
+  MotelNow,
+  Hatchery1,
+  MySite,
+  HistoryParkProject,
+];
