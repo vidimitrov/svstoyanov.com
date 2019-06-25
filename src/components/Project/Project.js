@@ -295,7 +295,7 @@ class Project extends React.Component {
 }
 
 const ProjectType = {
-  id: PropTypes.string,
+  id: PropTypes.number,
   name: PropTypes.string,
   headline: PropTypes.string,
 };
