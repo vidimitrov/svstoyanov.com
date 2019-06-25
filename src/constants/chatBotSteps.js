@@ -9,7 +9,7 @@ import TextArea from '../components/Inputs/TextArea';
 import Image from '../components/Steps/Image';
 import { sendEmail } from '../api';
 import stoyanBushcraftingImg from '../assets/img/stoyan-bushcrafting.png';
-import {SnappProject} from '../constants/projects';
+import {SeembaForEndUsersProject, HistoryParkProject, SeembaProject, SeembaForSales, Panto, MotelNow, MySite} from '../constants/projects';
 
 const CHATBOT_VISITED_SECTIONS = 'cb-vs';
 const CHATBOT_RECURSIVE_TOPICS = [
@@ -19,6 +19,7 @@ const CHATBOT_RECURSIVE_TOPICS = [
   'bd61de4a-b8f3-41f1-ab3b-56341afc8112',
   '5328b6cd-7fbb-4690-96e7-ff36070d5318',
   'd42bac2b-67bd-4d15-bda2-316b99c3773c',
+  '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
 ];
 
 function hasVisitedSections() {
@@ -60,7 +61,7 @@ function acknowledgementMessage() {
 }
 
 function showProjectsMessage() {
-  const variations = ['Can I see your work', 'Show me your projects', 'Can you show me your projects again'];
+  const variations = ['Can I see your work', 'Show me your projects', 'Can you show me your projects'];
   return variations[Math.floor(Math.random() * variations.length)];
 }
 
@@ -75,7 +76,12 @@ function nonLexicalMessage() {
 }
 
 function showProjectMessage() {
-  const variations = ['Show me this project', 'Want to understand more about it'];
+  const variations = ['Show me this project', 'Want to understand more about it', 'Can I see this one', 'Wanna see it'];
+  return variations[Math.floor(Math.random() * variations.length)];
+}
+
+function projectInterest() {
+  const variations = ['I hope you’ve liked it', 'I hope you found it interesting'];
   return variations[Math.floor(Math.random() * variations.length)];
 }
 
@@ -127,7 +133,7 @@ export default [
   {
     id: 'c57a7186-8a45-4980-9fb0-69752959a661',
     message: '👋 Hi there, I am Stoyan, a product designer, researcher & strategist located in Bulgaria. 🇧🇬',
-    trigger: '09352513-9901-4844-9a15-b4a08f30d18d',
+    trigger: '09352513-9901-4844-9a15-b4a08f30d18d', 
     delay: 4000,
   }, {
     id: '09352513-9901-4844-9a15-b4a08f30d18d',
@@ -254,7 +260,7 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Show me your projects',
+          label: showProjectsMessage(),
           trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
         },
         {
@@ -320,7 +326,7 @@ export default [
         },
         {
           value: 1,
-          label: 'Show me your projects',
+          label: showProjectsMessage(),
           trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
         },
         {
@@ -719,7 +725,7 @@ export default [
 
   {
     id: 'project-info-step-0',
-    message: 'Glad that you chose Snapp. So let’s start….',
+    message: 'This was an amazing project. Let’s start….',
     trigger: '9d2d1738-2672-40d8-b2ea-b497fc7aef8d',
   }, {
     id: 'project-info-step-1',
@@ -727,18 +733,73 @@ export default [
     trigger: '0b2e19b6-373a-495e-aaf0-85f747947b02',
   }, {
     id: 'project-info-step-2',
-    message: 'Glad that you chose History Park. So let’s start….',
+    message: 'It was all about sales in Seemba. Will tell you what happened...',
+    trigger: '4d0db6a4-1ccf-474a-9ee6-35d241186943',
+  }, {
+    id: 'project-info-step-3',
+    message: 'The artifical assistant Panto. Shall we start...',
+    trigger: 'd4c1c1f7-0f21-4ffb-81ae-ca50d372f7b2',
+  }, {
+    id: 'project-info-step-4',
+    message: 'Love is in the air every where we look around. Let\'s start...',
+    trigger: 'e678ff34-dda1-4722-a5fc-bcf7f1c7ae3d',
+  }, {
+    id: 'project-info-step-5',
+    message: 'Trading and investing a topic in which I\'m in love. Will show you a nice story for this product',
+    trigger: 'd669873c-4840-4d5a-b536-642b6b913c36',
+  }, {
+    id: 'project-info-step-6',
+    message: 'A passion project of mine which is this web app that you are looking at. Let\'s start.',
+    trigger: 'd432bc65-c5e2-493e-b9ee-211bc1605617',
+  }, {
+    id: 'project-info-step-7',
+    message: 'I think you\'ll like the project. So let’s start….',
     trigger: '1b2e19b6-373a-495e-aaf0-85f747946602',
   },
-  // ...
+  
+  
 
   /**
-   * SNAPP PROJECT TOPIC - project intro & summary
+   * SEEMBA VIEWER PROJECT TOPIC - project intro & summary
    */
   {
     id: '9d2d1738-2672-40d8-b2ea-b497fc7aef8d',
     message: 'So the Snapp project is...',
-    // trigger: '997ced25-ee98-4611-b51a-6ca14b3f9b2f',
+    trigger: '997ced25-ee98-4611-b51a-6ca14b3f9b2f',
+  }, {
+    id: '997ced25-ee98-4611-b51a-6ca14b3f9b2f',
+    component: (
+      <Image src={stoyanBushcraftingImg} /> 
+    ),
+    delay: 3000,
+    trigger: '39931cd7-f0e5-4952-b98d-e6a1024198d2',
+  }, {
+    id: '39931cd7-f0e5-4952-b98d-e6a1024198d2',
+    message: 'Summary message',
+    delay: 6000,
+    trigger: 'c61b52ca-8881-4efa-b15e-0bdebaff2d47',
+  }, {
+    id: 'c61b52ca-8881-4efa-b15e-0bdebaff2d47',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me the whole study',
+          projectDetails: SeembaForEndUsersProject,
+        },
+        {
+          value: 1,
+          label: 'Show me another project',
+          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+        },
+        {
+          value: 2,
+          label: 'I will see your projects later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+      ]}
+      />
+    ),
   },
 
   /**
@@ -746,19 +807,342 @@ export default [
    */
   {
     id: '0b2e19b6-373a-495e-aaf0-85f747947b02',
-    message: 'So the Seemba project is...',
-    // trigger: 'f7f6dffc-b5a8-4a7d-971e-a36c8208329b',
+    message: 'Intro message',
+    trigger: 'f7f6dffc-b5a8-4a7d-971e-a36c8208329b',
+  }, {
+    id: 'f7f6dffc-b5a8-4a7d-971e-a36c8208329b',
+    component: (
+      <Image src={stoyanBushcraftingImg} /> 
+    ),
+    delay: 3000,
+    trigger: 'ddbc2a1e-28f6-4b1a-8fce-cca805f50629',
+  }, {
+    id: 'ddbc2a1e-28f6-4b1a-8fce-cca805f50629',
+    message: 'Summary message',
+    delay: 6000,
+    trigger: '1a42e460-8b63-4837-b44e-57c929b345a6',
+  }, {
+    id: '1a42e460-8b63-4837-b44e-57c929b345a6',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me the whole study',
+          projectDetails: SeembaProject,
+        },
+        {
+          value: 1,
+          label: 'Show me another project',
+          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+        },
+        {
+          value: 2,
+          label: 'I will see your projects later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+      ]}
+      />
+    ),
+  },
+
+/**
+   * SEEMBA AFFILIATE - project intro & summary
+   */
+
+  {
+    id: '4d0db6a4-1ccf-474a-9ee6-35d241186943',
+    message: 'Intro message',
+    trigger: '5363cda8-0868-4ea9-8951-4f53b0254b27',
+  }, {
+    id: '5363cda8-0868-4ea9-8951-4f53b0254b27',
+    component: (
+      <Image src={stoyanBushcraftingImg} /> 
+    ),
+    delay: 3000,
+    trigger: '60f30358-aa41-43a4-802d-cb5818f3b7de',
+  }, {
+    id: '60f30358-aa41-43a4-802d-cb5818f3b7de',
+    message: 'Summary message',
+    delay: 6000,
+    trigger: 'a89468f0-67f4-48d4-a704-82f47cef25e3',
+  }, {
+    id: 'a89468f0-67f4-48d4-a704-82f47cef25e3',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me the whole study',
+          projectDetails: SeembaForSales,
+        },
+        {
+          value: 1,
+          label: 'Show me another project',
+          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+        },
+        {
+          value: 2,
+          label: 'I will see your projects later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+      ]}
+      />
+    ),
+  },
+
+/**
+   * PANTO - project intro & summary
+   */
+
+  {
+    id: 'd4c1c1f7-0f21-4ffb-81ae-ca50d372f7b2',
+    message: 'Intro message',
+    trigger: 'dd6a3b06-7c75-4c1a-9e3d-f75e0a746b9a',
+  }, {
+    id: 'dd6a3b06-7c75-4c1a-9e3d-f75e0a746b9a',
+    component: (
+      <Image src={stoyanBushcraftingImg} /> 
+    ),
+    delay: 3000,
+    trigger: '769b61ce-e5a4-46c7-a308-936ab315638e',
+  }, {
+    id: '769b61ce-e5a4-46c7-a308-936ab315638e',
+    message: 'Summary message',
+    delay: 6000,
+    trigger: '170ef705-a016-43cc-a938-8aa872621187',
+  }, {
+    id: '170ef705-a016-43cc-a938-8aa872621187',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me the whole study',
+          projectDetails: Panto,
+        },
+        {
+          value: 1,
+          label: 'Show me another project',
+          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+        },
+        {
+          value: 2,
+          label: 'I will see your projects later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+      ]}
+      />
+    ),
   },
 
   /**
-   * SEEMBA PROJECT TOPIC
+   * MOTELNOW - project intro & summary
+   */
+
+  {
+    id: 'e678ff34-dda1-4722-a5fc-bcf7f1c7ae3d',
+    message: 'Intro message',
+    trigger: '368a6367-b112-4c14-85cc-3938fed8c9fa',
+  }, {
+    id: '368a6367-b112-4c14-85cc-3938fed8c9fa',
+    component: (
+      <Image src={stoyanBushcraftingImg} /> 
+    ),
+    delay: 3000,
+    trigger: '206d9597-637a-441f-9c12-7306e80f42e9',
+  }, {
+    id: '206d9597-637a-441f-9c12-7306e80f42e9',
+    message: 'Summary message',
+    delay: 6000,
+    trigger: '710d2508-3413-4cfb-afad-f46e1863aaaf',
+  }, {
+    id: '710d2508-3413-4cfb-afad-f46e1863aaaf',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me the whole study',
+          projectDetails: MotelNow,
+        },
+        {
+          value: 1,
+          label: 'Show me another project',
+          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+        },
+        {
+          value: 2,
+          label: 'I will see your projects later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+      ]}
+      />
+    ),
+  },
+
+   /**
+   * HATCHERY 1 - project intro & summary
+   */
+
+  {
+    id: 'd669873c-4840-4d5a-b536-642b6b913c36',
+    message: 'Intro message',
+    trigger: '8f6552ef-764d-4ff1-a95b-aea907aec750',
+  }, {
+    id: '8f6552ef-764d-4ff1-a95b-aea907aec750',
+    component: (
+      <Image src={stoyanBushcraftingImg} /> 
+    ),
+    delay: 3000,
+    trigger: 'fafd8207-5cea-4507-953c-1dbc79f60b0b',
+  }, {
+    id: 'fafd8207-5cea-4507-953c-1dbc79f60b0b',
+    message: 'Summary message',
+    delay: 6000,
+    trigger: '498298af-aeed-483a-b11f-7da744500151',
+  }, {
+    id: '498298af-aeed-483a-b11f-7da744500151',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me the whole study',
+          projectDetails: Hatchery1,
+        },
+        {
+          value: 1,
+          label: 'Show me another project',
+          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+        },
+        {
+          value: 2,
+          label: 'I will see your projects later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+      ]}
+      />
+    ),
+  },
+
+
+   /**
+   * My site - project intro & summary
+   */
+
+  {
+    id: 'd432bc65-c5e2-493e-b9ee-211bc1605617',
+    message: 'Intro message',
+    trigger: 'a248928c-c35a-4338-83c4-d5ca966457ca',
+  }, {
+    id: 'a248928c-c35a-4338-83c4-d5ca966457ca',
+    component: (
+      <Image src={stoyanBushcraftingImg} /> 
+    ),
+    delay: 3000,
+    trigger: '11b8741f-8c25-4b5d-a780-b8c75c6da981',
+  }, {
+    id: '11b8741f-8c25-4b5d-a780-b8c75c6da981',
+    message: 'Summary message',
+    delay: 6000,
+    trigger: '3d1fad33-777d-4c0e-9d0e-f26d4b5001fd',
+  }, {
+    id: '3d1fad33-777d-4c0e-9d0e-f26d4b5001fd',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me the whole study',
+          projectDetails: MySite,
+        },
+        {
+          value: 1,
+          label: 'Show me another project',
+          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+        },
+        {
+          value: 2,
+          label: 'I will see your projects later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+      ]}
+      />
+    ),
+  },
+  
+
+  /**
+   * HISTORY PARK PROJECT TOPIC
    */
   {
     id: '1b2e19b6-373a-495e-aaf0-85f747946602',
-    message: 'So the Histry Park project is...',
-    // trigger: '17f6dffc-b5a8-4a7d-971e-a36c82083293',
+    message: 'Intro message',
+    trigger: '17f6dffc-b5a8-4a7d-971e-a36c82083293',
+  }, {
+    id: '17f6dffc-b5a8-4a7d-971e-a36c82083293',
+    component: (
+      <Image src={stoyanBushcraftingImg} /> 
+    ),
+    delay: 3000,
+    trigger: 'dc26dd81-9a5d-458f-a653-8088b6e0db7c',
+  }, {
+    id: 'dc26dd81-9a5d-458f-a653-8088b6e0db7c',
+    message: 'Summary message',
+    delay: 6000,
+    trigger: 'b6544530-e7bf-4039-a875-33b645bed9fc',
+  }, {
+    id: 'b6544530-e7bf-4039-a875-33b645bed9fc',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me the whole study',
+          projectDetails: HistoryParkProject,
+        },
+        {
+          value: 1,
+          label: 'Show me another project',
+          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+        },
+        {
+          value: 2,
+          label: 'I will see your projects later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+      ]}
+      />
+    ),
   },
 
+
+  /** 
+   *  PROJECT CLOSED
+   */
+
+  {
+    id: '986f2b6e-e271-4bf1-9c6a-0ee809026e27',
+    message: projectInterest(),
+    trigger: '0d45e489-e113-42e6-b42a-2d4e4f510fa6',
+  }, {
+    id: '0d45e489-e113-42e6-b42a-2d4e4f510fa6',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me your next one',
+          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+        },
+        {
+          value: 1,
+          label: 'I’ll check the rest later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+        {
+          value: 2,
+          label: 'I want to contact you',
+          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+        },
+      ]}
+      />
+    ),
+  },
+  
 
   /**
     * MEDIATOR STEP
@@ -975,7 +1359,7 @@ export default [
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Show me your projects',
+          label: showProjectsMessage(),
           trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
         },
         {
