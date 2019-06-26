@@ -153,7 +153,7 @@ export default {
     margin: '0 auto 40px',
 
     [breakpoints.sm]: {
-      margin: '0 auto 64px',
+      margin: '180px auto 180px',
     },
   },
   fullWidthImage: {
@@ -218,7 +218,7 @@ export default {
 
   youtubeContainer: {
     width: '100%',
-    margin: '32px 0',
+    margin: '80px 0',
     textAlign: 'center',
 
     '& > iframe': {
