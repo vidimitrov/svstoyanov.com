@@ -130,6 +130,8 @@ class Home extends React.Component {
           <div className={classes.paper}>
             <Project
               project={projectDetails}
+              muted={muted}
+              togglePlayer={this.togglePlayer}
               onClose={() => {
                 const { trigger } = projectDetails;
                 this.setState({
@@ -156,7 +158,7 @@ class Home extends React.Component {
                 hideBotAvatar={false}
                 hideSubmitButton
                 className="chat-bot"
-                cache
+                //cache
                 contentStyle={{
                   overflowX: 'hidden',
                   maxHeight: '100%',
