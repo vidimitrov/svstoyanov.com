@@ -11,7 +11,7 @@ export default {
     alignItems: 'center',
     width: '100%',
     boxSizing: 'border-box',
-    marginBottom: '16px',
+    // marginBottom: '16px',
     fontFamily: 'Space Mono',
 
     [breakpoints.md]: {
@@ -128,10 +128,9 @@ export default {
     flexWrap: 'wrap',
     display: 'flex',
     flex: 1,
-    marginTop: '16px',
+    margin: '24px 0',
     
     [breakpoints.md]: {
-      marginTop: '32px',
     }
   },
   navigationButtons: {
@@ -156,18 +155,16 @@ export default {
     margin: 0,
   },
   selectedOptionOffset: {
-    padding: '32px 0',
+    margin: '24px 0',
   },
   arrowAvatar: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'flex-end',
-    marginTop: '16px',
+    alignItems: 'center',
     minWidth: '72px',
+    margin: '24px 0',
 
     [breakpoints.md]: {
-      alignItems: 'center',
-      marginTop: '32px',
     },
   },
 };
