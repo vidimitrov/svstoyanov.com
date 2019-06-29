@@ -85,7 +85,7 @@ function nonLexicalMessage() {
 }
 
 function showProjectMessage() {
-  const variations = ['Show me this project', 'Want to understand more about it', 'Can I see this one', 'Wanna see it'];
+  const variations = ['Show me this project', 'Wanna understand more', 'Can I see this one', 'Wanna see it'];
   return variations[Math.floor(Math.random() * variations.length)];
 }
 
@@ -746,11 +746,11 @@ export default [
     trigger: '4d0db6a4-1ccf-474a-9ee6-35d241186943',
   }, {
     id: 'project-info-step-3',
-    message: 'The artifical assistant Panto. Shall we start...',
+    message: 'The artifical assistant Panto.',
     trigger: 'd4c1c1f7-0f21-4ffb-81ae-ca50d372f7b2',
   }, {
     id: 'project-info-step-4',
-    message: 'Love is in the air every where we look around. Let\'s start...',
+    message: 'Love is in the air, every where we look around.',
     trigger: 'e678ff34-dda1-4722-a5fc-bcf7f1c7ae3d',
   }, {
     id: 'project-info-step-5',
@@ -904,7 +904,11 @@ export default [
 
   {
     id: 'd4c1c1f7-0f21-4ffb-81ae-ca50d372f7b2',
-    message: 'Intro message',
+    message: 'It gives the possibility to deskless employees instantly to retrieve company information or get an answer to a question in seconds. ',
+    trigger: '8bca8572-7daf-4987-86d6-f8777295b406',
+  }, {
+    id: '8bca8572-7daf-4987-86d6-f8777295b406',
+    message: 'Combining cutting edge technologies to disrupt the way companies collect and use their knowledge.',
     trigger: 'dd6a3b06-7c75-4c1a-9e3d-f75e0a746b9a',
   }, {
     id: 'dd6a3b06-7c75-4c1a-9e3d-f75e0a746b9a',
@@ -915,7 +919,7 @@ export default [
     trigger: '769b61ce-e5a4-46c7-a308-936ab315638e',
   }, {
     id: '769b61ce-e5a4-46c7-a308-936ab315638e',
-    message: 'Summary message',
+    message: 'The end results were: A complete MVP product and a seed investment of $200K',
     delay: 6000,
     trigger: '170ef705-a016-43cc-a938-8aa872621187',
   }, {
@@ -948,7 +952,11 @@ export default [
 
   {
     id: 'e678ff34-dda1-4722-a5fc-bcf7f1c7ae3d',
-    message: 'Intro message',
+    message: 'MotelNow is the gateway between people and Motels in Latin America. It helps people to discover and reserve an amazing thematic motel room on the go.',
+    trigger: 'bb571d38-a181-4c40-b832-221ff321c01e',
+  }, {
+    id: 'bb571d38-a181-4c40-b832-221ff321c01e',
+    message: 'As easy as choosing the number of staying hours they want and the room and this happens on the same day of the reservation.',
     trigger: '368a6367-b112-4c14-85cc-3938fed8c9fa',
   }, {
     id: '368a6367-b112-4c14-85cc-3938fed8c9fa',
@@ -959,7 +967,7 @@ export default [
     trigger: '206d9597-637a-441f-9c12-7306e80f42e9',
   }, {
     id: '206d9597-637a-441f-9c12-7306e80f42e9',
-    message: 'Summary message',
+    message: 'In the end MotelNow integrated a design approach into their working culture, had a web app ready for scale. The project continues to be WIP.',
     delay: 6000,
     trigger: '710d2508-3413-4cfb-afad-f46e1863aaaf',
   }, {
