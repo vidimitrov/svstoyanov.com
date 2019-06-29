@@ -175,30 +175,13 @@ class Project extends React.Component {
     super(props);
 
     this.state = {
-      muted: true,
       startAnimation: true,
       endAnimation: false,
     };
-
-    this.togglePlayer = this.togglePlayer.bind(this);
-  }
-
-  togglePlayer() {
-    const { muted } = this.state;
-    if (!muted) {
-      this.setState({
-        muted: true,
-      });
-    } else {
-      this.setState({
-        muted: false,
-      });
-    }
   }
 
   render() {
     const {
-      muted,
       endAnimation,
       startAnimation,
     } = this.state;
@@ -206,6 +189,8 @@ class Project extends React.Component {
       classes,
       project,
       onClose,
+      muted,
+      togglePlayer,
     } = this.props;
     const projectCodeName = `P${project.id}_${project.name.split(' ').join('_').toUpperCase()}`;
 
@@ -278,7 +263,7 @@ class Project extends React.Component {
           </Grid>
           <Footer
             muted={muted}
-            togglePlayer={this.togglePlayer}
+            togglePlayer={togglePlayer}
           >
             <Grid
               container
