@@ -199,6 +199,7 @@ export default {
     borderBottom: `2px solid  ${colors.primary}`,
   },
   reviewContainer: {
+    marginBottom: '64px',
   },
   reviewContent: {
     ...typography.h4,
