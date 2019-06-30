@@ -17,6 +17,17 @@ import motelNowExample from '../assets/img/projects/motel-now/motelNowExample.pn
 import motelNowWireframes from '../assets/img/projects/motel-now/motelNowWireframes.png'; 
 
 
+import seembaAffiliateTeam from '../assets/img/projects/seemba-affiliate/seembaAffiliateTeam.png'; 
+import seembaAffiliateAlberto from '../assets/img/projects/seemba-affiliate/seembaAffiliateAlberto.png'; 
+import seembaAffiliateCover from '../assets/img/projects/seemba-affiliate/seembaAffiliateCover.png'; 
+import SeembaAffiliateInterviews from '../assets/img/projects/seemba-affiliate/SeembaAffiliateInterviews.png'; 
+import SeembaAffiliatePersonas from '../assets/img/projects/seemba-affiliate/SeembaAffiliatePersonas.png'; 
+import seembaAffiliatePersona from '../assets/img/projects/seemba-affiliate/seembaAffiliatePersona.png'; 
+import seembaAffiliateFlow from '../assets/img/projects/seemba-affiliate/seembaAffiliateFlow.png'; 
+import seembaAffiliateWireframes from '../assets/img/projects/seemba-affiliate/seembaAffiliateWireframes.png'; 
+import seembaAffiliateUI from '../assets/img/projects/seemba-affiliate/seembaAffiliateUI.png'; 
+
+
 export const TYPES = {
   Image: 'image',
   FullWidthImage: 'full-width-image',
@@ -345,13 +356,13 @@ export const SeembaForSales = {
   shortDescription: 'Seeing that a problem is to manage our on ground sales we came up with a solution to help coordinate on ground teams and track their results.',
   logo: null,
   metadata: {
-    duration: '',
+    duration: '2_MONTHS',
   },
   sections: [{
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: seembaAffiliateCover,
   }, {
-    type: TYPES.Text,
+    type: TYPES.Section,
     heading: 'The problem',
     content: 'After launching Seemba we were in search of penetrating the Indian market offline. One of our partners called Sakal offered to us more than 600 sales interns that can do a field sale by offering, onboarding and creating the online presence of the business owners in specific districts, starting from the largest ones Maharastra, New Delphi. The salespeople will go from the business door to business door empowering them.  All carrying a smartphone with them we saw a problem of coordination, tracking, and monitoring the field sales.',
   }, {
@@ -359,13 +370,13 @@ export const SeembaForSales = {
     content: 'I was working with the VP of Sales and one of our developers.',
   }, {
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: seembaAffiliateTeam,
   }, {
     type: TYPES.Text,
     content: 'First and foremost I needed to get familiar with the field sales process so I’ve prepared myself for an interview with the VP.',
   }, {
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: SeembaAffiliateInterviews,
   }, {
     type: TYPES.Text,
     content: 'After understanding the project objective I have created a plan and shared it with the VP.', 
@@ -395,50 +406,47 @@ export const SeembaForSales = {
     ], 
   }, {
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: SeembaAffiliatePersonas,
   }, {
-    type: TYPES.Text,
+    type: TYPES.Section,
     heading: 'Understanding the user',
     content: 'Before starting I needed to consider our sales persona, the person that will use the application, the environment he has, the context in which he will use it and how will use it. I had answers to those questions from my past observations and from the stakeholder interviews because they have met the Indian sales team which directly be managed from our management. I wanted to quickly add the pieces so I will be also aware with the person in mind.',
   }, {
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: seembaAffiliatePersona,
   }, {
-    type: TYPES.Text,
+    type: TYPES.Section,
     heading: 'Figuring out the solution',
     content: 'I was ready to start with the design. The whole product took me 4 weeks in total to build. Having in mind what use cases the app needed to cover I’ve started by ideating and creating the user flows for the application. I usually do the information architecture before the sketchings but in this situation, I just reversed it because as a deliverable it was for me and the dev team. I had a clear understanding of what to do after the research. The architecture was helping the developers to see the product from a birds view and understand the connections between the views and after completing a task where the next view takes you.',
   }, {
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: seembaAffiliateFlow,
   }, {
-    type: TYPES.Image,
-    src: historyParkHeading,
-  }, {
-    type: TYPES.Text,
+    type: TYPES.Section,
     heading: 'Wireframing',
     content: 'A bit of testing was needed to understand if Sakal’s sale representatives have any issues in using the app and understanding it. In this situation since features and flows are taken from already existing apps and combined in our solution but with some usability fixes we didn’t have the necessity of extensive testing. The testing included: Internally sales team and 4 people from the sales of Sakal that would operate on the side in India. I used invision and lookback.io to record a video and I was speaking on WhatsApp where I was giving the tasks to the users.',
   }, {
-    type: TYPES.Image,
-    src: historyParkHeading,
+    type: TYPES.FullWidthImage,
+    src: seembaAffiliateWireframes,
   }, {
-    type: TYPES.Text,
+    type: TYPES.Section,
     heading: 'Design',
     content: 'A bit of testing was needed to understand if Sakal’s sale representatives have any issues in using the app and understanding it. In this situation since features and flows are taken from already existing apps and combined in our solution but with some usability fixes we didn’t have the necessity of extensive testing. The testing included: Internally sales team and 4 people from the sales of Sakal that would operate on the side in India. I used invision and lookback.io to record a video and I was speaking on WhatsApp where I was giving the tasks to the users.',
   }, {
     type: TYPES.FullWidthImage,
-    src: historyParkFullImage,
+    src: seembaAffiliateUI,
   }, {
-    type: TYPES.Text,
+    type: TYPES.Section,
     heading: 'Outome',
     content: 'The application was used total one month only from sales interns. It easily allowed the Seemba internal sales team to monitor the performance of the interns and to see at the end that more than 100K businesses were brought online. One thing I improved tho was the fact that I added a survey inquiry for businesses that wouldn’t be able to come online.',
   }, {
     type: TYPES.Review,
     headline: 'Alberto Iore - VP of sales',
     companyName: 'Seemba',
-    content: 'Working with Stoyan was just an awesome experience. He invested time to learn about out wants and need , he also took time to learn everything needed fo the project Historical Park so he could make the best website for it He was honest and transparent about the process and kept us involved all the time. It was up to Stoyan to really translate everything we talked about in to the website design and to find the best one for this big project.. The end result was just awesome, he did what we had as an idea and done it at the best way. Looking forward to work with Stoyan again.',
+    content: 'I had the pleasure to work with Stoyan for almost two years. Stoyan comes across as a very professional and motivated designer. I was particularly amazed by Stoyan\'s deep commitment to beautiful user experience and the time dedicated to the learning of the latest design approaches. Stoyan was able to provide key suggestions and insights based on deep data analysis on users behaviors and interactions with the product. Furthermore, Stoyan is a fantastic team-member always able to drive team\'s motivation, commitment and positive vibes at any time of the day. I\'d highly recommend Stoyan to any company looking to hire an experienced designer able to provide solid understanding of user experience and of the latest trends in web and mobile design',
     representative: 'ALBERTO_IORE',
     representativeRole: 'VP_SALES',
-    avatar: historyParkReviewAuthorAvatar,
+    avatar: seembaAffiliateAlberto,
   },
 ],
 };
@@ -720,12 +728,12 @@ export const MotelNow = {
     type: TYPES.Text,
     heading: 'Final product',
   }, {
-    type: TYPES.YouTube,
-    id: '5GJ_I_rM83M',
-  }, {
     type: TYPES.Section,
     heading: 'Week #4: Learning & Final UI',
     content: 'We finished by testing the visual prototype in invision and maze.design. Amazing pair which allowed us to do it remotely. Again with the CEO we translated the tasks and the scenarios to Spanish and test it out. Some refinements were done after the testings with the reservation waiting for screen and the copywriting was changed. Here is the final product.',
+  }, {
+    type: TYPES.YouTube,
+    id: '5GJ_I_rM83M',
   }, {
     type: TYPES.Section,
     heading: 'Outcomes & next steps',
