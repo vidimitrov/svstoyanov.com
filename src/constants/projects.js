@@ -3,6 +3,20 @@ import historyParkHeading from '../assets/img/projects/history-park/history-park
 import historyParkReviewAuthorAvatar from '../assets/img/projects/history-park/history-park-avatar.png';
 import historyParkLogo from '../assets/img/projects/history-park/history-park-logo.png';
 
+import motelNowReviewAuthorAvatar from '../assets/img/projects/motel-now/motelNowReviewAuthorAvatar.png';
+import motelNowTeam from '../assets/img/projects/motel-now/motelNowTeam.png';
+import motelNowCover from '../assets/img/projects/motel-now/motelNowCover.png';
+import motelNowProcess from '../assets/img/projects/motel-now/motelNowProcess.png';
+import motelNowUnderstanding from '../assets/img/projects/motel-now/motelNowUnderstanding.png'; 
+import motelNowDiagram from '../assets/img/projects/motel-now/motelNowDiagram.png'; 
+import motelNowPersonas from '../assets/img/projects/motel-now/motelNowPersonas.png'; 
+import motelNowCompetitive from '../assets/img/projects/motel-now/motelNowCompetitive.png'; 
+import motelNowFeatures from '../assets/img/projects/motel-now/motelNowFeatures.png'; 
+import motelNowIA from '../assets/img/projects/motel-now/motelNowIA.png'; 
+import motelNowExample from '../assets/img/projects/motel-now/motelNowExample.png'; 
+import motelNowWireframes from '../assets/img/projects/motel-now/motelNowWireframes.png'; 
+
+
 export const TYPES = {
   Image: 'image',
   FullWidthImage: 'full-width-image',
@@ -605,36 +619,36 @@ export const MotelNow = {
   },
   sections: [{
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: motelNowCover,
   }, {
-    type: TYPES.Text,
+    type: TYPES.Section,
     heading: 'Overview',
     content: 'MotelNow is the gateway between people and Motels in Latin America. It helps people to discover and reserve an amazing thematic motel room on the go by choosing the number of staying hours they want and the room and this happens on the same day of the reservation. Latin America is known for sex tourism, but this wasn’t our target. Our target was people that want to have sex in a Motel or couples who want to experience something new in a thematic room. ',
   }, {
     type: TYPES.Text,
     content: '​MotelNow wanted to give the possibility of their users to make reservations on the web without the struggle of downloading an app and in the meantime increase discoverability of their service. They have had native apps for the 2 platforms iOS and Android and also an online booking system, but the booking system was only used to showcase the idea to the Motel clients.',
   }, {
-    type: TYPES.Text,
+    type: TYPES.Section,
     heading: 'The Problem',
     content: 'For me, this was an interesting challenge with which I haven’t worked before in the industry of booking, intimacy, and romance. They reached me to design their online booking system and help the stakeholders with the research process of finding the right user group.',
   }, {
     type: TYPES.Text,
     content: '​I was leading the design process and working remotely, thus we needed to align strictly our collaboration and timing, so we decided to have daily sync-ups and weekly status updates.',
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: motelNowTeam,
   }, {
-    type: TYPES.Text,
+    type: TYPES.Section,
     heading: 'Scope & constraints',
     content: 'I had a very tight deadline since MN (MotelNow) was in negotiating an investment in Colombia and also the budget was very tight. I decided to do the research process as an ongoing task during and after the launch of the platform. This type of research process is possible when you are the only player in the market and people need to use the product. The first part of the project is needed to be done in 4 weeks.',
   }, {
     type: TYPES.Text,
     content: '​​Another issue that we encounter was during the customer interviews and usability testing since people know very little English and me - Spanish. We solved this issue by me preparing all the necessary artifacts for the interviews and with one of the founders (who is available on a certain day) to perform 1:1:1 (me : one of the founders: the user) customer interviews. Where I was onboarding and guiding the founder and he was asking the questions.',
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: motelNowProcess,
   }, {
-    type: TYPES.Text,
+    type: TYPES.Section,
     heading: 'Week #1: Understanding  & empathise',
     content: 'As every startup MotelNow is also in a dynamic phase struggling with scale. Things were a bit chaotic. However, I love to bring order in chaos. A challenge was to take the brief and clear it. First, I got familiar with their product so I could have questions for them and to see their product and service. After that I did an interview with the stakeholders to understand the current state of the product, what we want to achieve, where do they stand in understanding their users and what they want from the new product to solve.',
   }, {
@@ -648,20 +662,20 @@ export const MotelNow = {
     type: TYPES.Text,
     content: '​​After that, I listed out some hypothesis with what I struggled and jumped into google analytics to check out the behavior flow there.',
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: motelNowUnderstanding,
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: motelNowDiagram,
   }, {
-    type: TYPES.Text,
+    type: TYPES.Section,
     heading: 'The personas',
     content: 'Given the fact that this product was on the market since 2017, the stakeholders had a good amount of information on their users, both from their understanding and from the gathered requests they had in their internal dashboard.  I led a second remote workshop in which we summarised the user information, laid out the problems and hypothesis and the plan on what to do. We ended up with 3 main personas. The 3 types are:',
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: motelNowPersonas,
   }, {
-    type: TYPES.Text,
+    type: TYPES.Section,
     heading: 'Empathising with the users & competitive analysis',
     content: 'I prepared a document with questions for user interviews and also some tasks and scenarios to do a guerilla usability study on their applications. We used their internal dashboard for the recruiting process and sent e-mails from the CEO’s name to the users. The usability study and the interviews were combined and it was with the real product and we used loockback.io to record and further analyze the findings.',
   }, {
@@ -671,17 +685,20 @@ export const MotelNow = {
     type: TYPES.Text,
     content: '​​Studying competitors is a must in my process and in this case, all that was to see indirect competitors in Japan and Korea and also reservation flows of commonly used platforms like airbnb and booking.com. I wanted to compare how the other similar services are tackling the issues with the instant reservation. Among the direct business model competitors, but not in the same market, were Dayuse and HotelTonigh.',
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: motelNowCompetitive,
+  }, {
+    type: TYPES.Image,
+    src: motelNowFeatures,
   },  {
-    type: TYPES.Text,
+    type: TYPES.Section,
     heading: 'Week #2: Define',
     content: 'As illustrated I documented few users flows on which I had to build the different use cases for the web app and an architecture that can easily scale up with the next features in line.',
   }, {
     type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    src: motelNowIA,
   }, {
-    type: TYPES.Text,
+    type: TYPES.Section,
     heading: 'Week #3: Sketching, wireframing, prototyping',
     content: 'My sketches were a combination of the first version of the platform and what to add next in it. That’s how I could test the architecture and see its scale abilities. With the MN team, we have a design critique session using a paper prototype.',
   }, {
@@ -691,39 +708,39 @@ export const MotelNow = {
     type: TYPES.Text,
     content: '​​Discovering an opportunity from the initial interviews with the stakeholders I’ve developed quickly button variations and presented the Idea of MotelNow reaching the Motels and ask for a partnership where the motel redirects clients to MN where the client can book the room.',
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: motelNowExample,
   }, {
     type: TYPES.Text,
     heading: 'Wireframes',
   }, {
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: motelNowWireframes,
   }, {
     type: TYPES.Text,
     heading: 'Final product',
   }, {
     type: TYPES.YouTube,
-    id: 'f6qdAwENFRk',
+    id: '5GJ_I_rM83M',
   }, {
-    type: TYPES.Text,
-    heading: 'Week #4: Learning',
-    content: 'We finished by testing the visual prototype in invision and maze.design. Amazing pair which allowed us to do it remotely. Again with the CEO we translated the tasks and the scenarios to Spanish and test it out. Some refinements were done after the testings with the reservation waiting for screen and the copywriting was changed.',
+    type: TYPES.Section,
+    heading: 'Week #4: Learning & Final UI',
+    content: 'We finished by testing the visual prototype in invision and maze.design. Amazing pair which allowed us to do it remotely. Again with the CEO we translated the tasks and the scenarios to Spanish and test it out. Some refinements were done after the testings with the reservation waiting for screen and the copywriting was changed. Here is the final product.',
   }, {
-    type: TYPES.Text,
+    type: TYPES.Section,
     heading: 'Outcomes & next steps',
     content: 'In the end, MotelNow integrated a design approach into their working culture which was a success for me. For me, keeping close contact with startups at this stage is important due to our relations and the fact that we will continue our work together. That’s why I’m in constant sync with the project. And an investment is coming to town soon, so we are ready for enhancing the MotelNow. Our next steps are to continue with a deep understanding of the customers,  create a unified design system and enhance the web platform by adding necessary features.',
   }, {
     type: TYPES.Text,
-    content: '​​MotelNow is currently developing the MVP, but their applications can be found in play store and appstore. ',
+    content: '​​MotelNow are currently developing the MVP, but their applications can be found in play store and appstore. ',
   }, {
     type: TYPES.Review,
     headline: 'Jose Hurtado - client',
     companyName: 'MotelNow',
-    content: 'Working with Stoyan was just an awesome experience. He invested time to learn about out wants and need , he also took time to learn everything needed fo the project Historical Park so he could make the best website for it He was honest and transparent about the process and kept us involved all the time. It was up to Stoyan to really translate everything we talked about in to the website design and to find the best one for this big project.. The end result was just awesome, he did what we had as an idea and done it at the best way. Looking forward to work with Stoyan again.',
+    content: 'While working together on MotelNow, Stoyan constantly showed that he is a team player and regularly provided professional advises. His great soft skills help him to understand technical requirements and user needs by learning on the go in a way that he produces an outstanding solution with excellent design and user experience.',
     representative: 'JOSE_HURTADO',
     representativeRole: 'CEO',
-    avatar: historyParkReviewAuthorAvatar,
+    avatar: motelNowReviewAuthorAvatar,
   },
 
   ],
