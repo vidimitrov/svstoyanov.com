@@ -144,7 +144,7 @@ class Input extends React.Component {
             <ValidationLabel
               invalid={value && !isValid}
             >
-            Email is incorrect
+            Hmm it seems like you’ve mispeled your email
             </ValidationLabel>
           </Grid>
           )
