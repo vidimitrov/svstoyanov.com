@@ -8,7 +8,11 @@ import Input from '../components/Inputs/Input';
 import TextArea from '../components/Inputs/TextArea';
 import Image from '../components/Steps/Image';
 import { sendEmail } from '../api';
-import stoyanBushcraftingImg from '../assets/img/stoyan-bushcrafting.png';
+import { isDesktop } from '../lib/viewport';
+import stoyanBushcraftingDesktopImg from '../assets/img/bot-flow/stoyan-bushcrafting-desktop.png';
+import stoyanBushcraftingMobileImg from '../assets/img/bot-flow/stoyan-bushcrafting-mobile.png';
+import processPictureDesktop from '../assets/img/bot-flow/process-desktop.png';
+import processPictureMobile from '../assets/img/bot-flow/process-mobile.png';
 import {
   SeembaForEndUsersProject,
   HistoryParkProject,
@@ -311,7 +315,7 @@ export default [
   },{
     id: '2f957ec5-08f0-4e0b-a164-be89776aa68d',
     component: (
-      <Image src={stoyanBushcraftingImg} /> // change process picture
+      <Image src={isDesktop() ? processPictureDesktop : processPictureMobile} />
     ),
     trigger: '38a495b2-e8af-4c6a-a9ee-2724e8e79f1f',
     delay: 4000,
@@ -406,7 +410,7 @@ export default [
   },{
     id: 'a7aca69f-bef2-469f-93d8-a4cc72f02468',
     component: (
-      <Image src={stoyanBushcraftingImg} /> 
+      <Image src={isDesktop() ? stoyanBushcraftingDesktopImg : stoyanBushcraftingMobileImg} />
     ),
     trigger: 'd413f3a2-89d8-45a3-a102-6359d0ba4a66',
   },{
