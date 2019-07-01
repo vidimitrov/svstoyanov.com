@@ -1411,7 +1411,7 @@ export default [
     id: '676a522c-fd7b-4923-a40e-1fef304c3611',
     message: `Welcome back ${localStorage.getItem('user-name')}. 🤗`,
     trigger: '0969a3d0-e364-44bd-ba55-874b7d1dff22',
-    delay: 4000,
+    delay: 7000,
   }, {
     id: '0969a3d0-e364-44bd-ba55-874b7d1dff22',
     message: sameDaySecondTimeGreetings(),
@@ -1431,7 +1431,7 @@ export default [
     id: 'a2bf3b98-78a9-4a76-ad02-4a3f4982baf4',
     message: secondTimeGreetings(),
     trigger: '1114f7e3-9a19-4974-84af-668f3301adc1',
-    delay: 4000,
+    delay: 7000,
   }, {
     id: '1114f7e3-9a19-4974-84af-668f3301adc1',
     message: `How are you today ${localStorage.getItem('user-name')} ?`,
