@@ -15,6 +15,7 @@ import motelNowFeatures from '../assets/img/projects/motel-now/motelNowFeatures.
 import motelNowIA from '../assets/img/projects/motel-now/motelNowIA.png'; 
 import motelNowExample from '../assets/img/projects/motel-now/motelNowExample.png'; 
 import motelNowWireframes from '../assets/img/projects/motel-now/motelNowWireframes.png'; 
+import motelNowSketches from '../assets/img/projects/motel-now/motelNowSketches.png'; 
 
 
 import seembaAffiliateTeam from '../assets/img/projects/seemba-affiliate/seembaAffiliateTeam.png'; 
@@ -27,6 +28,8 @@ import seembaAffiliateFlow from '../assets/img/projects/seemba-affiliate/seembaA
 import seembaAffiliateWireframes from '../assets/img/projects/seemba-affiliate/seembaAffiliateWireframes.png'; 
 import seembaAffiliateUI from '../assets/img/projects/seemba-affiliate/seembaAffiliateUI.png'; 
 import seembaAffiliateSuccess from '../assets/img/projects/seemba-affiliate/seembaAffiliateSuccess.jpg'; 
+import seembaAffiliateBrainstorming from '../assets/img/projects/seemba-affiliate/seembaAffiliateBrainstorming.png'; 
+import seembaAffiliateLearning from '../assets/img/projects/seemba-affiliate/seembaAffiliateLearning.png'; 
 
 import seembaViewerCover from '../assets/img/projects/seemba-viewer/seembaViewerCover.png'; 
 import seembaViewerBot from '../assets/img/projects/seemba-viewer/seembaViewerBot.png'; 
@@ -54,6 +57,22 @@ import seembaSnappSuccess from '../assets/img/projects/seemba/seembaSnappSuccess
 import seembaVerification from '../assets/img/projects/seemba/seembaVerification.png'; 
 import seembaVerificationDashboard from '../assets/img/projects/seemba/seembaVerificationDashboard.png'; 
 import seembaOutcome from '../assets/img/projects/seemba/seembaOutcome.png'; 
+
+import mySiteCover from '../assets/img/projects/my-site/mySiteCover.png'; 
+import mySitePlan from '../assets/img/projects/my-site/mySitePlan.png'; 
+import mySiteAnalysis from '../assets/img/projects/my-site/mySiteAnalysis.png'; 
+import mySiteExamples from '../assets/img/projects/my-site/mySiteExamples.png'; 
+import mySiteScript1 from '../assets/img/projects/my-site/mySiteScript1.png'; 
+import mySiteTesting from '../assets/img/projects/my-site/mySiteTesting.png'; 
+import mySiteTreejack from '../assets/img/projects/my-site/mySiteTreejack.png'; 
+import mySiteBotStructure from '../assets/img/projects/my-site/mySiteBotStructure.png'; 
+import mySiteFlow1 from '../assets/img/projects/my-site/mySiteFlow1.png'; 
+import mySiteDobrianTesting from '../assets/img/projects/my-site/mySiteDobrianTesting.png'; 
+import mySitePaperWizardOz from '../assets/img/projects/my-site/mySitePaperWizardOz.png'; 
+import mySiteSketches from '../assets/img/projects/my-site/mySiteSketches.png'; 
+import mySiteWireframes from '../assets/img/projects/my-site/mySiteWireframes.png'; 
+import mySiteWix from '../assets/img/projects/my-site/mySiteWix.png'; 
+import mySiteComponents from '../assets/img/projects/my-site/mySiteComponents.png'; 
 
 
 
@@ -441,6 +460,9 @@ export const SeembaForSales = {
     type: TYPES.Image,
     src: SeembaAffiliatePersonas,
   }, {
+    type: TYPES.Image,
+    src: seembaAffiliateBrainstorming,
+  },{
     type: TYPES.Section,
     heading: 'Understanding the user',
     content: 'Before starting I needed to consider our sales persona, the person that will use the application, the environment he has, the context in which he will use it and how will use it. I had answers to those questions from my past observations and from the stakeholder interviews because they have met the Indian sales team which directly be managed from our management. I wanted to quickly add the pieces so I will be also aware with the person in mind.',
@@ -473,6 +495,9 @@ export const SeembaForSales = {
     heading: 'Outome',
     content: 'The application was used total one month only from sales interns. It easily allowed the Seemba internal sales team to monitor the performance of the interns and to see at the end that more than 100K businesses were brought online. One thing I improved tho was the fact that I added a survey inquiry for businesses that wouldn’t be able to come online.',
   }, {
+    type: TYPES.Image,
+    src: seembaAffiliateLearning,
+  },{
     type: TYPES.Image,
     src: seembaAffiliateSuccess,
   }, {
@@ -756,7 +781,10 @@ export const MotelNow = {
     src: motelNowExample,
   }, {
     type: TYPES.Text,
-    heading: 'Wireframes',
+    heading: 'Wireframes & Sketches',
+  }, {
+    type: TYPES.Image,
+    src: motelNowSketches,
   }, {
     type: TYPES.Image,
     src: motelNowWireframes,
@@ -778,6 +806,9 @@ export const MotelNow = {
     type: TYPES.Text,
     content: '​​MotelNow are currently developing the MVP, but their applications can be found in play store and appstore. ',
   }, {
+    type: TYPES.Text,
+    content: '​​The project can be found on: motelnow.cl',
+  },{
     type: TYPES.Review,
     headline: 'Jose Hurtado - client',
     companyName: 'MotelNow',
@@ -785,9 +816,8 @@ export const MotelNow = {
     representative: 'JOSE_HURTADO',
     representativeRole: 'CEO',
     avatar: motelNowReviewAuthorAvatar,
-  },
-
-  ],
+  }, 
+],
 };
 
 export const Hatchery1 = {
@@ -807,13 +837,152 @@ export const MySite = {
   id: 6,
   trigger: '986f2b6e-e271-4bf1-9c6a-0ee809026e27',
   name: 'svstoyanov.com',
-  headline: '',
+  headline: 'Talking with my digital twin',
   shortDescription: 'My passion for conversational and voice UI\'s came after working in Snapp & Seemba and afterwords in Panto. This was the trigger of building from groud up this web app which wouldn\'t happened without the support of Veselin Dimitrov.',
   logo: null,
   metadata: {
-    duration: '',
+    duration: '+1_YEAR',
   },
-  sections: [],
+  sections: [{
+    type: TYPES.Image,
+    src: mySiteCover,
+  }, {
+    type: TYPES.Section,
+    heading: 'The passion project',
+    content: 'While working on Seemba my passion for conversational and voice UI started to come out. Researching, reading and having the environment in which I can develop, test and iterate on conversational interface gave the big spark for this project. The journey continued with a project called Panto a knowledge assistant for a deskless workforce where I was creating a CI and VUI. All the experience led to my decision of taking it further, starting with the question: “Why don\'t I try to create my own portfolio as a conversational UI and migrate to NLU & NLP type where a person can chat with me?”. And here is the answer, a year later and a chatbot at hand. The project end up by creating a BMC (bot management system like WordPress but for bots with the same modularity)',
+  }, {
+    type: TYPES.Text,
+    content: 'Guided by passion I started the project as it was for a client. I found the needed resources, a developer to help me and a requirement at hand. The team was made from me and my best friend, and want to thank him for the help and endless late hours work spend on this project.',
+  }, {
+    type: TYPES.Text,
+    content: 'The Plan was the following:',
+  }, {
+    type: TYPES.Image,
+    src: mySitePlan, //Evernote screenshot
+  },  {
+    type: TYPES.Section,
+    heading: 'The hackathon',
+    content: 'Having it all set we’ve started with my teammate with a kick off hackathon of 52 hours working straight. The goal was to start the project, to be at one place and decide on what should go in the project.',
+  }, {
+    type: TYPES.Text,
+    content: 'But this wasn’t easy at all. After this kickoff, a lot of research was made and changes were added on the go. So from the start, the code base needed to be flexible. My preliminary research included:',
+    bulletPoints: [
+      'Online research.',
+      'Interviewing designers.',
+      'Reading articles and taking courses on creating a portfolio.',
+    ],
+  }, {
+    type: TYPES.Image,
+    src: mySiteExamples, 
+  }, {
+    type: TYPES.Section,
+    heading: 'Analysing',
+    content: 'Analysing came place afterward figuring out the components of a portfolio and what makes a great case study.',
+  }, {
+    type: TYPES.Image,
+    src: mySiteAnalysis, 
+  },  {
+    type: TYPES.Section,
+    heading: 'Writing the 1 out of 4 script iterations',
+    content: 'After having some insights on the key components what my website should have, I crafted a version of the script that needed to represent those components. As I wasn’t sure I’ve tested it out and found that it had a lot of unnecessary components like:',
+    bulletPoints: [
+      'Putting emphasis a lot on the side projects and writing.',
+      'Talking very broad about me, not covering my design process and more.',
+    ],
+  }, {
+    type: TYPES.Image,
+    src: mySiteScript1, 
+  }, {
+    type: TYPES.Image,
+    src: mySiteTesting, 
+  }, {
+    type: TYPES.Section,
+    heading: 'Experimenting with treejack',
+    content: 'But this wasn’t the only issue here I needed also to quantitative results on the script flow. I wanted to understand how people discover content before even rewrite the script, create an architecture and etc. So I wanted to give a shot to treejack test where the goal was to see what paths designer hr’s are using to find key information. To be honest I was surprised of the results since I saw how are moving across the flow and search for information, which kind of made me think to rethink a bit the architecture.',
+  }, {
+    type: TYPES.Image,
+    src: mySiteTreejack, 
+  }, {
+    type: TYPES.Section,
+    heading: 'Script rework',
+    content: 'Having this set I rewrote my script and figured out the building blocks of it. Starting from the happy path, I dug down into alternative paths and use cases, trying also to break everything while I was creating it so to see how stable will be.',
+  }, {
+    type: TYPES.Image,
+    src: mySiteBotStructure, 
+  }, {
+    type: TYPES.FullWidthImage,
+    src: mySiteFlow1, 
+  }, {
+    type: TYPES.Section,
+    heading: 'Testing, testing, testing',
+    content: 'For testing the script I created a fake account in Facebook and simulated the chat experience with the bot. Doing like a wizard of oz technique.',
+  }, {
+    type: TYPES.Image,
+    src: mySiteDobrianTesting, 
+  }, {
+    type: TYPES.Section,
+    heading: 'Insights',
+    content: 'Down the road, I figured out that interviews with business owners weren’t instead I will go to a few interviews when I have the wix portfolio ready to see the end weren’t instead results. This would be something like an observation session and real live usability study. ',
+  }, {
+    type: TYPES.Text,
+    content: 'Having a v2.0 of the script I needed to test it again to be sure. But before that, I understood some key story elements from the book lead with a Story which led to minor re-writing of the script. The main insight was that a story is crafted having the following components:',
+    bulletPoints: [
+      'Challenge - this is the context, the backbone of the story.',
+      'Action - the hero moment what was brought on the table and how it shined.',
+      'The result - KPI’s, outcomes, next steps.',
+    ],
+  }, {
+    type: TYPES.Image,
+    src: mySitePaperWizardOz, 
+  },{
+    type: TYPES.Section,
+    heading: 'Final script',
+    content: 'The results were kind of expected, the script had again some sections out of context that was tedious to the user and making him impatient. I was expecting it because I’ve used a known method as starting with a complex solution and stripping it down to the simplest possible one and from there on your scale. I was happy with the results because from 21-paged script document everything fit into only 8 pages with the use cases.',
+  }, {
+    type: TYPES.FullWidthImage,
+    src: mySiteFinalIA, 
+  }, {
+    type: TYPES.Image,
+    src: mySiteFinalScript, 
+  }, {
+    type: TYPES.Section,
+    heading: 'Sketches',
+    content: 'Everything was in place when I started with the UI. Now as a passion project from the right beginning I jumped into it and was constantly adding something new as an idea and sketching.',
+  }, {
+    type: TYPES.Image,
+    src: mySiteSketches, 
+  }, {
+    type: TYPES.Section,
+    heading: 'Wireframes',
+    content: 'After the script and the first flow had been done, we sat down for a meeting with the dev and talked on about estimations, what is possible and what not. Everything was possible but following the guideline starting simple and make it complex down the road we stripped some of the additionals, leaving only the core functionalities. When the UI was created a nice handoff was also made and design workshops and support down the road was put in practice.',
+  }, {
+    type: TYPES.Image,
+    src: mySiteWireframes, 
+  }, {
+    type: TYPES.Image,
+    src: mySiteComponents, 
+  }, {
+    type: TYPES.Section,
+    heading: 'MVP of the portfolio concept',
+    content: 'While the website was WIP I needed to test everything so I created a wix portfolio site to see if the case studies can land me a job. As I have tried 3 companies here, in Bulgaria and passed the processes having an offer on the table, but the goal is different here, I will not mention it. If you are curious you can contact me. Living here the URL to the wix website: svs7oyanov.wixsite.com',
+  }, {
+    type: TYPES.Image,
+    src: mySiteWix, 
+  }, {
+    type: TYPES.Text,
+    content: 'Finally, it was over and you are looking at the results. Hope you’ve like it and will be glad to hear your thoughts on it.',
+  }, {
+    type: TYPES.Section,
+    heading: 'Outcome',
+    content: 'The project is open source and can be found in GitHub. And in the future will be packed as an open source bot management system. Many thanks to my best friend Vesko who was involved fully hearted and develop the system. You can find me in github: svstoyanov',
+  },  {
+    type: TYPES.Text,
+    content: 'Feel free to see a concept of the website below: ',
+  }, {
+    type: TYPES.YouTube,
+    id: 'Jwd9LK7DqlY',
+  }, 
+],
 };
 
 export const HistoryParkProject = {
