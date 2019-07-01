@@ -108,7 +108,7 @@ class ProjectsSlider extends React.Component {
             </Grid>
             <Grid item xs={3}>
               <div className={classes.duration}>
-                <AnimatedText text={`${project.duration} DURATION`}/>
+                <AnimatedText text={`${project.metadata && project.metadata.duration} DURATION`}/>
               </div>
             </Grid>
           </Grid>

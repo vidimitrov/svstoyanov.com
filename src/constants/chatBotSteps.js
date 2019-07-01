@@ -85,7 +85,7 @@ function nonLexicalMessage() {
 }
 
 function showProjectMessage() {
-  const variations = ['Show me this project', 'Want to understand more about it', 'Can I see this one', 'Wanna see it'];
+  const variations = ['Show me this project', 'Wanna understand more', 'Can I see this one', 'Wanna see it'];
   return variations[Math.floor(Math.random() * variations.length)];
 }
 
@@ -142,7 +142,7 @@ export default [
   {
     id: 'c57a7186-8a45-4980-9fb0-69752959a661',
     message: '👋 Hi there, I am Stoyan, a product designer, researcher & strategist located in Bulgaria. 🇧🇬',
-    trigger: '09352513-9901-4844-9a15-b4a08f30d18d', // 89695e34-2a77-4f0e-ab39-8602906dde0b - projects, 09352513-9901-4844-9a15-b4a08f30d18d - next step
+    trigger: '09352513-9901-4844-9a15-b4a08f30d18d', //   89695e34-2a77-4f0e-ab39-8602906dde0b - projects, 09352513-9901-4844-9a15-b4a08f30d18d - next step
     delay: 4000,
   }, {
     id: '09352513-9901-4844-9a15-b4a08f30d18d',
@@ -314,7 +314,7 @@ export default [
       <Image src={stoyanBushcraftingImg} /> // change process picture
     ),
     trigger: '38a495b2-e8af-4c6a-a9ee-2724e8e79f1f',
-    delay: 3000,
+    delay: 4000,
   },{
     id: '38a495b2-e8af-4c6a-a9ee-2724e8e79f1f',
     message: 'Well if you have an idea, or project you are working on and you are wondering how to bring it forward, I might be the right person for you.',
@@ -746,11 +746,11 @@ export default [
     trigger: '4d0db6a4-1ccf-474a-9ee6-35d241186943',
   }, {
     id: 'project-info-step-3',
-    message: 'The artifical assistant Panto. Shall we start...',
+    message: 'The artifical assistant Panto.',
     trigger: 'd4c1c1f7-0f21-4ffb-81ae-ca50d372f7b2',
   }, {
     id: 'project-info-step-4',
-    message: 'Love is in the air every where we look around. Let\'s start...',
+    message: 'Love is in the air, every where we look around.',
     trigger: 'e678ff34-dda1-4722-a5fc-bcf7f1c7ae3d',
   }, {
     id: 'project-info-step-5',
@@ -773,21 +773,21 @@ export default [
    */
   {
     id: '9d2d1738-2672-40d8-b2ea-b497fc7aef8d',
-    message: 'So the Snapp project is...',
-    trigger: '997ced25-ee98-4611-b51a-6ca14b3f9b2f',
+    message: 'Seemba for the end user was a website presenting the business information.',
+    trigger: 'ceebe15b-fd0d-4928-9bc2-e59f770748d3',
   }, {
-    id: '997ced25-ee98-4611-b51a-6ca14b3f9b2f',
-    component: (
-      <Image src={stoyanBushcraftingImg} /> 
-    ),
-    delay: 3000,
+    id: 'ceebe15b-fd0d-4928-9bc2-e59f770748d3',
+    message: ' Aiming 3 types of businesses: Service, product and gastronomy oriented.',
     trigger: '39931cd7-f0e5-4952-b98d-e6a1024198d2',
-  }, {
+  },{
     id: '39931cd7-f0e5-4952-b98d-e6a1024198d2',
-    message: 'Summary message',
-    delay: 6000,
-    trigger: 'c61b52ca-8881-4efa-b15e-0bdebaff2d47',
+    message: '340KB ultra light weight website. Compared with all other platforms we had the most low internet consumption product. ',
+    trigger: '9454abea-ecbf-4edd-942c-b197cccad8e4',
   }, {
+    id: '9454abea-ecbf-4edd-942c-b197cccad8e4',
+    message: 'More than 4M visitors for less than a year.',
+    trigger: 'c61b52ca-8881-4efa-b15e-0bdebaff2d47',
+  },{
     id: 'c61b52ca-8881-4efa-b15e-0bdebaff2d47',
     component: (
       <CustomOptions options={[
@@ -816,19 +816,35 @@ export default [
    */
   {
     id: '0b2e19b6-373a-495e-aaf0-85f747947b02',
-    message: 'Intro message',
+    message: 'Seemba was the mobile-only platform that allows users to create a seemingly easy online presence and distribute it all across the web.',
+    trigger: 'ab73ccb3-2667-40bb-863c-f1910c9923af',
+  }, {
+    id: 'ab73ccb3-2667-40bb-863c-f1910c9923af',
+    message: 'It helps business owners in India to create their presence with just a few taps.',
+    trigger: '55261127-6bd4-4947-8a14-febadbc83a64',
+  }, {
+    id: '55261127-6bd4-4947-8a14-febadbc83a64',
+    message: 'India is a mobile-only economy meaning that people are coming online for the first time through their smartphones.',
     trigger: 'f7f6dffc-b5a8-4a7d-971e-a36c8208329b',
   }, {
     id: 'f7f6dffc-b5a8-4a7d-971e-a36c8208329b',
     component: (
       <Image src={stoyanBushcraftingImg} /> 
     ),
-    delay: 3000,
+    delay: 4000,
     trigger: 'ddbc2a1e-28f6-4b1a-8fce-cca805f50629',
   }, {
     id: 'ddbc2a1e-28f6-4b1a-8fce-cca805f50629',
-    message: 'Summary message',
+    message: 'Only 20MB and millions users.',
     delay: 6000,
+    trigger: 'cadec40b-e7c3-49d2-9d18-053f33b93bf1',
+  }, {
+    id: 'cadec40b-e7c3-49d2-9d18-053f33b93bf1',
+    message: 'The website that the business owners were getting were only 340KB payload. Crucial for economy that is starting their online development.',
+    trigger: '69e1c43e-9ea6-49dc-9d44-0c92eb5df0c2',
+  },  {
+    id: '69e1c43e-9ea6-49dc-9d44-0c92eb5df0c2',
+    message: 'First with a step form web presence creation (before wix). Failed because of co founders quarrel. ',
     trigger: '1a42e460-8b63-4837-b44e-57c929b345a6',
   }, {
     id: '1a42e460-8b63-4837-b44e-57c929b345a6',
@@ -860,19 +876,15 @@ export default [
 
   {
     id: '4d0db6a4-1ccf-474a-9ee6-35d241186943',
-    message: 'Intro message',
-    trigger: '5363cda8-0868-4ea9-8951-4f53b0254b27',
+    message: 'After launching Seemba we were in search of penetrating the Indian market offline.',
+    trigger: '437d5c1f-7f4b-40b4-83a7-6381aa0d99b3',
   }, {
-    id: '5363cda8-0868-4ea9-8951-4f53b0254b27',
-    component: (
-      <Image src={stoyanBushcraftingImg} /> 
-    ),
-    delay: 3000,
+    id: '437d5c1f-7f4b-40b4-83a7-6381aa0d99b3',
+    message: 'The solution was to create a platform that will allow our field sales employees to monitor and manage their activities on ground.',
     trigger: '60f30358-aa41-43a4-802d-cb5818f3b7de',
-  }, {
+  },{
     id: '60f30358-aa41-43a4-802d-cb5818f3b7de',
-    message: 'Summary message',
-    delay: 6000,
+    message: 'Working efficiency was boosted. In 1 month time 100K businesses were brought online. Save time of Seemba support team.',
     trigger: 'a89468f0-67f4-48d4-a704-82f47cef25e3',
   }, {
     id: 'a89468f0-67f4-48d4-a704-82f47cef25e3',
@@ -904,18 +916,22 @@ export default [
 
   {
     id: 'd4c1c1f7-0f21-4ffb-81ae-ca50d372f7b2',
-    message: 'Intro message',
+    message: 'It gives the possibility to deskless employees instantly to retrieve company information or get an answer to a question in seconds. ',
+    trigger: '8bca8572-7daf-4987-86d6-f8777295b406',
+  }, {
+    id: '8bca8572-7daf-4987-86d6-f8777295b406',
+    message: 'Combining cutting edge technologies to disrupt the way companies collect and use their knowledge.',
     trigger: 'dd6a3b06-7c75-4c1a-9e3d-f75e0a746b9a',
   }, {
     id: 'dd6a3b06-7c75-4c1a-9e3d-f75e0a746b9a',
     component: (
       <Image src={stoyanBushcraftingImg} /> 
     ),
-    delay: 3000,
+    delay: 4000,
     trigger: '769b61ce-e5a4-46c7-a308-936ab315638e',
   }, {
     id: '769b61ce-e5a4-46c7-a308-936ab315638e',
-    message: 'Summary message',
+    message: 'The end results were: A complete MVP product and a seed investment of $200K',
     delay: 6000,
     trigger: '170ef705-a016-43cc-a938-8aa872621187',
   }, {
@@ -948,18 +964,22 @@ export default [
 
   {
     id: 'e678ff34-dda1-4722-a5fc-bcf7f1c7ae3d',
-    message: 'Intro message',
+    message: 'MotelNow is the gateway between people and Motels in Latin America. It helps people to discover and reserve an amazing thematic motel room on the go.',
+    trigger: 'bb571d38-a181-4c40-b832-221ff321c01e',
+  }, {
+    id: 'bb571d38-a181-4c40-b832-221ff321c01e',
+    message: 'As easy as choosing the number of staying hours they want and the room and this happens on the same day of the reservation.',
     trigger: '368a6367-b112-4c14-85cc-3938fed8c9fa',
   }, {
     id: '368a6367-b112-4c14-85cc-3938fed8c9fa',
     component: (
       <Image src={stoyanBushcraftingImg} /> 
     ),
-    delay: 3000,
+    delay: 4000,
     trigger: '206d9597-637a-441f-9c12-7306e80f42e9',
   }, {
     id: '206d9597-637a-441f-9c12-7306e80f42e9',
-    message: 'Summary message',
+    message: 'In the end MotelNow integrated a design approach into their working culture, had a web app ready for scale. The project continues to be WIP.',
     delay: 6000,
     trigger: '710d2508-3413-4cfb-afad-f46e1863aaaf',
   }, {
@@ -992,18 +1012,22 @@ export default [
 
   {
     id: 'd669873c-4840-4d5a-b536-642b6b913c36',
-    message: 'Intro message',
+    message: 'Trading is a skill that requires to be practiced with years and on top of this, you need to brace yourself of losing money.',
+    trigger: '92049e9e-59cb-46d4-a2c2-2e3a468303a0',
+  }, {
+    id: '92049e9e-59cb-46d4-a2c2-2e3a468303a0',
+    message: 'Things get even more complex when we are talking for cryptocurrencies and pair trading in this new world.',
     trigger: '8f6552ef-764d-4ff1-a95b-aea907aec750',
   }, {
     id: '8f6552ef-764d-4ff1-a95b-aea907aec750',
     component: (
       <Image src={stoyanBushcraftingImg} /> 
     ),
-    delay: 3000,
+    delay: 4000,
     trigger: 'fafd8207-5cea-4507-953c-1dbc79f60b0b',
   }, {
     id: 'fafd8207-5cea-4507-953c-1dbc79f60b0b',
-    message: 'Summary message',
+    message: 'The project is WIP and will continue after the MVP is implemented. But raised $500K.',
     delay: 6000,
     trigger: '498298af-aeed-483a-b11f-7da744500151',
   }, {
@@ -1037,19 +1061,31 @@ export default [
 
   {
     id: 'd432bc65-c5e2-493e-b9ee-211bc1605617',
-    message: 'Intro message',
+    message: 'As one of my passions projects effort and love was thrown in it with an end result that can be seen.',
+    trigger: '9f503e13-f945-4e37-b7dc-e9885eff37b3',
+  },  {
+    id: '9f503e13-f945-4e37-b7dc-e9885eff37b3',
+    message: 'The challenge for this project came after working in Panto and I’ve decided that my portfolio needs to be a conversational experience.',
     trigger: 'a248928c-c35a-4338-83c4-d5ca966457ca',
   }, {
     id: 'a248928c-c35a-4338-83c4-d5ca966457ca',
     component: (
       <Image src={stoyanBushcraftingImg} /> 
     ),
-    delay: 3000,
+    delay: 4000,
     trigger: '11b8741f-8c25-4b5d-a780-b8c75c6da981',
   }, {
     id: '11b8741f-8c25-4b5d-a780-b8c75c6da981',
-    message: 'Summary message',
+    message: 'More than 380 commits.',
     delay: 6000,
+    trigger: 'b8b44346-bf81-43a4-bd07-96ad86676581',
+  }, {
+    id: 'b8b44346-bf81-43a4-bd07-96ad86676581',
+    message: 'Version 1 of this passion project is done.',
+    trigger: 'c244adb7-5129-4f74-8096-0bc592245a73',
+  }, {
+    id: 'c244adb7-5129-4f74-8096-0bc592245a73',
+    message: 'Different approach in presenting designers work and enhanced my CI best practices and methods',
     trigger: '3d1fad33-777d-4c0e-9d0e-f26d4b5001fd',
   }, {
     id: '3d1fad33-777d-4c0e-9d0e-f26d4b5001fd',
@@ -1081,19 +1117,27 @@ export default [
    */
   {
     id: '1b2e19b6-373a-495e-aaf0-85f747946602',
-    message: 'Intro message',
+    message: 'In 2019 one of the biggest history parks in the world will open doors here in Bulgaria. Imagine Disneyland but for Bulgarian history.',
+    trigger: '1f500526-1eae-4a49-8150-0b2756357c8f',
+  }, {
+    id: '1f500526-1eae-4a49-8150-0b2756357c8f',
+    message: 'And since our nation has a history around 2K years in total there is something that can be told.',
     trigger: '17f6dffc-b5a8-4a7d-971e-a36c82083293',
   }, {
     id: '17f6dffc-b5a8-4a7d-971e-a36c82083293',
     component: (
       <Image src={stoyanBushcraftingImg} /> 
     ),
-    delay: 3000,
+    delay: 4000,
     trigger: 'dc26dd81-9a5d-458f-a653-8088b6e0db7c',
   }, {
     id: 'dc26dd81-9a5d-458f-a653-8088b6e0db7c',
-    message: 'Summary message',
+    message: 'Always involve the lawyer in financial projects since not everything is legal and in this case even the CEO didn’t knew about this clause.',
     delay: 6000,
+    trigger: '13092ea1-6529-4eef-ad10-124ba080029a',
+  }, {
+    id: '13092ea1-6529-4eef-ad10-124ba080029a',
+    message: 'After 2 months working on it the project was shut down because of the issue shown above.',
     trigger: 'b6544530-e7bf-4039-a875-33b645bed9fc',
   }, {
     id: 'b6544530-e7bf-4039-a875-33b645bed9fc',

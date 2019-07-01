@@ -11,11 +11,11 @@ export default {
     alignItems: 'center',
     width: '100%',
     boxSizing: 'border-box',
-    margin: '16px 0',
+    // marginBottom: '16px',
     fontFamily: 'Space Mono',
 
     [breakpoints.md]: {
-      margin: '72px 0 0',
+      margin: '40px 0 0',
     },
   },
   sliderBody: {
@@ -67,7 +67,7 @@ export default {
     lineHeight: '48px',
     letterSpacing: '1px',
     position: 'relative',
-    marginBottom: '8px',
+    marginBottom: 'px',
 
     [breakpoints.md]: {
       fontSize: '56px',
@@ -111,12 +111,13 @@ export default {
     letterSpacing: '1.2px',
     color: 'rgba(255, 255, 255, 0.9)',
     display: 'flex',
+    marginTop: '16px',
 
     [breakpoints.md]: {
       fontSize: '18px',
       lineHeight: 1.5,
       letterSpacing: '2px',
-      margin: '32px 0 0',
+      marginTop: '32px',
     },
 
     '& > div': {
@@ -126,12 +127,11 @@ export default {
   buttonsWrapper: {
     flexWrap: 'wrap',
     display: 'flex',
-    paddingTop: '8px',
     flex: 1,
-
+    margin: '24px 0',
+    
     [breakpoints.md]: {
-      paddingTop: '16px',
-    },
+    }
   },
   navigationButtons: {
     display: 'flex',
@@ -155,20 +155,16 @@ export default {
     margin: 0,
   },
   selectedOptionOffset: {
-    padding: '32px 0',
+    margin: '24px 0',
   },
   arrowAvatar: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'flex-end',
+    alignItems: 'center',
     minWidth: '72px',
-    paddingBottom: '8px',
-    paddingTop: '8px',
+    margin: '24px 0',
 
     [breakpoints.md]: {
-      alignItems: 'center',
-      paddingTop: 16,
-      paddingBottom: 0,
     },
   },
 };

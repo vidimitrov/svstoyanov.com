@@ -153,7 +153,7 @@ export default {
     margin: '0 auto 40px',
 
     [breakpoints.sm]: {
-      margin: '0 auto 64px',
+      margin: '180px auto 180px',
     },
   },
   fullWidthImage: {
@@ -199,6 +199,7 @@ export default {
     borderBottom: `2px solid  ${colors.primary}`,
   },
   reviewContainer: {
+    marginBottom: '64px',
   },
   reviewContent: {
     ...typography.h4,
@@ -218,7 +219,7 @@ export default {
 
   youtubeContainer: {
     width: '100%',
-    margin: '32px 0',
+    margin: '80px 0',
     textAlign: 'center',
 
     '& > iframe': {

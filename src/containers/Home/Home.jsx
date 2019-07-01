@@ -130,6 +130,8 @@ class Home extends React.Component {
           <div className={classes.paper}>
             <Project
               project={projectDetails}
+              muted={muted}
+              togglePlayer={this.togglePlayer}
               onClose={() => {
                 const { trigger } = projectDetails;
                 this.setState({
