@@ -26,6 +26,22 @@ import seembaAffiliatePersona from '../assets/img/projects/seemba-affiliate/seem
 import seembaAffiliateFlow from '../assets/img/projects/seemba-affiliate/seembaAffiliateFlow.png'; 
 import seembaAffiliateWireframes from '../assets/img/projects/seemba-affiliate/seembaAffiliateWireframes.png'; 
 import seembaAffiliateUI from '../assets/img/projects/seemba-affiliate/seembaAffiliateUI.png'; 
+import seembaAffiliateSuccess from '../assets/img/projects/seemba-affiliate/seembaAffiliateSuccess.jpg'; 
+
+import seembaViewerCover from '../assets/img/projects/seemba-viewer/seembaViewerCover.png'; 
+import seembaViewerBot from '../assets/img/projects/seemba-viewer/seembaViewerBot.png'; 
+import seembaViewerUnderstanding from '../assets/img/projects/seemba-viewer/seembaViewerUnderstanding.png'; 
+import seembaViewerPersonas from '../assets/img/projects/seemba-viewer/seembaViewerPersonas.png'; 
+import seembaViewerStats from '../assets/img/projects/seemba-viewer/seembaViewerStats.png'; 
+import seembaViewerDetails from '../assets/img/projects/seemba-viewer/seembaViewerDetails.png'; 
+import seembaViewerNames from '../assets/img/projects/seemba-viewer/seembaViewerNames.png'; 
+import seembaViewerBrainstorming from '../assets/img/projects/seemba-viewer/seembaViewerBrainstorming.png'; 
+import seembaViewerIA from '../assets/img/projects/seemba-viewer/seembaViewerIA.png'; 
+import seembaViewerWireframes from '../assets/img/projects/seemba-viewer/seembaViewerWireframes.png'; 
+import seembaViewerFinalUI from '../assets/img/projects/seemba-viewer/seembaViewerFinalUI.png'; 
+import seembaViewerTesting from '../assets/img/projects/seemba-viewer/seembaViewerTesting.png'; 
+
+
 
 
 export const TYPES = {
@@ -49,7 +65,7 @@ export const SeembaForEndUsersProject = {
   },
   sections: [{
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: seembaViewerCover,
   }, {
     type: TYPES.Section,
     heading: 'The problem',
@@ -75,8 +91,8 @@ export const SeembaForEndUsersProject = {
     heading: 'Testing the concept',
     content: 'After validating the idea by creating a simple prototype using FB bot the stakeholders decided to start first with the end result of what the business owner will get. The project had the called name: Seemba for the business owners customers.',
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: seembaViewerBot,
   }, {
     type: TYPES.Section,
     heading: 'Understanding',
@@ -89,7 +105,7 @@ export const SeembaForEndUsersProject = {
     content: 'For this type of research and giving the fact we had some budget constraints I decided to directly hire a few people and in a period of a week, they to observe and interview business owners and their customers in place instead of me going to India. For this, I have prepared an onboarding guide on how to ask questions and gather insides from owners and made 2 workshops on the topic with the students.',
   }, {
     type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    src: seembaViewerUnderstanding,
   }, {
     type: TYPES.Section,
     heading: 'Next steps',
@@ -104,8 +120,8 @@ export const SeembaForEndUsersProject = {
     type: TYPES.Text,
     content: 'I saw the need for research also on the business customers since this product was aiming them. I’ve approached directly people and sent surveys to them. More than 140 people participated.',
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: seembaViewerPersonas,
   }, {
     type: TYPES.Section,
     heading: 'Research',
@@ -128,47 +144,44 @@ export const SeembaForEndUsersProject = {
     content: 'This research also involved the website styling, trends, and branding criteria. All of those components would give me a clear indicator of what direction to go.',
   }, {
     type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    src: seembaViewerDetails,
   }, {
     type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    src: seembaViewerStats,
   }, {
     type: TYPES.Text,
     content: 'Something very interesting I found was the fact that businesses have a name with a length, not more than 31 characters which influenced the design afterward.',
   }, {
     type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    src: seembaViewerNames,
   }, {
     type: TYPES.Section,
     heading: 'Analysing the data',
     content: 'After I was done with the research we set down with the team and brainstormed on potential feature sets having in mind all the variables from above. We also explored some technical constraints.', 
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: seembaViewerBrainstorming,
   }, {
     type: TYPES.Section,
     heading: 'Creating a concept solution',
     content: 'Since we were in a market dominated by smartphone users a vision of the product was needed and understanding how the hardware of the phone can be used when possible on low-budget phones. More than 5 iterations were made using high fidelity paper prototypes before continuing the work. The prototypes were tested internally only. I\'ve used origami to create them.', 
   }, {
     type: TYPES.YouTube,
-    id: 'f6qdAwENFRk',
-  }, {
-    type: TYPES.YouTube,
-    id: 'f6qdAwENFRk',
+    id: '_HT9aA9RYJk',
   }, {
     type: TYPES.Section,
     heading: 'Information architecture',
     content: 'Presenting a concept like this is hard sometimes because when the engineer looks at it he sees all the hard work and pitfalls that can come up on the way. But in this situation, all went good, because this was the vision of where we wanted to go, not what will have from day one. After discussing the vision and being approved I jumped in creating the information architecture and user flows.', 
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: seembaViewerIA,
   }, {
     type: TYPES.Section,
     heading: 'Back to reality: Wireframing',
     content: 'When I had the architecture I started sketching, wireframing and finally stress testing the UI. On the wireframing I have iterated several times to achieve a minimalistic view with only the necessary information.', 
   }, {
     type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    src: seembaViewerWireframes,
   }, {
     type: TYPES.Section,
     heading: 'Final design',
@@ -180,7 +193,7 @@ export const SeembaForEndUsersProject = {
     ], 
   }, {
     type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    src: seembaViewerFinalUI,
   }, {
     type: TYPES.Section,
     heading: 'Testing the UI',
@@ -189,8 +202,8 @@ export const SeembaForEndUsersProject = {
     type: TYPES.Text,
     content: 'Once this was finished I made a clickable prototype with invision and test it out with around 18 different users. Where there were 2 groups split on half: one half was users that already had a presence made with Snapp and the other half totally new ones.', 
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: seembaViewerTesting,
   }, {
     type: TYPES.Section,
     heading: 'Outcome',
@@ -439,6 +452,9 @@ export const SeembaForSales = {
     type: TYPES.Section,
     heading: 'Outome',
     content: 'The application was used total one month only from sales interns. It easily allowed the Seemba internal sales team to monitor the performance of the interns and to see at the end that more than 100K businesses were brought online. One thing I improved tho was the fact that I added a survey inquiry for businesses that wouldn’t be able to come online.',
+  }, {
+    type: TYPES.Image,
+    src: seembaAffiliateSuccess,
   }, {
     type: TYPES.Review,
     headline: 'Alberto Iore - VP of sales',
