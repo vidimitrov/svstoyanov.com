@@ -76,7 +76,25 @@ import mySiteComponents from '../assets/img/projects/my-site/mySiteComponents.pn
 import mySiteFinalIA from '../assets/img/projects/my-site/mySiteFinalIA.png'; 
 import mySiteFinalScript from '../assets/img/projects/my-site/mySiteFinalScript.png'; 
 
-//import mySiteComponents from '../assets/img/projects/panto/mySiteComponents.png'; 
+import pantoPlan from '../assets/img/projects/panto/pantoPlan.png'; 
+import pantoVito from '../assets/img/projects/panto/pantoVito.png'; 
+import pantoTeam from '../assets/img/projects/panto/pantoTeam.png'; 
+import pantoCover from '../assets/img/projects/panto/pantoCover.png'; 
+import pantoInteviewQuestions from '../assets/img/projects/panto/pantoInteviewQuestions.png'; 
+import pantoPersona from '../assets/img/projects/panto/pantoPersona.png'; 
+import pantoCompetitiveResearch from '../assets/img/projects/panto/pantoCompetitiveResearch.png'; 
+import pantoAskSpoke from '../assets/img/projects/panto/pantoAskSpoke.png'; 
+import pantoInteraction from '../assets/img/projects/panto/pantoInteraction.png'; 
+import pantoAnswerType from '../assets/img/projects/panto/pantoAnswerType.png'; 
+import pantoScript from '../assets/img/projects/panto/pantoScript.png'; 
+import pantoQuestionStructure from '../assets/img/projects/panto/pantoQuestionStructure.png'; 
+import pantoFlow from '../assets/img/projects/panto/pantoFlow.png'; 
+import pantoIA from '../assets/img/projects/panto/pantoIA.png'; 
+import pantoSketches from '../assets/img/projects/panto/pantoSketches.png'; 
+import pantoWireframes from '../assets/img/projects/panto/pantoWireframes.png'; 
+import pantoMobileUI from '../assets/img/projects/panto/pantoMobileUI.png'; 
+import pantoDesktopUI from '../assets/img/projects/panto/pantoDesktopUI.png'; 
+import pantoBrand from '../assets/img/projects/panto/pantoBrand.png'; 
 
 
 
@@ -529,7 +547,7 @@ export const Panto = {
   },
   sections: [{
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: pantoCover,
   }, {
     type: TYPES.Section,
     heading: 'Problem',
@@ -539,7 +557,7 @@ export const Panto = {
     content: 'I was hired to work on Panto leading the product design process. The task was to design a central knowledge-based system that can retrieve information by using a chatbot from their smartphones.',
   }, {
     type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    src: pantoTeam,
   }, {
     type: TYPES.Text,
     content: 'Working remotely relies on heavy communication especially in early stages so we were syncing and constantly communicating on a daily basis. We were also traveling once a month for working at one place all of us. The best thing was that we worked together in the previous startUp Seemba.',
@@ -549,7 +567,7 @@ export const Panto = {
     content: 'The plan was the following:',
   }, {
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: pantoPlan,
   }, {
     type: TYPES.Section,
     heading: 'Constraints & problems',
@@ -578,9 +596,6 @@ export const Panto = {
     heading: 'Research',
     content: 'I did my own research to get familiar with similar indirect competitors and also with the industry and potential. This helped me create a list with a question that kicked off the first meeting which afterward led to a further discussion aligning our thoughts what we wanted to achieve.',
   }, {
-    type: TYPES.Image,
-    src: historyParkHeading,
-  }, {
     type: TYPES.Text,
     content: 'In the very beginning the CEO, me and the developer split out to interview and observe as many people in the companies that I listed above as we could. In an early stage like what we have is important to combine the different skills and look at the problem from a different perspective. I prepared a set of questions, the script and the 3 of us discussed different scenarios we would like to observe.',
   }, {
@@ -588,29 +603,35 @@ export const Panto = {
     content: 'After the interviews, I led the insights workshop analyzing the results using affinity diagrams. During this process, proto-personas started to shape. I laid down the journey that a person was taking to retrieve needed information.',
   }, {
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: pantoInteviewQuestions,
+  },{
+    type: TYPES.Image,
+    src: pantoPersona,
   }, {
     type: TYPES.Section,
     heading: 'Competitive analysis',
     content: 'During the discovery phase with the CEO, we prepared a list of competitors and I analyzed them. Competitive research also included in-depth feature analysis.',
   },  {
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: pantoAskSpoke,
+  },  {
+    type: TYPES.Image,
+    src: pantoCompetitiveResearch,
   }, {
     type: TYPES.Section,
     heading: 'Learnings',
     content: 'Uncovering that there is only one product in the market called askspoke.io and Uber where they were building their internal system we saw an opportunity to be first in market advantage, especially in our not tech-savvy industries. I also wanted to understand askspoke in depth so additional attention was added to it. Summarising the findings in a presentation which gave us the ability to sit down and laid out the functionalities.',
   }, {
-    type: TYPES.Image,
-    src: historyParkHeading,
-  }, {
     type: TYPES.Section,
     heading: 'Scripts & Interaction models',
     content: 'The first big thing that I started working on was the chatbots for the different platforms, the scripts, and the interaction points. Based on which I’ve seen that there were different types of questions. For example, Bard could ask an informative question like What is the wifi password or ask Panto for a vacation, where Panto needs to ask a series of questions before sending up the request to Bard’s manager for approval of his vacation.',
   }, {
-    type: TYPES.Image,
-    src: historyParkHeading,
+    type: TYPES.FullWidthImage,
+    src: pantoInteraction,
   }, {
+    type: TYPES.Image,
+    src: pantoAnswerType,
+  },{
     type: TYPES.Text,
     content: 'One problem tho it appeared during the process was the fact of internationalization but the stakeholders decided to not solve it, for now, since we would start to operate in English spoken markets first. After presenting the interaction models and types of questions the stakeholders decided for the MVP to go without the series question scenario.',
   }, {
@@ -621,46 +642,52 @@ export const Panto = {
     content: 'The first big thing that I started working on was the chatbots for the different platforms, the scripts, and the interaction points. Based on which I’ve seen that there were different types of questions. For example, Bard could ask an informative question like What is the wifi password or ask Panto for a vacation, where Panto needs to ask a series of questions before sending up the request to Bard’s manager for approval of his vacation.',
   }, {
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: pantoScript,
   }, {
     type: TYPES.Text,
     content: 'I tested the script internally by creating a quick prototype using dialogflow and read out loud the script. What I found was that a question could also have sub use cases. Eg. Give me the WIFI password on the 5th floor in 250A room. This also changed the script a bit in terms of handling a question and adding an additional step where Panto asks an additional contextual question.',
   }, {
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: pantoQuestionStructure,
   }, {
     type: TYPES.Text,
     content: 'After having all the script done both in dialogflow and google docs, it was time to test it at least with people outside of the company but time was of the essence so the only test that was performed with the Hipocrate Holding CEO and 3 different employees (1 field, 1 manager and 1 desk).',
-  }, {
-    type: TYPES.Image,
-    src: historyParkHeading,
   }, {
     type: TYPES.Text,
     content: 'It was a relief when the script was done for the platforms and was working with the most common company scenarios. So now the dashboard creation part came. I’ve started by creating the architecture.',
   }, {
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: pantoFlow,
   }, {
+    type: TYPES.Image,
+    src: pantoIA,
+  },{
     type: TYPES.Section,
     heading: 'Sketches & Wireframes',
     content: 'Sketching and wireframing of the dashboard was done in the end to give a shape to our new bot.',
   }, {
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: pantoSketches,
   }, {
     type: TYPES.Image,
-    src: historyParkHeading, // Here a video could be added
+    src: pantoWireframes,
   }, {
     type: TYPES.Section,
     heading: 'Final Design',
     content: 'In the end I did a clickable prototype and used a testing session scenario where the user was asking the most common questions that he could think of in the context of the company.',
   }, {
-    type: TYPES.Image,
-    src: historyParkHeading, 
+    type: TYPES.FullWidthImage,
+    src: pantoMobileUI, 
+  }, {
+    type: TYPES.FullWidthImage,
+    src: pantoDesktopUI, 
   }, {
     type: TYPES.Section,
     heading: 'Branding',
     content: 'Everything was great but a bit of color needed to be added and a trustworthy one, which also gives the feeling that behind the product a corporation stands. So I picked up a royal blue and a P tech letter for the logo. The blue was recently changed to a lighter blue. A funny fact is that I thought this could happen because Vito loves the sea and also we were using the same blue color in Snapp.',
+  }, {
+    type: TYPES.Image,
+    src: pantoBrand, 
   }, {
     type: TYPES.Text,
     content: 'Panto can be found on: panto.ai part of combined.ai',
@@ -675,10 +702,10 @@ export const Panto = {
     type: TYPES.Review,
     headline: 'Vito Margiotta - Panto',
     companyName: 'Panto',
-    content: 'Working with Stoyan was just an awesome experience. He invested time to learn about out wants and need , he also took time to learn everything needed fo the project Historical Park so he could make the best website for it He was honest and transparent about the process and kept us involved all the time. It was up to Stoyan to really translate everything we talked about in to the website design and to find the best one for this big project.. The end result was just awesome, he did what we had as an idea and done it at the best way. Looking forward to work with Stoyan again.',
+    content: 'Stoyan is full of creativity and ambition. Stoyan was one of the product drivers of Panto. A team player that always helped and motivate everyone in the team with his positive energy. It was a great pleasure working with him and as an outstanding designer/architect he could help everyone with their idea from 0 to 1.',
     representative: 'VITO_MARGIOTTA',
     representativeRole: 'CEO',
-    avatar: historyParkReviewAuthorAvatar,
+    avatar: pantoVito,
   }, 
 ],
 };
