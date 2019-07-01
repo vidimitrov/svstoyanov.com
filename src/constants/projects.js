@@ -587,7 +587,7 @@ export const Panto = {
     type: TYPES.Text,
     content: 'I was hired to work on Panto leading the product design process. The task was to design a central knowledge-based system that can retrieve information by using a chatbot from their smartphones.',
   }, {
-    type: TYPES.FullWidthImage,
+    type: TYPES.Image,
     src: pantoTeam,
   }, {
     type: TYPES.Text,
@@ -731,7 +731,7 @@ export const Panto = {
     content: 'In terms of the project, I really enjoyed the journey. I learned on the go how an email bot can be created. Panto also inspired me and guided my decision on my personal project which is my portfolio web-bot. Panto also inspired me to deep in the world of voice UI and make a workshop on:” Creating VUI from scratch” here in Sofia on UXiFY.',
   }, {
     type: TYPES.Review,
-    headline: 'Vito Margiotta - Panto',
+    headline: 'Vito Margiotta',
     companyName: 'Panto',
     content: 'Stoyan is full of creativity and ambition. Stoyan was one of the product drivers of Panto. A team player that always helped and motivate everyone in the team with his positive energy. It was a great pleasure working with him and as an outstanding designer/architect he could help everyone with their idea from 0 to 1.',
     representative: 'VITO_MARGIOTTA',
@@ -1008,7 +1008,7 @@ export const Hatchery1 = {
     heading: 'UI',
     content: 'With different people I am working differently, in this use case we had very brief sketches and doodles so choosing a visual guide and creating the high fidelity wireframes was the option to go.',
   }, {
-    type: TYPES.Image,
+    type: TYPES.FullWidthImage,
     src: h1DesignIteration1,
   }, {
     type: TYPES.Section,
