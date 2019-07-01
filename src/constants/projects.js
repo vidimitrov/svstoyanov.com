@@ -87,7 +87,6 @@ import mySiteComponents from '../assets/img/projects/my-site/mySiteComponents.pn
 import mySiteFinalIA from '../assets/img/projects/my-site/mySiteFinalIA.png'; 
 import mySiteFinalScript from '../assets/img/projects/my-site/mySiteFinalScript.png'; 
 
-import pantoPlan from '../assets/img/projects/panto/pantoPlan.png'; 
 import pantoVito from '../assets/img/projects/panto/pantoVito.png'; 
 import pantoTeam from '../assets/img/projects/panto/pantoTeam.png'; 
 import pantoCover from '../assets/img/projects/panto/pantoCover.png'; 
