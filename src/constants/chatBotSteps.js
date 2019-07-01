@@ -1394,7 +1394,7 @@ export default [
     trigger: 'e15ce7fc-775f-4c8b-b518-c1c7c3dacdd4',
   }, {
     id: 'e15ce7fc-775f-4c8b-b518-c1c7c3dacdd4',
-    message: 'If you enjoyed it you can tell a word to your friends and colleagues about me!',
+    message: 'If you enjoyed the experience with me you can tell a word to your friends and colleagues about me!',
     trigger: '7a3bd063-07e6-423a-a6bc-3966f47174e9',
   }, {
     id: '7a3bd063-07e6-423a-a6bc-3966f47174e9',
