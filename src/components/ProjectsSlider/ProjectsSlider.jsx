@@ -129,7 +129,7 @@ class ProjectsSlider extends React.Component {
                   <Button onClick={() => {
                     this.setState({
                       selected: true,
-                      selectedOptionName: !isDesktop() ? 'LEARN MORE' : primaryButtonLabel.toUpperCase()
+                      selectedOptionName: !isDesktop() ? 'SEE THE PROJECT' : primaryButtonLabel.toUpperCase()
                     }, () => {
                       triggerNextStep({
                         stepId: `project-info-step-${project.id}`,
@@ -138,7 +138,7 @@ class ProjectsSlider extends React.Component {
                     });
                   }}
                   >
-                    <AnimatedText text={ !isDesktop() ? 'LEARN_MORE' : primaryButtonLabel.toUpperCase().split(' ').join(' ')}/>
+                    <AnimatedText text={ !isDesktop() ? 'SEE THE PROJECT' : primaryButtonLabel.toUpperCase().split(' ').join(' ')}/>
                   </Button>
                   {
                     secondaryButtons
@@ -148,14 +148,14 @@ class ProjectsSlider extends React.Component {
                         onClick={() => {
                           this.setState({
                             selected: true,
-                            selectedOptionName: !isDesktop() ? 'SKIP' : secondaryButton.label.toUpperCase()
+                            selectedOptionName: !isDesktop() ? 'CHANGE TOPIC' : secondaryButton.label.toUpperCase()
                           }, () => {
                           triggerNextStep({
                             stepId: secondaryButton.trigger,
                             externalTrigger: true,
                           });
                         })}}>
-                        <AnimatedText text={ !isDesktop() ? 'SKIP' : secondaryButton.label.toUpperCase().split(' ').join(' ')}/>
+                        <AnimatedText text={ !isDesktop() ? 'CHANGE TOPIC' : secondaryButton.label.toUpperCase().split(' ').join(' ')}/>
                       </Button>
                     ))
                   }
