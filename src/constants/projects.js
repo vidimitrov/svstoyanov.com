@@ -73,6 +73,10 @@ import mySiteSketches from '../assets/img/projects/my-site/mySiteSketches.png';
 import mySiteWireframes from '../assets/img/projects/my-site/mySiteWireframes.png'; 
 import mySiteWix from '../assets/img/projects/my-site/mySiteWix.png'; 
 import mySiteComponents from '../assets/img/projects/my-site/mySiteComponents.png'; 
+import mySiteFinalIA from '../assets/img/projects/my-site/mySiteFinalIA.png'; 
+import mySiteFinalScript from '../assets/img/projects/my-site/mySiteFinalScript.png'; 
+
+//import mySiteComponents from '../assets/img/projects/panto/mySiteComponents.png'; 
 
 
 
@@ -658,6 +662,9 @@ export const Panto = {
     heading: 'Branding',
     content: 'Everything was great but a bit of color needed to be added and a trustworthy one, which also gives the feeling that behind the product a corporation stands. So I picked up a royal blue and a P tech letter for the logo. The blue was recently changed to a lighter blue. A funny fact is that I thought this could happen because Vito loves the sea and also we were using the same blue color in Snapp.',
   }, {
+    type: TYPES.Text,
+    content: 'Panto can be found on: panto.ai part of combined.ai',
+  }, {
     type: TYPES.Section,
     heading: 'Outcomes',
     content: 'The MVP was launched and it was a success. Till my time in the company, Hippocrates Holding started to adapt to the product. I constantly keep in touch with Vito, the CEO so from his words I know that the company took an investment, expanded also with a google sheet extension so Panto can learn from there. So far I know that the voice is not ready yet and that they haven’t started working on the internationalization.',
@@ -936,7 +943,7 @@ export const MySite = {
     src: mySitePaperWizardOz, 
   },{
     type: TYPES.Section,
-    heading: 'Final script',
+    heading: 'Final script & IA',
     content: 'The results were kind of expected, the script had again some sections out of context that was tedious to the user and making him impatient. I was expecting it because I’ve used a known method as starting with a complex solution and stripping it down to the simplest possible one and from there on your scale. I was happy with the results because from 21-paged script document everything fit into only 8 pages with the use cases.',
   }, {
     type: TYPES.FullWidthImage,
