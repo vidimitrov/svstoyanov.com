@@ -1,5 +1,4 @@
 import historyParkFullImage from '../assets/img/projects/history-park/history-park-full-image.png';
-import historyParkHeading from '../assets/img/projects/history-park/history-park-heading.png';
 import historyParkReviewAuthorAvatar from '../assets/img/projects/history-park/history-park-avatar.png';
 import historyParkLogo from '../assets/img/projects/history-park/history-park-logo.png';
 import parkTeam from '../assets/img/projects/history-park/parkTeam.png';
@@ -7,7 +6,6 @@ import parkReqs from '../assets/img/projects/history-park/parkReqs.png';
 import parkInfoFlow from '../assets/img/projects/history-park/parkInfoFlow.png';
 import parkPersonas from '../assets/img/projects/history-park/parkPersonas.png';
 import parkTaskGoals from '../assets/img/projects/history-park/parkTaskGoals.png';
-import parkProblemsAfterInterviews from '../assets/img/projects/history-park/parkProblemsAfterInterviews.png';
 import parkInvestorFunnel from '../assets/img/projects/history-park/parkInvestorFunnel.png';
 import parkIA2 from '../assets/img/projects/history-park/parkIA2.png';
 import parkWireframes from '../assets/img/projects/history-park/parkWireframes.png';
@@ -1334,9 +1332,7 @@ export const HistoryParkProject = {
     type: TYPES.Section,
     heading: 'Outcome',
     content: 'The project was validated and even before the deadline with almost a month. So everything was done and ready for implementation when suddenly after Ivein the CEO showed the project to his Lawyer he told him that in Bulgaria showing an investment with a business plan and the information as it was illegal. So Together, we decided to cancel the project and to continue spread the word offline. Those were bad news but sometimes this happens.',
-  }, 
-  
-  {
+  }, {
     type: TYPES.Review,
     headline: 'Georgi Detelinov',
     companyName: 'Together Bulgaria',
