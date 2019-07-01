@@ -314,7 +314,7 @@ export default [
       <Image src={stoyanBushcraftingImg} /> // change process picture
     ),
     trigger: '38a495b2-e8af-4c6a-a9ee-2724e8e79f1f',
-    delay: 3000,
+    delay: 4000,
   },{
     id: '38a495b2-e8af-4c6a-a9ee-2724e8e79f1f',
     message: 'Well if you have an idea, or project you are working on and you are wondering how to bring it forward, I might be the right person for you.',
@@ -780,7 +780,7 @@ export default [
     component: (
       <Image src={stoyanBushcraftingImg} /> 
     ),
-    delay: 3000,
+    delay: 4000,
     trigger: '39931cd7-f0e5-4952-b98d-e6a1024198d2',
   }, {
     id: '39931cd7-f0e5-4952-b98d-e6a1024198d2',
@@ -823,7 +823,7 @@ export default [
     component: (
       <Image src={stoyanBushcraftingImg} /> 
     ),
-    delay: 3000,
+    delay: 4000,
     trigger: 'ddbc2a1e-28f6-4b1a-8fce-cca805f50629',
   }, {
     id: 'ddbc2a1e-28f6-4b1a-8fce-cca805f50629',
@@ -867,7 +867,7 @@ export default [
     component: (
       <Image src={stoyanBushcraftingImg} /> 
     ),
-    delay: 3000,
+    delay: 4000,
     trigger: '60f30358-aa41-43a4-802d-cb5818f3b7de',
   }, {
     id: '60f30358-aa41-43a4-802d-cb5818f3b7de',
@@ -915,7 +915,7 @@ export default [
     component: (
       <Image src={stoyanBushcraftingImg} /> 
     ),
-    delay: 3000,
+    delay: 4000,
     trigger: '769b61ce-e5a4-46c7-a308-936ab315638e',
   }, {
     id: '769b61ce-e5a4-46c7-a308-936ab315638e',
@@ -963,7 +963,7 @@ export default [
     component: (
       <Image src={stoyanBushcraftingImg} /> 
     ),
-    delay: 3000,
+    delay: 4000,
     trigger: '206d9597-637a-441f-9c12-7306e80f42e9',
   }, {
     id: '206d9597-637a-441f-9c12-7306e80f42e9',
@@ -1007,7 +1007,7 @@ export default [
     component: (
       <Image src={stoyanBushcraftingImg} /> 
     ),
-    delay: 3000,
+    delay: 4000,
     trigger: 'fafd8207-5cea-4507-953c-1dbc79f60b0b',
   }, {
     id: 'fafd8207-5cea-4507-953c-1dbc79f60b0b',
@@ -1052,7 +1052,7 @@ export default [
     component: (
       <Image src={stoyanBushcraftingImg} /> 
     ),
-    delay: 3000,
+    delay: 4000,
     trigger: '11b8741f-8c25-4b5d-a780-b8c75c6da981',
   }, {
     id: '11b8741f-8c25-4b5d-a780-b8c75c6da981',
@@ -1096,7 +1096,7 @@ export default [
     component: (
       <Image src={stoyanBushcraftingImg} /> 
     ),
-    delay: 3000,
+    delay: 4000,
     trigger: 'dc26dd81-9a5d-458f-a653-8088b6e0db7c',
   }, {
     id: 'dc26dd81-9a5d-458f-a653-8088b6e0db7c',
