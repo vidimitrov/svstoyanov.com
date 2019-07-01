@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import YouTube from 'react-youtube';
 
 import Footer from '../Footer/Footer';
+import Button from '../Buttons/Button';
 import { TYPES } from '../../constants/projects';
 import style from './styles';
 import CloseIcon from '../../assets/img/close-icon.svg';
@@ -170,6 +171,26 @@ const AnimationWrapper = styled.div`
   `}
 `;
 
+const CTAButton = ({ buttonText, url, classes }) => (
+  <SectionWrapper classes={classes}>
+    <div className={classes.ctaButtonWrapper}>
+      <Button
+        onClick={() => {
+          window.open(url, '_blank');
+        }}
+      >
+        {buttonText}
+      </Button>
+    </div>
+  </SectionWrapper>
+);
+
+CTAButton.propTypes = {
+  classes: PropTypes.any,
+  buttonText: PropTypes.string,
+  url: PropTypes.string,
+};
+
 class Project extends React.Component {
   constructor(props) {
     super(props);
@@ -269,6 +290,15 @@ class Project extends React.Component {
                       return <Text key={idx} content={section.content} classes={classes} />;
                     case TYPES.YouTube:
                       return <YoutubeVideo key={idx} classes={classes} id={section.id} />;
+                    case TYPES.CTA:
+                      return (
+                        <CTAButton
+                          key={idx}
+                          classes={classes}
+                          buttonText={section.buttonText}
+                          url={section.url}
+                        />
+                      );
                     default:
                       return null;
                   }

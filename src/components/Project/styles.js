@@ -226,4 +226,9 @@ export default {
       height: '400px',
     },
   },
+
+  ctaButtonWrapper: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
 };
