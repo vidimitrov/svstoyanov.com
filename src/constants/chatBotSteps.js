@@ -778,18 +778,10 @@ export default [
   }, {
     id: 'ceebe15b-fd0d-4928-9bc2-e59f770748d3',
     message: ' Aiming 3 types of businesses: Service, product and gastronomy oriented.',
-    trigger: '997ced25-ee98-4611-b51a-6ca14b3f9b2f',
-  },{
-    id: '997ced25-ee98-4611-b51a-6ca14b3f9b2f',
-    component: (
-      <Image src={stoyanBushcraftingImg} /> 
-    ),
-    delay: 4000,
     trigger: '39931cd7-f0e5-4952-b98d-e6a1024198d2',
-  }, {
+  },{
     id: '39931cd7-f0e5-4952-b98d-e6a1024198d2',
     message: '340KB ultra light weight website. Compared with all other platforms we had the most low internet consumption product. ',
-    delay: 6000,
     trigger: '9454abea-ecbf-4edd-942c-b197cccad8e4',
   }, {
     id: '9454abea-ecbf-4edd-942c-b197cccad8e4',
@@ -889,18 +881,10 @@ export default [
   }, {
     id: '437d5c1f-7f4b-40b4-83a7-6381aa0d99b3',
     message: 'The solution was to create a platform that will allow our field sales employees to monitor and manage their activities on ground.',
-    trigger: '5363cda8-0868-4ea9-8951-4f53b0254b27',
-  },{
-    id: '5363cda8-0868-4ea9-8951-4f53b0254b27',
-    component: (
-      <Image src={stoyanBushcraftingImg} /> 
-    ),
-    delay: 4000,
     trigger: '60f30358-aa41-43a4-802d-cb5818f3b7de',
-  }, {
+  },{
     id: '60f30358-aa41-43a4-802d-cb5818f3b7de',
     message: 'Working efficiency was boosted. In 1 month time 100K businesses were brought online. Save time of Seemba support team.',
-    delay: 6000,
     trigger: 'a89468f0-67f4-48d4-a704-82f47cef25e3',
   }, {
     id: 'a89468f0-67f4-48d4-a704-82f47cef25e3',
