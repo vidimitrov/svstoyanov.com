@@ -41,6 +41,20 @@ import seembaViewerWireframes from '../assets/img/projects/seemba-viewer/seembaV
 import seembaViewerFinalUI from '../assets/img/projects/seemba-viewer/seembaViewerFinalUI.png'; 
 import seembaViewerTesting from '../assets/img/projects/seemba-viewer/seembaViewerTesting.png'; 
 
+import seembaCover from '../assets/img/projects/seemba/seembaCover.png'; 
+import seembaPersonas from '../assets/img/projects/seemba/seembaPersonas.png'; 
+import seembaBot from '../assets/img/projects/seemba/seembaBot.png'; 
+import seembaAnalytics from '../assets/img/projects/seemba/seembaAnalytics.png'; 
+import seembaHook from '../assets/img/projects/seemba/seembaHook.png'; 
+import seembaFlow from '../assets/img/projects/seemba/seembaFlow.png'; 
+import seembaIA from '../assets/img/projects/seemba/seembaIA.png'; 
+import seembaWireframes from '../assets/img/projects/seemba/seembaWireframes.png'; 
+import seembaTesting from '../assets/img/projects/seemba/seembaTesting.png'; 
+import seembaSnappSuccess from '../assets/img/projects/seemba/seembaSnappSuccess.png'; 
+import seembaVerification from '../assets/img/projects/seemba/seembaVerification.png'; 
+import seembaVerificationDashboard from '../assets/img/projects/seemba/seembaVerificationDashboard.png'; 
+import seembaOutcome from '../assets/img/projects/seemba/seembaOutcome.png'; 
+
 
 
 
@@ -224,7 +238,7 @@ export const SeembaProject = {
   },
   sections: [{
     type: TYPES.Image,
-    src: historyParkHeading,
+    src: seembaCover,
   }, {
     type: TYPES.Section,
     heading: 'The problem',
@@ -243,8 +257,11 @@ export const SeembaProject = {
     type: TYPES.Text,
     content: 'By synthesizing almost 2 years of knowledge using personas, journeys, documents analyzing the pain points I’ve created a presentation with the insights and presented to the team.',
   }, {
+    type: TYPES.Image,
+    src: seembaSnappSuccess,
+  }, {
     type: TYPES.YouTube,
-    id: 'f6qdAwENFRk',
+    id: 'e7mb2vGBV5k',
   }, {
     type: TYPES.Section,
     heading: 'Issues',
@@ -258,42 +275,45 @@ export const SeembaProject = {
     ],
   }, {
     type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    src: seembaPersonas,
   }, {
     type: TYPES.Section,
     heading: 'Proof of concept',
     content: 'Having the users problems in mind the three of us: the CEO, one of our developers we have created a facebook bot prototype to test out a few new concepts of creating an online presence. Back than bots were a hit so I’ve decided to give it a shot. By analyzing user businesses in this location of the world from the already created applications I’ve seen that people were adding the same type of information which I’ve transferred it to questions used by the bot.',
   }, {
     type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    src: seembaBot,
   }, {
     type: TYPES.Section,
     heading: 'Analytics & what was learned',
     content: 'I’ve used previously generated and found channels to distribute the bot. Using FB groups with business owners and using our existing users. The online presence was created manually by us, bot for a prototype to prove the concept this was a satisfying result. For 2 weeks we were running the test and the results were:',
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: seembaAnalytics,
   }, {
     type: TYPES.Section,
     heading: 'Analyze',
-    content: 'Having all the data at hand also the newest data from our FB bot experiment I’ve created a summary presentation and presented to the whole team. After that, I’ve started working on the product its self. One of the hardest parts was the new dashboard for Seemba and what information should we visualize. I ran a feature workshop where we laid and measure the feature importance for the new product.',
+    content: 'Having all the data at hand also the newest data from our FB bot experiment I’ve created a summary presentation and presented to the whole team. After that, I’ve started working on the product its self. One of the hardest parts was the new dashboard for Seemba and what information should we visualize. I ran a feature workshop where we laid and measure the feature importance for the new product. On the workshop we have created a hook model which was constantly improving down the road.',
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: seembaHook,
   }, {
     type: TYPES.Section,
     heading: 'Architecture & flows',
     content: 'I started by creating an information architecture which can scale with ease. I’ve decided to use a card-based interface and one nesting for controlling the card information. That how every new feature will have a card. With a vision the dashboard to evolve in a combined UI with a chatbot.',
   }, {
+    type: TYPES.Image,
+    src: seembaFlow,
+  }, {
     type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    src: seembaIA,
   }, {
     type: TYPES.Section,
     heading: 'Wireframing',
     content: 'Having the architecture in place I’ve started sketching and wireframing. I wanted to have some ideas followed bu wireframes so to test out the card-based UI.After I had the dashboard I ran into using the bot flow from the FB bot and create a form based step by step UI.',
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: seembaWireframes,
   }, {
     type: TYPES.Section,
     heading: 'Testing, testing, testing',
@@ -308,8 +328,8 @@ export const SeembaProject = {
       'The business owners were very happy also to see the end product, which is their website or aka the Viewer.',
     ],
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: seembaTesting,
   }, {
     type: TYPES.Section,
     heading: 'Wait? What just happened?',
@@ -322,10 +342,10 @@ export const SeembaProject = {
     content: 'I’ve done quick research on products in India that have in place this process and also researched if it is possible to automate this process without involving a person from our support team. The verification feature I’ve tested as a standalone one. The tests made me re-think the flow a bit and create new components for uploading documents. The verification feature also required to create an internal dashboard so our support could verify the businesses since this couldn’t be done automatically.',
   }, {
     type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    src: seembaVerification,
   }, {
     type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    src: seembaVerificationDashboard,
   }, {
     type: TYPES.Section,
     heading: 'UI and Branding',
@@ -335,14 +355,14 @@ export const SeembaProject = {
     content: 'For our main font, I’ve picked up Lato for English and Hindi English with a fall back option to Noto for support Hindi, Marathi, and other Indian jargons, which only Noto font supports.',
   }, {
     type: TYPES.YouTube,
-    id: 'f6qdAwENFRk',
+    id: 'cswq2OCgVaU',
   }, {
     type: TYPES.Section,
     heading: 'Continuous improvement',
     content: 'There was also a website done for the product chatbot based. And 1 month before the company closed the UI changed to a mix of conversational and regular UI. Upon which we had several production iterations for improving the script.',
   }, {
     type: TYPES.YouTube,
-    id: 'f6qdAwENFRk',
+    id: 'r3nQjV2Me-0',
   }, {
     type: TYPES.Section,
     heading: 'Outcome & lessons',
@@ -355,8 +375,8 @@ export const SeembaProject = {
     ],
     content: 'During my journey in Seemba I’ve learned a lot on pivoting, building products for the masses and also gave me the spark in the world of conversational UI. The last month before shutting doors I’ve worked on improving the dashboard by adding a chatbot instead of the card UI. But as a startup, the future ahead was unclear and unsettled. And as in some startups cofounders do not agree with each other and have different objectives in mind. This was the beginning of another exciting journey of continuing with one of the owners and searching for an idea and building a new product, this was the product, called Panto.',
   }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkHeading,
+    type: TYPES.Image,
+    src: seembaOutcome,
   },
 ],
 };
