@@ -137,6 +137,7 @@ export const TYPES = {
   Section: 'section', // 
   Review: 'review',
   YouTube: 'youtube',
+  CTA: 'cta',
 };
 
 export const SeembaForEndUsersProject = {
