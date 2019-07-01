@@ -96,6 +96,26 @@ import pantoMobileUI from '../assets/img/projects/panto/pantoMobileUI.png';
 import pantoDesktopUI from '../assets/img/projects/panto/pantoDesktopUI.png'; 
 import pantoBrand from '../assets/img/projects/panto/pantoBrand.png'; 
 
+import h1Cover from '../assets/img/projects/hatchery/h1Cover.png'; 
+import h1Team from '../assets/img/projects/hatchery/h1Team.png'; 
+import h1Questions from '../assets/img/projects/hatchery/h1Questions.png'; 
+import h1CompetitiveAnalysis from '../assets/img/projects/hatchery/h1CompetitiveAnalysis.png'; 
+import h1CompetitiveDiagram from '../assets/img/projects/hatchery/h1CompetitiveDiagram.png'; 
+import h1Features from '../assets/img/projects/hatchery/h1Features.png'; 
+import h1Output from '../assets/img/projects/hatchery/h1Output.png'; 
+import h1Tree from '../assets/img/projects/hatchery/h1Tree.png'; 
+import h1Personas from '../assets/img/projects/hatchery/h1Personas.png'; 
+import h1PersonaJourney from '../assets/img/projects/hatchery/h1PersonaJourney.png'; 
+import h1Sketches2 from '../assets/img/projects/hatchery/h1Sketches2.png'; 
+import h1IA1 from '../assets/img/projects/hatchery/h1IA1.png'; 
+import h1DesignIteration1 from '../assets/img/projects/hatchery/h1DesignIteration1.png'; 
+import h1IA from '../assets/img/projects/hatchery/h1IA.png'; 
+import h1Flow from '../assets/img/projects/hatchery/h1Flow.png'; 
+import h1Sketches1 from '../assets/img/projects/hatchery/h1Sketches1.png'; 
+import h1Inspiration from '../assets/img/projects/hatchery/h1Inspiration.png'; 
+import h1Review from '../assets/img/projects/hatchery/h1Review.png'; 
+
+
 
 
 
@@ -211,7 +231,7 @@ export const SeembaForEndUsersProject = {
     src: seembaViewerNames,
   }, {
     type: TYPES.Section,
-    heading: 'Analysing the data',
+    heading: 'Analyzing the data',
     content: 'After I was done with the research we set down with the team and brainstormed on potential feature sets having in mind all the variables from above. We also explored some technical constraints.', 
   }, {
     type: TYPES.Image,
@@ -864,7 +884,174 @@ export const Hatchery1 = {
   metadata: {
     duration: '2_MONTHS',
   },
-  sections: [],
+  sections: [{
+    type: TYPES.Image,
+    src: h1Cover,
+  }, {
+    type: TYPES.Section,
+    heading: 'Overview',
+    content: 'Trading is a skill that requires to be practiced with years and on top of this, you need to brace yourself of losing money. Things get even more complex when we are talking for cryptocurrencies and pair trading in this new world. The crypto market is very volatile and never sleeps, meaning can be traded 24/7, thus making it hard for a person to constantly seek for the best market deals. This is the perfect case to automate this process by having a bot that can jump in and trade on your behalf with a strategy set from you. But automating your crypto trading so far can be a pain requiring from you to code your own bot or know technical analysis and have a clear trading strategy.',
+  }, {
+    type: TYPES.Text,
+    content: 'Based on this Hatchery 1 is here and will do all the heavy lifting for you. It will help you to create and manage your crypto portfolio, select a strategy for your trading bots.',
+  }, {
+    type: TYPES.Text,
+    content: 'Having the problem in his mind Todor reached me out to start literally from a fuzzy idea and transform it into an MVP and take the seed investment of $500K.',
+  }, {
+    type: TYPES.Text,
+    content: 'My responsibilities for the project were:',
+    bulletPoints: [
+      'Clear the idea and see how we could start.',
+      'Create an architecture and navigation that can scale.',
+      'Create the UI and branding direction.',
+      'Prototype and hand-off an MVP and a plan for after the MVP.',
+    ],
+  }, {
+    type: TYPES.Section,
+    heading: 'Responsibilities',
+    content: 'I was leading the product design process using design thinking methodology. We worked remotely and combining it with once a week on side work. In my experience starting from a fuzzy idea and clearing out requires a lot of communication, workshops, and research to clear it out. Here is the perfect moment to mention that H1 as a project is a part of the bigger neuro-network where the team was and it was built, which is called scynet.ai.',
+  },  {
+    type: TYPES.Text,
+    content: 'The goals were simple:.',
+    bulletPoints: [
+      'Make a clear product definition.',
+      'Create an MVP.',
+      ' Plan ahead.',
+      'Pause the design work until the MVP and seed investment is in place.',
+    ],
+  }, {
+    type: TYPES.Image,
+    src: h1Team,
+  }, {
+    type: TYPES.Section,
+    heading: 'Ready, Start',
+    content: 'Our process started with a lot of internal discussions as on the go people were getting on board and during the first week, we were a team of 4 already.',
+  }, {
+    type: TYPES.Image,
+    src: h1Questions,
+  }, {
+    type: TYPES.Text,
+    content: 'I started with preliminary research by interviewing the stakeholder and creating a workshop to define the idea.',
+  }, {
+    type: TYPES.FullWidthImage,
+    src: h1Tree,
+  }, {
+    type: TYPES.Section,
+    heading: 'Competition',
+    content: 'Competitive analysis and industry overalls is a must in my process so to see where we can position ourselves and how to do it, with a product scope that can catch the attention of our users. Now the good part was that from 2 years and a half I am constantly reading, practicing: Personal finances, investing (mainly in sustainable energy investing in indices and high tech ETF\'s ) and just started in trading, so the matter wasn\'t that unfamiliar to me.',
+  }, {
+    type: TYPES.FullWidthImage,
+    src: h1CompetitiveAnalysis,
+  }, {
+    type: TYPES.Text,
+    content: 'Finding that most of the solutions out there were complex systems for mid to expert levels traders with high usage of trading jargon and even some of them required you to code your bot which was frustrating since almost none automation was done for the user.',
+  }, {
+    type: TYPES.FullWidthImage,
+    src: h1CompetitiveDiagram,
+  }, {
+    type: TYPES.Section,
+    heading: 'Analyzing',
+    content: 'After getting familiar with the idea and the competition we made a brainstorming session of the functionality that can come in the product.',
+  }, {
+    type: TYPES.FullWidthImage,
+    src: h1Features,
+  }, {
+    type: TYPES.Section,
+    heading: 'Customer Research',
+    content: 'Having in mind the people that we had as a target I wanted to dig deeper into their habits and behavior. Our main personas are Traders & holders.',
+  }, {
+    type: TYPES.FullWidthImage,
+    src: h1Output,
+  }, {
+    type: TYPES.Text,
+    content: 'Based on this we spotted that the directions we can go with were 2:',
+    bulletPoints: [
+      'Start with trading strategy first.',
+      'Start with a portfolio strategy and attack all the crypto holders to our platform and extend it with automated trading bots and a Hedge fund.',
+    ],
+  }, {
+    type: TYPES.Text,
+    content: 'I introduced my findings to the team and together we brainstormed and created the personas and journeys.',
+  }, {
+    type: TYPES.FullWidthImage,
+    src: h1Personas,
+  }, {
+    type: TYPES.FullWidthImage,
+    src: h1PersonaJourney,
+  }, {
+    type: TYPES.Section,
+    heading: 'Ideating',
+    content: 'Seeing that specs were changing on a daily basis so we needed to clear them out with another workshop and understand what scynet will do and can do. With this in mind, I was sketching a lot and testing with the team the paper prototypes. The goal was to have both solutions and test them out to see in which direction to go first.',
+  }, {
+    type: TYPES.Image,
+    src: h1Sketches2,
+  }, {
+    type: TYPES.Section,
+    heading: 'Testing & Architecting',
+    content: 'Based on this I remotely tested out the paper prototypes with crypto holders and conducted final interviews.  After the sessions with 12 people, the direction was almost certain. To visualize the idea I’ve created the architecture and also the high fidelity wireframes.',
+  }, {
+    type: TYPES.Image,
+    src: h1IA1,
+  }, {
+    type: TYPES.Section,
+    heading: 'UI',
+    content: 'With different people I am working differently, in this use case we had very brief sketches and doodles so choosing a visual guide and creating the high fidelity wireframes was the option to go.',
+  }, {
+    type: TYPES.Image,
+    src: h1DesignIteration1,
+  }, {
+    type: TYPES.Section,
+    heading: 'Re-iterating',
+    content: 'One challenge came across the mathematicians were working on a genome algorithm for the reproduction of the scynet neuro-network. The end result was that they would need more time, but investors were pushing also so with the CEO we decided to go with portfolio management first and extend it afterward. That’s how more users can come on board. So having the sketches for this solution I’ve started with creating the IA of the project and the use cases. The navigation needed to be scalable.',
+  }, {
+    type: TYPES.Image,
+    src: h1IA,
+  }, {
+    type: TYPES.Image,
+    src: h1Flow,
+  }, {
+    type: TYPES.Text,
+    content: 'After having the IA I jumped in sketching. It was easier since we had a lot of the logic it just changed from before since we dropped the trading bot strategy and left only with a cryptocurrency portfolio management.',
+  }, {
+    type: TYPES.Image,
+    src: h1Sketches1,
+  }, {
+    type: TYPES.Text,
+    content: 'It was time to continue to the final design and afterword test it out.',
+  }, {
+    type: TYPES.YouTube,
+    id: '_HAHcUbpkdU',
+  }, {
+    type: TYPES.Text,
+    content: 'I’ve performed a usability study just to make sure the functionality can satisfy the needs and that there are no usability bugs. I’ve tested with the same people that I’ve worked in the previous sessions. It was amazing to see how people adopted the idea and wanted to participate in further remote usability testings. I also recruited people from a competitor product called shrimpy so to benchmark our own.',
+  }, {
+    type: TYPES.Section,
+    heading: 'Brand',
+    content: 'Having a nice brand was all that will please on the first date the user so I used our user findings and developed a more game-like experience by combining trust and playfulness, a sci-fi direction with bold colors. I also got inspired by Scynet and I wanted to emphasize on our tech stack  AI and machine learning all that on the blockchain. Here is my inspiration board. To mention that the final UI can be seen in the video above.',
+  }, {
+    type: TYPES.FullWidthImage,
+    src: h1Inspiration,
+  }, {
+    type: TYPES.Section,
+    heading: 'Outcome',
+    content: 'And so after 5 full weeks of intense work, the prototype has been done and tested. During the time of writing this case study, there were few investors who wanted to start the due diligence process and invest. Seed round around $500K.',
+  }, {
+    type: TYPES.Text,
+    content: 'Few more things that I was told were that:',
+    bulletPoints: [
+      'To show to investors they will use flutter material components without styling it like in the brief not to lose time. Which afterward they will use when the deal is secured.',
+      'We will continue our work when the MVP is out.',
+    ],
+  }, {
+    type: TYPES.Review,
+    headline: 'Todor Kolev',
+    companyName: 'CEO of H1 & ScyNet',
+    content: 'Stoyan is both talented and hard work designer. I was able to follow his performance and I must say he was able to increase the amount of value added to the team and Company over time. With Stoyan we were working closely on the idea, concept and final deliverables for Hatchery. Saying that his commitment and the different initiatives he has been involved is very remarkable.',
+    representative: 'TODOR_KOLEV',
+    representativeRole: 'CEO',
+    avatar: h1Review,
+  }, 
+],
 };
 
 export const MySite = {
@@ -910,8 +1097,8 @@ export const MySite = {
     src: mySiteExamples, 
   }, {
     type: TYPES.Section,
-    heading: 'Analysing',
-    content: 'Analysing came place afterward figuring out the components of a portfolio and what makes a great case study.',
+    heading: 'Analyzing',
+    content: 'Analyzing came place afterward figuring out the components of a portfolio and what makes a great case study.',
   }, {
     type: TYPES.Image,
     src: mySiteAnalysis, 
