@@ -2,6 +2,19 @@ import historyParkFullImage from '../assets/img/projects/history-park/history-pa
 import historyParkHeading from '../assets/img/projects/history-park/history-park-heading.png';
 import historyParkReviewAuthorAvatar from '../assets/img/projects/history-park/history-park-avatar.png';
 import historyParkLogo from '../assets/img/projects/history-park/history-park-logo.png';
+import parkTeam from '../assets/img/projects/history-park/parkTeam.png';
+import parkReqs from '../assets/img/projects/history-park/parkReqs.png';
+import parkInfoFlow from '../assets/img/projects/history-park/parkInfoFlow.png';
+import parkPersonas from '../assets/img/projects/history-park/parkPersonas.png';
+import parkTaskGoals from '../assets/img/projects/history-park/parkTaskGoals.png';
+import parkProblemsAfterInterviews from '../assets/img/projects/history-park/parkProblemsAfterInterviews.png';
+import parkInvestorFunnel from '../assets/img/projects/history-park/parkInvestorFunnel.png';
+import parkIA2 from '../assets/img/projects/history-park/parkIA2.png';
+import parkWireframes from '../assets/img/projects/history-park/parkWireframes.png';
+import parkDesign from '../assets/img/projects/history-park/parkDesign.png';
+import parkInspiration from '../assets/img/projects/history-park/parkInspiration.png';
+import parkInspiration2 from '../assets/img/projects/history-park/parkInspiration2.png';
+import parkPeople from '../assets/img/projects/history-park/parkPeople.png';
 
 import motelNowReviewAuthorAvatar from '../assets/img/projects/motel-now/motelNowReviewAuthorAvatar.png';
 import motelNowTeam from '../assets/img/projects/motel-now/motelNowTeam.png';
@@ -1217,40 +1230,122 @@ export const HistoryParkProject = {
     duration: '4_MONTH',
   },
   sections: [{
-    type: TYPES.Image,
-    src: historyParkHeading,
-  }, {
-    type: TYPES.YouTube,
-    id: 'f6qdAwENFRk',
-  }, {
-    type: TYPES.Text,
-    content: 'Characters that have had created the big part of the European History. Well guess what Bulgaria takes role here in on Balkans with it nation which is several thousand years old. This is History park, it brings Bulgarian and partial Roman history by presenting it in a interactive way and taking you centuries and decades ago. People in the park will be able to experience this time travel, ride horses and shoot with a bow while riding, eat ancient kitchen, leave like the old days, even fight on the arena.',
-  }, {
-    type: TYPES.Section,
-    heading: 'Problem',
-    content: 'Imagine Disney Land but instead of the cartoon characters real ones. Characters that have had created the big part of the European History.',
-    bulletPoints: [
-      'Imagine Disney Land but instead of the cartoon characters real ones. Characters that have had created the big part of the European History.',
-      'Imagine Disney Land but instead of the cartoon characters real ones. Characters that have had created the big part of the European History.',
-    ],
-  }, {
     type: TYPES.FullWidthImage,
     src: historyParkFullImage,
   }, {
+    type: TYPES.Section,
+    heading: 'Overview',
+    content: 'In 2019, one of the biggest history parks in the world will open doors here, in Bulgaria. Imagine Disneyland but for Bulgarian history. And since our nation has a history around 2K years in total, there is something that must be said. But a project at that scale also needs fund rising. In that case, the team from Together, the owner company of the park decided to create an opportunity for the little investor to join forces and create this massive park which cost exceeds $250M.',
+  }, {
+    type: TYPES.Text,
+    content: 'In order, this to happen, one of the financial consultants contacted me to help them with creating an online presence with the goal for an investor to understand what he needs in order to take a decision and invest.',
+  }, {
+    type: TYPES.Text,
+    content: 'The team was made from 4 consultants and me as a design consultant. Together had a development team which would join the project once it is done. For the project, I had 2 months in total.',
+  }, {
+    type: TYPES.Image,
+    src: parkTeam,
+  }, {
+    type: TYPES.Section,
+    heading: 'Requirements',
+    content: 'The first thing that I did is preliminary google research playing the role of a person that wants to understand about the project. The goal was to see what information is available and also what information Georgi shares. I found that it was insanely hard to discover their current ipark.com website and understand the investment.',
+  }, {
+    type: TYPES.Text,
+    content: 'I started with a kick-off meeting with the stakeholders of the project to understand their requirements and the investor persona. A good thing here to say is that In the past I had touch points with investors and I am a small one so I this helped me in figuring out what an investor wants to see. To gather insights I used a user center design canvas.',
+  }, {
+    type: TYPES.Image,
+    src: parkReqs,
+  }, {
+    type: TYPES.Text,
+    content: 'During the workshop, I also pointed out the problem with information discovery. I wanted to be on the same page and figure out how important that problem is to them. Together we made an information flow diagram and also discussed the key points of what an investor searches.',
+  }, {
+    type: TYPES.FullWidthImage,
+    src: parkInfoFlow,
+  }, {
+    type: TYPES.Section,
+    heading: 'Research',
+    content: 'I\'ve started with a customer interviews on side with both investors in the park and potential investors. My research took in place after a presentation the company was creating of presenting the project. Usually, on that kind of events, I was told that both target people are going.',
+  }, {
+    type: TYPES.FullWidthImage,
+    src: parkPeople,
+  }, {
+    type: TYPES.Text,
+    content: 'After the interviews, first I\'ve synthesised the findings in a persona.',
+  }, {
+    type: TYPES.FullWidthImage,
+    src: parkPersonas,
+  }, {
+    type: TYPES.FullWidthImage,
+    src: parkInvestorFunnel,
+  }, {
+    type: TYPES.Text,
+    content: 'Than with the team we set down and analyzed the results grouping everything into tasks, problems and goals:',
+  }, {
+    type: TYPES.FullWidthImage,
+    src: parkTaskGoals,
+  }, {
+    type: TYPES.Section,
+    heading: 'Information Architecture',
+    content: 'After that, I created the information architecture and some early sketches of the product on which we can have a discussion.',
+  }, {
+    type: TYPES.Image,
+    src: parkIA2,
+  }, {
+    type: TYPES.Text,
+    content: 'We had a discussion on the IA, and we saw that there were few misunderstandings that we needed to fix.',
+    bulletPoints: [
+      'The website would be from Georgi’s subdomain.',
+      'They wanted a video on the home page.',
+    ],
+  }, {
+    type: TYPES.Text,
+    content: 'Taking the feedback home I added the changes and wireframed the project based on which we have done another meeting to see if something else can be added or removed. This led also to a discussion of the content which was the responsibility of them creating it since they know the best the park. ',
+  }, {
+    type: TYPES.FullWidthImage,
+    src: parkWireframes,
+  }, {
+    type: TYPES.Section,
+    heading: 'Visual Research',
+    content: 'Before the final design I have conducted a research on visuals, colors, typography and components to get inspired and also discuss with my clients a direction that we can go with.',
+  }, {
+    type: TYPES.Text,
+    content: 'There were 2 possibilities: A modern one or ancient. After presenting the 2 variations to them they\'ve decided to go with a more modern look',
+  }, { 
+    type: TYPES.FullWidthImage,
+    src: parkInspiration,
+  }, { 
+    type: TYPES.FullWidthImage,
+    src: parkInspiration2,
+  }, {
+    type: TYPES.Section,
+    heading: 'Visual Design',
+    content: 'Lastly, the visuals were created and documentation. But before leaving it to the development team I wanted to make sure if the flow is right so I started to participate on meetings that they had with clients and instead of a consultant to present the investment opportunity the client was given a website to interact with it. ',
+  }, { 
+    type: TYPES.FullWidthImage,
+    src: parkDesign,
+  }, {
+    type: TYPES.Section,
+    heading: 'Motion',
+    content: 'And one thing that was added as final was the motion to this static site.',
+  }, {
+    type: TYPES.YouTube,
+    id: 'aWH3hnPwQpU',
+  },  {
+    type: TYPES.Section,
+    heading: 'Outcome',
+    content: 'The project was validated and even before the deadline with almost a month. So everything was done and ready for implementation when suddenly after Ivein the CEO showed the project to his Lawyer he told him that in Bulgaria showing an investment with a business plan and the information as it was illegal. So Together, we decided to cancel the project and to continue spread the word offline. Those were bad news but sometimes this happens.',
+  }, 
+  
+  {
     type: TYPES.Review,
-    headline: 'Georgi Detelinov - client',
+    headline: 'Georgi Detelinov',
     companyName: 'Together Bulgaria',
     content: 'Working with Stoyan was just an awesome experience. He invested time to learn about out wants and need , he also took time to learn everything needed fo the project Historical Park so he could make the best website for it He was honest and transparent about the process and kept us involved all the time. It was up to Stoyan to really translate everything we talked about in to the website design and to find the best one for this big project.. The end result was just awesome, he did what we had as an idea and done it at the best way. Looking forward to work with Stoyan again.',
     representative: 'GEORGI_DETELINOV',
     representativeRole: 'FINANCE_CONSULTANT',
     avatar: historyParkReviewAuthorAvatar,
-  }, {
-    type: TYPES.Text,
-    content: 'Characters that have had created the big part of the European History. Well guess what Bulgaria takes role here in on Balkans with it nation which is several thousand years old. This is History park, it brings Bulgarian and partial Roman history by presenting it in a interactive way and taking you centuries and decades ago. People in the park will be able to experience this time travel, ride horses and shoot with a bow while riding, eat ancient kitchen, leave like the old days, even fight on the arena.',
-  }, {
-    type: TYPES.FullWidthImage,
-    src: historyParkFullImage,
-  }],
+  },
+],
 };
 
 export default [
