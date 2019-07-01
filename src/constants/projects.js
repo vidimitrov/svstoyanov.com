@@ -594,13 +594,6 @@ export const Panto = {
     content: 'Working remotely relies on heavy communication especially in early stages so we were syncing and constantly communicating on a daily basis. We were also traveling once a month for working at one place all of us. The best thing was that we worked together in the previous startUp Seemba.',
   }, {
     type: TYPES.Section,
-    heading: 'The plan',
-    content: 'The plan was the following:',
-  }, {
-    type: TYPES.Image,
-    src: pantoPlan,
-  }, {
-    type: TYPES.Section,
     heading: 'Constraints & problems',
     content: 'During the process, a lot of the problems were solved on the go. Some of the constraints and problems were:',
     bulletPoints: [

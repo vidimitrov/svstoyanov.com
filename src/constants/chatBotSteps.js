@@ -825,18 +825,10 @@ export default [
   }, {
     id: '55261127-6bd4-4947-8a14-febadbc83a64',
     message: 'India is a mobile-only economy meaning that people are coming online for the first time through their smartphones.',
-    trigger: 'f7f6dffc-b5a8-4a7d-971e-a36c8208329b',
-  }, {
-    id: 'f7f6dffc-b5a8-4a7d-971e-a36c8208329b',
-    component: (
-      <Image src={stoyanBushcraftingImg} /> 
-    ),
-    delay: 4000,
     trigger: 'ddbc2a1e-28f6-4b1a-8fce-cca805f50629',
   }, {
     id: 'ddbc2a1e-28f6-4b1a-8fce-cca805f50629',
     message: 'Only 20MB and millions users.',
-    delay: 6000,
     trigger: 'cadec40b-e7c3-49d2-9d18-053f33b93bf1',
   }, {
     id: 'cadec40b-e7c3-49d2-9d18-053f33b93bf1',
@@ -921,18 +913,10 @@ export default [
   }, {
     id: '8bca8572-7daf-4987-86d6-f8777295b406',
     message: 'Combining cutting edge technologies to disrupt the way companies collect and use their knowledge.',
-    trigger: 'dd6a3b06-7c75-4c1a-9e3d-f75e0a746b9a',
-  }, {
-    id: 'dd6a3b06-7c75-4c1a-9e3d-f75e0a746b9a',
-    component: (
-      <Image src={stoyanBushcraftingImg} /> 
-    ),
-    delay: 4000,
     trigger: '769b61ce-e5a4-46c7-a308-936ab315638e',
-  }, {
+  },{
     id: '769b61ce-e5a4-46c7-a308-936ab315638e',
     message: 'The end results were: A complete MVP product and a seed investment of $200K',
-    delay: 6000,
     trigger: '170ef705-a016-43cc-a938-8aa872621187',
   }, {
     id: '170ef705-a016-43cc-a938-8aa872621187',
@@ -972,15 +956,7 @@ export default [
     trigger: '368a6367-b112-4c14-85cc-3938fed8c9fa',
   }, {
     id: '368a6367-b112-4c14-85cc-3938fed8c9fa',
-    component: (
-      <Image src={stoyanBushcraftingImg} /> 
-    ),
-    delay: 4000,
-    trigger: '206d9597-637a-441f-9c12-7306e80f42e9',
-  }, {
-    id: '206d9597-637a-441f-9c12-7306e80f42e9',
     message: 'In the end MotelNow integrated a design approach into their working culture, had a web app ready for scale. The project continues to be WIP.',
-    delay: 6000,
     trigger: '710d2508-3413-4cfb-afad-f46e1863aaaf',
   }, {
     id: '710d2508-3413-4cfb-afad-f46e1863aaaf',
@@ -1020,15 +996,7 @@ export default [
     trigger: '8f6552ef-764d-4ff1-a95b-aea907aec750',
   }, {
     id: '8f6552ef-764d-4ff1-a95b-aea907aec750',
-    component: (
-      <Image src={stoyanBushcraftingImg} /> 
-    ),
-    delay: 4000,
-    trigger: 'fafd8207-5cea-4507-953c-1dbc79f60b0b',
-  }, {
-    id: 'fafd8207-5cea-4507-953c-1dbc79f60b0b',
     message: 'The project is WIP and will continue after the MVP is implemented. But raised $500K.',
-    delay: 6000,
     trigger: '498298af-aeed-483a-b11f-7da744500151',
   }, {
     id: '498298af-aeed-483a-b11f-7da744500151',
@@ -1069,15 +1037,7 @@ export default [
     trigger: 'a248928c-c35a-4338-83c4-d5ca966457ca',
   }, {
     id: 'a248928c-c35a-4338-83c4-d5ca966457ca',
-    component: (
-      <Image src={stoyanBushcraftingImg} /> 
-    ),
-    delay: 4000,
-    trigger: '11b8741f-8c25-4b5d-a780-b8c75c6da981',
-  }, {
-    id: '11b8741f-8c25-4b5d-a780-b8c75c6da981',
     message: 'More than 380 commits.',
-    delay: 6000,
     trigger: 'b8b44346-bf81-43a4-bd07-96ad86676581',
   }, {
     id: 'b8b44346-bf81-43a4-bd07-96ad86676581',
@@ -1123,17 +1083,9 @@ export default [
     id: '1f500526-1eae-4a49-8150-0b2756357c8f',
     message: 'And since our nation has a history around 2K years in total there is something that can be told.',
     trigger: '17f6dffc-b5a8-4a7d-971e-a36c82083293',
-  }, {
+  },{
     id: '17f6dffc-b5a8-4a7d-971e-a36c82083293',
-    component: (
-      <Image src={stoyanBushcraftingImg} /> 
-    ),
-    delay: 4000,
-    trigger: 'dc26dd81-9a5d-458f-a653-8088b6e0db7c',
-  }, {
-    id: 'dc26dd81-9a5d-458f-a653-8088b6e0db7c',
     message: 'Always involve the lawyer in financial projects since not everything is legal and in this case even the CEO didn’t knew about this clause.',
-    delay: 6000,
     trigger: '13092ea1-6529-4eef-ad10-124ba080029a',
   }, {
     id: '13092ea1-6529-4eef-ad10-124ba080029a',
