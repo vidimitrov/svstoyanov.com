@@ -14,14 +14,14 @@ import stoyanBushcraftingMobileImg from '../assets/img/bot-flow/stoyan-bushcraft
 import processPictureDesktop from '../assets/img/bot-flow/process-desktop.png';
 import processPictureMobile from '../assets/img/bot-flow/process-mobile.png';
 import {
-  SeembaForEndUsersProject,
-  HistoryParkProject,
-  SeembaProject,
-  SeembaForSales,
+  Hatchery1,
   Panto,
   MotelNow,
+  SeembaForEndUsersProject,
+  SeembaProject,
+  SeembaForSales,
   MySite,
-  Hatchery1,
+  HistoryParkProject,
 } from './projects';
 
 const CHATBOT_VISITED_SECTIONS = 'cb-vs';
@@ -146,7 +146,7 @@ export default [
   {
     id: 'c57a7186-8a45-4980-9fb0-69752959a661',
     message: '👋 Hi there, I am Stoyan, a product designer, researcher & strategist located in Bulgaria. 🇧🇬',
-    trigger: '5328b6cd-7fbb-4690-96e7-ff36070d5318', //   89695e34-2a77-4f0e-ab39-8602906dde0b - projects, 09352513-9901-4844-9a15-b4a08f30d18d - next step
+    trigger: '09352513-9901-4844-9a15-b4a08f30d18d', //   89695e34-2a77-4f0e-ab39-8602906dde0b - projects, 09352513-9901-4844-9a15-b4a08f30d18d - next step
     delay: 4000,
   }, {
     id: '09352513-9901-4844-9a15-b4a08f30d18d',
@@ -779,28 +779,28 @@ export default [
 
   {
     id: 'project-info-step-0',
-    message: 'This was an amazing project. Let’s start….',
-    trigger: '9d2d1738-2672-40d8-b2ea-b497fc7aef8d',
+    message: 'Trading and investing a topic in which I\'m in love. Will show you a nice story for this product',
+    trigger: 'd669873c-4840-4d5a-b536-642b6b913c36',
   }, {
     id: 'project-info-step-1',
-    message: 'Glad that you chose Seemba. So let’s start….',
-    trigger: '0b2e19b6-373a-495e-aaf0-85f747947b02',
-  }, {
-    id: 'project-info-step-2',
-    message: 'It was all about sales in Seemba. Will tell you what happened...',
-    trigger: '4d0db6a4-1ccf-474a-9ee6-35d241186943',
-  }, {
-    id: 'project-info-step-3',
     message: 'The artifical assistant Panto.',
     trigger: 'd4c1c1f7-0f21-4ffb-81ae-ca50d372f7b2',
   }, {
-    id: 'project-info-step-4',
+    id: 'project-info-step-2',
     message: 'Love is in the air, every where we look around.',
     trigger: 'e678ff34-dda1-4722-a5fc-bcf7f1c7ae3d',
   }, {
+    id: 'project-info-step-3',
+    message: 'This was an amazing project. Let’s start….',
+    trigger: '9d2d1738-2672-40d8-b2ea-b497fc7aef8d',
+  }, {
+    id: 'project-info-step-4',
+    message: 'Glad that you chose Seemba. So let’s start….',
+    trigger: '0b2e19b6-373a-495e-aaf0-85f747947b02',
+  }, {
     id: 'project-info-step-5',
-    message: 'Trading and investing a topic in which I\'m in love. Will show you a nice story for this product',
-    trigger: 'd669873c-4840-4d5a-b536-642b6b913c36',
+    message: 'It was all about sales in Seemba. Will tell you what happened...',
+    trigger: '4d0db6a4-1ccf-474a-9ee6-35d241186943',
   }, {
     id: 'project-info-step-6',
     message: 'A passion project of mine which is this web app that you are looking at. Let\'s start.',
