@@ -146,7 +146,7 @@ export default [
   {
     id: 'c57a7186-8a45-4980-9fb0-69752959a661',
     message: '👋 Hi there, I am Stoyan, a product designer, researcher & strategist located in Bulgaria. 🇧🇬',
-    trigger: '09352513-9901-4844-9a15-b4a08f30d18d', //   89695e34-2a77-4f0e-ab39-8602906dde0b - projects, 09352513-9901-4844-9a15-b4a08f30d18d - next step
+    trigger: '5328b6cd-7fbb-4690-96e7-ff36070d5318', //   89695e34-2a77-4f0e-ab39-8602906dde0b - projects, 09352513-9901-4844-9a15-b4a08f30d18d - next step
     delay: 4000,
   }, {
     id: '09352513-9901-4844-9a15-b4a08f30d18d',
@@ -537,16 +537,12 @@ export default [
     id: '2bbe6113-e431-4834-90ca-33cc2d4576dc',
     message: 'You know what?....',
     trigger: '4edc41a0-94ca-4260-a6a8-f36df09e1134',
-  },{
+  }, {
     id: '4edc41a0-94ca-4260-a6a8-f36df09e1134',
-    message: 'Drop me a line so we can chit chat about it.',
+    message: 'Drop me a line so we can chit chat about it or visit our FB page.',
     trigger: 'ac6f8d4c-6364-404c-ba90-32e6a34197f5',
   }, {
     id: 'ac6f8d4c-6364-404c-ba90-32e6a34197f5',
-    message: 'In any case I’m leaving the link to the site. (barbarondesign.shop)',
-    trigger: '89e2dccb-b071-4e0e-9e82-a0b683b16b14',
-  }, {
-    id: '89e2dccb-b071-4e0e-9e82-a0b683b16b14',
     component: (
       <CustomOptions
         options={[
@@ -559,6 +555,13 @@ export default [
             value: 1,
             label: changeTopicMessage(),
             trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+          },  
+          {
+            value: 2,
+            label: 'Open the facebook page',
+            redirect: 'https://www.facebook.com/barbarondesign',
+            trigger: '7a124a44-5cf1-45b6-9660-f1a0f5c836f1',
+            isVisible: () => !isVisited('7a124a44-5cf1-45b6-9660-f1a0f5c836f1'),
           },
         ]}
         dynamicOptions={[
@@ -569,7 +572,7 @@ export default [
             isVisible: () => !isVisited('bd61de4a-b8f3-41f1-ab3b-56341afc8112'),
           },
           {
-            value: 0,
+            value: 1,
             label: 'Tell me about your workshops',
             trigger: 'd42bac2b-67bd-4d15-bda2-316b99c3773c',
             isVisible: () => !isVisited('d42bac2b-67bd-4d15-bda2-316b99c3773c'),
@@ -579,6 +582,44 @@ export default [
     ),
   },
  
+  // barbaron FB page clicked
+  {
+    id: '7a124a44-5cf1-45b6-9660-f1a0f5c836f1',
+    message: 'Hope that you will like the beanbags that we handcraft.',
+    trigger: '36d7cf11-5bfe-4baa-9c9a-608f7f4e85e2',
+    delay: 6000,
+  }, {
+    id: '36d7cf11-5bfe-4baa-9c9a-608f7f4e85e2',
+    message: 'Okay, what would you like of us to discuss next?',
+    trigger: '35158756-29d1-492e-a443-67b0c617246d',
+  },  {
+    id: '35158756-29d1-492e-a443-67b0c617246d',
+    component: (
+      <CustomOptions
+        options={[
+          {
+            value: 0,
+            label: 'What else we can chat on',
+            trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+          }, 
+        ]}
+        dynamicOptions={[
+          {
+            value: 0,
+            label: 'Show me your financial project',
+            trigger: 'bd61de4a-b8f3-41f1-ab3b-56341afc8112',
+            isVisible: () => !isVisited('bd61de4a-b8f3-41f1-ab3b-56341afc8112'),
+          },
+          {
+            value: 1,
+            label: 'Tell me about your workshops',
+            trigger: 'd42bac2b-67bd-4d15-bda2-316b99c3773c',
+            isVisible: () => !isVisited('d42bac2b-67bd-4d15-bda2-316b99c3773c'),
+          },
+        ]}
+      />
+    ),
+  },
  
  
   // Show me your financial project
