@@ -56,6 +56,9 @@ class CustomOptions extends React.Component {
     const { priorityOptions, dynamicOptions } = props;
 
     // Dynamic Options - support nested flows and shows only the not visited options
+    // This is a dynamic option
+    // If you use isVisible: () => !isVisited('some-id') in a button
+    // You have to set the callback: () => setVisited('some-id')
     if (dynamicOptions) {
       const computedOptions = dynamicOptions.map((dOption) => {
         if (dOption.isVisible()) {
@@ -77,6 +80,9 @@ class CustomOptions extends React.Component {
     }
 
     // Priority Options - get the first not visited option if any
+    // This is a priority option
+    // If you use isVisible: () => !isVisited('some-id') in a button
+    // You have to set the callback: () => setVisited('some-id')
     if (priorityOptions) {
       const pOption = _.head(priorityOptions.filter(filterOnlyVisible));
 
