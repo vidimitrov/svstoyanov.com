@@ -321,7 +321,7 @@ export const Hatchery1 = {
 
 export const Panto = {
   id: 1,
-  trigger: '986f2b6e-e271-4bf1-9c6a-0ee809026e27',
+  trigger: '863be646-6106-4d7e-8ebe-f2d4fbec474e',
   name: 'Panto',
   headline: 'Information on the tip of your fingers',
   shortDescription: 'Panto is the assistant your company would like to have. It saves time and money by allowing deskless employees to get the proper answer to their question',
@@ -490,7 +490,7 @@ export const Panto = {
 
 export const MotelNow = {
   id: 2,
-  trigger: '986f2b6e-e271-4bf1-9c6a-0ee809026e27',
+  trigger: 'c2785d04-cdf7-4888-ada4-5ea056b7aacd',
   name: 'MotelNow',
   headline: 'Walking on the road of love',
   shortDescription: 'MotelNow connects people that want to book instantly for the same day a motel room. Latin America is famous with it\'s love tourism but it is hard to discover great Motels.',
@@ -638,7 +638,7 @@ export const MotelNow = {
 
 export const SeembaForEndUsersProject = {
   id: 3,
-  trigger: '986f2b6e-e271-4bf1-9c6a-0ee809026e27',
+  trigger: '00e5f4f5-3e25-4541-8d5c-7dda187e639f',
   name: 'Seemba - end users',
   headline: 'The Website India required',
   shortDescription: 'Seemba for the end users was the first project made as a pivot from Snapp. But now instead of first creating platform for the business we have created value for it by understanding the needs of their customers.',
@@ -797,7 +797,7 @@ export const SeembaForEndUsersProject = {
 
 export const SeembaProject = {
   id: 4,
-  trigger: '986f2b6e-e271-4bf1-9c6a-0ee809026e27',
+  trigger: 'bb5a4c65-d009-4ee3-854a-ff9f7180a262',
   name: 'Seemba - business ',
   headline: 'The first mobile web builder',
   shortDescription: 'Seemba for the business owner helps businesses accross India to create their online presence, distribute it everywhere in the web and manage their businesses only from their low end smartphones.',
@@ -952,7 +952,7 @@ export const SeembaProject = {
 
 export const SeembaForSales = {
   id: 5,
-  trigger: '986f2b6e-e271-4bf1-9c6a-0ee809026e27',
+  trigger: '3e7476e6-192f-4647-8c03-b5d4bd21ebf5',
   name: 'Seemba - affiliates',
   headline: 'Helping ground sales coordination',
   shortDescription: 'Seeing that a problem is to manage our on ground sales we came up with a solution to help coordinate on ground teams and track their results. Wasn\'t unique as Seemba but kept our data to ourselves.',
@@ -1064,7 +1064,7 @@ export const SeembaForSales = {
 
 export const MySite = {
   id: 6,
-  trigger: '986f2b6e-e271-4bf1-9c6a-0ee809026e27',
+  trigger: '1f69f7b1-a44e-473f-93af-e2cc5ea98b4e',
   name: 'svstoyanov.com',
   headline: 'Talking with my digital twin',
   shortDescription: 'My passion for conversational and voice UI\'s came after working in Snapp & Seemba and afterwords in Panto. I wanted to develop my skills and push the technology to it\'s boundaries.',
@@ -1224,7 +1224,7 @@ export const MySite = {
 
 export const HistoryParkProject = {
   id: 7,
-  trigger: '986f2b6e-e271-4bf1-9c6a-0ee809026e27',
+  trigger: '3a5861a1-c593-4fc0-a35d-9ce6dd8c1f6a',
   name: 'History Park',
   headline: 'History Park - Its all about history',
   shortDescription: 'History park is one of the biggest interactive parks that gives the opportunity to people to interact with history. My job was creating the online presence of the park.',

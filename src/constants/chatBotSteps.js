@@ -1290,7 +1290,8 @@ export default [
   /** 
    *  PROJECT CLOSED
    */
-
+  
+   // Hatchery - shows Panto
   {
     id: '986f2b6e-e271-4bf1-9c6a-0ee809026e27',
     message: projectInterest(),
@@ -1302,7 +1303,36 @@ export default [
         {
           value: 0,
           label: 'Show me your next one',
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          trigger: '9a0b25d0-e6c6-4e85-8a5e-b4bd45c218aa',
+        },
+        {
+          value: 1,
+          label: 'I’ll check the rest later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+        {
+          value: 2,
+          label: 'I want to contact you',
+          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+        },
+      ]}
+      />
+    ),
+  }, 
+  
+  // Panto - shows Motelnow
+  {
+    id: '863be646-6106-4d7e-8ebe-f2d4fbec474e',
+    message: projectInterest(),
+    trigger: 'b6632ef3-3d2b-4eff-865b-c34d74648460',
+  }, {
+    id: 'b6632ef3-3d2b-4eff-865b-c34d74648460',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me your next one',
+          trigger: '493acd9c-1c7d-410f-8180-57a908a14022',
         },
         {
           value: 1,
@@ -1318,6 +1348,181 @@ export default [
       />
     ),
   },
+
+  // MotelNow - shows Seemba viewer
+  {
+    id: 'c2785d04-cdf7-4888-ada4-5ea056b7aacd',
+    message: projectInterest(),
+    trigger: '478eb19e-b18d-4c91-8e6f-cef3c8db9c50',
+  }, {
+    id: '478eb19e-b18d-4c91-8e6f-cef3c8db9c50',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me your next one',
+          trigger: '557f3c6a-ecd3-4485-842b-4677abc1bf2e',
+        },
+        {
+          value: 1,
+          label: 'I’ll check the rest later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+        {
+          value: 2,
+          label: 'I want to contact you',
+          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+        },
+      ]}
+      />
+    ),
+  },
+
+  // Seemba viewer - shows Seemba
+  {
+    id: '00e5f4f5-3e25-4541-8d5c-7dda187e639f',
+    message: projectInterest(),
+    trigger: 'eb098458-9d2f-4d25-80e5-8cb895d6f329',
+  }, {
+    id: 'eb098458-9d2f-4d25-80e5-8cb895d6f329',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me your next one',
+          trigger: '5ab2884d-571f-40c8-9f92-876e1a4bf029',
+        },
+        {
+          value: 1,
+          label: 'I’ll check the rest later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+        {
+          value: 2,
+          label: 'I want to contact you',
+          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+        },
+      ]}
+      />
+    ),
+  },
+
+  // Seemba - shows Seemba affiliates
+  {
+    id: 'bb5a4c65-d009-4ee3-854a-ff9f7180a262',
+    message: projectInterest(),
+    trigger: '686f41f9-4f40-4f97-b57b-c7d51a805ce1',
+  }, {
+    id: '686f41f9-4f40-4f97-b57b-c7d51a805ce1',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me your next one',
+          trigger: '3f3be4b0-e569-48d4-a30f-c6f567eb2422',
+        },
+        {
+          value: 1,
+          label: 'I’ll check the rest later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+        {
+          value: 2,
+          label: 'I want to contact you',
+          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+        },
+      ]}
+      />
+    ),
+  },
+
+   // Seemba affiliates - shows svstoyanov 
+   {
+    id: '3e7476e6-192f-4647-8c03-b5d4bd21ebf5',
+    message: projectInterest(),
+    trigger: '95f83094-83cf-4d00-98d6-2d7b87d6c1d9',
+  }, {
+    id: '95f83094-83cf-4d00-98d6-2d7b87d6c1d9',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me your next one',
+          trigger: 'ea961fcf-b0f7-4165-b1e2-b75f0141ce2d',
+        },
+        {
+          value: 1,
+          label: 'I’ll check the rest later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+        {
+          value: 2,
+          label: 'I want to contact you',
+          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+        },
+      ]}
+      />
+    ),
+  },
+
+  // svstoyanov - shows history park
+  {
+    id: '1f69f7b1-a44e-473f-93af-e2cc5ea98b4e',
+    message: projectInterest(),
+    trigger: '43130ccb-19a9-46fa-96a6-97b8d30768c4',
+  }, {
+    id: '43130ccb-19a9-46fa-96a6-97b8d30768c4',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me your next one',
+          trigger: 'cb922291-bc50-4ed4-a081-644770ea3fac',
+        },
+        {
+          value: 1,
+          label: 'I’ll check the rest later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+        {
+          value: 2,
+          label: 'I want to contact you',
+          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+        },
+      ]}
+      />
+    ),
+  },
+
+   // history park - shows hatchery
+   {
+    id: '3a5861a1-c593-4fc0-a35d-9ce6dd8c1f6a',
+    message: projectInterest(),
+    trigger: '67fb699f-4175-47d0-b44b-fc5b2a1381d3',
+  }, {
+    id: '67fb699f-4175-47d0-b44b-fc5b2a1381d3',
+    component: (
+      <CustomOptions options={[
+        {
+          value: 0,
+          label: 'Show me your next one',
+          trigger: '53d57ae2-0e05-46d2-809e-1ed5e91f1010',
+        },
+        {
+          value: 1,
+          label: 'I’ll check the rest later',
+          trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+        },
+        {
+          value: 2,
+          label: 'I want to contact you',
+          trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+        },
+      ]}
+      />
+    ),
+  },
+  
   
 
   /**
