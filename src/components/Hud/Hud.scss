@@ -25,11 +25,11 @@
     position: absolute;
     width: 1px;
     @include transition(all 0.5s ease-in-out);
-    @include box-shadow(0 0 1000px 200px rgba(255, 255, 255, 0.25));
+    @include box-shadow(0 0 1000px 200px rgba(255, 255, 255, 0.2));
   }
 
   svg {
-    opacity: 1;
+    opacity: .3;
     overflow: visible;
     @include transform-origin(50% 50%);
     @include transition(all 0.5s ease-in-out);
@@ -111,8 +111,8 @@
 
 @media (min-width: 960px) {
   #hud {
-    max-height: 350px;
-    max-width: 350px;
+    max-height: 300px;
+    max-width: 300px;
   }
 }
 
