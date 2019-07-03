@@ -168,10 +168,6 @@ export default [
     message: 'Nice to meet you {previousValue}',
     trigger: 'bb4d0d9c-7019-4c36-bd5d-e1071d9a87c5',
   }, {
-    id: 'bb4d0d9c-7019-4c36-bd5d-e1071d9a87c5',
-    message: `Hey, ${localStorage.getItem('user-name')}`,
-    trigger: '3669f18c-8fcf-473c-b254-216a3c76a780',
-  }, {
     id: '3669f18c-8fcf-473c-b254-216a3c76a780',
     message: 'What would you like to do first?',
     trigger: '2140d3cd-21d3-4a9e-a05a-3c4bbe84c7a0',
