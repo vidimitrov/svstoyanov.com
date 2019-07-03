@@ -146,7 +146,7 @@ export default [
   {
     id: 'c57a7186-8a45-4980-9fb0-69752959a661',
     message: '👋 Hi there, I am Stoyan, a product designer, researcher & strategist located in Bulgaria. 🇧🇬',
-    trigger: '09352513-9901-4844-9a15-b4a08f30d18d', //   89695e34-2a77-4f0e-ab39-8602906dde0b - projects, 09352513-9901-4844-9a15-b4a08f30d18d - next step
+    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', //   89695e34-2a77-4f0e-ab39-8602906dde0b - projects, 09352513-9901-4844-9a15-b4a08f30d18d - next step
     delay: 4000,
   }, {
     id: '09352513-9901-4844-9a15-b4a08f30d18d',
@@ -202,6 +202,7 @@ export default [
     id: 'bc45efbf-270f-4ff0-810b-d26b9ce598ca',
     message: 'Well I’m an UX designer and a strategist, who loves creating value for companies with people-centric solutions',
     trigger: '818027c8-982d-46ae-85b5-1762fe3e980c',
+    callback: () => setVisited('bc45efbf-270f-4ff0-810b-d26b9ce598ca'),
   }, {
     id: '818027c8-982d-46ae-85b5-1762fe3e980c',
     message: 'My experience is based on helping startups build their products from the ground up and scale or pivot them by creating a solid strategy and understanding for their customers.',
@@ -255,6 +256,7 @@ export default [
     id: 'e4a09801-9647-47df-b195-bcd177554392',
     message: 'Great!',
     trigger: '506465fa-8821-47d8-9d01-0fe42626e612',
+    callback: () => setVisited('e4a09801-9647-47df-b195-bcd177554392'),
   },{
     id: '506465fa-8821-47d8-9d01-0fe42626e612',
     message: 'My process varies depending on the needs of the project.',
@@ -311,6 +313,7 @@ export default [
     id: '4ac1dc7b-7a7d-4225-86fc-7b7ce8a83e61',
     message: 'Nice, glad to see that you are curious to understand what it is!',
     trigger: 'c7985e08-26ef-4ed0-a4ee-170b75804b1c',
+    callback: () => setVisited('4ac1dc7b-7a7d-4225-86fc-7b7ce8a83e61'),
   },{
     id: 'c7985e08-26ef-4ed0-a4ee-170b75804b1c',
     message: 'Basically by bushcrafting I am learning how to live in the woods, build shelter find water.',
@@ -398,14 +401,14 @@ export default [
   },{
     id: '5defc8ae-b258-48de-93f2-abaca7fed4f9',
     message: 'Don\'t worry It won\'t be that hard,',
-    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', // Go to Mediator
+    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', 
   },
   
   //// I think it's not for me
   {
     id: 'e47c0e73-c75c-408d-a40a-17b9e421a836',
     message: 'Eh I think it is not for everyone. But I’m sure you have a very nice hobby',
-    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', // Go to Mediator
+    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', 
   },
 
 
@@ -417,7 +420,7 @@ export default [
   },{
     id: '41937668-3233-494f-b6ba-3f3d371005c4',
     message: 'But no worries. It is not a passion of yours and it doesn’t need to. We might have another common topic.',
-    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', // Go to Mediator
+    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', 
   },
 
    /**
@@ -427,6 +430,7 @@ export default [
     id: 'aa555702-702b-4821-b8a0-0cc1e92c6b49',
     message: '😊',
     trigger: '6ffa2758-3b0b-4711-bb79-954988b25aee',
+    callback: () => setVisited('aa555702-702b-4821-b8a0-0cc1e92c6b49'),
   }, {
     id: '6ffa2758-3b0b-4711-bb79-954988b25aee',
     message: 'With my girlfriend we’ve started our family business called barbarondesign.',
@@ -484,6 +488,7 @@ export default [
     id: '5328b6cd-7fbb-4690-96e7-ff36070d5318',
     message: 'Glad to see that you are interested in hearing out more details.',
     trigger: '2bbe6113-e431-4834-90ca-33cc2d4576dc',
+    callback: () => setVisited('5328b6cd-7fbb-4690-96e7-ff36070d5318'),
   },{
     id: '2bbe6113-e431-4834-90ca-33cc2d4576dc',
     message: 'You know what?....',
@@ -578,6 +583,7 @@ export default [
     id: 'bd61de4a-b8f3-41f1-ab3b-56341afc8112',
     message: 'Amazing!',
     trigger: 'af13c11e-20c1-410e-a374-b6779f6c0da1',
+    callback: () => setVisited('bd61de4a-b8f3-41f1-ab3b-56341afc8112'),
   },{
     id: 'af13c11e-20c1-410e-a374-b6779f6c0da1',
     message: 'It all started in 2017 when for the first time while working together in snapp we experienced the same financial problem: low on budget.',
@@ -637,6 +643,7 @@ export default [
     id: 'd42bac2b-67bd-4d15-bda2-316b99c3773c',
     message: 'I recently led a workshop on Adobe XD teaching people to do better workflows.',
     trigger: '729397f0-f78a-4f32-9392-a4ae96db5ba0',
+    callback: () => setVisited('d42bac2b-67bd-4d15-bda2-316b99c3773c'),
   },{
     id: '729397f0-f78a-4f32-9392-a4ae96db5ba0',
     message: 'I have a few more workshops planned for Voice Interface and two design thinking workshops focused on solving human problems for real businesses.',
@@ -1329,55 +1336,58 @@ export default [
             value: 0,
             label: 'Can I see your projects',
             trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          },{
+            value: 1,
+            label: 'How can I contact you',
+            trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
           },
         ]}
         dynamicOptions={[
           {
             value: 0,
-            label: 'How can I contact you',
-            trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
-            isVisible: () => !isVisited('eed7338a-dacc-48af-a87b-7085b0736ee8'),
-          },
-          {
-            value: 1,
-            label: 'Tell me more about your process',
-            trigger: 'e4a09801-9647-47df-b195-bcd177554392',
-            isVisible: () => !isVisited('e4a09801-9647-47df-b195-bcd177554392'),
-          },
-          {
-            value: 2,
             label: 'Tell me more about you',
             trigger: 'bc45efbf-270f-4ff0-810b-d26b9ce598ca',
             isVisible: () => !isVisited('bc45efbf-270f-4ff0-810b-d26b9ce598ca'),
-            topics: [
+            topics:[
               {
-                value: 3,
-                label: 'What side activities you have',
-                trigger: 'aa555702-702b-4821-b8a0-0cc1e92c6b49',
-                isVisible: () => !isVisited('aa555702-702b-4821-b8a0-0cc1e92c6b49'),
-              }, {
-                value: 4,
-                label: 'Tell me about your workshops',
-                trigger: 'd42bac2b-67bd-4d15-bda2-316b99c3773c',
-                isVisible: () => !isVisited('d42bac2b-67bd-4d15-bda2-316b99c3773c'),
-              }, {
-                value: 5,
-                label: 'Tell me more about your financial project',
-                trigger: 'bd61de4a-b8f3-41f1-ab3b-56341afc8112',
-                isVisible: () => !isVisited('bd61de4a-b8f3-41f1-ab3b-56341afc8112'),
-              }, {
-                value: 6,
-                label: 'Tell me more about your family business',
-                trigger: '5328b6cd-7fbb-4690-96e7-ff36070d5318',
-                isVisible: () => !isVisited('5328b6cd-7fbb-4690-96e7-ff36070d5318'),
-              }, {
-                value: 7,
-                label: 'Tell me more about your bushcraft hobby',
-                trigger: '4ac1dc7b-7a7d-4225-86fc-7b7ce8a83e61',
-                isVisible: () => !isVisited('4ac1dc7b-7a7d-4225-86fc-7b7ce8a83e61'),
-              },
+                value: 1,
+                label: 'Tell me more about your process',
+                trigger: 'e4a09801-9647-47df-b195-bcd177554392',
+                isVisible: () => !isVisited('e4a09801-9647-47df-b195-bcd177554392'),
+              }, 
             ],
-          },
+          }, {
+            value: 2,
+            label: 'What side activities you have',
+            trigger: 'aa555702-702b-4821-b8a0-0cc1e92c6b49',
+            isVisible: () => !isVisited('aa555702-702b-4821-b8a0-0cc1e92c6b49'),
+            topics: [
+            {
+              value: 3,
+              label: 'Tell me about your workshops',
+              trigger: 'd42bac2b-67bd-4d15-bda2-316b99c3773c',
+              isVisible: () => !isVisited('d42bac2b-67bd-4d15-bda2-316b99c3773c'),
+            }, 
+            {
+              value: 4,
+              label: 'Tell me more about your financial project',
+              trigger: 'bd61de4a-b8f3-41f1-ab3b-56341afc8112',
+              isVisible: () => !isVisited('bd61de4a-b8f3-41f1-ab3b-56341afc8112'),
+            },
+            {
+              value: 5,
+              label: 'Tell me more about your family business',
+              trigger: '5328b6cd-7fbb-4690-96e7-ff36070d5318',
+              isVisible: () => !isVisited('5328b6cd-7fbb-4690-96e7-ff36070d5318'),
+            }, 
+            {
+              value: 6,
+              label: 'Tell me more about your bushcraft hobby',
+              trigger: '4ac1dc7b-7a7d-4225-86fc-7b7ce8a83e61',
+              isVisible: () => !isVisited('4ac1dc7b-7a7d-4225-86fc-7b7ce8a83e61'),
+            },
+            ],
+          }, 
         ]}
       />
     ),
@@ -1584,7 +1594,7 @@ export default [
   }, {
     id: 'e55ad60e-130e-4b98-8149-31ed516efd2f',
     message: 'Aha, remembered!',
-    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', // Go to section 3 mediator
+    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', 
   },
 
 
@@ -1656,7 +1666,7 @@ export default [
   }, {
     id: '7fd4ed2e-bcb9-4464-94bb-b56cd35e6c5d',
     message: 'Ahh remembered!',
-    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', // Go to section 3 mediator
+    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', 
   }, {
     id: '82360ad1-075d-45a7-b316-687d35d0445f',
     message: 'Amazing! Glad to hear it.',
@@ -1672,6 +1682,6 @@ export default [
   }, {
     id: 'c5832308-80d5-4247-b9c8-37b4ea18c6c9',
     message: 'Ahh remembered! ',
-    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', // Go to section 3 mediator
+    trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5', 
   },
 ];
