@@ -1193,7 +1193,11 @@ export const MySite = {
   }, {
     type: TYPES.Section,
     heading: 'MVP of the portfolio concept',
-    content: 'While the website was WIP I needed to test everything so I created a wix portfolio site to see if the case studies can land me a job. As I have tried 3 companies here, in Bulgaria and passed the processes having an offer on the table, but the goal is different here, I will not mention it. If you are curious you can contact me. Living here the URL to the wix website: svs7oyanov.wixsite.com',
+    content: 'While the website was WIP I needed to test everything so I created a wix portfolio site to see if the case studies can land me a job. As I have tried 3 companies here, in Bulgaria and passed the processes having an offer on the table, but the goal is different here, I will not mention it. If you are curious you can contact me. ',
+  }, {
+    type: TYPES.CTA,
+    URL: 'https://svs7oyanov.wixsite.com',
+    buttonText: 'CHECK OUT THE PREVIOUS PORTFOLIO WEBSITE',
   }, {
     type: TYPES.Image,
     src: mySiteWix, 
@@ -1203,8 +1207,12 @@ export const MySite = {
   }, {
     type: TYPES.Section,
     heading: 'Outcome',
-    content: 'The project is open source and can be found in GitHub. And in the future will be packed as an open source bot management system. Many thanks to my best friend Vesko who was involved fully hearted and develop the system. You can find me in github: svstoyanov',
-  },  {
+    content: 'The project is open source and can be found in GitHub. And in the future will be packed as an open source bot management system. Many thanks to my best friend Vesko who was involved fully hearted and develop the system.',
+  }, {
+    type: TYPES.CTA,
+    URL: 'https://github.com/vidimitrov/svstoyanov.com',
+    buttonText: 'SEE GITHUB PAGE',
+  }, {
     type: TYPES.Text,
     content: 'Feel free to see a concept of the website below: ',
   }, {
