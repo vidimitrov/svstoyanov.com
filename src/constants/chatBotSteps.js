@@ -169,7 +169,7 @@ export default [
     trigger: 'bb4d0d9c-7019-4c36-bd5d-e1071d9a87c5',
   }, {
     id: 'bb4d0d9c-7019-4c36-bd5d-e1071d9a87c5',
-    message: 'Okay.',
+    message: `Hey, ${localStorage.getItem('user-name')}`,
     trigger: '3669f18c-8fcf-473c-b254-216a3c76a780',
   }, {
     id: '3669f18c-8fcf-473c-b254-216a3c76a780',
