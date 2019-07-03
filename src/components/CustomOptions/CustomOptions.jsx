@@ -78,7 +78,11 @@ class CustomOptions extends React.Component {
 
     // Priority Options - get the first not visited option if any
     if (priorityOptions) {
-      options.push(_.head(priorityOptions.filter(filterOnlyVisible)));
+      const pOption = _.head(priorityOptions.filter(filterOnlyVisible));
+
+      if (pOption) {
+        options.push(pOption);
+      }
     }
 
     this.state = {
