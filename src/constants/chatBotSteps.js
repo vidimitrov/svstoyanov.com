@@ -184,6 +184,10 @@ export default [
           value: 1,
           label: 'Contact you',
           trigger: 'eed7338a-dacc-48af-a87b-7085b0736ee8',
+        }, {
+          value: 2,
+          label: 'See your work',
+          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
         },
       ]}
       />
@@ -235,7 +239,7 @@ export default [
         },
         {
           value: 3,
-          label: 'Show me your side activities', 
+          label: 'Tell me about your side activities', 
           trigger: 'aa555702-702b-4821-b8a0-0cc1e92c6b49', // side project/ activities GUID
         },
       ]}
@@ -1342,27 +1346,32 @@ export default [
           },
           {
             value: 2,
-            label: 'What side activities you have',
-            trigger: 'aa555702-702b-4821-b8a0-0cc1e92c6b49',
-            isVisible: () => !isVisited('aa555702-702b-4821-b8a0-0cc1e92c6b49'),
+            label: 'Tell me more about you',
+            trigger: 'bc45efbf-270f-4ff0-810b-d26b9ce598ca',
+            isVisible: () => !isVisited('bc45efbf-270f-4ff0-810b-d26b9ce598ca'),
             topics: [
               {
                 value: 3,
+                label: 'What side activities you have',
+                trigger: 'aa555702-702b-4821-b8a0-0cc1e92c6b49',
+                isVisible: () => !isVisited('aa555702-702b-4821-b8a0-0cc1e92c6b49'),
+              }, {
+                value: 4,
                 label: 'Tell me about your workshops',
                 trigger: 'd42bac2b-67bd-4d15-bda2-316b99c3773c',
                 isVisible: () => !isVisited('d42bac2b-67bd-4d15-bda2-316b99c3773c'),
               }, {
-                value: 4,
+                value: 5,
                 label: 'Tell me more about your financial project',
                 trigger: 'bd61de4a-b8f3-41f1-ab3b-56341afc8112',
                 isVisible: () => !isVisited('bd61de4a-b8f3-41f1-ab3b-56341afc8112'),
               }, {
-                value: 5,
+                value: 6,
                 label: 'Tell me more about your family business',
                 trigger: '5328b6cd-7fbb-4690-96e7-ff36070d5318',
                 isVisible: () => !isVisited('5328b6cd-7fbb-4690-96e7-ff36070d5318'),
               }, {
-                value: 6,
+                value: 7,
                 label: 'Tell me more about your bushcraft hobby',
                 trigger: '4ac1dc7b-7a7d-4225-86fc-7b7ce8a83e61',
                 isVisible: () => !isVisited('4ac1dc7b-7a7d-4225-86fc-7b7ce8a83e61'),
