@@ -169,68 +169,19 @@ export default [
     trigger: 'bb4d0d9c-7019-4c36-bd5d-e1071d9a87c5',
   }, {
     id: 'bb4d0d9c-7019-4c36-bd5d-e1071d9a87c5',
-    message: 'I hope you don’t mind that I’m using cookies? 🍪',
-    trigger: 'cd5ad46c-daf5-46c2-9b96-5f212fabc6cc',
+    message: 'Okay.',
+    trigger: '3669f18c-8fcf-473c-b254-216a3c76a780',
   }, {
-    id: 'cd5ad46c-daf5-46c2-9b96-5f212fabc6cc',
-    component: (
-      <CustomOptions options={[
-        {
-          value: 0,
-          label: 'Why do you need them',
-          trigger: '7d538274-a6af-41af-bd3d-371edc1bb0ab',
-        },
-        {
-          value: 1,
-          label: 'I don’t mind',
-          trigger: 'cdeea2f9-3978-416a-bae4-88fa08978217',
-        },
-      ]}
-      />
-    ),
-  }, {
-    id: '7d538274-a6af-41af-bd3d-371edc1bb0ab',
-    message: 'Well they make me smarter',
-    trigger: 'c0c44de7-8c36-43d7-8130-346cf336755d',
-  }, {
-    id: 'c0c44de7-8c36-43d7-8130-346cf336755d',
-    message: 'It’s not polite to forget the name of the person you are talking to 🙂',
-    trigger: '9fa71636-9458-41b4-9760-e952ea4fd8d0',
-  }, {
-    id: '9fa71636-9458-41b4-9760-e952ea4fd8d0',
-    message: 'Don’t worry, my memory is not that long. In 30 days I’ll not remember a single thing.',
-    trigger: 'b8460185-2c66-4de5-bc1b-4a83a9b206fa',
-  }, {
-    id: 'b8460185-2c66-4de5-bc1b-4a83a9b206fa',
-    component: (
-      <CustomOptions options={[
-        {
-          value: 0,
-          label: 'Got it',
-          trigger: 'cf8ea5df-1283-4219-b545-27443fa3b381',
-        },
-      ]}
-      />
-    ),
-  },{
-    id: 'cdeea2f9-3978-416a-bae4-88fa08978217',
-    message: '💦 I am glad to hear this. Now, I’ll eat your cookies and become smarter haha 😊',
-    trigger: '11cb7fc9-f438-443d-bf63-7b024bf0bb73',
-  }, {
-    id: 'cf8ea5df-1283-4219-b545-27443fa3b381',
-    message: 'Nice!',
-    trigger: '11cb7fc9-f438-443d-bf63-7b024bf0bb73',
-  },{
-    id: '11cb7fc9-f438-443d-bf63-7b024bf0bb73',
-    message: 'By the way, what would you like to do?',
+    id: '3669f18c-8fcf-473c-b254-216a3c76a780',
+    message: 'What would you like to do first?',
     trigger: '2140d3cd-21d3-4a9e-a05a-3c4bbe84c7a0',
-  },{
+  }, {
     id: '2140d3cd-21d3-4a9e-a05a-3c4bbe84c7a0',
     component: (
       <CustomOptions options={[
         {
           value: 0,
-          label: 'Tell me more about you',
+          label: 'Understand more about you',
           trigger: 'bc45efbf-270f-4ff0-810b-d26b9ce598ca',
         },
         {
