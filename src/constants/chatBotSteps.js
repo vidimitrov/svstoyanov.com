@@ -166,7 +166,7 @@ export default [
   }, {
     id: '994885e8-5e24-4034-9a79-92a27fb2962f',
     message: 'Nice to meet you {previousValue}',
-    trigger: 'bb4d0d9c-7019-4c36-bd5d-e1071d9a87c5',
+    trigger: '3669f18c-8fcf-473c-b254-216a3c76a780',
   }, {
     id: '3669f18c-8fcf-473c-b254-216a3c76a780',
     message: 'What would you like to do first?',
