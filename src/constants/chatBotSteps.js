@@ -94,7 +94,7 @@ function showProjectMessage() {
 }
 
 function projectInterest() {
-  const variations = ['I hope you’ve liked it', 'I hope you found it interesting'];
+  const variations = ['I hope you’ve liked it', 'I hope you found it interesting', 'Great, what you want to do next?', 'Mmm hope it was interesting'];
   return variations[Math.floor(Math.random() * variations.length)];
 }
 
