@@ -89,7 +89,7 @@ function nonLexicalMessage() {
 }
 
 function showProjectMessage() {
-  const variations = ['Show me this project', 'Wanna understand more', 'Can I see this one', 'Wanna see it'];
+  const variations = ['Wanna understand more', 'Wanna hear more about it', 'Tell me more about it'];
   return variations[Math.floor(Math.random() * variations.length)];
 }
 
@@ -146,7 +146,7 @@ export default [
   {
     id: 'c57a7186-8a45-4980-9fb0-69752959a661',
     message: '👋 Hi there, I am Stoyan, a product designer, researcher & strategist located in Bulgaria. 🇧🇬',
-    trigger: '09352513-9901-4844-9a15-b4a08f30d18d', //   89695e34-2a77-4f0e-ab39-8602906dde0b - projects, 09352513-9901-4844-9a15-b4a08f30d18d - next step
+    trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b', //   89695e34-2a77-4f0e-ab39-8602906dde0b - projects, 09352513-9901-4844-9a15-b4a08f30d18d - next step
     delay: 4000,
   }, {
     id: '09352513-9901-4844-9a15-b4a08f30d18d',
@@ -779,7 +779,7 @@ export default [
     id: '9454abea-ecbf-4edd-942c-b197cccad8e4',
     message: 'More than 4M visitors for less than a year.',
     trigger: 'c61b52ca-8881-4efa-b15e-0bdebaff2d47',
-  },{
+  }, {
     id: 'c61b52ca-8881-4efa-b15e-0bdebaff2d47',
     component: (
       <CustomOptions options={[
@@ -791,7 +791,7 @@ export default [
         {
           value: 1,
           label: 'Show me another project',
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          trigger: '5ab2884d-571f-40c8-9f92-876e1a4bf029',
         },
         {
           value: 2,
@@ -801,6 +801,28 @@ export default [
       ]}
       />
     ),
+  }, {
+    id: '5ab2884d-571f-40c8-9f92-876e1a4bf029',
+    message: acknowledgementMessage(),
+    trigger: 'e48abc44-c21f-420d-8092-96abe3ab2e63',
+  }, {
+    id: 'e48abc44-c21f-420d-8092-96abe3ab2e63',
+    component: (
+      <ProjectsSlider
+      startFrom={4}  
+      primaryButtonLabel={showProjectMessage()}
+        secondaryButtons={
+            [{
+              label: 'Will see your projects later',
+              trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+            }]}
+      />
+    ),
+    style: {
+      width: '100%',
+      backgroundColor: 'transparent',
+      padding: 0,
+    },
   },
 
   /**
@@ -812,11 +834,7 @@ export default [
     trigger: 'ab73ccb3-2667-40bb-863c-f1910c9923af',
   }, {
     id: 'ab73ccb3-2667-40bb-863c-f1910c9923af',
-    message: 'It helps business owners in India to create their presence with just a few taps.',
-    trigger: '55261127-6bd4-4947-8a14-febadbc83a64',
-  }, {
-    id: '55261127-6bd4-4947-8a14-febadbc83a64',
-    message: 'India is a mobile-only economy meaning that people are coming online for the first time through their smartphones.',
+    message: 'It helps business owners in India to create their online presence with just a few taps. Crucial leap in a mobile-only economy.',
     trigger: 'ddbc2a1e-28f6-4b1a-8fce-cca805f50629',
   }, {
     id: 'ddbc2a1e-28f6-4b1a-8fce-cca805f50629',
@@ -828,10 +846,6 @@ export default [
     trigger: '69e1c43e-9ea6-49dc-9d44-0c92eb5df0c2',
   },  {
     id: '69e1c43e-9ea6-49dc-9d44-0c92eb5df0c2',
-    message: 'First with a step form web presence creation (before wix). Failed because of co founders quarrel. ',
-    trigger: '1a42e460-8b63-4837-b44e-57c929b345a6',
-  }, {
-    id: '1a42e460-8b63-4837-b44e-57c929b345a6',
     component: (
       <CustomOptions options={[
         {
@@ -842,7 +856,7 @@ export default [
         {
           value: 1,
           label: 'Show me another project',
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          trigger: '3f3be4b0-e569-48d4-a30f-c6f567eb2422',
         },
         {
           value: 2,
@@ -852,6 +866,28 @@ export default [
       ]}
       />
     ),
+  }, {
+    id: '3f3be4b0-e569-48d4-a30f-c6f567eb2422',
+    message: acknowledgementMessage(),
+    trigger: 'ca91ba62-c043-444d-8fd3-49d7bc1c187b',
+  }, {
+    id: 'ca91ba62-c043-444d-8fd3-49d7bc1c187b',
+    component: (
+      <ProjectsSlider
+      startFrom={5}  
+      primaryButtonLabel={showProjectMessage()}
+        secondaryButtons={
+            [{
+              label: 'Will see your projects later',
+              trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+            }]}
+      />
+    ),
+    style: {
+      width: '100%',
+      backgroundColor: 'transparent',
+      padding: 0,
+    },
   },
 
 /**
@@ -882,7 +918,7 @@ export default [
         {
           value: 1,
           label: 'Show me another project',
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          trigger: 'ea961fcf-b0f7-4165-b1e2-b75f0141ce2d',
         },
         {
           value: 2,
@@ -892,6 +928,28 @@ export default [
       ]}
       />
     ),
+  }, {
+    id: 'ea961fcf-b0f7-4165-b1e2-b75f0141ce2d',
+    message: acknowledgementMessage(),
+    trigger: 'b8dc8090-a6c0-44e6-ab4d-dc3c1f64b2bb',
+  }, {
+    id: 'b8dc8090-a6c0-44e6-ab4d-dc3c1f64b2bb',
+    component: (
+      <ProjectsSlider
+      startFrom={6}  
+      primaryButtonLabel={showProjectMessage()}
+        secondaryButtons={
+            [{
+              label: 'Will see your projects later',
+              trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+            }]}
+      />
+    ),
+    style: {
+      width: '100%',
+      backgroundColor: 'transparent',
+      padding: 0,
+    },
   },
 
 /**
@@ -922,7 +980,7 @@ export default [
         {
           value: 1,
           label: 'Show me another project',
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          trigger: '493acd9c-1c7d-410f-8180-57a908a14022',
         },
         {
           value: 2,
@@ -932,6 +990,28 @@ export default [
       ]}
       />
     ),
+  }, {
+    id: '493acd9c-1c7d-410f-8180-57a908a14022',
+    message: acknowledgementMessage(),
+    trigger: '6ecf47cc-9efb-46ab-a7ed-63d5bca76af3',
+  }, {
+    id: '6ecf47cc-9efb-46ab-a7ed-63d5bca76af3',
+    component: (
+      <ProjectsSlider
+      startFrom={2}  
+      primaryButtonLabel={showProjectMessage()}
+        secondaryButtons={
+            [{
+              label: 'Will see your projects later',
+              trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+            }]}
+      />
+    ),
+    style: {
+      width: '100%',
+      backgroundColor: 'transparent',
+      padding: 0,
+    },
   },
 
   /**
@@ -962,7 +1042,7 @@ export default [
         {
           value: 1,
           label: 'Show me another project',
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          trigger: '557f3c6a-ecd3-4485-842b-4677abc1bf2e',
         },
         {
           value: 2,
@@ -972,6 +1052,28 @@ export default [
       ]}
       />
     ),
+  }, {
+    id: '557f3c6a-ecd3-4485-842b-4677abc1bf2e',
+    message: acknowledgementMessage(),
+    trigger: '02af9316-8508-4dbf-a95f-9e84c375daca',
+  }, {
+    id: '02af9316-8508-4dbf-a95f-9e84c375daca',
+    component: (
+      <ProjectsSlider
+      startFrom={3}  
+      primaryButtonLabel={showProjectMessage()}
+        secondaryButtons={
+            [{
+              label: 'Will see your projects later',
+              trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+            }]}
+      />
+    ),
+    style: {
+      width: '100%',
+      backgroundColor: 'transparent',
+      padding: 0,
+    },
   },
 
    /**
@@ -1002,7 +1104,7 @@ export default [
         {
           value: 1,
           label: 'Show me another project',
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          trigger: '9a0b25d0-e6c6-4e85-8a5e-b4bd45c218aa',
         },
         {
           value: 2,
@@ -1012,6 +1114,28 @@ export default [
       ]}
       />
     ),
+  }, {
+    id: '9a0b25d0-e6c6-4e85-8a5e-b4bd45c218aa',
+    message: acknowledgementMessage(),
+    trigger: '833c46ad-2b4c-4690-9d60-8cf462082b97',
+  }, {
+    id: '833c46ad-2b4c-4690-9d60-8cf462082b97',
+    component: (
+      <ProjectsSlider
+      startFrom={1}  
+      primaryButtonLabel={showProjectMessage()}
+        secondaryButtons={
+            [{
+              label: 'Will see your projects later',
+              trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+            }]}
+      />
+    ),
+    style: {
+      width: '100%',
+      backgroundColor: 'transparent',
+      padding: 0,
+    },
   },
 
 
@@ -1051,7 +1175,7 @@ export default [
         {
           value: 1,
           label: 'Show me another project',
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          trigger: 'cb922291-bc50-4ed4-a081-644770ea3fac',
         },
         {
           value: 2,
@@ -1061,6 +1185,28 @@ export default [
       ]}
       />
     ),
+  }, {
+    id: 'cb922291-bc50-4ed4-a081-644770ea3fac',
+    message: acknowledgementMessage(),
+    trigger: '890c725d-1ee2-4e3b-b750-a5610a393376',
+  }, {
+    id: '890c725d-1ee2-4e3b-b750-a5610a393376',
+    component: (
+      <ProjectsSlider
+      startFrom={7}  
+      primaryButtonLabel={showProjectMessage()}
+        secondaryButtons={
+            [{
+              label: 'Will see your projects later',
+              trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+            }]}
+      />
+    ),
+    style: {
+      width: '100%',
+      backgroundColor: 'transparent',
+      padding: 0,
+    },
   },
   
 
@@ -1095,7 +1241,7 @@ export default [
         {
           value: 1,
           label: 'Show me another project',
-          trigger: '89695e34-2a77-4f0e-ab39-8602906dde0b',
+          trigger: '53d57ae2-0e05-46d2-809e-1ed5e91f1010',
         },
         {
           value: 2,
@@ -1105,6 +1251,28 @@ export default [
       ]}
       />
     ),
+  }, {
+    id: '53d57ae2-0e05-46d2-809e-1ed5e91f1010',
+    message: acknowledgementMessage(),
+    trigger: 'e32cbe05-ffde-4279-afda-14cf6062ce63',
+  }, {
+    id: '53d57ae2-0e05-46d2-809e-1ed5e91f1010',
+    component: (
+      <ProjectsSlider
+      startFrom={0}  
+      primaryButtonLabel={showProjectMessage()}
+        secondaryButtons={
+            [{
+              label: 'Will see your projects later',
+              trigger: '95c2fc33-6b10-44a8-b03e-a9d963c50bb5',
+            }]}
+      />
+    ),
+    style: {
+      width: '100%',
+      backgroundColor: 'transparent',
+      padding: 0,
+    },
   },
 
 
