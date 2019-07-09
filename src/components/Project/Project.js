@@ -199,6 +199,29 @@ class Project extends React.Component {
       startAnimation: true,
       endAnimation: false,
     };
+
+    this.goBack = this.goBack.bind(this);
+  }
+
+  componentDidMount() {
+    window.history.pushState(null, document.title, window.location.href);
+    window.addEventListener('popstate', this.goBack);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('popstate', this.goBack);
+  }
+
+  goBack() {
+    const {
+      onClose,
+    } = this.props;
+
+    window.history.pushState(null, document.title,  window.location.href);
+
+    setTimeout(() => {
+      onClose();
+    }, 500);
   }
 
   render() {
