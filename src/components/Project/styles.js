@@ -105,7 +105,6 @@ export default {
 
   text: {
     ...typography.h4,
-    marginBottom: '32px',
 
     [breakpoints.sm]: {
       ...typography.h3,
@@ -114,8 +113,6 @@ export default {
 
   sectionContent: {
     ...typography.h4,
-    marginBottom: '32px',
-
 
     [breakpoints.sm]: {
       ...typography.h3,
@@ -123,6 +120,9 @@ export default {
   },
   bullet: {
     color: colors.primary,
+  },
+  bulletPoints: {
+    marginTop: '32px',
   },
   bulletPoint: {
     ...typography.h4,

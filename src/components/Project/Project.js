@@ -69,13 +69,17 @@ FullWidthImage.propTypes = {
 const Text = ({ content, bulletPoints, classes }) => (
   <SectionWrapper classes={classes}>
     <h4 className={classes.text}>{content}</h4>
-    {bulletPoints && bulletPoints.map(bp => (
-      <h4 className={classes.bulletPoint} key={uuid()}>
-        <span className={classes.bullet}>*</span>
-        {' '}
-        {bp}
-      </h4>
-    ))}
+    { bulletPoints && (
+      <div className={classes.bulletPoints}>
+        {bulletPoints.map(bp => (
+          <h4 className={classes.bulletPoint} key={uuid()}>
+            <span className={classes.bullet}>*</span>
+            {' '}
+            {bp}
+          </h4>
+        ))}
+      </div>
+    )}
   </SectionWrapper>
 );
 
@@ -130,13 +134,17 @@ const Section = ({
 
     <h4 className={classes.sectionContent}>{content}</h4>
 
-    {bulletPoints && bulletPoints.map(bp => (
-      <h4 className={classes.bulletPoint} key={uuid()}>
-        <span className={classes.bullet}>*</span>
-        {' '}
-        {bp}
-      </h4>
-    ))}
+    { bulletPoints && (
+      <div className={classes.bulletPoints}>
+        {bulletPoints.map(bp => (
+          <h4 className={classes.bulletPoint} key={uuid()}>
+            <span className={classes.bullet}>*</span>
+            {' '}
+            {bp}
+          </h4>
+        ))}
+      </div>
+    )}
   </SectionWrapper>
 );
 
