@@ -66,15 +66,23 @@ FullWidthImage.propTypes = {
   classes: PropTypes.any,
 };
 
-const Text = ({ content, classes }) => (
+const Text = ({ content, bulletPoints, classes }) => (
   <SectionWrapper classes={classes}>
     <h4 className={classes.text}>{content}</h4>
+    {bulletPoints && bulletPoints.map(bp => (
+      <h4 className={classes.bulletPoint} key={uuid()}>
+        <span className={classes.bullet}>*</span>
+        {' '}
+        {bp}
+      </h4>
+    ))}
   </SectionWrapper>
 );
 
 Text.propTypes = {
   content: PropTypes.string,
   classes: PropTypes.any,
+  bulletPoints: PropTypes.any,
 };
 
 const Review = ({
@@ -295,7 +303,14 @@ class Project extends React.Component {
                         />
                       );
                     case TYPES.Text:
-                      return <Text key={idx} content={section.content} classes={classes} />;
+                      return (
+                        <Text
+                          key={idx}
+                          content={section.content}
+                          classes={classes}
+                          bulletPoints={section.bulletPoints}
+                        />
+                      );
                     case TYPES.YouTube:
                       return <YoutubeVideo key={idx} classes={classes} id={section.id} />;
                     case TYPES.CTA:

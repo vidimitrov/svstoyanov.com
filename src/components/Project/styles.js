@@ -105,6 +105,7 @@ export default {
 
   text: {
     ...typography.h4,
+    marginBottom: '32px',
 
     [breakpoints.sm]: {
       ...typography.h3,
